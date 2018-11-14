@@ -1,7 +1,7 @@
-class User < ApplilcationRecord
+class User < ApplicationRecord
 
-validates :username, :email, :password_digest, :session_token, presence: true
-validates :username, :email, uniqueness: true
+validates :username, :password_digest, :session_token, presence: true
+validates :username, uniqueness: true
 validates :password, length: { minimum: 6 }, allow_nil: true
 
 after_initialize :ensure_session_token
@@ -22,7 +22,7 @@ def password=(password)
   self.password_digest = BCrypt::Password.create(password)
 end
 
-def is_password(password)
+def is_password?(password)
   BCrypt::Password.new(self.password_digest).is_password?(password)
 end
 
@@ -44,7 +44,6 @@ end
 
 def generate_session_token
   self.session_token = new_session_token
-
 end
 
 
