@@ -9,7 +9,7 @@ const msp = (state, ownProps) => {
   return {
     errors: [state.errors],
     formType: "Login",
-    navLink: <Link to="/signup">jump to sign up</Link>,
+    navLink: <Link to="/signup">Sign up</Link>,
   };
 };
 
