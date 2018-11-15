@@ -1,16 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as SessionUtil from './util/session_api_util';
-// import Root from './components/root';
-// import configureStore from './store/store';
-
-
-
+import Root from './components/root';
+import configureStore from './store/store';
+import { login, logout } from './actions/session_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
-  ReactDOM.render(<h1>Welcome to MeepleBnB</h1>, document.getElementById('root'));
-});
 
-window.signup = SessionUtil.signup;
-window.login = SessionUtil.login;
-window.logout = SessionUtil.logout;
+
+
+  let store;
+if (window.currentUser) {
+  const preloadedState = {
+    entities: {
+      users: { [window.currentUser.id]: window.currentUser }
+    },
+    session: { id: window.currentUser.id }
+  };
+  store = configureStore(preloadedState);
+  delete window.currentUser;
+} else {
+  store = configureStore();
+}
+window.getState = store.getState;
+window.dispatch = store.dispatch;
+window.login = login;
+window.logout = logout;
+
+
+
+  ReactDOM.render(<Root store={configureStore()}/>, document.getElementById('root'));
+});
