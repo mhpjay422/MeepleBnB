@@ -37,3 +37,7 @@ export const logout = (id) => dispatch => {
 export const signup = (user) => dispatch => {
   return SessionUtil.signup(user).then(payload => dispatch(receiveCurrentUser(payload)));
 };
+
+export const demoLogin = (user) => dispatch => {
+  return SessionUtil.login(user).then(payload => dispatch(receiveCurrentUser(payload)))
+};

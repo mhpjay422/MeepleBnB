@@ -26,7 +26,10 @@ class SessionForm extends React.Component {
   }
 
 
+
+
   render() {
+
     const userLabel = (
       <label>Username:
       <input type="text"
@@ -52,7 +55,7 @@ class SessionForm extends React.Component {
         return (
           <div>
             <br/>
-              <label>Email:   
+              <label>Email:
                 <input type="email"
                   value={this.state.email}
                   onChange={this.update('email')}
@@ -65,6 +68,7 @@ class SessionForm extends React.Component {
         return <></>;
       }
     };
+
 
 
     return (
@@ -81,8 +85,12 @@ class SessionForm extends React.Component {
               { passwordLabel }
             <br/>
             <input className="session-submit" type="submit" value={this.props.formType} />
+            <br/>
           </div>
         </form>
+        <button value="Login as Demo User"
+        onClick={this.props.demoLogin}> Log In as Demo User
+        </button>
       </div>
     );
   }

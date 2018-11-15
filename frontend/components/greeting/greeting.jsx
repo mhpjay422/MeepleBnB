@@ -1,14 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default ({ users, logout, loggedIn }) => {
+export default ({ users, logout, loggedIn,demoLogin}) => {
 
   const linkToSessions = () => {
     return (
       <nav className="login-signup">
         <Link to="/login">Login</Link>
-        &nbsp;or&nbsp;
+          <br/>
         <Link to="/signup">Sign Up!</Link>
+          <br/>
+        <button value="Login as Demo User"
+          onClick={demoLogin}> Log In as Demo User
+        </button>
       </nav>
     );
   };

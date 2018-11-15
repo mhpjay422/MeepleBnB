@@ -14,8 +14,8 @@ import {
 const App = () => {
   return (
     <header>
-        <h1>Meeples</h1>
-        <GreetingContainer />
+        <h1>Welcome to MeepleBnB</h1>
+        <Route exact path="/" component={GreetingContainer} />
         <AuthRoute path="/login" component={LogInFormContainer} />
         <AuthRoute path="/signup" component={SignUpFormContainer} />
     </header>
