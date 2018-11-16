@@ -1,6 +1,4 @@
-
-
-  .main {
+ .main {
    position: absolute;
    padding: 0;
    top: 0;
@@ -24,11 +22,17 @@
    justify-content: space-between;
  }
 
+
  .topsec {
    width: 100%;
    display: flex;
    align-items: center;
    justify-content: space-between;
+ }
+
+ .navbar-left {
+   background-color: none;
+   padding: 10px;
  }
 
  .twobar {
@@ -37,15 +41,28 @@
    padding: 5px;
    display: flex;
    margin: 0 10px;
-   align-items: flex-start;
+   align-items: flex-end;
  }
 
  .twobar li {
-   align-items: flex-start;
+   display: inline-block;
+   justify-content: flex-end;
+   align-items: flex-end;
    padding-top: 0;
    list-style: none;
    margin: 0 10px;
  }
+
+ .splashbuttons{
+   width: 500px;
+   text-shadow: 5px;
+   font-weight: bolder;
+   color: white;
+   text-align: right;
+   text-decoration: none;
+   display: inline-block;
+ }
+
  .icon {
    color: white;
    margin-left: 10px;
@@ -55,16 +72,6 @@
  a:hover {
     color: red;
     text-decoration: none;
-}
-
-.splashlink{
-  text-shadow: 5px;
-  font-weight: bolder;
-  color: white;
-  padding: 14px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
 }
 
 .login-form {
@@ -83,7 +90,26 @@
   display: inline-block;
 }
 
-.navbar-left {
-  background-color: none;
-  padding: 10px;
+.login-form-box {
+  background-color: white;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.splashbuttons {
+
 }

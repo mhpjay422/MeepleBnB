@@ -1,29 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-class Splash extends React.Component {
-  render() {
-    window.logo = "<%= image_url(/3d-meeple.png') %>";
+export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
     return (
       <div className="splash">
         <div className="topbar">
           <section className="topsec">
-            <Link to="/greeting" className="navbar-left">
-              <img src="./3d-meeple4.png"/>
-            </Link>
-          <ul className="twobar">
-            <li>
-              <Link className="splashlink" to="/login">Login</Link>
-            </li>
-            <li>
-              <Link className="splashlink" to="/signup">Sign Up</Link>
-            </li>
-          </ul>
+              <Link to="/greeting" className="navbar-left">
+                <img src="./3d-meeple4.png"/>
+              </Link>
+              <ul className="twobar">
+                <nav className="splashbuttons">
+                  <li>
+                    <button onClick={() => openModal('login')}>Login</button>
+                  </li>
+                  <li>
+                    <button onClick={() => openModal('signup')}>Signup</button>
+                  </li>
+                  <li>
+                    <button value="Login as Demo User"
+                      onClick={demoLogin}> Log In as Demo User
+                    </button>
+                  </li>
+                </nav>
+              </ul>
           </section>
         </div>
       </div>
     );
-  }
-}
-
-export default Splash;
+};

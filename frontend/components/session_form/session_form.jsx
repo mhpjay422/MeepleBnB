@@ -22,7 +22,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = merge({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user).then(this.props.closeModal);
   }
 
   renderErrors() {
@@ -91,7 +91,7 @@ class SessionForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="login-form-box">
           Welcome to MeepleBnB!
           <br/>
-          Please {this.props.formType} below or {this.props.navLink}
+          Please {this.props.formType} below or {this.props.otherForm}
           {this.renderErrors()}
           <div className="login-form">
             <br/>

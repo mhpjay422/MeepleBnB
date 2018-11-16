@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { login, logout, demoLogin } from '../../actions/session_actions';
-import Greeting from './greeting';
+import Splash from './splash';
 import { openModal } from '../../actions/modal_actions';
 
 const msp = (state) => {
@@ -23,4 +23,4 @@ const mdp  = dispatch => {
   };
 };
 
-export default connect(msp, mdp)(Greeting);
+export default connect(msp, mdp)(Splash);
