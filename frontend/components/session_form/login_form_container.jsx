@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import React from 'react';
-import {login, demoLogin} from '../../actions/session_actions';
+import {login, demoLogin, clear} from '../../actions/session_actions';
 import SessionForm from './session_form';
 import {Link} from 'react-router-dom';
 import { openModal, closeModal } from '../../actions/modal_actions';
@@ -16,18 +16,20 @@ const msp = (state, ownProps) => {
 const mdp = (dispatch) => {
   return {
     processForm: (user) => dispatch(login({user: user})),
+    closeModal: () => dispatch(closeModal()),
+    clear: () => dispatch(clear()),
     otherForm: (
-      <button onClick={() => dispatch(openModal('signup'))}>
+      <button
+        onClick={() => dispatch(openModal('signup'))}>
         Signup
       </button>
     ),
-    closeModal: () => dispatch(closeModal()),
     demoLogin: () => dispatch(demoLogin(
       {user: {
         username: "demoUser",
         email: "demoUser@gmail.com",
         password: "starwars"}}
-    ))
+    )),
   };
 };
 

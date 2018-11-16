@@ -13,6 +13,10 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clear()
+  }
+
   update(field) {
     return e => this.setState({
       [field]: e.target.value
@@ -24,6 +28,23 @@ class SessionForm extends React.Component {
     const user = merge({}, this.state);
     this.props.processForm(user).then(this.props.closeModal);
   }
+
+  demo(e) {
+    e.preventDefault(e)
+    this.props.demoLogin.then(this.props.closeModal)
+  }
+
+  keyPress(e) {
+    if (e.key === 'Enter') {
+      this.handleSubmit
+    }
+  }
+
+  // handleKeyPress(e) {
+  //   if (e.key === 'Enter') {
+  //     this.handleSubmit
+  //   }
+  // }
 
   renderErrors() {
     const errorMess = this.props.errors.map((error, i) => {
@@ -44,12 +65,12 @@ class SessionForm extends React.Component {
   }
 
   render() {
-
     const userLabel = (
       <label>Username:
       <input type="text"
       value={this.state.username}
       onChange={this.update('username')}
+      onKeyPress={this.keypress}
       className="login-input"
       />
       </label>
@@ -60,6 +81,7 @@ class SessionForm extends React.Component {
         <input type="password"
           value={this.state.password}
           onChange={this.update('password')}
+          onKeyPress={ this.keypress }
           className="login-input"
         />
       </label>
@@ -74,6 +96,7 @@ class SessionForm extends React.Component {
                 <input type="email"
                   value={this.state.email}
                   onChange={this.update('email')}
+                  onKeyPress={ this.keypress }
                   className="signup-input"
                 />
               </label>
@@ -86,12 +109,17 @@ class SessionForm extends React.Component {
 
 
 
+
+
     return (
       <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
+        <form
+              onSubmit={this.handleSubmit}
+              className="login-form-box">
           Welcome to MeepleBnB!
           <br/>
           Please {this.props.formType} below or {this.props.otherForm}
+          <div onClick={this.props.closeModal} className="close-x"></div>
           {this.renderErrors()}
 
           <div className="login-form">
@@ -106,7 +134,10 @@ class SessionForm extends React.Component {
           </div>
         </form>
         <button className="login-form-box"  value="Login as Demo User"
-        onClick={this.props.demoLogin}> Log In as Demo User
+        onClick={this.props.demoLogin}
+        // onClick={this.props.demoLogin.then(this.props.closeModal)}
+        > Log In as Demo User
+
         </button>
       </div>
     );

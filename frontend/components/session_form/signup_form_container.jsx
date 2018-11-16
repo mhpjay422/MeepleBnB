@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { signup, demoLogin } from '../../actions/session_actions';
+import { signup, demoLogin, clear } from '../../actions/session_actions';
 import SessionForm from './session_form';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
@@ -9,15 +9,17 @@ const mapStateToProps = ({ errors }) => {
   return {
     errors: errors.session,
     formType: 'Signup',
-    navLink: <Link to="/login">Log in</Link>,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    processForm: (user) => dispatch(signup({user: user})),
+    processForm: (user) => dispatch(signup({user})),
+    closeModal: () => dispatch(closeModal()),
+    clear: () => dispatch(clear()),
     otherForm: (
-      <button onClick={() => dispatch(openModal('login'))}>
+      <button
+        onClick={() => dispatch(openModal('login'))}>
         Login
       </button>
     ),
@@ -27,7 +29,6 @@ const mapDispatchToProps = dispatch => {
         email: "demoUser@gmail.com",
         password: "starwars"}}
     )),
-    closeModal: () => dispatch(closeModal()),
   };
 };
 
