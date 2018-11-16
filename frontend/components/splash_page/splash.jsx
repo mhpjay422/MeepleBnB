@@ -12,13 +12,21 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
               <ul className="twobar">
                 <nav className="splashbuttons">
                   <li>
-                    <button onClick={() => openModal('login')}>Login</button>
+                    <button
+                      className="loginbuttons"
+                      onClick={() => openModal('login')}>Login
+                    </button>
                   </li>
                   <li>
-                    <button onClick={() => openModal('signup')}>Signup</button>
+                    <button
+                      className="loginbuttons"
+                      onClick={() => openModal('signup')}>Signup
+                    </button>
                   </li>
                   <li>
-                    <button value="Login as Demo User"
+                    <button
+                    className="loginbuttons"
+                    value="Login as Demo User"
                       onClick={demoLogin}> Log In as Demo User
                     </button>
                   </li>

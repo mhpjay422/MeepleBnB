@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import { login, logout, demoLogin } from '../../actions/session_actions';
 import Splash from './splash';
 import { openModal } from '../../actions/modal_actions';
+import Greeting from '../greeting/greeting';
 
 const msp = (state) => {
-
   return {
     users: state.entities.users[state.session.id],
     loggedIn: Boolean(state.session.id)

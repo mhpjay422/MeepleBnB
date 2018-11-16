@@ -18,7 +18,7 @@ const App = () => {
     <div>
       <Modal />
       <div className="main">
-          <Route exact path="/" component={SplashContainer}/>
+          <AuthRoute exact path="/" component={SplashContainer}/>
           <Route path="/greeting" component={GreetingContainer} />
       </div>
     </div>
