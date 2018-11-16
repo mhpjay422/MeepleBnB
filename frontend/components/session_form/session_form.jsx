@@ -93,6 +93,7 @@ class SessionForm extends React.Component {
           <br/>
           Please {this.props.formType} below or {this.props.otherForm}
           {this.renderErrors()}
+
           <div className="login-form">
             <br/>
               { emailLabel() }
