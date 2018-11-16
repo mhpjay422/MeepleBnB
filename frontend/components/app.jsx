@@ -3,6 +3,7 @@ import GreetingContainer from './greeting/greeting_container';
 import LogInFormContainer from './session_form/login_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import Splash from './splash_page/splash';
 import {
   Route,
   Redirect,
@@ -13,12 +14,12 @@ import {
 
 const App = () => {
   return (
-    <header>
-        <h1>MeepleBnB</h1>
-        <Route exact path="/" component={GreetingContainer} />
+    <div className="main">
+        <Route exact path="/" component={Splash}/>
+        <Route path="/greeting" component={GreetingContainer} />
         <AuthRoute path="/login" component={LogInFormContainer} />
         <AuthRoute path="/signup" component={SignUpFormContainer} />
-    </header>
+    </div>
   );
 };
 

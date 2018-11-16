@@ -1,0 +1,89 @@
+
+
+  .main {
+   position: absolute;
+   padding: 0;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   margin: auto;
+ }
+
+ .splash {
+   background: image-url("arch.jpg");
+   background-position: 10%, 80%;
+   width: 100%;
+   height: inherit;
+ }
+
+ .topbar {
+   background-color: rgba(0, 0, 0, 0.3);
+   align-items: center;
+   display: flex;
+   justify-content: space-between;
+ }
+
+ .topsec {
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+ }
+
+ .twobar {
+   width:auto;
+   justify-content: flex-end;
+   padding: 5px;
+   display: flex;
+   margin: 0 10px;
+   align-items: flex-start;
+ }
+
+ .twobar li {
+   align-items: flex-start;
+   padding-top: 0;
+   list-style: none;
+   margin: 0 10px;
+ }
+ .icon {
+   color: white;
+   margin-left: 10px;
+ }
+
+
+ a:hover {
+    color: red;
+    text-decoration: none;
+}
+
+.splashlink{
+  text-shadow: 5px;
+  font-weight: bolder;
+  color: white;
+  padding: 14px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.login-form {
+  position:relative;
+  display: flex-end;
+  align-items: flex-end;
+  align-content: right;
+  justify-content: right;
+  color: black;
+  text-shadow: 5px;
+  font-weight: bolder;
+  color: black;
+  padding: 14px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.navbar-left {
+  background-color: none;
+  padding: 10px;
+}

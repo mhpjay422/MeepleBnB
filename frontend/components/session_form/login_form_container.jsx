@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 
 const msp = (state, ownProps) => {
   return {
-    errors: [state.errors],
+    errors: state.errors.session,
     formType: "Login",
     navLink: <Link to="/signup">Sign up</Link>,
   };
@@ -17,7 +17,10 @@ const mdp = (dispatch) => {
   return {
     processForm: (user) => dispatch(login({user: user})),
     demoLogin: () => dispatch(demoLogin(
-      {user: {username: "demoUser", email: "demoUser@gmail.com", password: "starwars"}}
+      {user: {
+        username: "demoUser",
+        email: "demoUser@gmail.com", 
+        password: "starwars"}}
     ))
   };
 };

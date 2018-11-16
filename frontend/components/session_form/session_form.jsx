@@ -25,8 +25,23 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+  renderErrors() {
+    const errorMess = this.props.errors.map((error, i) => {
+      return (
+        <li
+          key={`error-${i}`}
+        >
+        {error}
+        </li>
+      )
+    })
 
-
+    return(
+      <ul>
+        {errorMess}
+      </ul>
+    );
+  }
 
   render() {
 
@@ -77,6 +92,7 @@ class SessionForm extends React.Component {
           Welcome to MeepleBnB!
           <br/>
           Please {this.props.formType} below or {this.props.navLink}
+          {this.renderErrors()}
           <div className="login-form">
             <br/>
               { emailLabel() }
@@ -88,7 +104,7 @@ class SessionForm extends React.Component {
             <br/>
           </div>
         </form>
-        <button value="Login as Demo User"
+        <button className="login-form-box"  value="Login as Demo User"
         onClick={this.props.demoLogin}> Log In as Demo User
         </button>
       </div>

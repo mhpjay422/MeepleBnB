@@ -14,7 +14,9 @@ const mdp  = dispatch => {
   return {
     logout: () => dispatch(logout()),
     demoLogin: () => dispatch(demoLogin(
-      {user: {username: "demoUser", email: "demoUser@gmail.com", password: "starwars"}}
+      {user: {username: "demoUser",
+      email: "demoUser@gmail.com",
+      password: "starwars"}}
     ))
   };
 };

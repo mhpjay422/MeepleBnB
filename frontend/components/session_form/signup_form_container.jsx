@@ -16,7 +16,10 @@ const mapDispatchToProps = dispatch => {
   return {
     processForm: (user) => dispatch(signup({user: user})),
     demoLogin: () => dispatch(demoLogin(
-      {user: {username: "demoUser", email: "demoUser@gmail.com", password: "starwars"}}
+      {user: {
+        username: "demoUser",
+        email: "demoUser@gmail.com",
+        password: "starwars"}}
     ))
   };
 };
