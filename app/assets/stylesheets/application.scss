@@ -25,6 +25,7 @@
 
 
  .topsec {
+   height: 78px;
    width: 100%;
    display: flex;
    align-items: center;
@@ -65,7 +66,6 @@
    text-shadow: 5px;
    font-size: 15px;
    height: 80px;
-   text-shadow: 5px;
    font-weight: bold;
    color: white;
    text-decoration: none;
@@ -86,28 +86,102 @@
  }
 
  a:hover {
-    color: red;
-    text-decoration: none;
+   color: red;
+   text-decoration: none;
 }
 
 .login-form-container {
   position:relative;
-  display: flex-end;
-  align-items: flex-end;
-  align-content: right;
-  justify-content: right;
+  height: 627px;
+  width: 568px;
   color: black;
-  text-shadow: 5px;
-  font-weight: bolder;
-  color: black;
-  padding: 14px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  box-sizing: border-box;
+  margin: auto;
+  background-color: white;
 }
 
 .login-form-box {
+  box-sizing: border-box;
   background-color: white;
+  height: auto;
+  width: inherit;
+  padding: 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form {
+  height: 250px;
+}
+
+.close-x {
+  font-weight: 100;
+  font-size: 20px;
+  height: 16px;
+  width: 504px;
+  justify-content: flex-start;
+  text-align: left;
+  cursor: pointer;
+  padding-bottom: 10px
+}
+
+.login-greet {
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 30px;
+  letter-spacing: normal;
+  font-family: Circular;
+  color: rgb(72, 72, 72);
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin: 0px;
+}
+
+.form-submit {
+  font-size: 16px;
+  height: 42px;
+  width: 504px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  vertical-align: middle;
+  text-align: center;
+  background-color: white;
+}
+
+.session-submit {
+  height: 46px;
+  width: 510px;
+  background-color: #f44b42;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.demo-button {
+  background-color: #417af4;
+  color: white;
+  height: 46px;
+  width: 510px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  margin:0 auto;
+}
+
+.or-otherform {
+  text-decoration: none;
+  text-shadow: 5px;
+  font-size: 16px;
+  height: 80px;
+  font-weight: 600;
+  color: #0A937A;
+  display: inline-block;
+  background:none;
+  border:none;
+  padding:0;
+  cursor: pointer;
 }
 
 .modal-background {
@@ -125,4 +199,132 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.sl-text {
+  text-align: center;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+.greet-topsec {
+  height: 78px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  color: black;
+}
+
+.greet-splashbuttons{
+  width: 500px;
+  font-weight: bolder;
+  color: black;
+  text-align: right;
+}
+
+.greet-loginbuttons {
+  text-shadow: 5px;
+  font-size: 15px;
+  height: 80px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  background:none;
+  border:none;
+  padding:0;
+  cursor: pointer;
+}
+
+.greet-loginbuttons:hover {
+  border-bottom: 2px solid black;
+}
+
+.greet-icon {
+  color: black;
+  margin-left: 10px;
+}
+
+.header-button {
+  text-decoration: none;
+  text-shadow: 5px;
+  font-size: 15px;
+  height: 80px;
+  font-weight: bold;
+  color: black;
+  display: inline-block;
+  background:none;
+  border:none;
+  padding:0;
+  cursor: pointer;
+}
+
+.greethr {
+  color: #F8F9F9;
+  height: 1;
+}
+
+.body-content {
+  position: relative;
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  padding: 20px;
+}
+
+.sidenav {
+  height: 1000px;
+  width: 288px;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: pink;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.list-items {
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.list-body {
+  padding: 20px;
+}
+
+.listing-index-item {
+  width: 300px;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+  flex-direction: column;
+  display: flex;
+  padding: 10px;
+}
+
+.index-item-img {
+  min-height: 200px;
+  min-width: 250px;
+}
+
+.listing_index_info {
+  height: 20px;
+  width: 300px;
+  padding: 20px;
+}
+
+.demoo {
+  width:100%;
+  display: flex;
+  justify-content: center;
+  left: 50px;
 }

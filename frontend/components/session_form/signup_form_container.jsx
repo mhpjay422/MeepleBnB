@@ -19,8 +19,9 @@ const mapDispatchToProps = dispatch => {
     clear: () => dispatch(clear()),
     otherForm: (
       <button
+        className="or-otherform"
         onClick={() => dispatch(openModal('login'))}>
-        Login
+        Log in
       </button>
     ),
     demoLogin: () => dispatch(demoLogin(

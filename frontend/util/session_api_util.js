@@ -2,7 +2,8 @@ export const signup = (formData) => {
   return $.ajax({
     url: `/api/users`,
     method: `post`,
-    data: formData
+    data: formData,
+    error: (err) => console.log(err)
   });
 };
 
@@ -10,13 +11,15 @@ export const login = (formData) => {
   return $.ajax({
     url: `/api/session`,
     method: `POST`,
-    data: formData
+    data: formData,
+    error: (err) => console.log(err)
   });
 };
 
 export const logout = () => {
   return $.ajax({
     url: `/api/session`,
-    method: `delete`
+    method: `delete`,
+    error: (err) => console.log(err)
   });
 };

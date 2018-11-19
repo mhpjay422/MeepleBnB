@@ -12,6 +12,11 @@ const msp = (state, ownProps) => {
     formType: "Login",
   };
 };
+  const demoUser = {user: {
+    username: "demoUser",
+    email: "demoUser@gmail.com",
+    password: "starwars"}};
+
 
 const mdp = (dispatch) => {
   return {
@@ -20,16 +25,12 @@ const mdp = (dispatch) => {
     clear: () => dispatch(clear()),
     otherForm: (
       <button
+        className="or-otherform"
         onClick={() => dispatch(openModal('signup'))}>
         Signup
       </button>
     ),
-    demoLogin: () => dispatch(demoLogin(
-      {user: {
-        username: "demoUser",
-        email: "demoUser@gmail.com",
-        password: "starwars"}}
-    )),
+    demoLogin: () => dispatch(login(demoUser)),
   };
 };
 

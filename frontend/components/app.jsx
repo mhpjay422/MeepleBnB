@@ -4,6 +4,7 @@ import LogInFormContainer from './session_form/login_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SplashContainer from './splash_page/splash_container';
+import splash from './splash_page/splash';
 import Modal from './modal/modal';
 import {
   Route,
@@ -19,7 +20,7 @@ const App = () => {
       <Modal />
       <div className="main">
           <AuthRoute exact path="/" component={SplashContainer}/>
-          <Route path="/greeting" component={GreetingContainer} />
+          <Route exact path="/greeting" component={GreetingContainer} />
       </div>
     </div>
   );

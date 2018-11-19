@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
       email: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demo = this.demo.bind(this);
   }
 
   componentWillUnmount() {
@@ -23,34 +24,30 @@ class SessionForm extends React.Component {
     });
   }
 
+  clickClear(field) {
+    return e => this.setState({
+      [field]: ""
+    });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = merge({}, this.state);
     this.props.processForm(user).then(this.props.closeModal);
+
   }
 
   demo(e) {
     e.preventDefault(e)
-    this.props.demoLogin.then(this.props.closeModal)
+    this.props.demoLogin().then(this.props.closeModal)
   }
-
-  keyPress(e) {
-    if (e.key === 'Enter') {
-      this.handleSubmit
-    }
-  }
-
-  // handleKeyPress(e) {
-  //   if (e.key === 'Enter') {
-  //     this.handleSubmit
-  //   }
-  // }
 
   renderErrors() {
     const errorMess = this.props.errors.map((error, i) => {
       return (
         <li
           key={`error-${i}`}
+          className="errors"
         >
         {error}
         </li>
@@ -58,31 +55,35 @@ class SessionForm extends React.Component {
     })
 
     return(
-      <ul>
-        {errorMess}
-      </ul>
+      <ul>{errorMess}</ul>
     );
   }
 
   render() {
     const userLabel = (
-      <label>Username:
-      <input type="text"
-      value={this.state.username}
-      onChange={this.update('username')}
-      onKeyPress={this.keypress}
-      className="login-input"
+      <label>
+      <input
+        className="form-submit"
+        placeholder="Username"
+        type="text"
+        value={this.state.username}
+        onChange={this.update('username')}
+        onKeyPress={this.keypress}
+        onClick={this.clickClear('username')}
       />
       </label>
     );
 
     const passwordLabel = (
-      <label>Password:
-        <input type="password"
+      <label>
+        <input
+          className="form-submit"
+          type="password"
+          placeholder="Password"
           value={this.state.password}
           onChange={this.update('password')}
           onKeyPress={ this.keypress }
-          className="login-input"
+          onClick={this.clickClear('password')}
         />
       </label>
     );
@@ -92,14 +93,19 @@ class SessionForm extends React.Component {
         return (
           <div>
             <br/>
-              <label>Email:
-                <input type="email"
+              <label>
+                <input
+                  className="form-submit"
+                  type="email"
+                  placeholder="Name@gmail.com"
                   value={this.state.email}
                   onChange={this.update('email')}
                   onKeyPress={ this.keypress }
-                  className="signup-input"
+                  onClick={this.clickClear('email')}
                 />
               </label>
+              <br/>
+              <br/>
             </div>
         );
       } else {
@@ -107,38 +113,67 @@ class SessionForm extends React.Component {
       }
     };
 
+    const signupOrLogin = () => {
+      if (this.props.formType === "Signup") {
+        return (
+          <div className="sl-text">
+            Already have an MeepleBnB account? {this.props.otherForm}
+          </div>
+        )
+      } else {
+        return (
+          <div className="sl-text">
+            Don’t have an account? {this.props.otherForm}
+          </div>
+        )
+      }
+    }
+
 
 
 
 
     return (
       <div className="login-form-container">
-        <form
-              onSubmit={this.handleSubmit}
+        <form onSubmit={this.handleSubmit}
               className="login-form-box">
-          Welcome to MeepleBnB!
+          <div onClick={this.props.closeModal} className="close-x">X</div>
           <br/>
-          Please {this.props.formType} below or {this.props.otherForm}
-          <div onClick={this.props.closeModal} className="close-x"></div>
+          <div className="login-greet">
+            {this.props.formType} to continue
+          </div>
           {this.renderErrors()}
 
           <div className="login-form">
+            <div className="label-submit">
+              <br/>
+                { emailLabel() }
+                { userLabel }
+              <br/>
+              <br/>
+                { passwordLabel }
+              <br/>
+              <br/>
+            </div>
+            <input className="session-submit form-submit" type="submit" value={this.props.formType} />
             <br/>
-              { emailLabel() }
-              { userLabel }
-            <br/>
-              { passwordLabel }
-            <br/>
-            <input className="session-submit" type="submit" value={this.props.formType} />
             <br/>
           </div>
         </form>
-        <button className="login-form-box"  value="Login as Demo User"
-        onClick={this.props.demoLogin}
-        // onClick={this.props.demoLogin.then(this.props.closeModal)}
+        <div className="demoo">
+        <button className="demo-button form-submit"  value="Login as Demo User"
+        onClick={this.demo}
         > Log In as Demo User
-
         </button>
+        </div>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+        <div><hr/></div>
+        <div className="strike">
+          {signupOrLogin()}
+        </div>
       </div>
     );
   }
