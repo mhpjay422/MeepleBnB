@@ -8,6 +8,7 @@ class Api::ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    render "api/listings/show"
   end
 
   def create
@@ -25,7 +26,8 @@ class Api::ListingsController < ApplicationController
       :description,
       :address,
       :price,
-      :picture_url
+      :picture_url,
+      photos: []
     )
   end
 end

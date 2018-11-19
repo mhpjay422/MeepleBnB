@@ -11,12 +11,12 @@ class IndexItem extends React.Component {
     return (
       <div className="listing-index-item">
         <div className="index-item-img">
-          <img src={this.props.listing.picture_url}/>
+          <img className="list-img" src={this.props.listing.picture_url}/>
         </div>
         <div className="index-item-info">
           <span className="index-item-title">{this.props.listing.title}</span>
           <br/>
-          <span className="index-item-price">{this.props.listing.price} per night · Free cancellation</span>
+          <span className="index-item-price">${this.props.listing.price} per night · Free cancellation</span>
           <br/>
           <span className="index-item-rating">Rating:</span><br/>
         </div>

@@ -312,8 +312,24 @@
 }
 
 .index-item-img {
-  min-height: 200px;
-  min-width: 250px;
+
+}
+
+.list-img {
+  height: 180px;
+  width: 270px;
+  object-fit: fill;
+}
+
+.index-item-title {
+  font-weight: bolder;
+  font-size: 17px;
+}
+.index-item-price {
+  font-size: 14px;
+}
+.index-item-rating {
+  font-size: 13px;
 }
 
 .listing_index_info {

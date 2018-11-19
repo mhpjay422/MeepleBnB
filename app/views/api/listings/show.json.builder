@@ -1,3 +1,4 @@
 json.listing do
-  json.extract! listing, :id, :title, :description, :price, :lat, :lng, listing: @listing
+  json.extract! listing, :id, :title, :description, :price, :lat, :lng, :picture_url, listing: @listing
+  json.photoUrls @listing.photos.map { |file| url_for(file) }
 end
