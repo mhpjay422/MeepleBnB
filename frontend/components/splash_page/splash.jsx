@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
 
   const nav = (
-    <div className="topbar">
+    <div className="splash-topbar">
       <section className="topsec">
           <Link to="/greeting" className="navbar-left">
             <img src="./3d-meeple4.png"/>

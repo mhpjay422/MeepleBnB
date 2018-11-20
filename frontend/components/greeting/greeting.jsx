@@ -65,7 +65,6 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
     return (
       <nav>
         {navbar}
-        <hr className="greethr"/>
         <div className="body-content">
           {sidenav}
           <ListingsIndexContainer/>

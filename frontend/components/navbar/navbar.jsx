@@ -54,7 +54,6 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
     return (
       <nav>
         {navbar}
-        <hr className="greethr"/>
       </nav>
     );
   };
