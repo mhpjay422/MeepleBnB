@@ -6,6 +6,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SplashContainer from './splash_page/splash_container';
 import splash from './splash_page/splash';
 import Modal from './modal/modal';
+import ListingShowContainer from './listing_show/listing_show_container';
 import {
   Route,
   Redirect,
@@ -21,6 +22,7 @@ const App = () => {
       <div className="main">
           <AuthRoute exact path="/" component={SplashContainer}/>
           <Route exact path="/greeting" component={GreetingContainer} />
+          <Route path="/listings/:listingId" component={ListingShowContainer} />
       </div>
     </div>
   );

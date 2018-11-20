@@ -280,7 +280,7 @@
   position: relative;
   top: 0;
   left: 0;
-  background-color: pink;
+  background-color: white;
   overflow-x: hidden;
   overflow-y: scroll;
 
@@ -342,5 +342,12 @@
   width:100%;
   display: flex;
   justify-content: center;
-  left: 50px;
+}
+
+.listing-list {
+
+}
+
+.sidefill {
+
 }
