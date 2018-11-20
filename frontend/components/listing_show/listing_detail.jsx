@@ -52,11 +52,30 @@ const ListingDetail = ({ listing }) => {
             <div>{listing.description}</div>
             <br/>
             <li>Address: {listing.address}</li>
-            <li>Price: {listing.price}</li>
             <li>Latitude: {listing.lat}</li>
             <li>Longitude: {listing.lng}</li>
           </div>
           <form className="booking-form">
+            <div className="booking-body">
+              <div className="booking-price">
+                <div className="booking-price-integer">
+                  ${listing.price}
+                </div>
+                <div className="booking-price-pernight">
+                <div>
+                  per night
+                </div>
+                </div>
+              </div>
+              <div className="booking-rating">
+                rating
+              </div>
+            </div>
+
+
+
+            <div>
+            </div>
           </form>
         </ul>
 
