@@ -9,7 +9,7 @@ const ListingDetail = ({ listing }) => {
       <NavbarContainer/>
 
       <div className="list-show-body">
-      
+
         <div className="list-show-images">
           <div className="list-show-image-main">
             <img className="index-image-main-1" src={listing.picture_url}/>
@@ -48,7 +48,9 @@ const ListingDetail = ({ listing }) => {
                 </div>
               </div>
             </div>
-            <li>Description: {listing.description}</li>
+            <span className="the-space">The space</span>
+            <div>{listing.description}</div>
+            <br/>
             <li>Address: {listing.address}</li>
             <li>Price: {listing.price}</li>
             <li>Latitude: {listing.lat}</li>
