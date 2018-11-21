@@ -3,10 +3,8 @@ import { fetchListing } from '../../actions/listing_actions';
 import ListingShow from './listing_show';
 
 const msp = (state, { match }) => {
-  debugger
   const listingId = parseInt(match.params.listingId);
   const listing =  state.entities.listings[listingId] || {};
-
   return {listing, listingId};
 };
 

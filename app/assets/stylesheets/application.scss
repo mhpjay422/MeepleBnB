@@ -1,114 +1,112 @@
 .main {
-   position: absolute;
-   padding: 0;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   margin: auto;
-   font-family: 'MontrealRegular';
- }
-
- .hrtag {
-    border: 0;
-    height: 1px;
-    background: #333;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+  position: absolute;
+  padding: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  font-family: "MontrealRegular";
 }
 
- .splash {
-   background: image-url("arch.jpg");
-   background-position: 30%;
-   width: 100%;
-   height: inherit;
-     background-size: cover;
- }
+.hrtag {
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
 
- .topbar {
-   background-color: rgba(0, 0, 0, 0.3);
-   align-items: center;
-   display: flex;
-   justify-content: space-between;
-   border-bottom: 1px solid lightgrey;
- }
+.splash {
+  background: image-url("arch.jpg");
+  background-position: 30%;
+  width: 100%;
+  height: inherit;
+  background-size: cover;
+}
 
+.topbar {
+  background-color: rgba(0, 0, 0, 0.3);
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgrey;
+}
 
- .topsec {
-   height: 80px;
-   width: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
- }
+.topsec {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
- .splash-topbar {
-   background-color: rgba(0, 0, 0, 0.3);
-   align-items: center;
-   display: flex;
-   justify-content: space-between;
- }
+.splash-topbar {
+  background-color: rgba(0, 0, 0, 0.3);
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
 
+.navbar-left {
+  background-color: none;
+  margin-left: 30px;
+}
 
- .navbar-left {
-   background-color: none;
-   margin-left: 30px;
- }
+.twobar {
+  width: auto;
+  justify-content: flex-end;
+  padding: 5px;
+  display: flex;
+  margin: 0 10px;
+  align-items: flex-end;
+}
 
- .twobar {
-   width:auto;
-   justify-content: flex-end;
-   padding: 5px;
-   display: flex;
-   margin: 0 10px;
-   align-items: flex-end;
- }
+.twobar li {
+  display: inline-block;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-top: 0;
+  list-style: none;
+  margin: 0 10px;
+}
 
- .twobar li {
-   display: inline-block;
-   justify-content: flex-end;
-   align-items: flex-end;
-   padding-top: 0;
-   list-style: none;
-   margin: 0 10px;
- }
+.splashbuttons {
+  width: 500px;
+  font-weight: bolder;
+  color: white;
+  text-align: right;
+}
 
- .splashbuttons{
-   width: 500px;
-   font-weight: bolder;
-   color: white;
-   text-align: right;
- }
+.loginbuttons {
+  text-shadow: 5px;
+  font-size: 15px;
+  height: 80px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
 
- .loginbuttons {
-   text-shadow: 5px;
-   font-size: 15px;
-   height: 80px;
-   font-weight: bold;
-   color: white;
-   text-decoration: none;
-   display: inline-block;
-   background:none;
-   border:none;
-   padding:0;
-   cursor: pointer;
- }
+.loginbuttons:hover {
+  border-bottom: 2px solid white;
+}
 
- .loginbuttons:hover {
-   border-bottom: 2px solid white;
- }
+.icon {
+  color: white;
+  margin-left: 10px;
+}
 
- .icon {
-   color: white;
-   margin-left: 10px;
- }
-
- a:hover {
-   color: red;
-   text-decoration: none;
+a:hover {
+  color: red;
+  text-decoration: none;
 }
 
 .login-form-container {
-  position:relative;
+  position: relative;
   height: 627px;
   width: 568px;
   color: black;
@@ -140,7 +138,7 @@
   justify-content: flex-start;
   text-align: left;
   cursor: pointer;
-  padding-bottom: 10px
+  padding-bottom: 10px;
 }
 
 .login-greet {
@@ -170,7 +168,7 @@
 .session-submit {
   height: 46px;
   width: 510px;
-  background-color: #FF5A5F;
+  background-color: #ff5a5f;
   color: white;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -184,7 +182,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
-  margin:0 auto;
+  margin: 0 auto;
 }
 
 .or-otherform {
@@ -193,11 +191,11 @@
   font-size: 16px;
   height: 80px;
   font-weight: 600;
-  color: #0A937A;
+  color: #0a937a;
   display: inline-block;
-  background:none;
-  border:none;
-  padding:0;
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
 }
 
@@ -234,7 +232,7 @@
   color: black;
 }
 
-.greet-splashbuttons{
+.greet-splashbuttons {
   width: 500px;
   font-weight: bolder;
   color: black;
@@ -249,9 +247,9 @@
   color: black;
   text-decoration: none;
   display: inline-block;
-  background:none;
-  border:none;
-  padding:0;
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
 }
 
@@ -272,14 +270,14 @@
   font-weight: bold;
   color: black;
   display: inline-block;
-  background:none;
-  border:none;
-  padding:0;
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
 }
 
 .greethr {
-  color: #F8F9F9;
+  color: #f8f9f9;
   height: 1;
 }
 
@@ -303,7 +301,11 @@
 }
 
 .sidenav a:hover {
-    color: #f1f1f1;
+  color: #f1f1f1;
+}
+
+.list-body {
+  padding: 20px;
 }
 
 .list-items {
@@ -312,11 +314,13 @@
   display: flex;
   padding: 20px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-content: center;
 }
 
-.list-body {
-  padding: 20px;
+.space {
+  height: 100%;
+  width: 100%;
 }
 
 .listing-index-item {
@@ -356,7 +360,7 @@
 }
 
 .demoo {
-  width:100%;
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -373,7 +377,7 @@
   position: relative;
 }
 
-.list-show-images img:hover{
+.list-show-images img:hover {
   transform: scale(1.03);
   -webkit-transform: scale(1.03);
   -webkit-filter: brightness(140%);
@@ -395,7 +399,7 @@
 
 .list-show-image-main img {
   min-height: 100%;
-  max-height:100%;
+  max-height: 100%;
   width: 100%;
   overflow: hidden;
   cursor: pointer;
@@ -425,7 +429,7 @@
 
 .index-image img {
   min-height: 100%;
-  max-height:100%;
+  max-height: 100%;
   width: 100%;
   overflow: hidden;
 }
@@ -595,12 +599,12 @@
 .booking-submit {
   height: 46px;
   width: 100%;
-  background-color: #FF5A5F;
+  background-color: #ff5a5f;
   font-size: 16px;
   color: white;
   font-weight: 800;
   margin-bottom: 10px;
-  margin-top: 20px
+  margin-top: 20px;
 }
 
 .booking-charge-text {
@@ -611,7 +615,7 @@
 .booking-divider {
   height: 25px;
   width: 100%;
-  border-bottom: 1px solid #EBEBEB;
+  border-bottom: 1px solid #ebebeb;
 }
 
 .booking-bottom-container {
@@ -637,18 +641,7 @@
 
 .lightbulb {
   padding-right: 20px;
-
 }
 
-
-
-
-
-
-
-
-
-
 .null {
-
 }
