@@ -2,7 +2,7 @@ class Booking < ApplicationRecord
 
   STATUS_STATII = ["APPROVED", 'DENIED', "PENDING"].freeze
 
-  validates :price, :date_start, :date_end, listing_id, :status, presence: true
+  validates :price, :date_start, :date_end, :listing_id, :status, presence: true
   validates :status, inclusion: STATUS_STATII
   validate :start_must_before_end
   validate :does_not_overlap_approved_request
