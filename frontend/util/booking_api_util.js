@@ -15,7 +15,7 @@ export const fetchBooking = (id) => (
 export const createBooking = (booking) => {
   return (
     $.ajax({
-      url: `api/properties/${booking.property_id}/bookings`,
+      url: `api/listings/${booking.listing_id}/bookings`,
       method: "post",
       data: { booking },
     })

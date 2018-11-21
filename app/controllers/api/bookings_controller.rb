@@ -34,13 +34,12 @@ class Api::BookingsController < ApplicationController
   private
 
   def current_booking_request
-    @booking ||=
-      Booking.includes(:listing).find(params[:id])
+    @booking ||= Booking.includes(:listing).find(params[:id])
   end
 
-  # def current_listing
-  #   current_booking_request.listing
-  # end
+  def current_listing
+    current_booking_request.listing
+  end
 
   def booking_params
     params.require(:booking).permit(:listing_id, :date_end, :date_start, :status, :price)

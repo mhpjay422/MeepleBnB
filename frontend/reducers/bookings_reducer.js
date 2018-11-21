@@ -5,7 +5,6 @@ import { RECEIVE_ALL_BOOKINGS,
 import {REMOVE_CURRENT_USER} from '../actions/session_actions';
 
 const bookingsReducer = (state = {}, action) => {
-  let newState;
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_BOOKINGS:
@@ -13,7 +12,7 @@ const bookingsReducer = (state = {}, action) => {
     case RECEIVE_BOOKING:
       return merge({}, state, action.booking);
     case DELETE_BOOKING:
-      newState = merge({}, state);
+      const newState = merge({}, state);
       delete newState[action.bookingId];
       return newState;
     case REMOVE_CURRENT_USER:

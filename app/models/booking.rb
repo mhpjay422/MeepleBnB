@@ -7,13 +7,13 @@ class Booking < ApplicationRecord
   validate :start_must_before_end
   validate :does_not_overlap_approved_request
 
-  belongs_to :listing
+  belongs_to :listing,
     foreign_key: :listing_id,
     class_name: "Listing"
 
-  belongs_to :user
-    foreign_key: :user_id,
-    class_name: :"User"
+  belongs_to :renter,
+    foreign_key: :renter_id,
+    class_name: "User"
 
   after_initialize :assign_pending_status
 

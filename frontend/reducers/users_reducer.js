@@ -8,8 +8,8 @@ export default (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       let newState = merge({}, state, {[action.user.id]: action.user});
       return newState;
-    // case RECEIVE_LISTING:
-    //   return merge({}, state,{[action.listing.owner.id]: action.listing.owner});
+    case RECEIVE_LISTING:
+      return merge({}, state,{[action.listing.owner.id]: action.listing.owner});
     default:
       return state;
   }

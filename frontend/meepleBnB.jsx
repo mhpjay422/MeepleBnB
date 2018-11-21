@@ -20,13 +20,9 @@ if (window.currentUser) {
 } else {
   store = configureStore();
 }
-window.getState = store.getState;
-window.dispatch = store.dispatch;
-window.login = login;
-window.logout = logout;
-window.fetchListings = fetchListings;
 
 
 
-  ReactDOM.render(<Root store={configureStore()}/>, document.getElementById('root'));
+  ReactDOM.render(<Root store={configureStore()}/>,
+   document.getElementById('root'));
 });

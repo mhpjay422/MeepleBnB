@@ -30,22 +30,15 @@ class BookingForm extends React.Component {
      this.props.clearBookingErrors();
   }
 
-  alreadyBooked(day) {
-    let bookedDates = this.props.listing.bookedDates;
-    for (let i = 0; i < bookedDates.length; i++) {
-      if (day.format('YYYY-MM-DD') === bookedDates[i]) {
-        return true;
-      }
-    }
-    return false;
+  alreadyBooked(date) {
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const booking = {
       guests: this.state.guests,
-      check_in: this.state.startDate._d,
-      check_out: this.state.endDate._d,
+      check_in: this.state.startDate,
+      check_out: this.state.endDate,
       listing_id: parseInt(this.props.listingId),
     };
     this.props.createBooking(booking);
@@ -113,8 +106,8 @@ class BookingForm extends React.Component {
                 <span>This home is on people’s minds.</span>
                 <br/>
                 <div>It’s been viewed 500+ times in the past week.</div>
-              </div>
-              <div className="lightbulb">LB</div>
+              </div>s
+              <img className="lightbulb" src="./lightbulb.svg"/>
             </div>
           </div>
         </form>
@@ -125,7 +118,7 @@ class BookingForm extends React.Component {
 export default withRouter(BookingForm);
 
 // ${this.props.listing.price}
-//
+
 // <DateRangePicker
 //   startDate={this.state.startDate}
 //   startDateId="start-date"
@@ -136,7 +129,7 @@ export default withRouter(BookingForm);
 //   endDatePlaceholderText="Check Out"
 //   onDatesChange={({ startDate, endDate }) =>
 //     this.setState({ startDate, endDate })}
-//   isDayBlocked={day => this.alreadyBooked(day)}
+//   isDayBlocked={day => this.alreadyBooked(date)}
 //   focusedInput={this.state.focusedInput}
 //   onFocusChange={focusedInput => this.setState({ focusedInput })}
 // />
