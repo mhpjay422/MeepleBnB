@@ -1,10 +1,11 @@
 import React from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
+import ThemedStyleSheet from 'react-with-styles/lib/ThemedStyleSheet';
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 import momentPropTypes from 'react-moment-proptypes';
 import moment from 'moment';
-// import 'react-dates/lib/css/_datepicker.css';
+import 'react-dates/lib/css/_datepicker.css';
 
 
 class BookingForm extends React.Component {
@@ -20,10 +21,6 @@ class BookingForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleGuests = this.handleGuests.bind(this);
     this.alreadyBooked = this.alreadyBooked.bind(this);
-  }
-
-  componentDidMount() {
-    this.props.fetchListing(this.props.listingId);
   }
 
   componentWillUnmount(oldProps) {
@@ -66,6 +63,7 @@ class BookingForm extends React.Component {
   }
 
   render() {
+    debugger
     return (
         <form className="booking-form">
           <div className="booking-body">
@@ -129,7 +127,7 @@ export default withRouter(BookingForm);
 //   endDatePlaceholderText="Check Out"
 //   onDatesChange={({ startDate, endDate }) =>
 //     this.setState({ startDate, endDate })}
-//   isDayBlocked={day => this.alreadyBooked(date)}
+//   isDayBlocked={day => this.alreadyBooked()}
 //   focusedInput={this.state.focusedInput}
 //   onFocusChange={focusedInput => this.setState({ focusedInput })}
 // />

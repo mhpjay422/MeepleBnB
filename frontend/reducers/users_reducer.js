@@ -9,7 +9,7 @@ export default (state = {}, action) => {
       let newState = merge({}, state, {[action.user.id]: action.user});
       return newState;
     case RECEIVE_LISTING:
-      return merge({}, state,{[action.listing.owner.id]: action.listing.owner});
+      return merge({}, state,{[action.listing.owner_id]: action.listing.owner});
     default:
       return state;
   }
