@@ -6,8 +6,17 @@ validates :password, length: { minimum: 6 }, allow_nil: true
 
 after_initialize :ensure_session_token
 
-has_many :listings
-has_many :reviews
+has_many :listings,
+  foreign_key: :owner_id,
+  class_name: "Listing"
+
+has_many :bookings,
+  foreign_key: :user_id,
+  class_name: "Booking"
+
+has_many :booked_properties,
+  through: :bookings,
+  source: :listing
 
 attr_reader :password
 

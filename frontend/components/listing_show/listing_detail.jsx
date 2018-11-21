@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import NavbarContainer from '../navbar/navbar_container';
+import BookingFormContainer from './booking_form_container';
 
 const ListingDetail = ({ listing }) => {
   return (
@@ -55,28 +56,7 @@ const ListingDetail = ({ listing }) => {
             <li>Latitude: {listing.lat}</li>
             <li>Longitude: {listing.lng}</li>
           </div>
-          <form className="booking-form">
-            <div className="booking-body">
-              <div className="booking-price">
-                <div className="booking-price-integer">
-                  ${listing.price}
-                </div>
-                <div className="booking-price-pernight">
-                <div>
-                  per night
-                </div>
-                </div>
-              </div>
-              <div className="booking-rating">
-                rating
-              </div>
-            </div>
-
-
-
-            <div>
-            </div>
-          </form>
+          <BookingFormContainer listing={listing}/>
         </ul>
 
       </div>

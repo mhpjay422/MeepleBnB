@@ -10,7 +10,7 @@ export const signup = (formData) => {
 export const login = (formData) => {
   return $.ajax({
     url: `/api/session`,
-    method: `POST`,
+    method: `post`,
     data: formData,
     error: (err) => console.log(err)
   });

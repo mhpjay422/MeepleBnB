@@ -1,4 +1,5 @@
 import {RECEIVE_CURRENT_USER} from '../actions/session_actions';
+import { RECEIVE_LISTING } from '../actions/listing_actions';
 import { merge } from 'lodash';
 
 export default (state = {}, action) => {
@@ -7,6 +8,8 @@ export default (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       let newState = merge({}, state, {[action.user.id]: action.user});
       return newState;
+    // case RECEIVE_LISTING:
+    //   return merge({}, state,{[action.listing.owner.id]: action.listing.owner});
     default:
       return state;
   }

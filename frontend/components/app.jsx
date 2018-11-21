@@ -7,6 +7,7 @@ import SplashContainer from './splash_page/splash_container';
 import splash from './splash_page/splash';
 import Modal from './modal/modal';
 import ListingShowContainer from './listing_show/listing_show_container';
+import 'react-dates/initialize';
 import {
   Route,
   Redirect,

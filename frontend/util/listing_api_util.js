@@ -1,15 +1,14 @@
-
 export const fetchListings = () => (
   $.ajax({
     url: '/api/listings',
-    method: 'GET',
+    method: 'get',
   })
 );
 
 export const fetchListing = id => (
   $.ajax({
     url: `/api/listings/${id}`,
-    method: 'GET',
+    method: 'get',
     error: (err) => console.log(err)
   })
 );
@@ -17,7 +16,7 @@ export const fetchListing = id => (
 export const createListing = form => (
   $.ajax({
     url: '/api/listings',
-    method: 'POST',
+    method: 'post',
     data: form,
     error: (err) => console.log(err)
   })

@@ -10,17 +10,23 @@ class Api::BookingsController < ApplicationController
   end
 
   def create
-    @booking_request= Booking.new(booking_params)
-    if @booking_request.save
+    @booking= Booking.new(booking_params)
+    if @booking.save
       redirect_to "/api/listings/show"
     else
-      flash.now[:errors] = @booking_request.errors.full_messages
+      flash.now[:errors] = @booking.errors.full_messages
       render "/api/listings/show"
     end
   end
 
   def new
-    @booking_request = Booking.new
+    @booking = Booking.new
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    render "/api/listings"
   end
 
 
@@ -28,7 +34,7 @@ class Api::BookingsController < ApplicationController
   private
 
   def current_booking_request
-    @booking_request ||=
+    @booking ||=
       Booking.includes(:listing).find(params[:id])
   end
 

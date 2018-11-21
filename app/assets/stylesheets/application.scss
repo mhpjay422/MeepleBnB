@@ -1,4 +1,4 @@
- .main {
+.main {
    position: absolute;
    padding: 0;
    top: 0;
@@ -170,7 +170,7 @@
 .session-submit {
   height: 46px;
   width: 510px;
-  background-color: #f44b42;
+  background-color: #FF5A5F;
   color: white;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -327,8 +327,8 @@
   padding: 10px;
 }
 
-.index-item-img {
-
+.index-item-img:hover {
+  cursor: pointer;
 }
 
 .list-img {
@@ -397,6 +397,7 @@
   max-height:100%;
   width: 100%;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .list-show-image-side {
@@ -406,6 +407,10 @@
   height: 100%;
   background-size: cover;
   overflow: hidden;
+}
+
+.list-show-image-side img {
+  cursor: pointer;
 }
 
 .index-image {
@@ -530,7 +535,6 @@
   justify-content: center;
   align-content: center;
   align-items: center;
-  display: flex;
 }
 
 .booking-body {
@@ -539,6 +543,8 @@
   height: 430px;
   width: 326px;
   background-color: white;
+  margin-left: 25px;
+  margin-top: 20px;
 }
 
 .booking-price {
@@ -565,5 +571,81 @@
   font-size: 10px;
   padding-bottom: 15px;
   border-bottom: 1px solid lightgrey;
+}
+
+.booking-dates-header {
+  font-size: 12px;
+}
+
+.booking-guests-header {
+  font-size: 12px;
+}
+
+.booking-guests-input {
+  height: 40px;
+  width: 93.5%;
+  font-size: 20px;
+  font-weight: 300;
+  padding-left: 16px;
+}
+
+.booking-submit {
+  height: 46px;
+  width: 100%;
+  background-color: #FF5A5F;
+  font-size: 16px;
+  color: white;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.booking-charge-text {
+  text-align: center;
+  font-size: 12px;
+}
+
+.booking-divider {
+  height: 25px;
+  width: 100%;
+  border-bottom: 1px solid #EBEBEB;
+}
+
+.booking-bottom-container {
+  width: 326px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  background-size: 48px;
+  margin-top: 30px;
+  transition: margin-top 0.4s ease 0s;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.booking-bottom-container-inner {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  word-wrap: normal;
+}
+
+.lightbulb {
+  min-height: 60px;
+  min-width: 53px;
+  border: 1px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+.null {
 
 }

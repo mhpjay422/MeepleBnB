@@ -1,0 +1,30 @@
+export const fetchBookings = () => (
+  $.ajax({
+    url: 'api/bookings',
+    method: "get",
+  })
+);
+
+export const fetchBooking = (id) => (
+  $.ajax({
+    url: `api/bookings/${id}`,
+    method: "get",
+  })
+);
+
+export const createBooking = (booking) => {
+  return (
+    $.ajax({
+      url: `api/properties/${booking.property_id}/bookings`,
+      method: "post",
+      data: { booking },
+    })
+  );
+};
+
+export const deleteBooking = (id) => (
+  $.ajax({
+    url: `api/bookings/${id}`,
+    method: "delete",
+  })
+);
