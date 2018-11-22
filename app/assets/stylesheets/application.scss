@@ -555,7 +555,6 @@ a:hover {
 .booking-price {
   display: flex;
   flex-direction: row;
-  position: relative;
 }
 
 .booking-price-integer {
@@ -569,22 +568,71 @@ a:hover {
   display: flex;
   flex-direction: row;
   align-content: flex-end;
+  margin-left: 10px;
+  margin-right: 0px;
+  padding-right: 0px;
 }
 
 .booking-rating {
+  padding-left: 0px;
+  margin-left: 0px;
   width: 100%;
   font-size: 10px;
-  padding-bottom: 15px;
+  padding-bottom: 22px;
   border-bottom: 1px solid lightgrey;
 }
 
 .booking-dates-header {
-  margin-top: 15px;
+  margin-top: 25px;
   font-size: 12px;
+}
+
+.date-picker {
+  width: 325px;
+  height: 94px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#start-date,
+#end-date {
+  margin: 0;
+  text-align: center;
+  border: none;
+}
+
+#start-date {
+  border: none;
+}
+
+#start-date:focus,
+#end-date:focus {
+  color: #007a87;
+  background-color: #99ede6;
+  padding: 0;
+}
+
+.DateRangePicker {
+  position: absolute;
+  top: 9px;
+  right: -40px;
+}
+
+div.DateInput.DateInput_1 {
+  width: 136px;
+}
+
+.DateRangePickerInput {
+  padding-right: 0 !important;
+  width: 323px;
+  position: absolute;
+  left: -40px;
 }
 
 .booking-guests-header {
   margin-top: 15px;
+  margin-bottom: 7px;
   font-size: 12px;
 }
 
@@ -594,17 +642,20 @@ a:hover {
   font-size: 20px;
   font-weight: 300;
   padding-left: 16px;
+  padding-bottom: 10px;
+  vertical-align: bottom;
+  justify-content: flex-end;
 }
 
 .booking-submit {
-  height: 46px;
+  min-height: 46px;
   width: 100%;
   background-color: #ff5a5f;
   font-size: 16px;
   color: white;
   font-weight: 800;
   margin-bottom: 10px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .booking-charge-text {
@@ -637,6 +688,11 @@ a:hover {
   flex-direction: column;
   font-size: 14px;
   word-wrap: normal;
+  justify-content: center;
+}
+
+.booking-bottom-text1 {
+  margin-bottom: 10px;
 }
 
 .lightbulb {

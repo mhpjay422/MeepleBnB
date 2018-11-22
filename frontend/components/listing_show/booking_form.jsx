@@ -16,25 +16,22 @@ class BookingForm extends React.Component {
       guests: 1,
       price: this.props.listing.price
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleGuests = this.handleGuests.bind(this);
-    this.alreadyBooked = this.alreadyBooked.bind(this);
   }
 
   componentWillUnmount(oldProps) {
     this.props.clearBookingErrors();
   }
 
-  alreadyBooked(date) {}
-
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
     const booking = {
       guests: this.state.guests,
-      check_in: this.state.startDate,
-      check_out: this.state.endDate,
-      listing_id: parseInt(this.props.listingId)
+      check_in: this.state.startDate._d,
+      check_out: this.state.endDate._d,
+      listing_id: parseInt(this.props.listing.id)
     };
     this.props.createBooking(booking);
   }
@@ -55,21 +52,36 @@ class BookingForm extends React.Component {
   }
 
   render() {
-    debugger;
     return (
       <form className="booking-form">
         <div className="booking-body">
           <div className="booking-price">
             <div className="booking-price-integer">
-              {this.props.listing.price}
+              ${this.props.listing.price}
             </div>
             <div className="booking-price-pernight">
-              <div> per night</div>
+              <div>per night</div>
             </div>
           </div>
           <div className="booking-rating">rating</div>
           <div className="booking-dates-header">Dates</div>
-          <div className="date-picker">X</div>
+          <div className="date-picker">
+            <DateRangePicker
+              startDate={this.state.startDate}
+              startDateId="start-date"
+              endDate={this.state.endDate}
+              endDateId="end-date"
+              startDatePlaceholderText="Check In"
+              showClearDates={true}
+              endDatePlaceholderText="Check Out"
+              onDatesChange={({ startDate, endDate }) =>
+                this.setState({ startDate, endDate })
+              }
+              focusedInput={this.state.focusedInput}
+              onFocusChange={focusedInput => this.setState({ focusedInput })}
+              renderCalendarDay={undefined}
+            />
+          </div>
           <div className="booking-guests-header">Guests</div>
           <input
             type="integer"
@@ -86,8 +98,9 @@ class BookingForm extends React.Component {
           <div className="booking-divider" />
           <div className="booking-bottom-container">
             <div className="booking-bottom-container-inner">
-              <span>This home is on people’s minds.</span>
-              <br />
+              <span className="booking-bottom-text1">
+                This home is on people’s minds.
+              </span>
               <div>It’s been viewed 500+ times in the past week.</div>
             </div>
             s
@@ -100,18 +113,3 @@ class BookingForm extends React.Component {
 }
 
 export default withRouter(BookingForm);
-
-// <DateRangePicker
-//   startDate={this.state.startDate}
-//   startDateId="start-date"
-//   endDate={this.state.endDate}
-//   endDateId="end-date"
-//   startDatePlaceholderText="Check In"
-//   showClearDates={true}
-//   endDatePlaceholderText="Check Out"
-//   onDatesChange={({ startDate, endDate }) =>
-//     this.setState({ startDate, endDate })}
-//   isDayBlocked={day => this.alreadyBooked()}
-//   focusedInput={this.state.focusedInput}
-//   onFocusChange={focusedInput => this.setState({ focusedInput })}
-// />

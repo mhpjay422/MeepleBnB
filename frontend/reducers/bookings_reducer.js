@@ -1,10 +1,11 @@
-import { merge } from 'lodash';
-import { RECEIVE_ALL_BOOKINGS,
-         RECEIVE_BOOKING,
-         DELETE_BOOKING
-          } from '../actions/booking_actions';
-import {REMOVE_CURRENT_USER} from '../actions/session_actions';
-import {RECEIVE_LISTING} from '../actions/listing_actions';
+import { merge } from "lodash";
+import {
+  RECEIVE_ALL_BOOKINGS,
+  RECEIVE_BOOKING,
+  DELETE_BOOKING
+} from "../actions/booking_actions";
+import { REMOVE_CURRENT_USER } from "../actions/session_actions";
+import { RECEIVE_LISTING } from "../actions/listing_actions";
 
 const bookingsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -17,9 +18,6 @@ const bookingsReducer = (state = {}, action) => {
       const newState = merge({}, state);
       delete newState[action.bookingId];
       return newState;
-    case RECEIVE_LISTING:
-      const listing = { [action.listing.id]: action.listing };
-      return merge({}, state, listing);
     case REMOVE_CURRENT_USER:
       return {};
     default:

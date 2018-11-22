@@ -1,30 +1,26 @@
-export const fetchBookings = () => (
+export const fetchBookings = () =>
   $.ajax({
-    url: 'api/bookings',
-    method: "get",
-  })
-);
+    url: "api/bookings",
+    method: "get"
+  });
 
-export const fetchBooking = (id) => (
+export const fetchBooking = id =>
   $.ajax({
     url: `api/bookings/${id}`,
-    method: "get",
-  })
-);
+    method: "get"
+  });
 
-export const createBooking = (booking) => {
-  return (
-    $.ajax({
-      url: `api/listings/${booking.listing_id}/bookings`,
-      method: "post",
-      data: { booking },
-    })
-  );
+export const createBooking = booking => {
+  debugger;
+  return $.ajax({
+    url: `api/listings/${booking.listing_id}/bookings`,
+    method: "post",
+    data: { booking }
+  });
 };
 
-export const deleteBooking = (id) => (
+export const deleteBooking = id =>
   $.ajax({
     url: `api/bookings/${id}`,
-    method: "delete",
-  })
-);
+    method: "delete"
+  });

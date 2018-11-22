@@ -7,8 +7,10 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.1",
+    "jquery": "^3.3.1",
     "moment": "^2.22.2",
     "react": "^16.6.3",
+    "react-addons-shallow-compare": "^15.6.2",
     "react-dates": "^18.2.2",
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",
@@ -38,5 +40,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "style-loader": "^0.23.1"
+  }
 }

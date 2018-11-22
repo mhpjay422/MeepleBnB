@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
-    resources :listings, only: [:index, :show, :create]
-    resources :bookings, only: [:approve, :deny, :create, :new]
+    resources :listings, only: [:index, :show, :create] do
+      resources :bookings, only: [:create]
+    end
+    resources :bookings, only: [:approve, :deny, :new]
   end
 
   root "static_pages#root"
