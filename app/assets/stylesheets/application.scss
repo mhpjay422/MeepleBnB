@@ -706,5 +706,23 @@ div.DateInput.DateInput_1 {
   margin-right: 10px;
 }
 
+.trip-container {
+  display: flex;
+  justify-content: center;
+}
+
+.trip-body {
+  width: 1050px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.trip-booked-trips-text {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
 .null {
 }

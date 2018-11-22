@@ -6,10 +6,8 @@ export default ({ users, logout, loggedIn, demoLogin, openModal }) => {
     if (loggedIn) {
       return (
         <div className="loggedin-buttons">
-          <Link className="header-button" to="/greeting">
-            <button className="header-button" onClick={logout}>
-              Trips
-            </button>
+          <Link className="header-button" to={`/bookings/${users.id}`}>
+            <button className="header-button">Trips</button>
           </Link>
           <button className="header-button" onClick={logout}>
             Log Out

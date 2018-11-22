@@ -11,7 +11,7 @@ const bookingsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_BOOKINGS:
-      return merge({}, state, action.bookings);
+      return merge({}, state, action.bookings.bookings);
     case RECEIVE_BOOKING:
       return merge({}, state, action.booking);
     case DELETE_BOOKING:

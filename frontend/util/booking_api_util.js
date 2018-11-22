@@ -1,6 +1,6 @@
-export const fetchBookings = () =>
+export const fetchBookings = renterId =>
   $.ajax({
-    url: "api/bookings",
+    url: `api/users/${renterId}/bookings`,
     method: "get"
   });
 
