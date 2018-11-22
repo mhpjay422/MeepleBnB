@@ -1,57 +1,10 @@
-import React from 'react';
-import ListingsIndexContainer from '../listings/listing_index_container';
-import SplashContainer from '../splash_page/splash_container';
-import {Link} from 'react-router-dom';
+import React from "react";
+import ListingsIndexContainer from "../listings/listing_index_container";
+import SplashContainer from "../splash_page/splash_container";
+import { Link } from "react-router-dom";
+import Navbar from "../navbar/navbar_container";
 
-export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
-
-  const demo = () => {
-    if(loggedIn) {
-      return (
-        <button className="header-button" onClick={logout}>
-          Log Out
-        </button>
-      );
-    } else {
-      return (
-        <nav className="greet-splashbuttons">
-          <li>
-            <button
-              className="greet-loginbuttons"
-              onClick={() => openModal('login')}>Login
-            </button>
-          </li>
-          <li>
-            <button
-              className="greet-loginbuttons"
-              onClick={() => openModal('signup')}>Signup
-            </button>
-          </li>
-          <li>
-            <button
-            className="greet-loginbuttons"
-            value="Login as Demo User"
-              onClick={demoLogin}> Log In as Demo User
-            </button>
-          </li>
-        </nav>
-      );
-    }
-  };
-
-  const navbar = (
-    <div className="topbar">
-      <section className="greet-topsec">
-          <Link to="/greeting" className="navbar-left">
-            <img src="./3d-meepleneg.png"/>
-          </Link>
-          <ul className="twobar">
-            {demo()}
-          </ul>
-      </section>
-    </div>
-  );
-
+export default ({ users, logout, loggedIn, demoLogin, openModal }) => {
   const sidenav = (
     <div className="sidenav">
       <div>Map</div>
@@ -64,10 +17,10 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
   const linkToSessions = () => {
     return (
       <nav>
-        {navbar}
+        <Navbar />
         <div className="body-content">
           {sidenav}
-          <ListingsIndexContainer/>
+          <ListingsIndexContainer />
         </div>
       </nav>
     );

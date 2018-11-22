@@ -7,7 +7,6 @@ import SplashContainer from "./splash_page/splash_container";
 import Modal from "./modal/modal";
 import ListingShowContainer from "./listing_show/listing_show_container";
 import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
-
 const App = () => {
   return (
     <div>
@@ -22,3 +21,6 @@ const App = () => {
 };
 
 export default App;
+
+// import TripsShowContainer from "";
+// <Route path="/bookings/:renterId" component={TripsShowContainer} />

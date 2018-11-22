@@ -6,7 +6,7 @@
       json.photoUrls booking.listing.photos.map { |photo| url_for(photo) }
     end
     json.user do
-      json.partial! 'api/users/user', user: booking.listing.owner
+      json.partial! 'api/users/user', user: booking.listing.owner_id
     end
   end
 end

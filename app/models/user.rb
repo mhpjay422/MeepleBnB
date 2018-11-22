@@ -11,7 +11,7 @@ has_many :listings,
   class_name: "Listing"
 
 has_many :bookings,
-  foreign_key: :user_id,
+  foreign_key: :renter_id,
   class_name: "Booking"
 
 has_many :booked_listings,

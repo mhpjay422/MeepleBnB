@@ -1,21 +1,27 @@
 class Api::BookingsController < ApplicationController
   def approve
     current_booking_request.approve!
-    redirect_to "/api/listings/show"
+    render "/api/bookings/show"
   end
 
   def deny
     current_booking_request.deny!
-    redirect_to "/api/listings/show"
+    render "/api/bookings/show"
+  end
+
+  def index
+    @bookings = current_user.bookings
+    render "/api/bookings/index"
   end
 
   def create
-    @booking= Booking.new(booking_params)
+    @booking = Booking.new(booking_params)
+    @booking.renter_id = current_user.id;
     if @booking.save
-      redirect_to "/api/listings/show"
+      render "/api/bookings/show"
     else
       flash.now[:errors] = @booking.errors.full_messages
-      render "/api/listings/show"
+      render "/api/bookings/show"
     end
   end
 
@@ -26,7 +32,7 @@ class Api::BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    render "/api/listings"
+    render "/api/bookings"
   end
 
 

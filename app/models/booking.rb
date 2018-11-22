@@ -2,7 +2,7 @@ class Booking < ApplicationRecord
 
   STATUS_STATII = ["APPROVED", 'DENIED', "PENDING"].freeze
 
-  validates :price, :date_start, :date_end, :listing_id, :status, presence: true
+  validates :date_start, :date_end, :listing_id, :status, :price, presence: true
   validates :status, inclusion: STATUS_STATII
   validate :start_must_before_end
   validate :does_not_overlap_approved_request
@@ -69,9 +69,9 @@ class Booking < ApplicationRecord
   def does_not_overlap_approved_request
     return if self.denied?
 
-    unless overlapping_approved_requests.empty?
-      errors[:base] << "There is a conflict with an existing approved request"
-    end
+    # unless overlapping_approved_requests.empty?
+    #   errors[:base] << "There is a conflict with an existing approved request"
+    # end
   end
 
   def start_must_before_end

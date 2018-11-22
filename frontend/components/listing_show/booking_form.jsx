@@ -14,7 +14,8 @@ class BookingForm extends React.Component {
       endDate: null,
       focusedInput: null,
       guests: 1,
-      price: this.props.listing.price
+      price: this.props.listing.price,
+      status: "PENDING"
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleGuests = this.handleGuests.bind(this);
@@ -30,7 +31,9 @@ class BookingForm extends React.Component {
       guests: this.state.guests,
       date_start: this.state.startDate._d,
       date_end: this.state.endDate._d,
-      listing_id: parseInt(this.props.listing.id)
+      listing_id: parseInt(this.props.listing.id),
+      status: this.state.status,
+      price: this.props.listing.price
     };
     this.props.createBooking(booking);
   }
