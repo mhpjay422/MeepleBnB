@@ -11,7 +11,6 @@ export const fetchBooking = id =>
   });
 
 export const createBooking = booking => {
-  debugger;
   return $.ajax({
     url: `api/listings/${booking.listing_id}/bookings`,
     method: "post",

@@ -53,7 +53,6 @@ export const fetchBooking = id => dispatch => {
 };
 
 export const createBooking = booking => dispatch => {
-  debugger;
   return BookingAPIUtil.createBooking(booking).then(
     payload => dispatch(receiveBooking(payload)),
     err => dispatch(receiveBookingErrors(err.responseJSON))

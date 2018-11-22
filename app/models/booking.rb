@@ -55,7 +55,7 @@ class Booking < ApplicationRecord
   def overlapping_requests
     Booking
       .where.not(id: self.id)
-      .where.not("date_start > :date_end OR :date_end")
+      .where.not(":date_start > :date_end OR :date_end")
   end
 
   def overlapping_approved_requests
