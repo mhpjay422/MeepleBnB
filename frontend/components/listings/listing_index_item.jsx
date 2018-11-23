@@ -20,13 +20,24 @@ class IndexItem extends React.Component {
           <img className="list-img" src={this.props.listing.picture_url} />
         </div>
         <div className="index-item-info">
+          <img
+            className="plus"
+            src="./Screen Shot 2018-11-23 at 11.15.19 AM.png"
+          />
           <span className="index-item-title">{this.props.listing.title}</span>
           <br />
           <span className="index-item-price">
             ${this.props.listing.price} per night · Free cancellation
           </span>
           <br />
-          <span className="index-item-rating">Rating:</span>
+          <span className="index-item-rating">
+            <div>Rating: </div>
+            <img className="star" src="./star-solid.svg" />
+            <img className="star" src="./star-solid.svg" />
+            <img className="star" src="./star-solid.svg" />
+            <img className="star" src="./star-solid.svg" />
+            <img className="star" src="./star-solid.svg" />
+          </span>
           <br />
         </div>
       </div>

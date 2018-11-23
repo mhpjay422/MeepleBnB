@@ -125,7 +125,6 @@ class BookingForm extends React.Component {
               </span>
               <div>It’s been viewed 500+ times in the past week.</div>
             </div>
-            s
             <img className="lightbulb" src="./lightbulb.svg" />
           </div>
         </div>

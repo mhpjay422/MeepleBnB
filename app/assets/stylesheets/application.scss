@@ -161,6 +161,7 @@ a:hover {
   justify-content: center;
   color: red;
   padding-right: 35px;
+  font-weight: 600;
 }
 
 .form-submit {
@@ -300,7 +301,7 @@ a:hover {
 }
 
 .sidenav {
-  height: 5000px;
+  height: 2000px;
   width: 288px;
   position: relative;
   top: 0;
@@ -352,21 +353,54 @@ a:hover {
   object-fit: fill;
 }
 
+.plus {
+  padding-top: 3px;
+  height: 25px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.trip-plus-container {
+  width: 325px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trip-plus {
+  padding-top: 3px;
+  height: 25px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .index-item-title {
   font-weight: bolder;
   font-size: 17px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
 }
 .index-item-price {
   font-size: 14px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  display: flex;
+  align-items: bottom;
 }
 .index-item-rating {
   font-size: 13px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  display: flex;
+  align-items: top;
+}
+.index-item-rating div {
+  margin-right: 5px;
+}
+
+.star {
+  height: 15px;
+  width: 15px;
+  line-height: 5px;
 }
 
 .listing_index_info {
@@ -735,6 +769,7 @@ div.DateInput.DateInput_1 {
 
 .lightbulb {
   padding-right: 20px;
+  padding-left: 10px;
 }
 
 .alreadybooked-container {
@@ -801,12 +836,12 @@ div.DateInput.DateInput_1 {
 }
 
 .trip-content {
-  height: 2000px;
+  height: 1500px;
   width: 1070px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .trip-items {
@@ -814,7 +849,7 @@ div.DateInput.DateInput_1 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .trip-index-item {
@@ -827,7 +862,7 @@ div.DateInput.DateInput_1 {
   justify-content: space-between;
   border: 1px solid lightgrey;
   background-size: cover;
-  padding-bottom: 60px;
+  padding-right: 15px;
 }
 
 .trip-index-item-img:hover {
@@ -851,20 +886,23 @@ div.DateInput.DateInput_1 {
 }
 
 .trip-item-info {
-  height: 80px;
-  padding-top: 50px;
+  width: 325px;
+  height: 100px;
   border-top: 1px solid lightgrey;
   border-bottom: 1px solid lightgrey;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
 .trip-item-title {
-  width: 325px;
+  width: 300px;
   font-weight: bolder;
   font-size: 17px;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
   display: flex;
   justify-content: center;
+  word-wrap: break-word;
+  padding-left: 10px;
 }
 
 .trip-item-price {
@@ -880,6 +918,10 @@ div.DateInput.DateInput_1 {
   display: flex;
   justify-content: center;
   padding-bottom: 15px;
+}
+
+.trip-item-rating div {
+  margin-right: 5px;
 }
 
 .null {

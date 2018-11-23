@@ -23,7 +23,12 @@ class TripIndexItem extends React.Component {
           />
         </div>
 
-        <hr />
+        <div className="trip-plus-container">
+          <img
+            className="trip-plus"
+            src="./Screen Shot 2018-11-23 at 11.15.19 AM.png"
+          />
+        </div>
 
         <span className="trip-item-title">
           {this.props.listings[this.props.trip.listing_id].title}
@@ -35,7 +40,14 @@ class TripIndexItem extends React.Component {
             Free cancellation
           </span>
           <br />
-          <span className="trip-item-rating">Rating:</span>
+          <span className="trip-item-rating">
+            <div>Rating: </div>
+            <img className="star" src="./star-solid.svg" />
+            <img className="star" src="./star-solid.svg" />
+            <img className="star" src="./star-solid.svg" />
+            <img className="star" src="./star-solid.svg" />
+            <img className="star" src="./star-solid.svg" />
+          </span>
           <br />
         </div>
 
