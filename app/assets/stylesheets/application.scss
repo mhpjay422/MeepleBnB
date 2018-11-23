@@ -396,7 +396,7 @@ a:hover {
 .list-show-images img:hover {
   transform: scale(1.03);
   -webkit-transform: scale(1.03);
-  -webkit-filter: brightness(140%);
+  -webkit-filter: brightness(130%);
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -o-transition: all 1s ease;
@@ -795,8 +795,9 @@ div.DateInput.DateInput_1 {
 }
 
 .trip-booked-trips-text {
-  font-size: 30px;
+  font-size: 40px;
   margin-bottom: 100px;
+  font-weight: 600;
 }
 
 .trip-content {
@@ -865,12 +866,14 @@ div.DateInput.DateInput_1 {
   display: flex;
   justify-content: center;
 }
+
 .trip-item-price {
   width: 325px;
   font-size: 14px;
   display: flex;
   justify-content: center;
 }
+
 .trip-item-rating {
   width: 325px;
   font-size: 13px;

@@ -13,10 +13,21 @@ const ListingDetail = ({ listing }) => {
             <img className="index-image-main-1" src={listing.picture_url} />
           </div>
           <div className="list-show-image-side">
-            <img className="index-image" src={listing.picture_url} />
-            <img className="index-image" src={listing.picture_url} />
-            <img className="index-image" src={listing.picture_url} />
-            <img className="index-image" src={listing.picture_url} />
+            <img className="index-image" src={"3-1200x800.jpg"} />
+            <img
+              className="index-image"
+              src={"Black-looks-exquisite-in-the-bachelor-pad-bedroom.jpg"}
+            />
+            <img
+              className="index-image"
+              src={"pharrell-williams-miami-penthouse-kitchen-1.jpg"}
+            />
+            <img
+              className="index-image"
+              src={
+                "luxury-pictures-of-modern-bathrooms-21-ideas-beautiful-bathroom-designs-from-schmidt.jpg"
+              }
+            />
           </div>
         </div>
         <ul className="listing-body">
