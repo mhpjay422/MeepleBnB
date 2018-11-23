@@ -38,16 +38,41 @@ const ListingDetail = ({ listing }) => {
             </div>
             <div className="listing-amenities-preview">
               <div className="preview-house">
-                <div className="house-box">
-                  <img className="house-icon" src="house.svg" />
-                </div>
+                <div className="house-box" />
                 <div className="preview-body">
-                  <div className="house-type">Entire House</div>
+                  <div className="house-type">
+                    <img className="house-icon" src="house.svg" />
+                    Entire House
+                  </div>
                   <div className="amenities-preview">
-                    <li>4 guests</li>
-                    <li>1 bedroom</li>
-                    <li>2 beds</li>
-                    <li>1 bath</li>
+                    <li>
+                      <img
+                        className="amenities-icon"
+                        src="./Screen Shot 2018-11-23 at 12.21.41 PM.png"
+                      />
+                      4 guests
+                    </li>
+                    <li>
+                      <img
+                        className="amenities-icon"
+                        src="./Screen Shot 2018-11-23 at 12.24.07 PM.png"
+                      />
+                      1 bedroom
+                    </li>
+                    <li>
+                      <img
+                        className="amenities-icon"
+                        src="./Screen Shot 2018-11-23 at 12.23.28 PM.png"
+                      />
+                      2 beds
+                    </li>
+                    <li>
+                      <img
+                        className="amenities-icon"
+                        src="Screen Shot 2018-11-23 at 12.23.48 PM.png"
+                      />
+                      1 bath
+                    </li>
                   </div>
                 </div>
               </div>

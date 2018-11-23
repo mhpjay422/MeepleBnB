@@ -83,7 +83,14 @@ class BookingForm extends React.Component {
               <div>per night</div>
             </div>
           </div>
-          <div className="booking-rating">rating</div>
+          <div className="booking-rating">
+            <div>Rating: </div>
+            <img className="booking-star" src="./star-solid.svg" />
+            <img className="booking-star" src="./star-solid.svg" />
+            <img className="booking-star" src="./star-solid.svg" />
+            <img className="booking-star" src="./star-solid.svg" />
+            <img className="booking-star" src="./star-solid.svg" />
+          </div>
           <div className="booking-dates-header">Dates</div>
           <div className="date-picker">
             <DateRangePicker
@@ -125,7 +132,10 @@ class BookingForm extends React.Component {
               </span>
               <div>It’s been viewed 500+ times in the past week.</div>
             </div>
-            <img className="lightbulb" src="./lightbulb.svg" />
+            <img
+              className="lightbulb"
+              src="./Screen Shot 2018-11-23 at 11.43.18 AM.png"
+            />
           </div>
         </div>
       </form>
