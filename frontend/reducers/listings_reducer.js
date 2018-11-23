@@ -11,8 +11,8 @@ const listingsReducer = (state = {}, action) => {
     case RECEIVE_LISTING:
       const listing = { [action.listing.id]: action.listing };
       return merge({}, state, listing);
-    case RECEIVE_ALL_BOOKINGS:
-      return action.bookings.listings;
+    // case RECEIVE_ALL_BOOKINGS:
+    //   return action.bookings.listings;
     default:
       return state;
   }

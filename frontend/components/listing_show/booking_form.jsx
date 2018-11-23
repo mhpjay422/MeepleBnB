@@ -19,6 +19,12 @@ class BookingForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleGuests = this.handleGuests.bind(this);
+    this.finalForm = this.finalForm.bind(this);
+    this.formHelper = this.formHelper.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchBookings(this.props.currentUserId);
   }
 
   componentWillUnmount(oldProps) {
@@ -53,8 +59,20 @@ class BookingForm extends React.Component {
     return <ul>{errorMess}</ul>;
   }
 
+  formHelper(booking) {
+    return booking.renter_id === this.props.currentUserId;
+  }
+
+  finalForm(alreadyBookedForm, form) {
+    if (this.props.bookings.some(this.formHelper)) {
+      return alreadyBookedForm;
+    } else {
+      return form;
+    }
+  }
+
   render() {
-    return (
+    const form = (
       <form className="booking-form">
         <div className="booking-body">
           <div className="booking-price">
@@ -111,6 +129,17 @@ class BookingForm extends React.Component {
         </div>
       </form>
     );
+
+    const alreadyBookedForm = (
+      <div className="alreadybooked-container">
+        <div className="alreadybooked-container">
+          Test
+          <div className="alreadybooked-text" />
+        </div>
+      </div>
+    );
+
+    return this.finalForm(alreadyBookedForm, form);
   }
 }
 
