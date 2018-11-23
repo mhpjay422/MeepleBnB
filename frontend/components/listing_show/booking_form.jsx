@@ -103,7 +103,7 @@ class BookingForm extends React.Component {
             />
           </div>
           <div className="booking-guests-header">Guests</div>
-          <input
+          <textarea
             type="integer"
             className="booking-guests-input"
             defaultValue="1"
@@ -111,9 +111,11 @@ class BookingForm extends React.Component {
             onChange={this.handleGuests}
           />
           <div>{this.renderErrors()}</div>
-          <button className="booking-submit" onClick={this.handleSubmit}>
-            <div className="Book-button">Book</div>
-          </button>
+          <div className="button-hover">
+            <button className="booking-submit" onClick={this.handleSubmit}>
+              <div className="book-button">Book</div>
+            </button>
+          </div>
           <div className="booking-charge-text">You won’t be charged yet</div>
           <div className="booking-divider" />
           <div className="booking-bottom-container">
@@ -132,9 +134,11 @@ class BookingForm extends React.Component {
 
     const alreadyBookedForm = (
       <div className="alreadybooked-container">
-        <div className="alreadybooked-container">
-          Test
-          <div className="alreadybooked-text" />
+        <div className="alreadybooked-body">
+          <div className="alreadybooked-text">Congratulations! </div>
+          <div className="alreadybooked-text1">
+            You are booked for this listing{" "}
+          </div>
         </div>
       </div>
     );

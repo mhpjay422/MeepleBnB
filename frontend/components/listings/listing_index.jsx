@@ -13,7 +13,7 @@ export default class ListingIndex extends React.Component {
   render() {
     return (
       <div className="list-body">
-        <h1>Top-Rated homes: </h1>
+        <h1>Top-Rated Homes: </h1>
         <ul className="list-items">
           {this.props.listings.map(listing => (
             <ListingIndexItem listing={listing} key={listing.id} />

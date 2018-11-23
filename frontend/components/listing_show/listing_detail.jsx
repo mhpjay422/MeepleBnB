@@ -43,8 +43,11 @@ const ListingDetail = ({ listing }) => {
             </div>
             <span className="the-space">The space</span>
             <div>{listing.description}</div>
-            <br />
+            <li />
+            <li />
             <li>Address: {listing.address}</li>
+            <li />
+            <li />
             <li>Latitude: {listing.lat}</li>
             <li>Longitude: {listing.lng}</li>
           </div>

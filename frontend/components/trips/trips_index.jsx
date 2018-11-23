@@ -18,15 +18,17 @@ export default class TripsIndex extends React.Component {
         <div className="trip-container">
           <div className="trip-body">
             <div className="trip-booked-trips-text">Your Booked Trips:</div>
-            <ul className="trip-items">
-              {this.props.trips.map(trip => (
-                <TripsIndexItem
-                  trip={trip}
-                  listings={this.props.listings}
-                  key={trip.id}
-                />
-              ))}
-            </ul>
+            <div className="trip-content">
+              <ul className="trip-items">
+                {this.props.trips.map(trip => (
+                  <TripsIndexItem
+                    trip={trip}
+                    listings={this.props.listings}
+                    key={trip.id}
+                  />
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

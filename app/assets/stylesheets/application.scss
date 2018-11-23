@@ -107,7 +107,7 @@ a:hover {
 
 .login-form-container {
   position: relative;
-  height: 627px;
+  height: 650px;
   width: 568px;
   color: black;
   box-sizing: border-box;
@@ -151,6 +151,16 @@ a:hover {
   padding-top: 2px;
   padding-bottom: 2px;
   margin: 0px;
+}
+
+.errors {
+  width: 500px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: red;
+  padding-right: 35px;
 }
 
 .form-submit {
@@ -345,12 +355,18 @@ a:hover {
 .index-item-title {
   font-weight: bolder;
   font-size: 17px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .index-item-price {
   font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .index-item-rating {
   font-size: 13px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .listing_index_info {
@@ -568,7 +584,7 @@ a:hover {
   display: flex;
   flex-direction: row;
   align-content: flex-end;
-  margin-left: 10px;
+  margin-left: 2px;
   margin-right: 0px;
   padding-right: 0px;
 }
@@ -578,6 +594,7 @@ a:hover {
   margin-left: 0px;
   width: 100%;
   font-size: 10px;
+  padding-top: 8px;
   padding-bottom: 22px;
   border-bottom: 1px solid lightgrey;
 }
@@ -595,15 +612,25 @@ a:hover {
   justify-content: space-between;
 }
 
+.date-picker:hover {
+  cursor: pointer;
+}
+
 #start-date,
 #end-date {
   margin: 0;
-  text-align: center;
+  text-align: justify;
   border: none;
+}
+
+#end-date:hover,
+#start-date:hover {
+  cursor: pointer;
 }
 
 #start-date {
   border: none;
+  text-align: center;
 }
 
 #start-date:focus,
@@ -637,14 +664,14 @@ div.DateInput.DateInput_1 {
 }
 
 .booking-guests-input {
+  display: flex;
   height: 40px;
   width: 93.5%;
   font-size: 20px;
   font-weight: 300;
   padding-left: 16px;
   padding-bottom: 10px;
-  vertical-align: bottom;
-  justify-content: flex-end;
+  line-height: 1.6em;
 }
 
 .booking-submit {
@@ -656,6 +683,17 @@ div.DateInput.DateInput_1 {
   font-weight: 800;
   margin-bottom: 10px;
   margin-top: 30px;
+}
+
+.book-button:hover {
+  cursor: pointer;
+}
+
+.book-button:hover {
+  cursor: pointer;
+}
+.book-submit:hover {
+  cursor: pointer;
 }
 
 .booking-charge-text {
@@ -699,29 +737,146 @@ div.DateInput.DateInput_1 {
   padding-right: 20px;
 }
 
+.alreadybooked-container {
+  height: 300px;
+  width: 600px;
+  background-color: white;
+  margin-left: 10px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.alreadybooked-body {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 800px;
+  background-color: white;
+  margin-left: 25px;
+  margin-top: 50px;
+  justify-content: flex-start;
+  align-content: left;
+  font-weight: bolder;
+  border-bottom: 1px solid lightgrey;
+}
+
+.alreadybooked-text {
+  font-size: 40px;
+
+  padding-bottom: 40px;
+  padding-left: 25px;
+}
+
+.alreadybooked-text1 {
+  padding-left: 25px;
+  font-size: 30px;
+}
+
 .loggedin-buttons {
-  width: 110px;
+  width: 130px;
   display: flex;
   justify-content: space-between;
   margin-right: 10px;
 }
 
 .trip-container {
+  height: 2000px;
   display: flex;
   justify-content: center;
 }
 
 .trip-body {
-  width: 1050px;
-  margin-top: 50px;
+  height: 2000px;
+  width: 1070px;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
 }
 
 .trip-booked-trips-text {
   font-size: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 100px;
+}
+
+.trip-content {
+  height: 2000px;
+  width: 1070px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.trip-items {
+  width: 1070px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.trip-index-item {
+  width: 325px;
+  height: 500px;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid lightgrey;
+  background-size: cover;
+  padding-bottom: 60px;
+}
+
+.trip-index-item-img:hover {
+  cursor: pointer;
+}
+
+.trip-list-img {
+}
+
+.trip-list-img {
+  height: 200px;
+  width: 325px;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.trip-space {
+  height: 50px;
+  width: 325px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.trip-item-info {
+  height: 80px;
+  padding-top: 50px;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  justify-content: flex-start;
+}
+
+.trip-item-title {
+  width: 325px;
+  font-weight: bolder;
+  font-size: 17px;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+}
+.trip-item-price {
+  width: 325px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+}
+.trip-item-rating {
+  width: 325px;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px;
 }
 
 .null {

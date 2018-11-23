@@ -5,14 +5,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../navbar/navbar_container";
 
 export default ({ users, logout, loggedIn, demoLogin, openModal }) => {
-  const sidenav = (
-    <div className="sidenav">
-      <div>Map</div>
-      <div>Dates</div>
-      <div>Guests</div>
-      <div>Price</div>
-    </div>
-  );
+  const sidenav = <div className="sidenav" />;
 
   const linkToSessions = () => {
     return (
@@ -28,3 +21,7 @@ export default ({ users, logout, loggedIn, demoLogin, openModal }) => {
 
   return linkToSessions();
 };
+// <div>Map</div>
+// <div>Dates</div>
+// <div>Guests</div>
+// <div>Price</div>
