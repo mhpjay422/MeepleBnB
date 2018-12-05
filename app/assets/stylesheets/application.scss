@@ -345,7 +345,7 @@ a:hover {
   width: 100%;
 }
 
-.listing-index-item {
+.listing-index {
   width: 300px;
   margin-bottom: 25px;
   box-sizing: border-box;
@@ -354,7 +354,7 @@ a:hover {
   padding: 10px;
 }
 
-.index-item-img:hover {
+.listing-index-item:hover {
   cursor: pointer;
 }
 
@@ -362,6 +362,10 @@ a:hover {
   height: 180px;
   width: 270px;
   object-fit: fill;
+}
+
+.index-item-rating {
+
 }
 
 .plus {
@@ -463,7 +467,6 @@ a:hover {
   max-height: 100%;
   width: 100%;
   overflow: hidden;
-  cursor: pointer;
 }
 
 .list-show-image-side {
@@ -476,7 +479,6 @@ a:hover {
 }
 
 .list-show-image-side img {
-  cursor: pointer;
 }
 
 .index-image {
