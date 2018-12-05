@@ -313,7 +313,7 @@ a:hover {
 
 .sidenav {
   height: 2000px;
-  width: 288px;
+  width: 500px;
   position: relative;
   top: 0;
   left: 0;
@@ -326,12 +326,21 @@ a:hover {
   color: #f1f1f1;
 }
 
+.map-conatiner {
+  width: 300px;
+  height: 300px;
+}
+.map {
+  height: 300px;
+  width: 300px;
+}
+
 .list-body {
   padding: 20px;
 }
 
 .list-items {
-  width: 100%;
+  width: 1500px;
   flex-direction: row;
   display: flex;
   padding: 20px;
@@ -971,15 +980,6 @@ div.DateInput.DateInput_1 {
 
 .trip-item-rating div {
   margin-right: 5px;
-}
-
-.map-conatiner {
-  width: 300px;
-  height: 300px;
-}
-.map {
-  height: 300px;
-  width: 300px;
 }
 
 .null {
