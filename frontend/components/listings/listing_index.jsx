@@ -1,5 +1,7 @@
 import React from "react";
 import ListingIndexItem from "./listing_index_item";
+import ListingMap from "../listings/listing_map";
+
 
 export default class ListingIndex extends React.Component {
   constructor(props) {
@@ -11,7 +13,16 @@ export default class ListingIndex extends React.Component {
   }
 
   render() {
+
+    const sidenav = (
+      <div className="sidenav">
+        <ListingMap listings={this.props.listings}/>
+      </div>
+    );
+
     return (
+      <>
+      {sidenav}
       <div className="list-body">
         <h1>Top-Rated Homes: </h1>
         <ul className="list-items">
@@ -20,6 +31,7 @@ export default class ListingIndex extends React.Component {
           ))}
         </ul>
       </div>
+      </>
     );
   }
 }

@@ -313,7 +313,7 @@ a:hover {
 
 .sidenav {
   height: 2000px;
-  width: 500px;
+  min-width: 400px;
   position: relative;
   top: 0;
   left: 0;
@@ -340,7 +340,7 @@ a:hover {
 }
 
 .list-items {
-  width: 1500px;
+  width: 100%;
   flex-direction: row;
   display: flex;
   padding: 20px;

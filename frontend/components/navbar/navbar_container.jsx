@@ -13,6 +13,7 @@ const msp = (state) => {
 
 const mdp  = dispatch => {
   return {
+    login: () => dispatch(login()),
     logout: () => dispatch(logout()),
     openModal: modal => dispatch(openModal(modal)),
     demoLogin: () => dispatch(demoLogin(

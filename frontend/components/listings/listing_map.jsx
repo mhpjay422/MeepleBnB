@@ -1,8 +1,9 @@
 import React from "react";
+import MarkerManager from "../../util/marker_manager";
 
 const mapOptions = {
-  center: { lat: 37.7758, lng: -122.435 },
-  zoom: 13
+  center: { lat: 40.757409, lng: -73.982184 },
+  zoom: 11
 };
 
 class ListingMap extends React.Component {
@@ -12,6 +13,13 @@ class ListingMap extends React.Component {
 
   componentDidMount() {
     this.map = new google.maps.Map(this.mapNode, mapOptions);
+    this.MarkerManager = new MarkerManager(this.map);
+    this.MarkerManager.updateMarkers(this.props.listings);
+  }
+
+  componentDidUpdate() {
+    this.MarkerManager = new MarkerManager(this.map);
+    this.MarkerManager.updateMarkers(this.props.listings);
   }
 
   render() {
