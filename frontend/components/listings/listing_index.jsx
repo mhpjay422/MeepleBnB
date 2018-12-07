@@ -16,7 +16,7 @@ export default class ListingIndex extends React.Component {
 
     const sidenav = (
       <div className="sidenav">
-        <ListingMap listings={this.props.listings}/>
+        <ListingMap listings={this.props.listings} updateFilter={this.props.updateFilter}/>
       </div>
     );
 
