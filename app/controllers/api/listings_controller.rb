@@ -2,7 +2,7 @@ class Api::ListingsController < ApplicationController
   before_action :require_logged_in, only: [:create]
 
   def index
-    @listings = Listing.all
+    @listings = params[:bounds] ? Listing.in_bounds(bounds) : Listing.all
     render "api/listings/index"
   end
 

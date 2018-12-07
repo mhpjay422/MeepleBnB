@@ -7,15 +7,14 @@ export default class MarkerManager {
   updateMarkers(listings) {
     const markersSet = {};
     listings.forEach(listing => {
-      if (!this.markers.id) {
-        this.markers.id = listing ;
+      if (!this.markers[listing.id]) {
+        this.markers[listing.id] = listing ;
         this.createMarkerFromListing(listing);
       }
     });
   }
 
   createMarkerFromListing(listing) {
-    debugger
     let latlng = new google.maps.LatLng(listing.lat, listing.lng);
     let newMarker = new google.maps.Marker({
       position: latlng,
