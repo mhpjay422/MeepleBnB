@@ -63,7 +63,6 @@ class BookingForm extends React.Component {
   }
 
   formHelper(booking) {
-    debugger
     return (this.props.listing.id === booking.listing_id && booking.renter_id === this.props.currentUserId);
   }
 
