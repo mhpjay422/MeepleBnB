@@ -33,6 +33,9 @@ class BookingForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    if (this.props.currentUserId === null) {
+      alert("Please log in to make a booking");
+    }
     const booking = {
       guests: this.state.guests,
       date_start: this.state.startDate._d,
@@ -60,7 +63,8 @@ class BookingForm extends React.Component {
   }
 
   formHelper(booking) {
-    return booking.renter_id === this.props.currentUserId;
+    debugger
+    return (this.props.listing.id === booking.listing_id && booking.renter_id === this.props.currentUserId);
   }
 
   finalForm(alreadyBookedForm, form) {
