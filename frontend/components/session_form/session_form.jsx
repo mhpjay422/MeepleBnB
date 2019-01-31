@@ -93,7 +93,7 @@ class SessionForm extends React.Component {
               <input
                 className="form-submit"
                 type="email"
-                placeholder="Name@gmail.com"
+                placeholder="Email"
                 value={this.state.email}
                 onChange={this.update("email")}
                 onKeyPress={this.keypress}

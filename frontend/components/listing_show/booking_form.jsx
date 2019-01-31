@@ -87,8 +87,8 @@ class BookingForm extends React.Component {
             </div>
           </div>
           <div className="booking-rating">
-            <div>Rating: </div>
-            <img className="booking-star" src="./star-solid.svg" />
+            <div className="booking-rating-text">Rating: </div>
+            <img className="booking-star-left" src="./star-solid.svg" />
             <img className="booking-star" src="./star-solid.svg" />
             <img className="booking-star" src="./star-solid.svg" />
             <img className="booking-star" src="./star-solid.svg" />

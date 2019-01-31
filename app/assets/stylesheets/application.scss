@@ -664,7 +664,7 @@ a:hover {
 .booking-rating {
   padding-left: 0px;
   margin-left: 0px;
-  width: 200px;
+  width: 100%;
   height: 30px;
   font-size: 8px;
   padding-top: 8px;
@@ -679,6 +679,19 @@ a:hover {
 
 .booking-rating div {
   margin-right: 3px;
+}
+
+.booking-rating-text {
+  margin-right: 20px;
+}
+
+.booking-star-left {
+  height: 12px;
+  width: 12px;
+  line-height: 5px;
+  display: flex;
+  align-items: bottom;
+  margin-left: 3px;
 }
 
 .booking-star {
