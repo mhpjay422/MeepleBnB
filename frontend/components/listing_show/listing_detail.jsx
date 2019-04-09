@@ -84,8 +84,8 @@ const ListingDetail = ({ listing }) => {
             <li>Address: {listing.address}</li>
             <li />
             <li />
-            <li>Latitude: {listing.lat}</li>
-            <li>Longitude: {listing.lng}</li>
+            
+            
           </div>
           <BookingFormContainer listing={listing} />
         </ul>

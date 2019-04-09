@@ -12,7 +12,7 @@ l1 = Listing.create({
   description: "A complete collection of games to choose from with all the amenities of a luxury hotel",
   address: "2871 Broadway, New York, NY 10025",
   price: 279,
-  picture_url: "http://surface-tension.net/wp-content/uploads/2017/02/board-game-room-red-baize.jpg",
+  picture_url: "./images (4).jpeg",
   owner_id: demoUser.id
   })
 
@@ -223,6 +223,6 @@ l17 = Listing.create({
   description: "Enjoy playing games in style. Handcrafted furniture to make your gaming experience unique",
   address: "19-33 37th St, Astoria, NY 11105",
   price: 259,
-  picture_url: "./images (4).jpeg",
+  picture_url: "./images (5).jpeg",
   owner_id: d3.id
   })
