@@ -27,19 +27,6 @@ l11 = Listing.create({
   owner_id: d3.id
   })
 
-l18 = Listing.create({
-  lat: 40.713439,
-  lng: -73.959162,
-  title: "Brooklyn's Star",
-  description: "The most unique gaming space this side of Brooklyn",
-  address: "242 Grand St, Brooklyn, NY 11211",
-  price: 179,
-  picture_url: "./images (5).jpeg",
-  owner_id: demoUser.id
-  })
-
-
-
 l2 = Listing.create({
   lat: 40.729332,
   lng: -73.998745,
@@ -146,7 +133,7 @@ l17 = Listing.create({
   description: "Enjoy playing games in style. Handcrafted furniture to make your gaming experience unique",
   address: "10-93 Jackson Ave, Long Island City, NY 11101",
   price: 259,
-  picture_url: "./images (4).jpeg",
+  picture_url: "./images (5).jpeg",
   owner_id: d3.id
   })
 
@@ -203,26 +190,4 @@ l16 = Listing.create({
   price: 159,
   picture_url: "./download (8).jpeg",
   owner_id: d2.id
-  })
-
-l18 = Listing.create({
-  lat: 40.672931,
-  lng: -73.985139,
-  title: "Brooklyn's Triangle",
-  description: "The most unique gaming space this side of Brooklyn",
-  address: "241 S 4th St, Brooklyn, NY 11211",
-  price: 179,
-  picture_url: "./images (5).jpeg",
-  owner_id: demoUser.id
-  })
-
-l17 = Listing.create({
-  lat: 40.778380,
-  lng: -73.901791,
-  title: "The majestic space of Queens",
-  description: "Enjoy playing games in style. Handcrafted furniture to make your gaming experience unique",
-  address: "19-33 37th St, Astoria, NY 11105",
-  price: 259,
-  picture_url: "./images (5).jpeg",
-  owner_id: d3.id
   })
