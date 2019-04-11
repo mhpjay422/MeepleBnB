@@ -6,8 +6,8 @@ d2 = User.create({username: "Craig", email: "craig@gmail.com", password: "starwa
 d3 = User.create({username: "Molly", email: "molly@gmail.com", password: "starwars"})
 
 l1 = Listing.create({
-  lat: 40.805269,
-  lng: -73.966233,
+  lat: 40.805248,
+  lng: -73.966090,
   title: "A Gamer's Paradise",
   description: "A complete collection of games to choose from with all the amenities of a luxury hotel",
   address: "2871 Broadway, New York, NY 10025",
@@ -28,8 +28,8 @@ l11 = Listing.create({
   })
 
 l2 = Listing.create({
-  lat: 40.729332,
-  lng: -73.998745,
+  lat: 40.729397,
+  lng: -73.998859,
   title: "Hippest location in town with a hip collection",
   description: "Loads of games to choose from and enjoy the nightlife in one of the hippest areas in NYC",
   address: "230 Thompson St, New York, NY 10012",
@@ -39,8 +39,8 @@ l2 = Listing.create({
   })
 
 l3 = Listing.create({
-  lat: 40.747552,
-  lng: -73.984245,
+  lat: 40.747442,
+  lng: -73.984265,
   title: "In the Heart of Manhattan ",
   description: "Enjoy playing games from my personal collections and be just minutes walk from all the great restaurants in New York City",
   address: "11 E 33rd St, New York, NY 10016",
@@ -50,8 +50,8 @@ l3 = Listing.create({
   })
 
 l4 = Listing.create({
-  lat: 40.750534,
-  lng: -73.980755,
+  lat: 40.750629,
+  lng: -73.980883,
   title: "Cozy spot with a great location",
   description: "Play games from my collection with a large number of grail games.",
   address: "261 Madison Ave 9th Floor, New York, NY 10016",
@@ -67,7 +67,7 @@ l5 = Listing.create({
   description: "Enjoy playing games in style. Handcrafted furniture to make your gaming experience unique",
   address: "42-11 Broadway, Astoria, NY 11103",
   price: 259,
-  picture_url: "./images (1).jpeg",
+  picture_url: "./download (8).jpeg",
   owner_id: d3.id
   })
 
@@ -138,8 +138,8 @@ l17 = Listing.create({
   })
 
 l12 = Listing.create({
-  lat: 40.704231,
-  lng: -73.986237,
+  lat: 40.704312,
+  lng: -73.986568,
   title: "Brooklyn's grand",
   description: "The most unique gaming space this side of Brooklyn",
   address: "25 Jay St, Brooklyn, NY 11201",
@@ -149,8 +149,8 @@ l12 = Listing.create({
   })
 
 l13 = Listing.create({
-  lat: 40.741993,
-  lng: -73.989937,
+  lat: 40.741902,
+  lng: -73.989365,
   title: "A Gamer's Utopia",
   description: "A complete collection of games to choose from with all the amenities of a luxury hotel",
   address: "200 5th Ave, New York, NY 10010",
@@ -160,8 +160,8 @@ l13 = Listing.create({
   })
 
 l14 = Listing.create({
-  lat: 40.742451,
-  lng: -74.005959,
+  lat: 40.742107,
+  lng: -74.004602,
   title: "Hottest location in town with a hot collection",
   description: "Loads of games to choose from and enjoy the nightlife in one of the hippest areas in NYC",
   address: "75 9th Ave, New York, NY 10011",
@@ -179,15 +179,4 @@ l15 = Listing.create({
   price: 199,
   picture_url: "./download (3).jpeg",
   owner_id: d3.id
-  })
-
-l16 = Listing.create({
-  lat: 40.861913,
-  lng: -73.925336,
-  title: "Chill spot with a even more chill location",
-  description: "Play games from my collection with a large number of grail games.",
-  address: "112 Dyckman St, New York, NY 10040",
-  price: 159,
-  picture_url: "./download (8).jpeg",
-  owner_id: d2.id
   })

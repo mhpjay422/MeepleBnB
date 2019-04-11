@@ -3,10 +3,6 @@ import { Link } from "react-router";
 import NavbarContainer from "../navbar/navbar_container";
 import BookingFormContainer from "./booking_form_container";
 
-const mapOptions = {
-  center: { lat: 40.782598, lng: -73.971915 },
-  zoom: 10.4
-};
 
 class ListingDetail extends React.Component {
   constructor(props) {
@@ -14,10 +10,29 @@ class ListingDetail extends React.Component {
   }
 
   componentDidMount() {
-    this.map = new google.maps.Map(this.mapNode, mapOptions);
-  }
+    
+    const mapOptions = {
+      position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
+      zoom: 10.4,
+      pov: {
+        heading: 34
+      }
+    };
 
-// const ListingDetail = ({ listing }) => {
+    this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
+  }
+  componentDidUpdate() {
+
+    const mapOptions = {
+      position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
+      zoom: 10.4,
+      pov: {
+        heading: 34
+      }
+    };
+
+    this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
+  }
 
   render() {
   return (
