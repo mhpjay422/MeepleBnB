@@ -3,14 +3,30 @@ import { Link } from "react-router";
 import NavbarContainer from "../navbar/navbar_container";
 import BookingFormContainer from "./booking_form_container";
 
-const ListingDetail = ({ listing }) => {
+const mapOptions = {
+  center: { lat: 40.782598, lng: -73.971915 },
+  zoom: 10.4
+};
+
+class ListingDetail extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.map = new google.maps.Map(this.mapNode, mapOptions);
+  }
+
+// const ListingDetail = ({ listing }) => {
+
+  render() {
   return (
-    <div>
+    <div className="listing-detail-page">
       <NavbarContainer />
       <div className="list-show-body">
         <div className="list-show-images">
           <div className="list-show-image-main">
-            <img className="index-image-main-1" src={listing.picture_url} />
+            <img className="index-image-main-1" src={this.props.listing.picture_url} />
           </div>
           <div className="list-show-image-side">
             <img className="index-image" src={"3-1200x800.jpg"} />
@@ -34,7 +50,7 @@ const ListingDetail = ({ listing }) => {
           <div className="listing-lis">
             <div className="property-type">ENTIRE HOUSE</div>
             <div className="listing-title">
-              <li>{listing.title}</li>
+              <li>{this.props.listing.title}</li>
             </div>
             <div className="listing-amenities-preview">
               <div className="preview-house">
@@ -78,20 +94,26 @@ const ListingDetail = ({ listing }) => {
               </div>
             </div>
             <span className="the-space">The space</span>
-            <div>{listing.description}</div>
+            <div>{this.props.listing.description}</div>
             <li />
             <li />
-            <li>Address: {listing.address}</li>
+            <li>Address: {this.props.listing.address}</li>
+            <div className="lat-lng">
+              {this.props.listing.lat}
+              {this.props.listing.lng}
+            </div>
+            <div className="street-map" ref={map => (this.mapNode = map)}></div>
             <li />
             <li />
             
             
           </div>
-          <BookingFormContainer listing={listing} />
+          <BookingFormContainer listing={this.props.listing} />
         </ul>
       </div>
     </div>
   );
 };
+}
 
 export default ListingDetail;

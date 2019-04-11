@@ -335,6 +335,11 @@ a:hover {
   width: 400px;
 }
 
+.street-map {
+  height: 400px;
+  width: 400px;
+}
+
 .list-body {
   padding: 20px;
 }
@@ -439,6 +444,7 @@ a:hover {
 }
 
 .list-show-body {
+
 }
 
 .list-show-images {
@@ -510,11 +516,12 @@ a:hover {
   padding: left 400px;
   display: flex;
   flex-direction: row;
+  height: 1000px;
 }
 
 .listing-lis {
   width: 595px;
-  height: 500px;
+  height: 1000px;
   padding-right: 10px;
   display: flex;
   flex-direction: column;
