@@ -33,9 +33,13 @@ class BookingForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+
     if (this.props.currentUserId === null) {
       alert("Please log in to make a booking");
-    }
+    } 
+
+
+
     const booking = {
       guests: this.state.guests,
       date_start: this.state.startDate._d,
@@ -44,6 +48,12 @@ class BookingForm extends React.Component {
       status: this.state.status,
       price: this.props.listing.price
     };
+
+    
+
+    
+
+
     this.props.createBooking(booking);
   }
 
@@ -113,7 +123,7 @@ class BookingForm extends React.Component {
             />
           </div>
           <div className="booking-guests-header">Guests</div>
-          <textarea
+          <input
             type="integer"
             className="booking-guests-input"
             defaultValue="1"
