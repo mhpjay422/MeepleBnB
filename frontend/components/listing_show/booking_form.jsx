@@ -51,11 +51,6 @@ class BookingForm extends React.Component {
       price: this.props.listing.price
     };
 
-    
-
-    
-
-
     this.props.createBooking(booking);
   }
 
