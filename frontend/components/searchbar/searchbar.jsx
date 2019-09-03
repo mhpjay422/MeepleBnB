@@ -16,6 +16,9 @@ class SearchBar extends React.Component {
 render () {
   return (
     <div className="search">
+      <div to="/greeting" className="magglass">
+        <img src="./magglass.png" />
+      </div>
       <input type="text" className="search-bar" onSubmit={this.handleSubmit}>
       </input>
     </div>
