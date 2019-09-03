@@ -17,7 +17,7 @@ render () {
   return (
     <div className="search">
       <div to="/greeting" className="magglass">
-        <img src="./magglass.png" />
+        <img className="magpic" src="./magglass.png" />
       </div>
       <input type="text" className="search-bar" onSubmit={this.handleSubmit}>
       </input>
