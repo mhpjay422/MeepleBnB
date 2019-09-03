@@ -40,7 +40,6 @@
   height: 80px;
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
@@ -54,6 +53,7 @@
 .navbar-left {
   background-color: none;
   margin-left: 30px;
+  padding-right: 30px;
 }
 
 .twobar {
@@ -1005,4 +1005,27 @@ div.DateInput.DateInput_1 {
 
 .lat-lng {
   color: white;
+}
+
+.leftbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.search-bar {
+  width: 400px;
+  height: 48px;
+  background-color: white;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-left: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+  border-radius: 4px;
+  font-size: 17px;
+  font-family: Georgia;
+  font-weight: bolder;
 }

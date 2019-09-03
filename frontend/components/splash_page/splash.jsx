@@ -1,14 +1,19 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import SearchBar from '../searchbar/searchbar_container.jsx';
 
 export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
 
   const nav = (
     <div className="splash-topbar">
       <section className="topsec">
-          <Link to="/greeting" className="navbar-left">
-            <img src="./3d-meeple4.png"/>
-          </Link>
+          <div className="leftbar">
+            <Link to="/greeting" className="navbar-left">
+              <img src="./3d-meeple4.png" />
+            </Link>
+            <SearchBar />
+          </div>
+          
           <ul className="twobar">
             <nav className="splashbuttons">
               <li>

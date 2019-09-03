@@ -1,15 +1,25 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
-import ListingMap from "../listing_map/listing_map";
-import ListingIndex from "../listings/listing_index";
 
-const Search = () => {
+class SearchBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = [];
+  }
+
+  handleSubmit() {
+    e.preventDefault();
+  }
+
+render () {
   return (
-    <div>
-      <ListingMap />
-      <ListingIndex />
+    <div className="search">
+      <input type="text" className="search-bar" onSubmit={this.handleSubmit}>
+      </input>
     </div>
   );
-};
-
-export default Search;
+  }
+}
+  export default withRouter(SearchBar);
