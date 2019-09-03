@@ -37,7 +37,7 @@ class BookingForm extends React.Component {
     if (this.props.currentUserId === null) {
       alert("Please log in to make a booking");
     } 
-    else if (this.state.startDate || this.state.endDate === null) {
+    else if (this.state.startDate === null || this.state.endDate === null) {
       alert("Please choose valid date");
     }
 
