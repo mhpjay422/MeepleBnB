@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import Searchbar from './searchbar.jsx';
+import SearchBar from './searchbar.jsx';
 import { fetchListings } from '../../actions/listing_actions';
+import { updateFilter } from '../../actions/filter_actions';
 
 
 const msp = state => ({
@@ -9,6 +10,7 @@ const msp = state => ({
 
 const mdp = dispatch => ({
     fetchListings: () => dispatch(fetchListings()),
+    updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
 });
 
-export default connect(msp,mdp)(Searchbar);
+export default connect(msp, mdp)(SearchBar);

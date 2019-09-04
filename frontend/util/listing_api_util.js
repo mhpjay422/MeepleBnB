@@ -1,5 +1,4 @@
 export const fetchListings = (filters) => {
-
   return $.ajax({
     url: '/api/listings',
     method: 'get',
