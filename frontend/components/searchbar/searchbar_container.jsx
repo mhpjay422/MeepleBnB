@@ -6,4 +6,8 @@ const msp = state => ({
     listings: Object.values(state.entities.listings),
 });
 
-export default connect(msp)(Searchbar);
+const mdp = dispatch => ({
+    fetchListings: () => dispatch(fetchListings()),
+});
+
+export default connect(msp,mdp)(Searchbar);
