@@ -6,6 +6,7 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.findListings = this.findListings.bind(this);
     this.state = {
       term:'', 
       autoResults:[],
@@ -23,16 +24,33 @@ class SearchBar extends React.Component {
   }
 
   handleChange(e) {
+
+    this.setState({ term: e.target.value });
+
+        
+    const term = this.state.term;
     debugger
-    this.setState({ 
-      term: e.target.value,
-      autoResults: this.props.listings.filter( word => word.includes(this.state.term))
-     });
-     debugger
-    // setTimeout(function () { }, 100000);
+    const sortedListings = this.findListings(term);
+
     
+
+    this.setState({ autoResults: sortedListings })
+
     
   };
+
+  findListings(term) {
+    let list = [];
+    this.props.listings.forEach(function (listing, term) {
+      debugger
+      if (listing.address.includes(term)) {
+        list.push(listing);
+      }
+    });
+    
+    
+    return list;
+  }
 
 render () {
   return (
