@@ -25,23 +25,22 @@ class SearchBar extends React.Component {
 
   handleChange(e) {
 
-    this.setState({ term: e.target.value });
+    this.setState({ term: e.target.value }, () => {
+      const term = this.state.term;
+      debugger
+      const sortedListings = this.findListings(term);
 
-        
-    const term = this.state.term;
+      this.setState({ autoResults: sortedListings })
+    });
+
     debugger
-    const sortedListings = this.findListings(term);
 
-    
-
-    this.setState({ autoResults: sortedListings })
-
-    
   };
 
   findListings(term) {
+    debugger
     let list = [];
-    this.props.listings.forEach(function (listing, term) {
+    this.props.listings.forEach(function (listing) {
       debugger
       if (listing.address.includes(term)) {
         list.push(listing);
