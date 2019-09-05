@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import SearchBarContainer from '../searchbar/searchbar_container.jsx';
+import SearchContainer from '../searchbar/searchbar_container.jsx';
 
 export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
 
@@ -11,7 +11,7 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
             <Link to="/greeting" className="navbar-left">
               <img src="./3d-meeple4.png" />
             </Link>
-          <SearchBarContainer />
+          <SearchContainer />
           </div>
           
           <ul className="twobar">
