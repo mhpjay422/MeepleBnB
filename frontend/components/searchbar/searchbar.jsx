@@ -24,6 +24,7 @@ class SearchBar extends React.Component {
   }
 
   handleChange(e) {
+    debugger
 
     this.setState({ term: e.target.value }, () => {
       const term = this.state.term;
@@ -42,7 +43,7 @@ class SearchBar extends React.Component {
     let list = [];
     this.props.listings.forEach(function (listing) {
       debugger
-      if (listing.address.includes(term)) {
+      if (listing.address.toLowerCase().includes(term.toLowerCase())) {
         list.push(listing);
       }
     });
