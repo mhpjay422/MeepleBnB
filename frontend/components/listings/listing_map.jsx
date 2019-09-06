@@ -23,11 +23,14 @@ class ListingMap extends React.Component {
 
   registerListeners() {
     google.maps.event.addListener(this.map, 'idle', () => {
+      debugger
       const { north, south, east, west } = this.map.getBounds().toJSON();
+      debugger
       const bounds = {
         northEast: { lat: north, lng: east },
         southWest: { lat: south, lng: west }
       };
+      debugger
       this.props.updateFilter('bounds', bounds);
     });
   }

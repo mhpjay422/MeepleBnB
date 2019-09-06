@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Select from 'react-select';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -24,25 +25,25 @@ class SearchBar extends React.Component {
   }
 
   handleChange(e) {
-    debugger
+    
 
     this.setState({ term: e.target.value }, () => {
       const term = this.state.term;
-      debugger
+      
       const sortedListings = this.findListings(term);
 
       this.setState({ autoResults: sortedListings })
     });
 
-    debugger
+    
 
   };
 
   findListings(term) {
-    debugger
+    
     let list = [];
     this.props.listings.forEach(function (listing) {
-      debugger
+      
       if (listing.address.toLowerCase().includes(term.toLowerCase())) {
         list.push(listing);
       }
@@ -58,8 +59,12 @@ render () {
       <div to="/greeting" className="magglass">
         <img className="magpic" src="./magglass.png" />
       </div>
-      <input type="text" className="search-bar" onChange={this.handleChange} placeholder="Search...">
-      </input>
+      <Select 
+        type="text" 
+        className="search-bar" 
+        onChange={this.handleChange} 
+        placeholder="Search...">
+      </Select>
     </div>
   );
   }
