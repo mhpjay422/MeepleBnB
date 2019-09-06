@@ -5,6 +5,8 @@
     "@babel/core": "^7.1.5",
     "@babel/preset-env": "^7.1.5",
     "@babel/preset-react": "^7.0.0",
+    "@emotion/core": "^10.0.17",
+    "@emotion/styled": "^10.0.17",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.1",
     "jquery": "^3.3.1",
