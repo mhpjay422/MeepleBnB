@@ -21,6 +21,18 @@ class SearchBar extends React.Component {
       southWest: { lat: 40.57430312176032, lng: -74.24657320312497 }
     };
     this.props.updateFilter('bounds', bounds);
+    document.addEventListener('mousedown', this.handleClick, false)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClick, false)
+  }
+
+  handleClick(e) {
+    if (this.node.contains(e.target)) {
+      return
+    }
+    this.setState({ listOpen: false });
   }
 
   handleChange(e) {
@@ -55,7 +67,8 @@ render () {
       <div to="/greeting" className="magglass">
         <img className="magpic" src="./magglass.png" />
       </div>
-      <input type="text" 
+      <input ref={node => this.node = node}
+             type="text" 
              className="search-bar" 
              onChange={this.handleChange}
              onClick={this.toggleList} 
