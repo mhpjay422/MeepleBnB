@@ -1,8 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Select from 'react-select';
-import styled from '@emotion/styled';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -24,11 +22,11 @@ class SearchBar extends React.Component {
   }
 
   handleChange(e) {
-    
+    debugger
 
     this.setState({ term: e.target.value }, () => {
       const term = this.state.term;
-      
+      debugger
       const sortedListings = this.findListings(term);
 
       this.setState({ autoResults: sortedListings })
@@ -53,23 +51,13 @@ class SearchBar extends React.Component {
   }
 
 render () {
-  
   return (
     <div className="search">
       <div to="/greeting" className="magglass">
         <img className="magpic" src="./magglass.png" />
       </div>
-      <Select 
-        type="text" 
-        className="search-bar" 
-        onChange={this.handleChange} 
-        placeholder="Search..."
-        options={this.state.autoResults}
-        openMenuOnClick={false}
-        styles={searchStyles}
-        >
-        
-      </Select>
+      <input type="text" className="search-bar" onChange={this.handleChange} placeholder="Search...">
+      </input>
     </div>
   );
   }
