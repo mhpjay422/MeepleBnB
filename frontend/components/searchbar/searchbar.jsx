@@ -7,9 +7,11 @@ class SearchBar extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.findListings = this.findListings.bind(this);
+    this.toggleList = this.toggleList.bind(this);
     this.state = {
       term:'', 
-      autoResults:[]
+      autoResults:[], 
+      listOpen: false
     };
   }
 
@@ -23,31 +25,28 @@ class SearchBar extends React.Component {
 
   handleChange(e) {
     debugger
-
     this.setState({ term: e.target.value }, () => {
       const term = this.state.term;
-      debugger
       const sortedListings = this.findListings(term);
 
       this.setState({ autoResults: sortedListings })
     });
-
-    
-
   };
 
   findListings(term) {
-    
     let list = [];
     this.props.listings.forEach(function (listing) {
-      
       if (listing.address.toLowerCase().includes(term.toLowerCase())) {
         list.push(listing);
       }
     });
-    
-    
     return list;
+  }
+
+  toggleList(){
+    debugger
+    this.setState({ listOpen: !this.state.listOpen })
+    debugger
   }
 
 render () {
@@ -56,7 +55,12 @@ render () {
       <div to="/greeting" className="magglass">
         <img className="magpic" src="./magglass.png" />
       </div>
-      <input type="text" className="search-bar" onChange={this.handleChange} placeholder="Search...">
+      <input type="text" 
+             className="search-bar" 
+             onChange={this.handleChange}
+             onClick={this.toggleList} 
+             placeholder="Search..."
+             >
       </input>
     </div>
   );
