@@ -2,17 +2,27 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+
+
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.findListings = this.findListings.bind(this);
     this.toggleList = this.toggleList.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       term:'', 
       autoResults:[], 
       listOpen: false
     };
+  }
+
+  handleClick(e){
+    if (this.node.contains(e.target)) {
+      return
+    }
+    this.setState({ listOpen: false });
   }
 
   componentDidMount() {
@@ -21,18 +31,12 @@ class SearchBar extends React.Component {
       southWest: { lat: 40.57430312176032, lng: -74.24657320312497 }
     };
     this.props.updateFilter('bounds', bounds);
+    // debugger
     document.addEventListener('mousedown', this.handleClick, false)
   }
 
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClick, false)
-  }
-
-  handleClick(e) {
-    if (this.node.contains(e.target)) {
-      return
-    }
-    this.setState({ listOpen: false });
   }
 
   handleChange(e) {
