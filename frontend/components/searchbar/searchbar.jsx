@@ -51,11 +51,18 @@ class SearchBar extends React.Component {
     let list = [];
     this.props.listings.forEach(function (listing) {
       const matched = listing.address.toLowerCase().includes(term.toLowerCase());
+      
+      const noZipArray = listing.address.split(" ");
+      const noZip = noZipArray.slice(0, noZipArray.length - 1);
+      const newAddress = noZip.join(" ");
+      const newListing = listing;
+      newListing.address = newAddress;
 
-      if (matched) {  
-        list.push(listing);
+      if (matched) {
+        list.push(newListing);
       }
     });
+    
     return list.slice(0,8);
   }
 
@@ -80,10 +87,11 @@ render () {
         <ul className="searched-items">
           {this.state.autoResults.map(listing => (
             <div listing={listing} key={listing.id}>
-              <div className=" searched-item">
+              <div className="searched-item"
+                   key={listing.address}
+              >
                 {listing.address}
               </div>
-              
             </div>
           ))}
         </ul>
