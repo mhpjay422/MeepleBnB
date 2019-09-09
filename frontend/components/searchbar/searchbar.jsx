@@ -31,7 +31,6 @@ class SearchBar extends React.Component {
       southWest: { lat: 40.57430312176032, lng: -74.24657320312497 }
     };
     this.props.updateFilter('bounds', bounds);
-    // debugger
     document.addEventListener('mousedown', this.handleClick, false)
   }
 
@@ -40,7 +39,6 @@ class SearchBar extends React.Component {
   }
 
   handleChange(e) {
-    debugger
     this.setState({ term: e.target.value }, () => {
       const term = this.state.term;
       const sortedListings = this.findListings(term);
@@ -52,17 +50,17 @@ class SearchBar extends React.Component {
   findListings(term) {
     let list = [];
     this.props.listings.forEach(function (listing) {
-      if (listing.address.toLowerCase().includes(term.toLowerCase())) {
+      const matched = listing.address.toLowerCase().includes(term.toLowerCase());
+
+      if (matched) {  
         list.push(listing);
       }
     });
-    return list;
+    return list.slice(0,8);
   }
 
   toggleList(){
-    debugger
     this.setState({ listOpen: !this.state.listOpen })
-    debugger
   }
 
 render () {
@@ -71,14 +69,26 @@ render () {
       <div to="/greeting" className="magglass">
         <img className="magpic" src="./magglass.png" />
       </div>
-      <input ref={node => this.node = node}
-             type="text" 
-             className="search-bar" 
-             onChange={this.handleChange}
-             onClick={this.toggleList} 
-             placeholder="Search..."
-             >
-      </input>
+      <div className="search-drop">
+        <input ref={node => this.node = node}
+          type="text"
+          className="search-bar"
+          onChange={this.handleChange}
+          onClick={this.toggleList}
+          placeholder="Search...">
+        </input>
+        <ul className="searched-items">
+          {this.state.autoResults.map(listing => (
+            <div listing={listing} key={listing.id}>
+              <div className=" searched-item">
+                {listing.address}
+              </div>
+              
+            </div>
+          ))}
+        </ul>
+      </div>
+      
     </div>
   );
   }
