@@ -9,7 +9,7 @@ const msp = state => ({
 });
 
 const mdp = dispatch => ({
-    fetchListings: () => dispatch(fetchListings()),
+    fetchListings: (filters) => dispatch(fetchListings(filters)),
     updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
 });
 

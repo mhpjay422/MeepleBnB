@@ -13,3 +13,4 @@ export const updateFilter = (filter, value) => (dispatch, getState) => {
   dispatch(changeFilter(filter, value));
   fetchListings(getState().ui.filters)(dispatch);
 };
+

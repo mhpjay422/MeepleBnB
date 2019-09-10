@@ -5,7 +5,7 @@ export default ({ users, logout, loggedIn, demoLogin, openModal }) => {
   const demo = () => {
     if (loggedIn) {
       return (
-        <div className="loggedin-buttons">
+        <div className="loggedin-buttons" >
           <Link className="header-button" to={`/bookings/${users.id}`}>
             <button className="header-button">Trips</button>
           </Link>

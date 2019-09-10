@@ -6,7 +6,6 @@ import ListingMap from "../listings/listing_map";
 export default class ListingIndex extends React.Component {
 
   render() {
-
     const sidenav = (
       <div className="sidenav">
         <ListingMap listings={this.props.listings} updateFilter={this.props.updateFilter}/>

@@ -13,7 +13,10 @@ export const receiveListing = listing => ({
 });
 
 export const fetchListings = (filters) => dispatch => {
-  return APIUtil.fetchListings(filters).then(listings => dispatch(receiveListings(listings)));
+  
+  return APIUtil.fetchListings(filters).then(listings => {
+    
+    return dispatch(receiveListings(listings))});
 }
   
 
