@@ -2,8 +2,6 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-
-
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -35,11 +33,17 @@ class SearchBar extends React.Component {
   }
 
   handleChange(e) {
+    debugger
     this.setState({ term: e.target.value }, () => { 
       const term = this.state.term;
       const sortedListings = this.findListings(term);
-      
-      this.setState({ filteredList: sortedListings }, () => {
+      const objectListings = sortedListings.map(listing => {
+        return {
+          id: listing[0],
+          address: listing[1]
+        }
+      })
+      this.setState({ filteredList: objectListings }, () => {
         return;
       })
     });
@@ -47,17 +51,18 @@ class SearchBar extends React.Component {
   };
 
   findListings(term) {
-    
     let list = [];
+
     this.props.listings.forEach(function (listing) {
       const matched = listing.address.toLowerCase().includes(term.toLowerCase());
       
       const noZipArray = listing.address.split(" ");
       const noZip = noZipArray.slice(0, noZipArray.length - 1);
       const newAddress = noZip.join(" ");
+      
 
       if (matched) {
-        list.push(newAddress);
+        list.push([listing.id,newAddress]);
       }
     });
     
@@ -86,7 +91,7 @@ render () {
           {this.state.filteredList.map(listing => (
             <div listing={listing} key={listing.id}>
               <div className="searched-item" key={listing.address}>
-                {listing}
+                {listing.address}
               </div>
             </div>
           ))}
@@ -97,4 +102,4 @@ render () {
   );
   }
 }
-export default withRouter(SearchBar);
+export default withRouter(SearchBar);``
