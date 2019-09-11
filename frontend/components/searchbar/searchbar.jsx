@@ -2,8 +2,6 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-
-
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +11,7 @@ class SearchBar extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.state = {
       term:'', 
-      autoResults:[], 
+      filteredList:[], 
       listOpen: false
     };
   }
@@ -26,13 +24,7 @@ class SearchBar extends React.Component {
   }
 
   componentDidMount() {
-    const bounds = { 
-      northEast: { lat: 40.99024168884798, lng: -73.69725679687497 },
-      southWest: { lat: 40.57430312176032, lng: -74.24657320312497 }
-    };
-    // this.props.updateFilter('bounds', bounds);
     this.props.fetchListings();
-    
     document.addEventListener('mousedown', this.handleClick, false)
   }
 
@@ -41,29 +33,36 @@ class SearchBar extends React.Component {
   }
 
   handleChange(e) {
+    debugger
     this.setState({ term: e.target.value }, () => { 
       const term = this.state.term;
       const sortedListings = this.findListings(term);
-
-      this.setState({ autoResults: sortedListings }, () => {
+      const objectListings = sortedListings.map(listing => {
+        return {
+          id: listing[0],
+          address: listing[1]
+        }
+      })
+      this.setState({ filteredList: objectListings }, () => {
         return;
       })
     });
+    
   };
 
   findListings(term) {
     let list = [];
+
     this.props.listings.forEach(function (listing) {
       const matched = listing.address.toLowerCase().includes(term.toLowerCase());
       
       const noZipArray = listing.address.split(" ");
       const noZip = noZipArray.slice(0, noZipArray.length - 1);
       const newAddress = noZip.join(" ");
-      const newListing = listing;
-      newListing.address = newAddress;
+      
 
       if (matched) {
-        list.push(newListing);
+        list.push([listing.id,newAddress]);
       }
     });
     
@@ -89,7 +88,7 @@ render () {
           placeholder="Search...">
         </input>
         <ul className="searched-items">
-          {this.state.autoResults.map(listing => (
+          {this.state.filteredList.map(listing => (
             <div listing={listing} key={listing.id}>
               <div className="searched-item" key={listing.address}>
                 {listing.address}
@@ -103,4 +102,4 @@ render () {
   );
   }
 }
-export default withRouter(SearchBar);
+export default withRouter(SearchBar);``
