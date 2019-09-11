@@ -1,5 +1,6 @@
 User.delete_all
 Listing.delete_all
+Review.delete_all
 
 demoUser = User.create({username: "demoUser", email: "demoUser@gmail.com", password: "starwars"})
 d2 = User.create({username: "Craig", email: "craig@gmail.com", password: "starwars"})
@@ -15,6 +16,13 @@ l1 = Listing.create({
   picture_url: "./images (4).jpeg",
   owner_id: demoUser.id
   })
+
+r1 = Review.create({
+  body: "", 
+  rating: 5, 
+  listing_id = l1.id,
+  author_id = d2.id
+})
 
 l11 = Listing.create({
   lat: 40.767724,

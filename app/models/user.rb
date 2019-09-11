@@ -1,24 +1,28 @@
 class User < ApplicationRecord
 
-validates :username, :password_digest, :session_token, presence: true
-validates :username, uniqueness: true
-validates :password, length: { minimum: 6 }, allow_nil: true
+  validates :username, :password_digest, :session_token, presence: true
+  validates :username, uniqueness: true
+  validates :password, length: { minimum: 6 }, allow_nil: true
 
-after_initialize :ensure_session_token
+  after_initialize :ensure_session_token
 
-has_many :listings,
+  has_many :listings,
   foreign_key: :owner_id,
   class_name: "Listing"
 
-has_many :bookings,
+  has_many :bookings,
   foreign_key: :renter_id,
   class_name: "Booking"
 
-has_many :booked_listings,
+  has_many :booked_listings,
   through: :bookings,
   source: :listing
 
-attr_reader :password
+  has_many :reviews, 
+  foreign_key: :author_id, 
+  class_name: "Review"
+
+  attr_reader :password
 
 def self.find_by_credentials(username, password)
   user = User.find_by(username: username)
