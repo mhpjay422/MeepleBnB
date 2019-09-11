@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.state = {
       term:'', 
-      autoResults:[], 
+      filteredList:[], 
       listOpen: false
     };
   }
@@ -26,13 +26,7 @@ class SearchBar extends React.Component {
   }
 
   componentDidMount() {
-    const bounds = { 
-      northEast: { lat: 40.99024168884798, lng: -73.69725679687497 },
-      southWest: { lat: 40.57430312176032, lng: -74.24657320312497 }
-    };
-    // this.props.updateFilter('bounds', bounds);
     this.props.fetchListings();
-    
     document.addEventListener('mousedown', this.handleClick, false)
   }
 
@@ -45,7 +39,7 @@ class SearchBar extends React.Component {
       const term = this.state.term;
       const sortedListings = this.findListings(term);
 
-      this.setState({ autoResults: sortedListings }, () => {
+      this.setState({ filteredList: sortedListings }, () => {
         return;
       })
     });
@@ -89,7 +83,7 @@ render () {
           placeholder="Search...">
         </input>
         <ul className="searched-items">
-          {this.state.autoResults.map(listing => (
+          {this.state.filteredList.map(listing => (
             <div listing={listing} key={listing.id}>
               <div className="searched-item" key={listing.address}>
                 {listing.address}
