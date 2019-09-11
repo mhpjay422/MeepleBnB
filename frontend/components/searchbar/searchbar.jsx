@@ -17,7 +17,7 @@ class SearchBar extends React.Component {
   }
 
   handleClick(e){
-    if (this.node.contains(e.target)) {
+    if (this.node.contains(e.target) || (e.target.classList[0] === "searched-item")) {
       return
     }
     this.setState({ listOpen: false });
@@ -77,7 +77,12 @@ render () {
   const dropdownComponent = 
     <ul className="searched-items">{
       this.state.filteredList.map(listing => (
-        <Link className="searched-item" listing={listing} key={listing.id} to={`/listings/${listing.id}`}>
+        <Link 
+          className="searched-item" 
+          listing={listing} 
+          key={listing.id} 
+          to={`/listings/${listing.id}`}
+        >
           {listing.address}
         </Link>
       ))}
