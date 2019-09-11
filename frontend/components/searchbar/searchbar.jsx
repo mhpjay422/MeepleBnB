@@ -33,7 +33,6 @@ class SearchBar extends React.Component {
   }
 
   handleChange(e) {
-    debugger
     this.setState({ term: e.target.value }, () => { 
       const term = this.state.term;
       const sortedListings = this.findListings(term);
@@ -74,6 +73,30 @@ class SearchBar extends React.Component {
   }
 
 render () {
+
+  const dropdownComponent = 
+    <ul className="searched-items">{
+      this.state.filteredList.map(listing => (
+        <Link className="searched-item" listing={listing} key={listing.id} to={`/listings/${listing.id}`}>
+          {listing.address}
+        </Link>
+      ))}
+    </ul >
+
+  const isDropdownOpen = () => {
+    if (this.state.listOpen && (this.state.term !== "")) {
+      return dropdownComponent
+    } 
+  }
+
+  const searchBar = () => {
+    if(this.state.listOpen && (this.state.term !== "")) {
+      return "search-bar-open"
+    } else {
+      return "search-bar-closed"
+    }
+  }
+
   return (
     <div className="search">
       <div to="/greeting" className="magglass">
@@ -82,18 +105,12 @@ render () {
       <div className="search-drop">
         <input ref={node => this.node = node}
           type="text"
-          className="search-bar"
+          className={ searchBar() }
           onChange={this.handleChange}
           onClick={this.toggleList}
           placeholder="Search...">
         </input>
-        <ul className="searched-items">
-          {this.state.filteredList.map(listing => (
-            <Link className="searched-item" listing={listing} key={listing.id} to={`/listings/${listing.id}`}>
-                {listing.address}
-            </Link>
-          ))}
-        </ul>
+        {isDropdownOpen()}
       </div>
       
     </div>
