@@ -83,10 +83,18 @@ render () {
       ))}
     </ul >
 
-  const dropdown = () => {
+  const isDropdownOpen = () => {
     if (this.state.listOpen && (this.state.term !== "")) {
       return dropdownComponent
     } 
+  }
+
+  const searchBar = () => {
+    if(this.state.listOpen && (this.state.term !== "")) {
+      return "search-bar-open"
+    } else {
+      return "search-bar-closed"
+    }
   }
 
   return (
@@ -97,12 +105,12 @@ render () {
       <div className="search-drop">
         <input ref={node => this.node = node}
           type="text"
-          className="search-bar"
+          className={ searchBar() }
           onChange={this.handleChange}
           onClick={this.toggleList}
           placeholder="Search...">
         </input>
-        {dropdown()}
+        {isDropdownOpen()}
       </div>
       
     </div>
