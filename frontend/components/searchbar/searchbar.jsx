@@ -89,11 +89,9 @@ render () {
         </input>
         <ul className="searched-items">
           {this.state.filteredList.map(listing => (
-            <div listing={listing} key={listing.id}>
-              <div className="searched-item" key={listing.address}>
+            <Link className="searched-item" listing={listing} key={listing.id} to={`/listings/${listing.id}`}>
                 {listing.address}
-              </div>
-            </div>
+            </Link>
           ))}
         </ul>
       </div>
@@ -102,4 +100,4 @@ render () {
   );
   }
 }
-export default withRouter(SearchBar);``
+export default withRouter(SearchBar);
