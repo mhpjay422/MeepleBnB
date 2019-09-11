@@ -4,12 +4,16 @@ class Listing < ApplicationRecord
   has_many_attached :photos
 
   has_many :bookings,
-    foreign_key: :listing_id,
-    class_name: "Booking"
+  foreign_key: :listing_id,
+  class_name: "Booking"
 
   belongs_to :owner,
-    foreign_key: :owner_id,
-    class_name: "User"
+  foreign_key: :owner_id,
+  class_name: "User"
+
+  has_many :reviews,
+  foreign_key: :listing_id, 
+  class_name: "Review"
 
   def self.in_bounds(bounds)
   self.where("lat < ?", bounds[:northEast][:lat])

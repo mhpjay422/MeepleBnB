@@ -41,7 +41,6 @@ class SearchBar extends React.Component {
   }
 
   handleChange(e) {
-    debugger
     this.setState({ term: e.target.value }, () => { 
       const term = this.state.term;
       const sortedListings = this.findListings(term);
@@ -92,9 +91,7 @@ render () {
         <ul className="searched-items">
           {this.state.autoResults.map(listing => (
             <div listing={listing} key={listing.id}>
-              <div className="searched-item"
-                   key={listing.address}
-              >
+              <div className="searched-item" key={listing.address}>
                 {listing.address}
               </div>
             </div>
