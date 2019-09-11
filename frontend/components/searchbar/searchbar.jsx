@@ -38,14 +38,16 @@ class SearchBar extends React.Component {
     this.setState({ term: e.target.value }, () => { 
       const term = this.state.term;
       const sortedListings = this.findListings(term);
-
+      
       this.setState({ filteredList: sortedListings }, () => {
         return;
       })
     });
+    
   };
 
   findListings(term) {
+    
     let list = [];
     this.props.listings.forEach(function (listing) {
       const matched = listing.address.toLowerCase().includes(term.toLowerCase());
@@ -53,11 +55,9 @@ class SearchBar extends React.Component {
       const noZipArray = listing.address.split(" ");
       const noZip = noZipArray.slice(0, noZipArray.length - 1);
       const newAddress = noZip.join(" ");
-      const newListing = listing;
-      newListing.address = newAddress;
 
       if (matched) {
-        list.push(newListing);
+        list.push(newAddress);
       }
     });
     
@@ -86,7 +86,7 @@ render () {
           {this.state.filteredList.map(listing => (
             <div listing={listing} key={listing.id}>
               <div className="searched-item" key={listing.address}>
-                {listing.address}
+                {listing}
               </div>
             </div>
           ))}
