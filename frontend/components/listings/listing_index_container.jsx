@@ -2,15 +2,16 @@ import { connect } from 'react-redux';
 import {fetchListings} from '../../actions/listing_actions';
 import ListingIndex from './listing_index.jsx';
 import { updateFilter } from '../../actions/filter_actions';
+import { withRouter } from "react-router-dom";
 
-
-const msp = state => ({
-  listings: Object.values(state.entities.listings),
-});
+const msp = (state) => {
+  return { listings: Object.values(state.entities.listings)
+  }
+};
 
 const mdp = dispatch => ({
   fetchListings: () => dispatch(fetchListings()),
   updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
 });
 
-export default connect(msp,mdp)(ListingIndex);
+export default withRouter(connect(msp,mdp)(ListingIndex));

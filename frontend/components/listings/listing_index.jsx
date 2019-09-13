@@ -2,31 +2,67 @@ import React from "react";
 import ListingIndexItem from "./listing_index_item";
 import ListingMap from "../listings/listing_map";
 
-
 export default class ListingIndex extends React.Component {
-
-  componentDidMount() {
-    debugger
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: this.props.location.search.slice(1)
+    };
   }
 
   render() {
+
+    const filteredListings = (state, props) => {
+      let list = [];
+
+      props.listings.forEach(function (listing) {
+        const matched = listing.address.toLowerCase().includes(state.searchTerm.toLowerCase());
+        const noZipArray = listing.address.split(" ");
+        const noZip = noZipArray.slice(0, noZipArray.length - 1);
+        const newAddress = noZip.join(" ");
+        const newList = listing;
+        newList.address = newAddress
+
+        if (matched) {
+          list.push(newList);
+        }
+      });
+
+      return list.slice(0, 8);
+    }
+
+    const emptySearchTerm = this.state.searchTerm === []
+
+    const allPropsOrFiltered = (state, props) => {
+      debugger
+      if(emptySearchTerm) {
+        return this.props.listings
+      } else {
+        return filteredListings(this.state, this.props)
+      }
+    }
+
     const sidenav = (
       <div className="sidenav">
-        <ListingMap listings={this.props.listings} updateFilter={this.props.updateFilter}/>
+        <ListingMap listings={allPropsOrFiltered()} updateFilter={this.props.updateFilter} />
       </div>
     );
 
-    return (
-      <>
-      {sidenav}
+    const listIndexItem = (
       <div className="list-body">
         <h1>Top-Rated Homes: </h1>
         <ul className="list-items">
-          {this.props.listings.map(listing => (
+          {allPropsOrFiltered(this.state, this.props).map(listing => (
             <ListingIndexItem listing={listing} key={listing.id} />
           ))}
-        </ul>
+        </ul >
       </div>
+    )
+
+    return (
+      <>
+        {sidenav}
+        {listIndexItem}
       </>
     );
   }

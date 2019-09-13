@@ -73,9 +73,13 @@ class SearchBar extends React.Component {
     this.setState({ listOpen: !this.state.listOpen })
   }
 
-  handleSubmit() {
-    debugger
-    this.props.history.push(`/greeting`);
+  handleSubmit(e) {
+    e.preventDefault()
+    this.props.history.push({
+      pathname: `/greeting`,
+      search: this.state.term,
+      state: { detail: this.state.term }
+    });
   }
 
 render () {
