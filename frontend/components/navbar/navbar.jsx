@@ -51,7 +51,7 @@ export default ({ users, logout, loggedIn, demoLogin, openModal }) => {
   const navbar = (
     <div className="topbar">
       <section className="greet-topsec">
-        <Link to="/greeting" className="navbar-left">
+        <Link to={{pathname: '/'}} className="navbar-left">
           <img src="./3d-meepleneg.png" />
         </Link>
         <ul className="twobar">{demo()}</ul>

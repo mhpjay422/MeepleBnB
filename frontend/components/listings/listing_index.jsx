@@ -28,13 +28,12 @@ export default class ListingIndex extends React.Component {
         }
       });
 
-      return list.slice(0, 8);
+      return list;
     }
 
-    const emptySearchTerm = this.state.searchTerm === []
+    const emptySearchTerm = this.state.searchTerm === ""
 
-    const allPropsOrFiltered = (state, props) => {
-      debugger
+    const allPropsOrFiltered = () => {
       if(emptySearchTerm) {
         return this.props.listings
       } else {
@@ -52,7 +51,7 @@ export default class ListingIndex extends React.Component {
       <div className="list-body">
         <h1>Top-Rated Homes: </h1>
         <ul className="list-items">
-          {allPropsOrFiltered(this.state, this.props).map(listing => (
+          {allPropsOrFiltered().map(listing => (
             <ListingIndexItem listing={listing} key={listing.id} />
           ))}
         </ul >
