@@ -5,6 +5,10 @@ import ListingMap from "../listings/listing_map";
 
 export default class ListingIndex extends React.Component {
 
+  componentDidMount() {
+    debugger
+  }
+
   render() {
     const sidenav = (
       <div className="sidenav">

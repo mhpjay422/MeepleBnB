@@ -9,7 +9,7 @@ class SearchBar extends React.Component {
     this.findListings = this.findListings.bind(this);
     this.toggleList = this.toggleList.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.submitInput = this.submitInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       term:'', 
       filteredList:[], 
@@ -73,7 +73,7 @@ class SearchBar extends React.Component {
     this.setState({ listOpen: !this.state.listOpen })
   }
 
-  submitInput() {
+  handleSubmit() {
     debugger
     this.props.history.push(`/greeting`);
   }
@@ -94,14 +94,16 @@ render () {
       ))}
     </ul >
 
+  const shouldDropdownOpen = this.state.listOpen && (this.state.term !== "");
+
   const isDropdownOpen = () => {
-    if (this.state.listOpen && (this.state.term !== "")) {
+    if (shouldDropdownOpen) {
       return dropdownComponent
     } 
   }
 
-  const searchBar = () => {
-    if(this.state.listOpen && (this.state.term !== "")) {
+  const searchBarClass = () => {
+    if (shouldDropdownOpen) {
       return "search-bar-open"
     } else {
       return "search-bar-closed"
@@ -114,11 +116,11 @@ render () {
         <img className="magpic" src="./magglass.png" />
       </div>
       <div className="search-drop">
-        <form onSubmit={this.submitInput}>
+        <form onSubmit={this.handleSubmit}>
           <input
             ref={node => this.node = node}
             type="text"
-            className={searchBar()}
+            className={searchBarClass()}
             onChange={this.handleChange}
             onClick={this.toggleList}
             placeholder="Search..."

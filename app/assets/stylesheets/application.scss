@@ -1109,10 +1109,11 @@ div.DateInput.DateInput_1 {
   cursor: pointer;
   padding-top: 15px;
   padding-bottom: 3px;
+  display: block;
 }
 
 .searched-item:hover {
   color: black;
   background-color: lightgrey;
-  background-clip: padding-box;
+  // background-clip: padding-box;
 }
