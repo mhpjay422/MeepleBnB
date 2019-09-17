@@ -256,6 +256,13 @@ a:hover {
   color: black;
 }
 
+.greet-leftsec {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start
+}
+
 .greet-splashbuttons {
   width: 500px;
   font-weight: bolder;

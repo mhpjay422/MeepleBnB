@@ -73,8 +73,10 @@ class Navbar extends React.Component {
   const navbar = (
     <div className="topbar">
       <section className="greet-topsec">
-        <img src="./3d-meepleneg.png" className="navbar-left" onClick={this.handleClick}/>
-        <SearchContainer />
+        <section className="greet-leftsec">
+          <img src="./3d-meepleneg.png" className="navbar-left" onClick={this.handleClick} />
+          <SearchContainer />
+        </section>
         <ul className="twobar">{demo()}</ul>
       </section>
     </div>
