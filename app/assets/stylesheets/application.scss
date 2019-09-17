@@ -61,6 +61,10 @@
   padding-right: 15px;
 }
 
+.navbar-left:hover {
+  cursor: pointer;
+}
+
 .twobar {
   width: auto;
   justify-content: flex-end;
@@ -1115,5 +1119,4 @@ div.DateInput.DateInput_1 {
 .searched-item:hover {
   color: black;
   background-color: lightgrey;
-  // background-clip: padding-box;
 }

@@ -1,13 +1,30 @@
 import React from "react";
 import ListingIndexItem from "./listing_index_item";
 import ListingMap from "../listings/listing_map";
+import { fetchListings } from "../../actions/listing_actions";
 
 export default class ListingIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: this.props.location.search.slice(1)
+      searchTerm: ""
     };
+  }
+
+  componentDidMount() {
+    if(this.props.location.state) {
+      this.setState({ searchTerm: this.props.location.state.detail })
+    }
+  }
+
+  componentWillUpdate(newProps) {
+    if (newProps.location.state) {
+      if ((newProps.location.state.detail === "") && (this.state.searchTerm !== "")) {
+        this.setState({ searchTerm: "" }, () => {
+          return
+        })
+      }
+    }
   }
 
   render() {

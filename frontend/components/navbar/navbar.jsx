@@ -1,15 +1,35 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-export default ({ users, logout, loggedIn, demoLogin, openModal }) => {
+
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    e.preventDefault()
+    debugger
+
+    this.props.history.push({ 
+      pathname: `/greeting`,
+      search: "",
+      state: { detail: "" }
+    })
+  }
+
+  render() {
+
   const demo = () => {
-    if (loggedIn) {
+    if (this.props.loggedIn) {
       return (
         <div className="loggedin-buttons" >
-          <Link className="header-button" to={`/bookings/${users.id}`}>
+          <Link className="header-button" to={`/bookings/${this.props.users.id}`}>
             <button className="header-button">Trips</button>
           </Link>
-          <button className="header-button" onClick={logout}>
+          <button className="header-button" onClick={this.props.logout}>
             Log Out
           </button>
         </div>
@@ -20,7 +40,7 @@ export default ({ users, logout, loggedIn, demoLogin, openModal }) => {
           <li>
             <button
               className="greet-loginbuttons"
-              onClick={() => openModal("login")}
+              onClick={() => this.props.openModal("login")}
             >
               Login
             </button>
@@ -28,7 +48,7 @@ export default ({ users, logout, loggedIn, demoLogin, openModal }) => {
           <li>
             <button
               className="greet-loginbuttons"
-              onClick={() => openModal("signup")}
+              onClick={() => this.props.openModal("signup")}
             >
               Signup
             </button>
@@ -37,7 +57,7 @@ export default ({ users, logout, loggedIn, demoLogin, openModal }) => {
             <button
               className="greet-loginbuttons"
               value="Login as Demo User"
-              onClick={demoLogin}
+              onClick={this.props.demoLogin}
             >
               {" "}
               Log In as Demo User
@@ -51,9 +71,7 @@ export default ({ users, logout, loggedIn, demoLogin, openModal }) => {
   const navbar = (
     <div className="topbar">
       <section className="greet-topsec">
-        <Link to={{pathname: '/'}} className="navbar-left">
-          <img src="./3d-meepleneg.png" />
-        </Link>
+        <img src="./3d-meepleneg.png" className="navbar-left" onClick={this.handleClick}/>
         <ul className="twobar">{demo()}</ul>
       </section>
     </div>
@@ -64,4 +82,8 @@ export default ({ users, logout, loggedIn, demoLogin, openModal }) => {
   };
 
   return linkToSessions();
-};
+
+  };
+}
+
+export default withRouter(Navbar)
