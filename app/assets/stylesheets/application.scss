@@ -1055,6 +1055,9 @@ div.DateInput.DateInput_1 {
   border-left: none;
   padding-left: 10px;
   border: none;
+  position: fixed;
+  border: solid 1px orange;
+  border-left: none;
 }
 
 .search-bar-closed {
@@ -1071,7 +1074,9 @@ div.DateInput.DateInput_1 {
   font-family: Georgia;
   border-left: none;
   padding-left: 10px;
-  border: none;
+  border: solid 1px orange;
+  border-left: none;
+
 }
 
 .magglass {
@@ -1082,6 +1087,8 @@ div.DateInput.DateInput_1 {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   border: none;
+  border: solid 1px orange;
+
 }
 
 .magpic {
@@ -1089,7 +1096,7 @@ div.DateInput.DateInput_1 {
 }
 
 .searched-items {
-  width: 411px;
+  width: 410px;
   height: 300px;
   margin: 0;
   margin-bottom: 10px;
@@ -1103,7 +1110,10 @@ div.DateInput.DateInput_1 {
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   padding: 0;
-
+  position: relative;
+  z-index: 1000;
+  top: 47px;
+  border: solid 1px orange;
 }
 
 .searched-item {
