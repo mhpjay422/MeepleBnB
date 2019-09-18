@@ -7,7 +7,7 @@ export default class ListingIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: "",
+      searchTerm: ""
     };
   }
 

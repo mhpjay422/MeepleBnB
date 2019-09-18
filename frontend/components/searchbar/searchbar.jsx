@@ -7,7 +7,7 @@ class SearchBar extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.findListings = this.findListings.bind(this);
-    this.toggleList = this.toggleList.bind(this);
+    this.openList = this.openList.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
@@ -67,8 +67,8 @@ class SearchBar extends React.Component {
     return list.slice(0,8);
   }
 
-  toggleList(){
-    this.setState({ listOpen: !this.state.listOpen })
+  openList(){
+    this.setState({ listOpen: true })
   }
 
   handleSubmit(e) {
@@ -130,7 +130,7 @@ render () {
             type="text"
             className={searchBarClass()}
             onChange={this.handleChange}
-            onClick={this.toggleList}
+            onClick={this.openList}
             placeholder="Search..."
           >
           </input>
