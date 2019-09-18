@@ -62,8 +62,16 @@ class SearchBar extends React.Component {
       if (matched) {
         list.push([listing.id,newAddress]);
       }
+
     });
     
+    if(list.length === 0) {
+      list.push(["a", term])
+    }
+
+    if(list.length <= 7) {
+      return list.slice(0, list.length)
+    }
     return list.slice(0,8);
   }
 
