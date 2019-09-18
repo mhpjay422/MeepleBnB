@@ -11,16 +11,35 @@ class Navbar extends React.Component {
 
   handleClick(e) {
     e.preventDefault()
-    
-    if(this.props.history.location.pathname === "/greeting"){
-      this.props.history.location.pathname = ""
-    }
 
-    this.props.history.push({ 
-      pathname: `/greeting`,
-      search: "",
-      state: { detail: "" }
-    })
+    debugger
+    
+    if (this.props.history.location.pathname === "/"){
+      debugger
+      return
+      
+    } else if (this.props.history.location.pathname === "/greeting") {
+      debugger
+      {this.props.history.location.pathname = "/", () => {return }}
+      debugger
+      this.props.history.push({
+        pathname: "/greeting/icon",
+        search: "",
+        state: { detail: "" }
+      })
+      debugger
+      
+      }
+
+    // if (this.props.history.location.pathname === "/") {
+    //   return
+    // } else {
+      // this.props.history.push({
+      //   pathname: "/greeting",
+      //   search: "",
+      //   state: { detail: "" }
+    //   })
+    // }
   }
 
   render() {

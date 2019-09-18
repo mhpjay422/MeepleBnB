@@ -1040,11 +1040,13 @@ div.DateInput.DateInput_1 {
 
 .search {
   display: flex;
-  width: 700px;
-  height: 54px;
+  width: 463px;
+  height: 47px;
   flex-direction: row;
   justify-content: start;
-  padding-left: 10px;
+  padding: 0;
+  margin: 0;
+  box-shadow: 3px 3px 5px 1px #ebebeb;
 }
 
 .search-drop {
@@ -1083,7 +1085,6 @@ div.DateInput.DateInput_1 {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   font-size: 16px;
-  border-left: none;
   padding-left: 10px;
   border: solid 1px orange;
   border-left: none;
@@ -1098,11 +1099,10 @@ div.DateInput.DateInput_1 {
   border-bottom-left-radius: 4px;
   border: none;
   border: solid 1px orange;
-
 }
 
 .magpic {
-  padding-left: 5px;
+  padding-left: 3px;
 }
 
 .searched-items {
@@ -1126,7 +1126,7 @@ div.DateInput.DateInput_1 {
 }
 
 .searched-item {
-  padding: 8px 0px 8px 10px;
+  padding: 12px 0px 12px 10px;
   text-decoration: none;
   color: black;
   cursor: pointer;
@@ -1137,4 +1137,5 @@ div.DateInput.DateInput_1 {
 .searched-item:hover {
   color: black;
   background-color: rgb(253, 225, 189);
+  border-bottom: solid 1px darkorange;
 }
