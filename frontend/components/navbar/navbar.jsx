@@ -13,7 +13,10 @@ class Navbar extends React.Component {
 
   handleClick(e) {
     e.preventDefault()
-    debugger
+    
+    if(this.props.history.location.pathname === "/greeting"){
+      this.props.history.location.pathname = ""
+    }
 
     this.props.history.push({ 
       pathname: `/greeting`,

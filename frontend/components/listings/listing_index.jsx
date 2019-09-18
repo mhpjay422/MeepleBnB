@@ -7,17 +7,19 @@ export default class ListingIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: ""
+      searchTerm: "",
     };
   }
 
-  componentDidMount() {
-    if(this.props.location.state) {
-      this.setState({ searchTerm: this.props.location.state.detail })
-    }
-  }
-
   componentWillUpdate(newProps) {
+    if(this.props !== newProps) {
+      if (newProps.location.state) {
+        this.setState({ searchTerm: newProps.location.state.detail }, () => {
+          return
+        })
+      }
+    }
+    
     if (newProps.location.state) {
       if ((newProps.location.state.detail === "") && (this.state.searchTerm !== "")) {
         this.setState({ searchTerm: "" }, () => {
@@ -28,7 +30,6 @@ export default class ListingIndex extends React.Component {
   }
 
   render() {
-
     const filteredListings = (state, props) => {
       let list = [];
 
@@ -37,7 +38,7 @@ export default class ListingIndex extends React.Component {
         const noZipArray = listing.address.split(" ");
         const noZip = noZipArray.slice(0, noZipArray.length - 1);
         const newAddress = noZip.join(" ");
-        const newList = listing;
+        const newList = Object.assign({},listing);
         newList.address = newAddress
 
         if (matched) {

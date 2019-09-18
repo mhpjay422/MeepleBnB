@@ -47,7 +47,6 @@ class SearchBar extends React.Component {
         return;
       })
     });
-    
   };
 
   findListings(term) {
@@ -60,7 +59,6 @@ class SearchBar extends React.Component {
       const noZip = noZipArray.slice(0, noZipArray.length - 1);
       const newAddress = noZip.join(" ");
       
-
       if (matched) {
         list.push([listing.id,newAddress]);
       }
@@ -75,12 +73,18 @@ class SearchBar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
+
+    if (this.props.history.location.pathname === "/greeting") {
+      this.props.history.replace(this.props.history.location.pathname)
+    }
+
     this.props.history.push({
       pathname: `/greeting`,
       search: this.state.term,
       state: { detail: this.state.term }
     });
   }
+
 
 render () {
 
@@ -120,7 +124,7 @@ render () {
         <img className="magpic" src="./magglass.png" />
       </div>
       <div className="search-drop">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} >
           <input
             ref={node => this.node = node}
             type="text"
