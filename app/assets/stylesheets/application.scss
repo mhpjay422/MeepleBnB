@@ -1177,3 +1177,8 @@ div.DateInput.DateInput_1 {
 .searched-item-row:hover .locpic {
   filter: invert(6%);
 }
+
+.locpic:hover ~ .searched-item {
+  color: black;
+  background-color: #f1f1f1;
+}
