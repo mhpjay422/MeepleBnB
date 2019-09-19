@@ -112,10 +112,10 @@ render () {
       ))}
     </ul >
 
-  const shouldDropdownOpen = this.state.listOpen && (this.state.term !== "");
+  const shouldDropdownOpen = this.state.listOpen 
 
   const isDropdownOpen = () => {
-    if (shouldDropdownOpen) {
+    if (shouldDropdownOpen && (this.state.term !== "")) {
       return dropdownComponent
     } 
   }

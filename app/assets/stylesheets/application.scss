@@ -1066,7 +1066,7 @@ div.DateInput.DateInput_1 {
 .search-bar-open {
   all: unset;
   display: flex;
-  width: 501px;
+  width: 551px;
   height: 46px;
   background-color: white;
   flex-direction: row;
@@ -1079,7 +1079,7 @@ div.DateInput.DateInput_1 {
   position: fixed;
   border-left: none;
   transition-property: width;
-  transition-duration: .3s;
+  transition-duration: .2s;
   transition-timing-function: ease;
   box-shadow: 1px 1px 3px 1px #ccc;
 }
@@ -1098,7 +1098,7 @@ div.DateInput.DateInput_1 {
   padding-left: 10px;
   border-left: none;
   transition-property: width;
-  transition-duration: .5s;
+  transition-duration: .2s;
   transition-timing-function: linear;
   box-shadow: 1px 1px 3px 1px #ccc;
 }
@@ -1119,9 +1119,8 @@ div.DateInput.DateInput_1 {
   padding-left: 3px;
 }
 
-
 .searched-items {
-  width: 561px;
+  width: 611px;
   margin: 0;
   margin-bottom: 10px;
   flex-direction: column;
@@ -1139,14 +1138,14 @@ div.DateInput.DateInput_1 {
   top: 3px;
   box-shadow: 1px 1px 3px 1px #ccc;
   transition-property: width;
-  transition-duration: .5s;
+  transition-duration: .1s;
   transition-timing-function: linear;
 }
 
 .searched-item-row {
   display: flex;
   flex-direction: row;
-  width: 561px;
+  width: 611px;
 }
 
 // .locpic:hover {
@@ -1164,7 +1163,7 @@ div.DateInput.DateInput_1 {
   cursor: pointer;
   display: block;
   top: 50%;
-  width: 546px;
+  width: 596px;
   align-content: middle;
   font-size: 15px;
   font-weight: 400;
