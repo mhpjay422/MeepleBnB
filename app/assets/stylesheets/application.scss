@@ -1046,7 +1046,7 @@ div.DateInput.DateInput_1 {
   justify-content: start;
   padding: 0;
   margin: 0;
-  box-shadow: 1px 1px 3px 1px #ccc;
+  // box-shadow: 1px 1px 3px 1px #ccc;
 }
 
 .search-drop {
@@ -1054,12 +1054,19 @@ div.DateInput.DateInput_1 {
   flex-direction: column;
   width: 700px;
   height: 400px;
+  justify-content: flex-start;
+}
+
+.search-bar {
+  width: 477px;
+  display: flex;
+  flex-direction: row;
 }
 
 .search-bar-open {
   all: unset;
   display: flex;
-  width: 401px;
+  width: 501px;
   height: 46px;
   background-color: white;
   flex-direction: row;
@@ -1070,8 +1077,11 @@ div.DateInput.DateInput_1 {
   padding-left: 10px;
   border: none;
   position: fixed;
-  border: solid 1px orange;
   border-left: none;
+  transition-property: width;
+  transition-duration: .3s;
+  transition-timing-function: ease;
+  box-shadow: 1px 1px 3px 1px #ccc;
 }
 
 .search-bar-closed {
@@ -1086,8 +1096,11 @@ div.DateInput.DateInput_1 {
   border-bottom-right-radius: 4px;
   font-size: 16px;
   padding-left: 10px;
-  border: solid 1px orange;
   border-left: none;
+  transition-property: width;
+  transition-duration: .5s;
+  transition-timing-function: linear;
+  box-shadow: 1px 1px 3px 1px #ccc;
 }
 
 .magglass {
@@ -1098,15 +1111,17 @@ div.DateInput.DateInput_1 {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   border: none;
-  border: solid 1px orange;
+  box-shadow: 1px 1px 3px 1px #ccc;
+
 }
 
 .magpic {
   padding-left: 3px;
 }
 
+
 .searched-items {
-  width: 410px;
+  width: 561px;
   margin: 0;
   margin-bottom: 10px;
   flex-direction: column;
@@ -1118,24 +1133,48 @@ div.DateInput.DateInput_1 {
   font-weight: bold;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  padding: 0;
+  padding-left: 0px;
   position: relative;
   z-index: 1000;
-  top: 47px;
-  border: solid 1px orange;
+  top: 3px;
+  box-shadow: 1px 1px 3px 1px #ccc;
+  transition-property: width;
+  transition-duration: .5s;
+  transition-timing-function: linear;
+}
+
+.searched-item-row {
+  display: flex;
+  flex-direction: row;
+  width: 561px;
+}
+
+// .locpic:hover {
+  
+// }
+
+.locpic {
+  width: 52px;
 }
 
 .searched-item {
-  padding: 12px 0px 12px 10px;
+  padding: 22px 0px 12px 10px;
   text-decoration: none;
   color: black;
   cursor: pointer;
   display: block;
   top: 50%;
+  width: 546px;
+  align-content: middle;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 .searched-item:hover {
   color: black;
-  background-color: rgb(253, 225, 189);
-  border-bottom: solid 1px darkorange;
+  background-color: #f1f1f1;
+}
+
+.searched-item-row:hover .locpic {
+  filter: invert(6%);
 }

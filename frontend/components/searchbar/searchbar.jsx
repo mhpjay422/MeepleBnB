@@ -69,10 +69,10 @@ class SearchBar extends React.Component {
       list.push(["a", term])
     }
 
-    if(list.length <= 7) {
+    if(list.length <= 4 ) {
       return list.slice(0, list.length)
     }
-    return list.slice(0,8);
+    return list.slice(0,5);
   }
 
   openList(){
@@ -99,14 +99,16 @@ render () {
   const dropdownComponent = 
     <ul className="searched-items">{
       this.state.filteredList.map(listing => (
-        <Link 
-          className="searched-item" 
-          listing={listing} 
-          key={listing.id} 
-          to={`/listings/${listing.id}`}
-        >
-          {listing.address}
-        </Link>
+        <div className="searched-item-row" key={listing.id} >
+          <img className="locpic" src="./locpic.png" />
+          <Link 
+            className="searched-item" 
+            listing={listing} 
+            to={`/listings/${listing.id}`}
+          >
+            {listing.address}
+          </Link>
+        </div>
       ))}
     </ul >
 
@@ -128,25 +130,27 @@ render () {
 
   return (
     <div className="search">
-      <div to="/greeting" className="magglass">
-        <img className="magpic" src="./magglass.png" />
-      </div>
       <div className="search-drop">
-        <form onSubmit={this.handleSubmit} >
-          <input
-            ref={node => this.node = node}
-            type="text"
-            className={searchBarClass()}
-            onChange={this.handleChange}
-            onClick={this.openList}
-            placeholder="Search..."
-          >
-          </input>
-        </form>
-        
+        <div className="search-bar">
+          <div className="magglass">
+            <img className="magpic" src="./magglass.png" />
+          </div>
+          <form onSubmit={this.handleSubmit} >
+            <input
+              ref={node => this.node = node}
+              type="text"
+              className={searchBarClass()}
+              onChange={this.handleChange}
+              onClick={this.openList}
+              placeholder="Search..."
+              
+            >
+            </input>
+          </form>
+        </div>
         {isDropdownOpen()}
       </div>
-      
+
     </div>
   );
   }
