@@ -19,7 +19,7 @@ class Navbar extends React.Component {
       {this.props.history.location.pathname = "/", () => {return }}
 
       this.props.history.push({
-        pathname: "/greeting",
+        pathname: "/greeting/icon",
         search: "",
         state: { detail: "" }
       })
