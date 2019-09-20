@@ -2,6 +2,10 @@
   all: none;
 }
 
+* {
+  font-family: "MontrealRegular";
+}
+
 .main {
   position: absolute;
   padding: 0;
@@ -10,7 +14,6 @@
   width: 100%;
   height: 100%;
   margin: auto;
-  font-family: "MontrealRegular";
 }
 
 .loginbuttons {
@@ -61,7 +64,12 @@
   padding-right: 15px;
 }
 
+.navbar-left:hover {
+  cursor: pointer;
+}
+
 .twobar {
+  height: 79px;
   width: auto;
   justify-content: flex-end;
   padding: 5px;
@@ -89,7 +97,7 @@
 .loginbuttons {
   text-shadow: 5px;
   font-size: 15px;
-  height: 80px;
+  height: 78px;
   font-weight: bold;
   color: white;
   text-decoration: none;
@@ -98,10 +106,12 @@
   border: none;
   padding: 0;
   cursor: pointer;
+  vertical-align: middle;
 }
 
 .loginbuttons:hover {
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid orange;
+  color: orange;
 }
 
 .icon {
@@ -155,7 +165,6 @@ a:hover {
   font-size: 30px;
   line-height: 30px;
   letter-spacing: normal;
-  font-family: Circular;
   color: rgb(72, 72, 72);
   padding-top: 2px;
   padding-bottom: 2px;
@@ -239,17 +248,23 @@ a:hover {
 .sl-text {
   text-align: center;
   font-size: 16px;
-  font-family: sans-serif;
 }
 
 .greet-topsec {
-  height: 78px;
+  height: 79px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: white;
   color: black;
+}
+
+.greet-leftsec {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start
 }
 
 .greet-splashbuttons {
@@ -278,10 +293,12 @@ a:hover {
   border: none;
   padding: 0;
   cursor: pointer;
+  vertical-align: middle;
 }
 
 .greet-loginbuttons:hover {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid orange;
+  color: orange;
 }
 
 .greet-icon {
@@ -1023,11 +1040,13 @@ div.DateInput.DateInput_1 {
 
 .search {
   display: flex;
-  width: 700px;
-  height: 54px;
+  width: 463px;
+  height: 47px;
   flex-direction: row;
   justify-content: start;
-  padding-left: 10px;
+  padding: 0;
+  margin: 0;
+  // box-shadow: 1px 1px 3px 1px #ccc;
 }
 
 .search-drop {
@@ -1035,22 +1054,34 @@ div.DateInput.DateInput_1 {
   flex-direction: column;
   width: 700px;
   height: 400px;
+  justify-content: flex-start;
+}
+
+.search-bar {
+  width: 477px;
+  display: flex;
+  flex-direction: row;
 }
 
 .search-bar-open {
   all: unset;
   display: flex;
-  width: 401px;
+  width: 551px;
   height: 46px;
   background-color: white;
   flex-direction: row;
   justify-content: flex-start;
   border-top-right-radius: 4px;
   font-size: 16px;
-  font-family: Georgia;
   border-left: none;
   padding-left: 10px;
   border: none;
+  position: fixed;
+  border-left: none;
+  transition-property: width;
+  transition-duration: .1s;
+  transition-timing-function: ease;
+  box-shadow: 1px 1px 3px 1px #ccc;
 }
 
 .search-bar-closed {
@@ -1064,10 +1095,12 @@ div.DateInput.DateInput_1 {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   font-size: 16px;
-  font-family: Georgia;
-  border-left: none;
   padding-left: 10px;
-  border: none;
+  border-left: none;
+  transition-property: width;
+  transition-duration: .1s;
+  transition-timing-function: linear;
+  box-shadow: 1px 1px 3px 1px #ccc;
 }
 
 .magglass {
@@ -1078,15 +1111,16 @@ div.DateInput.DateInput_1 {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   border: none;
+  box-shadow: 1px 1px 3px 1px #ccc;
+
 }
 
 .magpic {
-  padding-left: 5px;
+  padding-left: 3px;
 }
 
 .searched-items {
-  width: 411px;
-  height: 300px;
+  width: 611px;
   margin: 0;
   margin-bottom: 10px;
   flex-direction: column;
@@ -1098,21 +1132,53 @@ div.DateInput.DateInput_1 {
   font-weight: bold;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  padding: 0;
+  padding-left: 0px;
+  position: relative;
+  z-index: 1000;
+  top: 3px;
+  box-shadow: 1px 1px 3px 1px #ccc;
+  transition-property: width;
+  transition-duration: .1s;
+  transition-timing-function: linear;
+}
 
+.searched-item-row {
+  display: flex;
+  flex-direction: row;
+  width: 611px;
+}
+
+// .locpic:hover {
+  
+// }
+
+.locpic {
+  width: 52px;
 }
 
 .searched-item {
-  padding-left: 10px;
+  padding: 22px 0px 12px 10px;
   text-decoration: none;
   color: black;
   cursor: pointer;
-  padding-top: 15px;
-  padding-bottom: 3px;
+  display: block;
+  top: 50%;
+  width: 596px;
+  align-content: middle;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 .searched-item:hover {
   color: black;
-  background-color: lightgrey;
-  background-clip: padding-box;
+  background-color: #f1f1f1;
+}
+
+.searched-item-row:hover .locpic {
+  filter: invert(6%);
+}
+
+.locpic:hover ~ .searched-item {
+  color: black;
+  background-color: #f1f1f1;
 }

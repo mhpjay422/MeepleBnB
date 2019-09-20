@@ -7,9 +7,9 @@ class SearchBar extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.findListings = this.findListings.bind(this);
-    this.toggleList = this.toggleList.bind(this);
+    this.openList = this.openList.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.submitInput = this.submitInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       term:'', 
       filteredList:[], 
@@ -47,7 +47,6 @@ class SearchBar extends React.Component {
         return;
       })
     });
-    
   };
 
   findListings(term) {
@@ -60,48 +59,69 @@ class SearchBar extends React.Component {
       const noZip = noZipArray.slice(0, noZipArray.length - 1);
       const newAddress = noZip.join(" ");
       
-
       if (matched) {
         list.push([listing.id,newAddress]);
       }
+
     });
     
-    return list.slice(0,8);
+    if(list.length === 0) {
+      list.push(["a", term])
+    }
+
+    if(list.length <= 4 ) {
+      return list.slice(0, list.length)
+    }
+    return list.slice(0,5);
   }
 
-  toggleList(){
-    this.setState({ listOpen: !this.state.listOpen })
+  openList(){
+    this.setState({ listOpen: true })
   }
 
-  submitInput() {
-    debugger
-    this.props.history.push(`/greeting`);
+  handleSubmit(e) {
+    e.preventDefault()
+
+    if (this.props.history.location.pathname === "/greeting") {
+      this.props.history.replace(this.props.history.location.pathname)
+    }
+
+    this.props.history.push({
+      pathname: `/greeting`,
+      search: this.state.term,
+      state: { detail: this.state.term }
+    });
   }
+
 
 render () {
 
   const dropdownComponent = 
     <ul className="searched-items">{
       this.state.filteredList.map(listing => (
-        <Link 
-          className="searched-item" 
-          listing={listing} 
-          key={listing.id} 
-          to={`/listings/${listing.id}`}
-        >
-          {listing.address}
-        </Link>
+        <div className="searched-item-row" key={listing.id} >
+          <img className="locpic" src="./locpic.png" />
+          <Link 
+            className="searched-item" 
+            listing={listing} 
+            to={`/listings/${listing.id}`}
+          >
+            {listing.address}
+          </Link>
+        </div>
       ))}
     </ul >
 
+  const shouldDropdownOpen = this.state.listOpen 
+
   const isDropdownOpen = () => {
-    if (this.state.listOpen && (this.state.term !== "")) {
+    if (shouldDropdownOpen && (this.state.term !== "")) {
       return dropdownComponent
     } 
   }
 
-  const searchBar = () => {
-    if(this.state.listOpen && (this.state.term !== "")) {
+  const searchBarClass = () => {
+    if (shouldDropdownOpen) {
       return "search-bar-open"
     } else {
       return "search-bar-closed"
@@ -110,25 +130,27 @@ render () {
 
   return (
     <div className="search">
-      <div to="/greeting" className="magglass">
-        <img className="magpic" src="./magglass.png" />
-      </div>
       <div className="search-drop">
-        <form onSubmit={this.submitInput}>
-          <input
-            ref={node => this.node = node}
-            type="text"
-            className={searchBar()}
-            onChange={this.handleChange}
-            onClick={this.toggleList}
-            placeholder="Search..."
-          >
-          </input>
-        </form>
-        
+        <div className="search-bar">
+          <div className="magglass">
+            <img className="magpic" src="./magglass.png" />
+          </div>
+          <form onSubmit={this.handleSubmit} >
+            <input
+              ref={node => this.node = node}
+              type="text"
+              className={searchBarClass()}
+              onChange={this.handleChange}
+              onClick={this.openList}
+              placeholder="Search..."
+              
+            >
+            </input>
+          </form>
+        </div>
         {isDropdownOpen()}
       </div>
-      
+
     </div>
   );
   }
