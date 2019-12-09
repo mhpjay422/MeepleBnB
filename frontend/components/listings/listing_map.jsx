@@ -44,4 +44,4 @@ class ListingMap extends React.Component {
   }
 }
 
-export default ListingMap;
+export default withRouter(ListingMap);
