@@ -67,6 +67,8 @@ The index page shows a list of available listings. When the user zooms or pans o
 
 ### Search 
 
+![](./public/Search.gif)
+
 The nav bar provides a search field where the user can search by address, city or state. A dropdown of listings will appear with available listings within the search parameter.  The addresses may be clicked to redirect directly to the listing or onEnter reload the index page showing listings within the search parameter.  
 
 ```javascript
