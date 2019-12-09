@@ -28,7 +28,7 @@ This application is hosted on Heroku. It also uses Google Places API to obtain c
 
 [Live Site](https://meeplebnb.herokuapp.com/#/)
 
-gif placeholder
+![](./public/B&O.gif)
 &nbsp;
 &nbsp;
 &nbsp;
