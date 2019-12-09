@@ -38,6 +38,8 @@ This application is hosted on Heroku. It also uses Google Places API to obtain c
 
 The index page shows a list of available listings. When the user zooms or pans on the map, a new fetch request is invoked, bringing back only the listings within the boundaries of the map. 
 
+![](./public/Maps.gif)
+
 ```javascript
   componentDidMount() {
     this.map = new google.maps.Map(this.mapNode, mapOptions);
