@@ -16,6 +16,7 @@
     "react-dates": "^18.2.2",
     "react-dom": "^16.6.3",
     "react-onclickoutside": "^6.9.0",
+    "react-rating": "^2.0.5",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
     "react-select": "^3.0.4",
@@ -40,7 +41,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "webpack --mode=production",
-    "start": "webpack --mode=development --watch"
+    "start": "webpack --mode=development --watch",
+    "sync": "browser-sync start --server --files '*.css, *.html' --tunnel"
   },
   "keywords": [],
   "author": "",

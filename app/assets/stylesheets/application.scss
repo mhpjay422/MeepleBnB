@@ -382,11 +382,13 @@ a:hover {
 }
 
 .listing-index {
+  height: 350px;
   width: 300px;
   margin-bottom: 25px;
   box-sizing: border-box;
   flex-direction: column;
   display: flex;
+  align-content: space-between;
   padding: 10px;
 }
 
@@ -401,6 +403,7 @@ a:hover {
 }
 
 .index-item-rating {
+  align-self: baseline;
 }
 
 .plus {
@@ -428,6 +431,7 @@ a:hover {
 }
 
 .index-item-title {
+  height: 300px;
   font-weight: bolder;
   font-size: 17px;
   margin-top: 5px;

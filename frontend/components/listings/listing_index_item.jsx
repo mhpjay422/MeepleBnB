@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import Rating from "react-rating";
 import ListingShowContainer from "../listing_show/listing_show_container";
 
 class IndexItem extends React.Component {
@@ -36,11 +37,12 @@ class IndexItem extends React.Component {
       </div>
       <span className="index-item-rating">
       <div>Rating: </div>
-      <img className="star" src="./star-solid.svg" />
-      <img className="star" src="./star-solid.svg" />
-      <img className="star" src="./star-solid.svg" />
-      <img className="star" src="./star-solid.svg" />
-      <img className="star" src="./star-solid.svg" />
+          <Rating
+            placeholderRating={3.5}
+            emptySymbol={<img src="./star-solid.svg" className="star" />}
+            placeholderSymbol={<img src="./star-solid.svg" className="star" />}
+            fullSymbol={<img src="./star-solid.svg" className="star" />}
+          />
       </span>
       </div>
     );
