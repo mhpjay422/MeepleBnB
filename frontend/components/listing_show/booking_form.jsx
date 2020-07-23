@@ -5,6 +5,7 @@ import { DateRangePicker } from "react-dates";
 import momentPropTypes from "react-moment-proptypes";
 import moment from "moment";
 import "react-dates/lib/css/_datepicker.css";
+import Rating from "react-rating";
 
 class BookingForm extends React.Component {
   constructor(props) {
@@ -95,11 +96,12 @@ class BookingForm extends React.Component {
           </div>
           <div className="booking-rating">
             <div className="booking-rating-text">Rating: </div>
-            <img className="booking-star-left" src="./star-solid.svg" />
-            <img className="booking-star" src="./star-solid.svg" />
-            <img className="booking-star" src="./star-solid.svg" />
-            <img className="booking-star" src="./star-solid.svg" />
-            <img className="booking-star" src="./star-solid.svg" />
+            <Rating
+              placeholderRating={3.5}
+              emptySymbol={<img src="./star-solid.svg" className="star" />}
+              placeholderSymbol={<img src="./star-solid.svg" className="star" />}
+              fullSymbol={<img src="./star-solid.svg" className="star" />}
+            />
           </div>
           <div className="booking-dates-header">Dates</div>
           <div className="date-picker">
