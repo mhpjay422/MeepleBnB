@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapOptions = {
   center: { lat: 40.782598, lng: -73.971915 },
-  zoom: 10.4
+  zoom: 12
 };
 
 class ListingMap extends React.Component {

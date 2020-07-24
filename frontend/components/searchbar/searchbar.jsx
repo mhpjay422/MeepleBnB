@@ -128,9 +128,17 @@ render () {
     }
   }
 
+  const searchDropClass = () => {
+    if (this.state.listOpen) {
+      return "search-drop-open"
+    } else {
+      return "search-drop-closed"
+    }
+  }
+
   return (
     <div className="search">
-      <div className="search-drop">
+      <div className={searchDropClass()}>
         <div className="search-bar">
           <div className="magglass">
             <img className="magpic" src="./magglass.png" />

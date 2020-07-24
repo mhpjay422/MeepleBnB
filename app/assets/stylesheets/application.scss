@@ -6,15 +6,16 @@
   font-family: "MontrealRegular";
 }
 
+
+
 .main {
-  position: absolute;
-  padding: 0;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  overflow: hidden;
+   position: absolute;
+   padding: 0;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   margin: auto;
 }
 
 .loginbuttons {
@@ -32,8 +33,14 @@
   background: image-url("arch.jpg");
   background-position: 30%;
   width: 100%;
-  height: inherit;
+  height: 100vh;
   background-size: cover;
+  background-repeat: repeat-x;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .topbar {
@@ -264,7 +271,7 @@ a:hover {
   background-color: white;
   color: black;
   top: 0;
-  position: sticky;
+  position: fixed;
 }
 
 .greet-leftsec {
@@ -338,27 +345,24 @@ a:hover {
   width: 100%;
   flex-direction: row;
   display: flex;
-  align-content: space-between;
 }
 
 .body-content {
-  position: relative;
+  position: absolute;
   width: 100%;
   flex-direction: row;
-  display: flex;
-  padding: 20px;
+  display: block;
   padding-top: 0;
 }
 
 .sidenav {
-  height: 100vh;
-  max-width: 40%;
-  min-width: 0;
-  position: fixed;
+  height: 100%;
+  width: 60%;
+  position: absolute;
   right: 0;
   bottom: 0;
   background-color: white;
-
+  padding-left: 10px;
 }
 
 .sidenav a:hover {
@@ -366,38 +370,39 @@ a:hover {
 }
 
 .map-conatiner {
-  width: 100vh;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 .map {
-  height: 100vh;
-  width: 100vh;
+  height: 100%;
+  width: 100%;
 }
 
 .street-map {
-  height: 100vh;
-  width: 100vh;
+  height: 100%;
+  width: 100%;
 }
 
 .list-body {
   height: 1000px;
-  width: 60%;
-  min-width: 700px;
-  overflow: scroll;
-  overflow-x: hidden;
-  position: relative;
-  padding-right: 0;
+  width: 40%;
+  overflow-y: scroll;
+  padding-right: 24px;
+  padding-left: 24px;
   display: block;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .list-items {
   width: 100%;
   flex-direction: column;
-  display: flex;
+  display: block;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: center;
   padding: 0;
+  position: absolute;
 }
 
 .space {
@@ -1093,11 +1098,19 @@ div.DateInput.DateInput_1 {
   // box-shadow: 1px 1px 3px 1px #ccc;
 }
 
-.search-drop {
+.search-drop-open {
   display: flex;
   flex-direction: column;
   width: 700px;
   height: 400px;
+  justify-content: flex-start;
+}
+
+.search-drop-closed {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  height: 0;
   justify-content: flex-start;
 }
 
