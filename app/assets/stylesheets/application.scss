@@ -272,6 +272,7 @@ a:hover {
   color: black;
   top: 0;
   position: fixed;
+  z-index: 40;
 }
 
 .greet-leftsec {
@@ -356,13 +357,19 @@ a:hover {
 }
 
 .sidenav {
+  z-index: 3;
   height: 100%;
-  width: 60%;
+  width: calc(100% - 840px);
+  padding: 0px;
+  padding-top: 80px;
   position: absolute;
-  right: 0;
-  bottom: 0;
-  background-color: white;
-  padding-left: 10px;
+  border-width: 0px;
+  margin: 0px;
+  left: auto;
+  top: 0px;
+  right: 0px;
+  display: block;
+  box-sizing: border-box;
 }
 
 .sidenav a:hover {
@@ -385,24 +392,22 @@ a:hover {
 
 .list-body {
   height: 1000px;
-  width: 40%;
+  width: 840px;
+  min-width: 547px;
   overflow-y: scroll;
-  padding-right: 24px;
-  padding-left: 24px;
   display: block;
+  box-sizing: border-box;
   position: relative;
   overflow-x: hidden;
+  margin-top: 80px;
+  align-content: center;
+  z-index: 2;
 }
 
 .list-items {
-  width: 100%;
-  flex-direction: column;
   display: block;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: center;
-  padding: 0;
-  position: absolute;
+  box-sizing: border-box;
+  padding-top: 50px;
 }
 
 .space {
@@ -839,8 +844,6 @@ div.DateInput.DateInput_1 {
 }
 
 .booking-guests-header {
-  margin-top: 15px;
-  padding-top: 50px;
   margin-bottom: 7px;
   font-size: 12px;
 }
