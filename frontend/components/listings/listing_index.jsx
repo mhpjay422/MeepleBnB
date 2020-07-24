@@ -77,10 +77,10 @@ export default class ListingIndex extends React.Component {
     )
 
     return (
-      <>
-        {sidenav}
+      <div className="index-body">
         {listIndexItem}
-      </>
+        {sidenav}
+      </div>
     );
   }
 }
