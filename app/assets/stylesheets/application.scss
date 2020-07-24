@@ -371,7 +371,7 @@ a:hover {
 }
 
 .list-body {
-  height: 5000px;
+  height: 1000px;
   width: 60%;
   min-width: 700px;
   overflow: scroll;
@@ -537,6 +537,15 @@ a:hover {
 .list-show-image-side img {
 }
 
+.listing-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  justify-content: space-between;
+  padding: 80px;
+}
+
 .index-image {
   max-height: 50%;
   min-height: 50%;
@@ -553,7 +562,7 @@ a:hover {
   overflow: hidden;
 }
 
-.listing-body {
+.listing-main {
   height:100%;
   width: 40%;
   justify-content: center;
@@ -564,14 +573,15 @@ a:hover {
 }
 
 .listing-lis {
-  width: 595px;
+  min-width: 700px;
+  max-width: 100%;
   height: 1000px;
   padding-right: 10px;
   display: flex;
   flex-direction: column;
   position: relative;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: scroll;
 }
 
 .property-type {
@@ -674,9 +684,10 @@ a:hover {
   background-color: white;
   margin-left: 10px;
   border: 1px solid lightgrey;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+  justify-content: right;
+  align-content: right;
+  align-items: right;
+  right: 80;
 }
 
 .booking-body {
