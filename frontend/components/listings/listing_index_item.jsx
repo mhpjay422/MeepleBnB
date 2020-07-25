@@ -17,35 +17,37 @@ class IndexItem extends React.Component {
   render() {
     return (
       <div className="listing-index">
-        <div className="listing-info" >
-          <div className="listing-index-item" onClick={this.handleClick}>
-            <div className="index-item-img">
-              <img className="list-img" src={this.props.listing.picture_url} />
-            </div>
-            <div className="index-item-info">
-              <img
-                className="plus"
-                src="./Screen Shot 2018-11-23 at 11.15.19 AM.png"
-              />
-              <span className="index-item-title">{this.props.listing.title}</span>
-              <br />
-              <span className="index-item-price">
-                ${this.props.listing.price} per night · Free cancellation
-              </span>
-              <br />
-              <br />
+        <div className="listing-index-container">
+          <div className="listing-info" >
+            <div className="listing-index-item" onClick={this.handleClick}>
+              <div className="index-item-img">
+                <img className="list-img" src={this.props.listing.picture_url} />
+              </div>
+              <div className="index-item-info">
+                <img
+                  className="plus"
+                  src="./Screen Shot 2018-11-23 at 11.15.19 AM.png"
+                />
+                <span className="index-item-title">{this.props.listing.title}</span>
+                <br />
+                <span className="index-item-price">
+                  ${this.props.listing.price} per night · Free cancellation
+                </span>
+                <br />
+                <br />
+              </div>
             </div>
           </div>
+          <span className="index-item-rating">
+          <div>Rating: </div>
+              <Rating
+                placeholderRating={3.5}
+                emptySymbol={<img src="./star-solid.svg" className="star" />}
+                placeholderSymbol={<img src="./star-solid.svg" className="star" />}
+                fullSymbol={<img src="./star-solid.svg" className="star" />}
+              />
+          </span>
         </div>
-        <span className="index-item-rating">
-        <div>Rating: </div>
-            <Rating
-              placeholderRating={3.5}
-              emptySymbol={<img src="./star-solid.svg" className="star" />}
-              placeholderSymbol={<img src="./star-solid.svg" className="star" />}
-              fullSymbol={<img src="./star-solid.svg" className="star" />}
-            />
-        </span>
       </div>
     );
   }
