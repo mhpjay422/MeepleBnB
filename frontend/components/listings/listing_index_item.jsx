@@ -16,10 +16,10 @@ class IndexItem extends React.Component {
 
   render() {
     return (
-      <div className="listing-index">
+      <div className="listing-index" onClick={this.handleClick}>
         <div className="listing-index-container">
           <div className="listing-info" >
-            <div className="listing-index-item" onClick={this.handleClick}>
+            <div className="listing-index-item">
               <div className="index-item-img">
                 <img className="list-img" src={this.props.listing.picture_url} />
               </div>
