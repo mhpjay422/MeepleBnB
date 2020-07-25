@@ -510,6 +510,7 @@ a:hover {
 }
 
 .list-show-body {
+  height: 1000px;
   overflow-y: scroll;
   display: block;
   box-sizing: border-box;
@@ -566,6 +567,7 @@ a:hover {
 }
 
 .listing-body {
+
   padding: 20px;
   display: flex;
   flex-direction: row;
