@@ -3,8 +3,8 @@ import MarkerManager from "../../util/marker_manager";
 import { withRouter } from 'react-router-dom';
 
 const mapOptions = {
-  center: { lat: 40.782598, lng: -73.971915 },
-  zoom: 12
+  center: { lat: 40.740508, lng: -73.971915 },
+  zoom: 11.5
 };
 
 class ListingMap extends React.Component {

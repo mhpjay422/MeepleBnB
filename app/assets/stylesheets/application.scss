@@ -358,6 +358,8 @@ a:hover {
   flex-direction: row;
   display: block;
   padding-top: 0;
+  overflow-y: scroll;
+
 }
 
 .sidenav {
@@ -397,7 +399,7 @@ a:hover {
   height: 1000px;
   width: 840px;
   min-width: 547px;
-  overflow-y: scroll;
+  
   display: block;
   box-sizing: border-box;
   position: relative;
@@ -516,6 +518,8 @@ a:hover {
   box-sizing: border-box;
   position: relative;
   margin-top: 80px;
+  padding-left: 80px;
+  padding-right: 80px;
 }
 
 .list-show-images {
@@ -563,11 +567,7 @@ a:hover {
   overflow: hidden;
 }
 
-.list-show-image-side img {
-}
-
 .listing-body {
-
   padding: 20px;
   display: flex;
   flex-direction: row;
@@ -611,7 +611,6 @@ a:hover {
   flex-direction: column;
   position: relative;
   overflow-x: hidden;
-  overflow: scroll;
 }
 
 .property-type {
