@@ -67,7 +67,20 @@ export default class ListingIndex extends React.Component {
 
     const listIndexItem = (
       <div className="list-body">
-        <h1>Top-Rated Homes: </h1>
+        <div className="list-header">
+          <div className="list-header-container">
+            <section>
+              <div className="list-header-list-items-mini-text">
+                300+ stays
+              </div>
+              <div className="list-header-list-items-description">
+                <h1 className="list-header-list-items-description-text">
+                  Stays in New York
+                </h1>
+              </div>
+            </section>
+          </div> 
+        </div>
         <ul className="list-items">
           {allPropsOrFiltered().map(listing => (
             <ListingIndexItem listing={listing} key={listing.id} />

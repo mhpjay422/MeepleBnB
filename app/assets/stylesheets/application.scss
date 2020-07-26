@@ -419,6 +419,44 @@ a:hover {
   --page-shell-max-content-width: none:
 }
 
+.list-header {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.list-header-container {
+  padding-top: 50px;
+}
+
+.list-header-list-items-mini-text {
+  font-size: 14px;
+  line-height: 18px;
+  color: #222222;
+  padding-bottom: 8px;
+  font-family: Circular,
+  -apple-system,
+  BlinkMacSystemFont,
+  Roboto,
+  Helvetica Neue,
+  sans-serif;
+}
+
+.list-header-list-items-description {
+  font-size: 32px;
+  line-height: 36px;
+  color: #222222;
+  font-weight: 800;
+}
+
+.list-header-list-items-description-text {
+  color: inherit;
+  font-size: 1em;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
 .list-items {
   min-height: 400px;
   max-width: none;
