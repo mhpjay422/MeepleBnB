@@ -35,20 +35,42 @@ class IndexItem extends React.Component {
                 </div>
               </div>
               <div className="index-item-divider"></div>
-
-
-              <span className="index-item-price">
-                ${this.props.listing.price} per night · Free cancellation
-                </span>
-              <span className="index-item-rating">
-                <div>Rating: </div>
-                <Rating
-                  placeholderRating={3.5}
-                  emptySymbol={<img src="./star-solid.svg" className="star" />}
-                  placeholderSymbol={<img src="./star-solid.svg" className="star" />}
-                  fullSymbol={<img src="./star-solid.svg" className="star" />}
-                />
-              </span>
+              <div className="index-item-amenities1">
+                4 guests
+                <span> · </span>
+                1 bedroom
+                <span> · </span>
+                2 beds
+                <span> · </span>
+                1 bath
+              </div>
+              <div className="index-item-amenities2">
+                Wifi
+                <span> · </span>
+                Air conditioning
+                <span> · </span>
+                Kitchen
+              </div>
+              <div className="index-item-footer">
+                <div className="index-item-rating">
+                  <Rating
+                    placeholderRating={1}
+                    emptySymbol={<img src="./star-solid.svg" className="star" />}
+                    placeholderSymbol={<img src="./star-solid.svg" className="star" />}
+                    fullSymbol={<img src="./star-solid.svg" className="star" />}
+                  />
+                </div>
+                <div className="index-item-price-container">
+                  <div className="index-item-price">
+                    <div className="index-item-price-text">
+                      <span className="index-item-price-integer">
+                        ${this.props.listing.price} 
+                      </span>
+                      /night
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           

@@ -568,6 +568,7 @@ a:hover {
   height: 200px;
   margin-left: 16px;
   background-color: white;
+  box-sizing: border-box;
 }
 
 .index-item-info-description {
@@ -579,13 +580,6 @@ a:hover {
 .index-item-info-description-container {
   margin-right: 16px;
   flex: 1 1 0%;
-}
-
-
-
-.index-item-rating {
-  align-self: baseline;
-  background-color: white;
 }
 
 .plus {
@@ -631,24 +625,93 @@ a:hover {
   border-top: 1px solid rgb(221, 221, 221);
 }
 
-.index-item-price {
+.index-item-amenities1 {
+  color: rgb(113, 113, 113);
+  font-weight: 400;
+  min-height: 18px;
   font-size: 14px;
-  margin-top: 5px;
-  display: flex;
-  align-items: bottom;
+  line-height: 18px;
+  max-height: 18px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 9px;
+  
 }
+
+.index-item-amenities2 {
+  margin-top: 4px;
+  color: rgb(113, 113, 113);
+  font-weight: 400;
+  min-height: 18px;
+  font-size: 14px;
+  line-height: 18px;
+  max-height: 18px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.index-item-footer {
+  -webkit-box-flex: 1;
+  -webkit-box-align: end;
+  display: flex;
+  align-items: flex-end;
+  flex-grow: 1;
+  box-sizing: border-box;
+  -webkit-box-direction: normal;
+}
+
 .index-item-rating {
-  font-size: 13px;
-  display: flex;
-  align-items: top;
+  margin-right: 12px;
+  display: block;
+  box-sizing: border-box;
+  -webkit-box-direction: normal;
+  margin-bottom: -5px;
 }
-.index-item-rating div {
-  margin-right: 5px;
+
+.index-item-price-container {
+  margin-left: auto;
+  box-sizing: border-box;
+  display: block;
+}
+
+.index-item-price {
+  position: relative;
+  text-align: right;
+  display: block;
+}
+
+.index-item-price-text {
+  -webkit-box-pack: end;
+  -webkit-box-align: center;
+  align-items: center;
+  color: rgb(34, 34, 34);
+  display: flex;
+  font-weight: 350;
+  font-size: 18px;
+  line-height: 24px;
+  justify-content: flex-end;
+  text-align: right;
+  font-family: Circular,
+  -apple-system,
+  BlinkMacSystemFont,
+  Roboto,
+  Helvetica Neue,
+  sans-serif;
+}
+
+.index-item-price-integer {
+  font-weight: 800;
 }
 
 .star {
-  height: 15px;
-  width: 15px;
+  height: 14.5px;
+  width: 14.5px;
   line-height: 5px;
 }
 
