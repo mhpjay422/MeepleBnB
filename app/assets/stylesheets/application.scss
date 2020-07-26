@@ -362,6 +362,7 @@ a:hover {
   line-height: 1.43;
   color: #484848;
   -webkit-font-smoothing: antialiased;
+  background-color: white;
 }
 
 .body-content {
@@ -377,6 +378,7 @@ a:hover {
   z-index: 3;
   height: 100%;
   width: calc(100% - 840px);
+  min-width: 35%;
   padding: 0px;
   position: absolute;
   border-width: 0px;
@@ -385,6 +387,7 @@ a:hover {
   right: 0px;
   display: block;
   box-sizing: border-box;
+
 }
 
 .sidenav a:hover {
@@ -415,17 +418,21 @@ a:hover {
   overflow-x: hidden;
   margin-top: 0px;
   align-content: center;
-  z-index: 2;
+  z-index: 3;
   --page-shell-max-content-width: none:
+  background-color: inherit;
+  background-clip: border-box;
 }
 
 .list-header {
   padding-left: 24px;
   padding-right: 24px;
+  background-color: white;
 }
 
 .list-header-container {
   padding-top: 50px;
+  background-color: white;
 }
 
 .list-header-list-items-mini-text {
@@ -439,6 +446,7 @@ a:hover {
   Roboto,
   Helvetica Neue,
   sans-serif;
+  background-color: white;
 }
 
 .list-header-list-items-description {
@@ -446,6 +454,7 @@ a:hover {
   line-height: 36px;
   color: #222222;
   font-weight: 800;
+  background-color: white;
 }
 
 .list-header-list-items-description-text {
@@ -455,6 +464,7 @@ a:hover {
   line-height: inherit;
   margin: 0;
   padding: 0;
+  background-color: white;
 }
 
 .list-items {
@@ -468,11 +478,15 @@ a:hover {
   --page-shell-max-content-width: none;
   padding-left: 24px;
   padding-right: 24px;
+  background-color: white;
+  background-clip: border-box;
+  margin: 0;
 }
 
 .space {
   height: 100%;
   width: 100%;
+  background-color: white;
 }
 
 .listing-index {
@@ -481,6 +495,8 @@ a:hover {
   display: inline-block;
   vertical-align: top;
   white-space: normal;
+  background-color: white;
+  background-clip: border-box;
 }
 
 .listing-index-container {
@@ -491,6 +507,7 @@ a:hover {
   padding-top: 8px;
   padding-bottom: 12px;
   display: block;
+  background-color: white;
 }
 
 .listing-info {
@@ -501,6 +518,7 @@ a:hover {
   padding-bottom: 24px;
   box-sizing: border-box;
   border-bottom: 1px solid #ebe8e8;
+  background-color: white;
 }
 
 .listing-index-item {
@@ -509,16 +527,19 @@ a:hover {
   left: 0px;
   right: 0px;
   top: 0px;
+  background-color: white;
 }
 
 .listing-index-item:hover {
   cursor: pointer;
+  background-color: white;
 }
 
 .index-item-img {
   flex-shrink: 0;
   display: block;
   box-sizing: border-box;
+  background-color: white;
 }
 
 .list-img {
@@ -532,13 +553,26 @@ a:hover {
   overflow: hidden;
   position: relative;
   object-fit: fill;
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
   display: block;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.index-item-info {
+  -webkit-box-flex: 1;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 200px;
+  margin-left: 16px;
+  background-color: white;
 }
 
 .index-item-rating {
   align-self: baseline;
+  background-color: white;
 }
 
 .plus {

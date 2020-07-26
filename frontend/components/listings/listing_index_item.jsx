@@ -34,17 +34,16 @@ class IndexItem extends React.Component {
               <span className="index-item-price">
                 ${this.props.listing.price} per night · Free cancellation
                 </span>
-            <span className="index-item-rating">
-              <div>Rating: </div>
-              <Rating
-                placeholderRating={3.5}
-                emptySymbol={<img src="./star-solid.svg" className="star" />}
-                placeholderSymbol={<img src="./star-solid.svg" className="star" />}
-                fullSymbol={<img src="./star-solid.svg" className="star" />}
-              />
-            </span>
+              <span className="index-item-rating">
+                <div>Rating: </div>
+                <Rating
+                  placeholderRating={3.5}
+                  emptySymbol={<img src="./star-solid.svg" className="star" />}
+                  placeholderSymbol={<img src="./star-solid.svg" className="star" />}
+                  fullSymbol={<img src="./star-solid.svg" className="star" />}
+                />
+              </span>
             </div>
-
           </div>
           
         </div>
