@@ -378,7 +378,6 @@ a:hover {
   z-index: 3;
   height: 100%;
   width: calc(100% - 840px);
-  min-width: 35%;
   padding: 0px;
   position: absolute;
   border-width: 0px;
@@ -540,6 +539,7 @@ a:hover {
   display: block;
   box-sizing: border-box;
   background-color: white;
+  margin-bottom: 4px;
 }
 
 .list-img {
@@ -569,6 +569,19 @@ a:hover {
   margin-left: 16px;
   background-color: white;
 }
+
+.index-item-info-description {
+  -webkit-box-align: start;
+  display: flex;
+  align-items: flex-start;
+}
+
+.index-item-info-description-container {
+  margin-right: 16px;
+  flex: 1 1 0%;
+}
+
+
 
 .index-item-rating {
   align-self: baseline;
@@ -600,11 +613,24 @@ a:hover {
 }
 
 .index-item-title {
-  height: 300px;
-  font-weight: bolder;
-  font-size: 17px;
-  margin-top: 5px;
+  max-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  font-weight: 400;
+  color: rgb(34, 34, 34);
+  font-size: 18px;
+  line-height: 24px;
 }
+
+.index-item-divider {
+  margin-top: 11px;
+  width: 32px;
+  border-top: 1px solid rgb(221, 221, 221);
+}
+
 .index-item-price {
   font-size: 14px;
   margin-top: 5px;

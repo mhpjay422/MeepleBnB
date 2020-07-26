@@ -25,12 +25,18 @@ class IndexItem extends React.Component {
               </div>
             </div>
             <div className="index-item-info">
-              <img
-                className="plus"
-                src="./Screen Shot 2018-11-23 at 11.15.19 AM.png"
-              />
-              <span className="index-item-title">{this.props.listing.title}</span>
-              <br />
+              <div className="index-item-info-description">
+                <div className="index-item-info-description-container">
+                  <img
+                    className="plus"
+                    src="./Screen Shot 2018-11-23 at 11.15.19 AM.png"
+                  />
+                  <div className="index-item-title">{this.props.listing.title}</div>
+                </div>
+              </div>
+              <div className="index-item-divider"></div>
+
+
               <span className="index-item-price">
                 ${this.props.listing.price} per night · Free cancellation
                 </span>
