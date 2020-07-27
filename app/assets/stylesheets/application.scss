@@ -62,7 +62,6 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #ebe8e8;
 }
 
 .splash-topbar {
@@ -276,7 +275,7 @@ a:hover {
   top: 0;
   position: fixed;
   z-index: 5;
-  border-bottom: 1px solid #ebe8e8;
+  border-bottom: 2px solid #dddddd;
 }
 
 .greet-leftsec {
