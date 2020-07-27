@@ -13,6 +13,10 @@
    min-height: 100vh;
 }
 
+body {
+  margin: 0;
+}
+
 .footer {
   height: 500px;
   background-color: blue;
@@ -37,10 +41,10 @@
   background-size: cover;
   background-repeat: repeat-x;
   position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  margin-left: -10;
+  margin-top: -10;
+  margin-right: -10;
+  margin-bottom: -10;
 }
 
 .topbar {
