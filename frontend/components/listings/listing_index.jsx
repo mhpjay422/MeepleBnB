@@ -91,8 +91,11 @@ export default class ListingIndex extends React.Component {
 
     return (
       <div className="index-body">
-        {listIndexItem}
-        {sidenav}
+        <div>
+          {listIndexItem}
+          {sidenav}
+        </div>
+        {/* <div className="footer"></div> */}
       </div>
     );
   }
