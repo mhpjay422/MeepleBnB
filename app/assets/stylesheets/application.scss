@@ -363,12 +363,6 @@ a:hover {
   width: 100%;
   flex-direction: row;
   display: box;
-  font-family: Circular,
-  -apple-system,
-  BlinkMacSystemFont,
-  Roboto,
-  Helvetica Neue,
-  sans-serif;
   font-size: 14px;
   line-height: 1.43;
   color: #484848;
@@ -443,12 +437,6 @@ a:hover {
   line-height: 18px;
   color: #222222;
   padding-bottom: 8px;
-  font-family: Circular,
-  -apple-system,
-  BlinkMacSystemFont,
-  Roboto,
-  Helvetica Neue,
-  sans-serif;
   background-color: white;
 }
 
@@ -701,12 +689,6 @@ a:hover {
   line-height: 24px;
   justify-content: flex-end;
   text-align: right;
-  font-family: Circular,
-  -apple-system,
-  BlinkMacSystemFont,
-  Roboto,
-  Helvetica Neue,
-  sans-serif;
 }
 
 .index-item-price-integer {
@@ -731,23 +713,85 @@ a:hover {
   justify-content: center;
 }
 
+.listing-detail-page {
+  position: relative;
+  min-height: 100vh;
+}
+
 .list-show-body {
-  height: 1000px;
   display: block;
   box-sizing: border-box;
+}
+
+.list-show-header {
   position: relative;
-  margin-top: 80px;
+  display: block;
+  box-sizing: border-box;
+}
+
+.list-show-header-description-container {
+  height: 100px;
+  max-width: none;
   padding-left: 80px;
   padding-right: 80px;
+  margin-left: 0;
+  margin-right: 0;
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  line-height: 20px;
+}
+
+.list-show-header-description {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 88px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 24px;
+}
+
+.list-show-header-description-text {
+  margin-bottom: 4px;
+  font-size: 26px;
+  line-height: 30px;
+  font-weight: 600;
+}
+
+.list-show-header-description-otherInfo {
+  margin-top: 0;
+  align-items: flex-end;
+  display: flex;
+  height: 30px;
+  flex-direction: row;
+}
+
+.show-rating {
+}
+
+.show-interpunct {
+  margin: 0px 8px;
+}
+
+.list-show-header-location {
+  position: relative;
+  font-size: 14px;
+  font-weight: 100;
+  border-bottom: 1px solid rgb(197, 197, 197);
+  bottom: 1px;
 }
 
 .list-show-images {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   width: 100%;
-  height: 500px;
   flex-wrap: wrap;
   overflow: hidden;
   position: relative;
+  height: 100%;
 }
 
 .list-show-images img:hover {
@@ -788,11 +832,12 @@ a:hover {
 
 .listing-body {
   padding: 20px;
-  display: flex;
+  display: block;
   flex-direction: row;
   align-content: space-between;
   justify-content: space-between;
   padding: 80px;
+  position: relative;
 }
 
 .index-image {
