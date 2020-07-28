@@ -61,26 +61,37 @@ class ListingDetail extends React.Component {
               </div>
             </div>
           </div>
-          <div className="list-show-images">
-            <div className="list-show-image-main">
-              <img className="index-image-main-1" src={this.props.listing.picture_url} />
-            </div>
-            <div className="list-show-image-side">
-              <img className="index-image" src={"3-1200x800.jpg"} />
-              <img
-                className="index-image"
-                src={"Black-looks-exquisite-in-the-bachelor-pad-bedroom.jpg"}
-              />
-              <img
-                className="index-image"
-                src={"pharrell-williams-miami-penthouse-kitchen-1.jpg"}
-              />
-              <img
-                className="index-image"
-                src={
-                  "luxury-pictures-of-modern-bathrooms-21-ideas-beautiful-bathroom-designs-from-schmidt.jpg"
-                }
-              />
+          <div className="list-show-images-container">
+            <div className="list-show-images">
+              <div className="list-show-images-pad">
+                <div className="list-show-images-frame">
+                  <div className="list-show-image-main">
+                    <img className="index-image-main-1" src={this.props.listing.picture_url} />
+                  </div>
+                  <div className="list-show-image-side">
+                    <div className="list-show-image-1-2">
+                      <img className="index-image" src={"3-1200x800.jpg"} />
+                      <img
+                        className="index-image"
+                        src={"Black-looks-exquisite-in-the-bachelor-pad-bedroom.jpg"}
+                      />
+                    </div>
+                    <div className="list-show-image-1-2">
+                      <img
+                        className="index-image"
+                        src={"pharrell-williams-miami-penthouse-kitchen-1.jpg"}
+                      />
+                      <img
+                        className="index-image"
+                        src={
+                          "luxury-pictures-of-modern-bathrooms-21-ideas-beautiful-bathroom-designs-from-schmidt.jpg"
+                        }
+                      />
+                    </div>
+                  </div>
+
+                </div>
+              </div>
             </div>
           </div>
         </div>
