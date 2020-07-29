@@ -811,11 +811,11 @@ a:hover {
   transform: scale(1.01);
   -webkit-transform: scale(1.01);
   -webkit-filter: brightness(110%);
-  -webkit-transition: all .5s ease;
-  -moz-transition: all .5s ease;
-  -o-transition: all .5s ease;
-  -ms-transition: all .5s ease;
-  transition: all .5s ease;
+  -webkit-transition: all .1s ease;
+  -moz-transition: all .1s ease;
+  -o-transition: all .1s ease;
+  -ms-transition: all .1s ease;
+  transition: all .1s ease;
   overflow: hidden;
 }
 
@@ -886,7 +886,7 @@ a:hover {
   background-position: center;
   box-sizing: border-box;
   overflow: hidden;
-
+  
 }
 
 .index-image-bottom {
@@ -905,32 +905,24 @@ a:hover {
 
 .listing-body-container {
   max-width: 1120px;
-  padding: 80px;
+  padding-top: 48px;
+  padding-left: 80px;
+  padding-right: 80px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.listing-body {
   display: flex;
   flex-direction: row;
-  align-content: center;
-  justify-content: center;
-  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
 }
 
-.listing-lis {
-  max-width: 100%;
-  height: 1000px;
-  padding-right: 10px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow-x: hidden;
+.listing-body-description {
+  width: 55%;
 }
 
 .property-type {
-  font-size: 13px;
-  font-weight: bolder;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .listing-title {
@@ -1024,14 +1016,13 @@ a:hover {
 
 .booking-form {
   height: 472px;
-  width: 366px;
+  width: 35%;
+  margin-left: 10%;
   background-color: white;
-  margin-left: 10px;
   border: 1px solid lightgrey;
   justify-content: right;
   align-content: right;
   align-items: right;
-  right: 80;
 }
 
 .booking-body {

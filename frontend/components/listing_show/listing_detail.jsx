@@ -100,64 +100,58 @@ class ListingDetail extends React.Component {
           </div>
         </div>
         <div className="listing-body-container">
-          <div className="listing-body">
-            <div className="listing-lis">
-              <div className="property-type">ENTIRE HOUSE</div>
-              <div className="listing-title">
-              </div>
-              <div className="listing-amenities-preview">
-                <div className="preview-house">
-                  <div className="house-box" />
-                  <div className="preview-body">
-                    <div className="house-type">
-                      <img className="house-icon" src="house.svg" />
-                      Entire House
-                    </div>
-                    <div className="amenities-preview">
-                      <li>
-                        <img
-                          className="amenities-icon"
-                          src="./Screen Shot 2018-11-23 at 12.21.41 PM.png"
-                        />
-                        4 guests
-                      </li>
-                      <li>
-                        <img
-                          className="amenities-icon"
-                          src="./Screen Shot 2018-11-23 at 12.24.07 PM.png"
-                        />
-                        1 bedroom
-                      </li>
-                      <li>
-                        <img
-                          className="amenities-icon"
-                          src="./Screen Shot 2018-11-23 at 12.23.28 PM.png"
-                        />
-                        2 beds
-                      </li>
-                      <li>
-                        <img
-                          className="amenities-icon"
-                          src="Screen Shot 2018-11-23 at 12.23.48 PM.png"
-                        />
-                        1 bath
-                      </li>
-                    </div>
+          <div className="listing-body-description">
+            <div className="property-type">ENTIRE HOUSE</div>
+            <div className="listing-title">
+            </div>
+            <div className="listing-amenities-preview">
+              <div className="preview-house">
+                <div className="house-box" />
+                <div className="preview-body">
+                  <div className="amenities-preview">
+                    <li>
+                      <img
+                        className="amenities-icon"
+                        src="./Screen Shot 2018-11-23 at 12.21.41 PM.png"
+                      />
+                      4 guests
+                    </li>
+                    <li>
+                      <img
+                        className="amenities-icon"
+                        src="./Screen Shot 2018-11-23 at 12.24.07 PM.png"
+                      />
+                      1 bedroom
+                    </li>
+                    <li>
+                      <img
+                        className="amenities-icon"
+                        src="./Screen Shot 2018-11-23 at 12.23.28 PM.png"
+                      />
+                      2 beds
+                    </li>
+                    <li>
+                      <img
+                        className="amenities-icon"
+                        src="Screen Shot 2018-11-23 at 12.23.48 PM.png"
+                      />
+                      1 bath
+                    </li>
                   </div>
                 </div>
               </div>
-              <span className="the-space">The space</span>
-              <div>{this.props.listing.description}</div>
-
-              <li>Address: {this.props.listing.address}</li>
-              <div className="lat-lng">
-                {this.props.listing.lat}
-                {this.props.listing.lng}
-              </div>
-              <div className="street-map" ref={map => (this.mapNode = map)}></div>
             </div>
-            <BookingFormContainer listing={this.props.listing} />
+            <span className="the-space">The space</span>
+            <div>{this.props.listing.description}</div>
+
+            <div>Address: {this.props.listing.address}</div>
+            <div className="lat-lng">
+              {this.props.listing.lat}
+              {this.props.listing.lng}
+            </div>
+            <div className="street-map" ref={map => (this.mapNode = map)}></div>
           </div>
+          <BookingFormContainer listing={this.props.listing} />
         </div>
       </div>
     </div>
