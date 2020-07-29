@@ -73,7 +73,7 @@ class IndexItem extends React.Component {
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
     );

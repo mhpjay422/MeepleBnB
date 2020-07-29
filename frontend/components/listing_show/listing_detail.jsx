@@ -147,7 +147,7 @@ class ListingDetail extends React.Component {
               <div className="listing-intro-description">
                 <div className="listing-intro-description-item">
                   <div className="LID-item-image">
-                    <img className="LID-item-image-house" src="house.png"/>            
+                    <img className="LID-item-image-img" src="house.png"/>            
                   </div>
                   <div className="LID-item-text">
                     <div className="LID-item-text-header">
@@ -160,7 +160,7 @@ class ListingDetail extends React.Component {
                 </div>
                 <div className="listing-intro-description-item">
                   <div className="LID-item-image">
-                    <img className="LID-item-image-house" src="house.png"/>            
+                    <img className="LID-item-image-img" src="door.png"/>            
                   </div>
                   <div className="LID-item-text">
                     <div className="LID-item-text-header">
@@ -173,7 +173,7 @@ class ListingDetail extends React.Component {
                 </div>
                 <div className="listing-intro-description-item">
                   <div className="LID-item-image">
-                    <img className="LID-item-image-house" src="house.png"/>            
+                    <img className="LID-item-image-img" src="clean.png"/>            
                   </div>
                   <div className="LID-item-text">
                     <div className="LID-item-text-header">
@@ -186,7 +186,7 @@ class ListingDetail extends React.Component {
                 </div>
                 <div className="listing-intro-description-item-bottom">
                   <div className="LID-item-image">
-                    <img className="LID-item-image-house" src="house.png"/>            
+                    <img className="LID-item-image-img" src="fun.png"/>            
                   </div>
                   <div className="LID-item-text">
                     <div className="LID-item-text-header">
