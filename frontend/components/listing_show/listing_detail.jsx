@@ -101,7 +101,7 @@ class ListingDetail extends React.Component {
         </div>
         <div className="listing-body-container">
           <div className="listing-body-description">
-            <div className="listing-intro">
+            <div className="listing-body-intro">
               <div className="property-type">Entire house hosted by Jason</div>
               <div className="listing-amenities-preview">
                 <div className="preview-house">
@@ -199,10 +199,11 @@ class ListingDetail extends React.Component {
                 </div>
               </div>          
             </div>
-            <span className="the-space">The space</span>
-            <div>{this.props.listing.description}</div>
-
-            <div>Address: {this.props.listing.address}</div>
+            <div className="listing-body-info-container">
+              <span className="the-space">The space</span>
+              <div>{this.props.listing.description}</div>
+              <div>Address: {this.props.listing.address}</div>
+            </div>
             <div className="lat-lng">
               {this.props.listing.lat}
               {this.props.listing.lng}

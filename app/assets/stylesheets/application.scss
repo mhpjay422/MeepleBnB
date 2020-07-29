@@ -11,6 +11,7 @@
 .main {
    position: block;
    min-height: 100vh;
+   min-width: 100vh;
 }
 
 body {
@@ -920,7 +921,7 @@ a:hover {
   width: 55%;
 }
 
-.listing-intro {
+.listing-body-intro {
   padding-bottom: 24px;
   border-bottom: 1px solid lightgrey;
 }
@@ -1027,6 +1028,11 @@ a:hover {
   font-weight: 200;
   align-items: bottom;
   bottom: 0;
+}
+
+.listing-body-info {
+  padding: 32px 0 48px;
+  border-bottom: 1px solid lightgray;
 }
 
 .the-space {
