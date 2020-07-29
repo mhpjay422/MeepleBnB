@@ -906,15 +906,16 @@ a:hover {
 
 .listing-body-container {
   max-width: 1120px;
-  padding-top: 48px;
   padding-left: 80px;
   padding-right: 80px;
   margin-left: auto;
   margin-right: auto;
+  -webkit-box-pack: start;
   display: flex;
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .listing-body-description {
@@ -922,6 +923,7 @@ a:hover {
 }
 
 .listing-body-intro {
+  padding-top: 48px;
   padding-bottom: 24px;
   border-bottom: 1px solid lightgrey;
 }
@@ -1051,24 +1053,37 @@ a:hover {
 }
 
 .booking-form {
-  height: 472px;
   width: 35%;
   margin-left: 10%;
+  position: relative;
   background-color: white;
-  border: 1px solid lightgrey;
-  justify-content: right;
-  align-content: right;
-  align-items: right;
+  display: block;
+}
+
+.booking-frame {
+  top: 80px;
+  background-color: white;
+  position: sticky;
+  display: block;
+  box-sizing: border-box;
+  z-index: 1;
+  padding-bottom: 48px;
+  padding-right: 1px;
 }
 
 .booking-body {
-  display: flex;
-  flex-direction: column;
-  height: 430px;
-  width: 326px;
-  background-color: white;
-  margin-left: 25px;
-  margin-top: 20px;
+  margin-top: 48px;
+  display: block;
+  box-sizing: border-box;
+}
+
+.booking-body-margin {
+  padding: 24px;
+  border: 1px solid lightgrey;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+  box-sizing: border-box;
+  
 }
 
 .booking-price {

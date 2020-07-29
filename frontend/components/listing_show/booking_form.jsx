@@ -84,73 +84,77 @@ class BookingForm extends React.Component {
 
   render() {
     const form = (
-      <form className="booking-form">
-        <div className="booking-body">
-          <div className="booking-price">
-            <div className="booking-price-integer">
-              ${this.props.listing.price}
-            </div>
-            <div className="booking-price-pernight">
-              <div>per night</div>
+      <div className="booking-form">
+        <div className="booking-frame">
+          <div className="booking-body">
+            <div className="booking-body-margin">
+              <div className="booking-price">
+                <div className="booking-price-integer">
+                  ${this.props.listing.price}
+                </div>
+                <div className="booking-price-pernight">
+                  <div>per night</div>
+                </div>
+              </div>
+              <div className="booking-rating">
+                <div className="booking-rating-text">Rating: </div>
+                <Rating
+                  placeholderRating={3.5}
+                  emptySymbol={<img src="./star-solid.svg" className="star" />}
+                  placeholderSymbol={<img src="./star-solid.svg" className="star" />}
+                  fullSymbol={<img src="./star-solid.svg" className="star" />}
+                />
+              </div>
+              <div className="booking-dates-header">Dates</div>
+              <div className="date-picker">
+                <DateRangePicker
+                  startDate={this.state.startDate}
+                  startDateId="start-date"
+                  endDate={this.state.endDate}
+                  endDateId="end-date"
+                  startDatePlaceholderText="Check In"
+                  showClearDates={true}
+                  endDatePlaceholderText="Check Out"
+                  onDatesChange={({ startDate, endDate }) =>
+                    this.setState({ startDate, endDate })
+                  }
+                  focusedInput={this.state.focusedInput}
+                  onFocusChange={focusedInput => this.setState({ focusedInput })}
+                  renderCalendarDay={undefined}
+                />
+              </div>
+              <div className="booking-guests-header">Guests</div>
+              <input
+                type="integer"
+                className="booking-guests-input"
+                defaultValue="1"
+                min="1"
+                onChange={this.handleGuests}
+              />
+              <div>{this.renderErrors()}</div>
+              <div className="button-hover">
+                <button className="booking-submit" onClick={this.handleSubmit}>
+                  <div className="book-button">Book</div>
+                </button>
+              </div>
+              <div className="booking-charge-text">You won’t be charged yet</div>
+              <div className="booking-divider" />
             </div>
           </div>
-          <div className="booking-rating">
-            <div className="booking-rating-text">Rating: </div>
-            <Rating
-              placeholderRating={3.5}
-              emptySymbol={<img src="./star-solid.svg" className="star" />}
-              placeholderSymbol={<img src="./star-solid.svg" className="star" />}
-              fullSymbol={<img src="./star-solid.svg" className="star" />}
+          <div className="booking-bottom-container">
+            <div className="booking-bottom-container-inner">
+              <span className="booking-bottom-text1">
+                This home is on people’s minds.
+                </span>
+              <div>It’s been viewed 500+ times in the past week.</div>
+            </div>
+            <img
+              className="lightbulb"
+              src="./Screen Shot 2018-11-23 at 11.43.18 AM.png"
             />
           </div>
-          <div className="booking-dates-header">Dates</div>
-          <div className="date-picker">
-            <DateRangePicker
-              startDate={this.state.startDate}
-              startDateId="start-date"
-              endDate={this.state.endDate}
-              endDateId="end-date"
-              startDatePlaceholderText="Check In"
-              showClearDates={true}
-              endDatePlaceholderText="Check Out"
-              onDatesChange={({ startDate, endDate }) =>
-                this.setState({ startDate, endDate })
-              }
-              focusedInput={this.state.focusedInput}
-              onFocusChange={focusedInput => this.setState({ focusedInput })}
-              renderCalendarDay={undefined}
-            />
-          </div>
-          <div className="booking-guests-header">Guests</div>
-          <input
-            type="integer"
-            className="booking-guests-input"
-            defaultValue="1"
-            min="1"
-            onChange={this.handleGuests}
-          />
-          <div>{this.renderErrors()}</div>
-          <div className="button-hover">
-            <button className="booking-submit" onClick={this.handleSubmit}>
-              <div className="book-button">Book</div>
-            </button>
-          </div>
-          <div className="booking-charge-text">You won’t be charged yet</div>
-          <div className="booking-divider" />
         </div>
-        <div className="booking-bottom-container">
-          <div className="booking-bottom-container-inner">
-            <span className="booking-bottom-text1">
-              This home is on people’s minds.
-              </span>
-            <div>It’s been viewed 500+ times in the past week.</div>
-          </div>
-          <img
-            className="lightbulb"
-            src="./Screen Shot 2018-11-23 at 11.43.18 AM.png"
-          />
-        </div>
-      </form>
+      </div>
       
     );
 
