@@ -798,7 +798,9 @@ a:hover {
 }
 
 .list-show-images img:hover {
-  -webkit-filter: brightness(80%);
+  transform: scale(1.01);
+  -webkit-transform: scale(1.01);
+  -webkit-filter: brightness(110%);
   -webkit-transition: all .5s ease;
   -moz-transition: all .5s ease;
   -o-transition: all .5s ease;
@@ -851,6 +853,7 @@ a:hover {
   position: relative;
   display: flex;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .list-show-image-1-2 {
@@ -858,7 +861,8 @@ a:hover {
   width: 50%;
   position: relative;
   padding-left: 8px;
-  min-height: 300px;  
+  min-height: 300px;
+  
 }
 
 .index-image-top {
@@ -871,6 +875,8 @@ a:hover {
   background-repeat: no-repeat;
   background-position: center;
   box-sizing: border-box;
+  overflow: hidden;
+
 }
 
 .index-image-bottom {
@@ -884,6 +890,7 @@ a:hover {
   background-repeat: no-repeat;
   background-position: center;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .listing-body-container {
