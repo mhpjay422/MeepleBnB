@@ -101,21 +101,21 @@ class ListingDetail extends React.Component {
         </div>
         <div className="listing-body-container">
           <div className="listing-body-description">
-            <div className="listing-body-amenities">
+            <div className="listing-intro">
               <div className="property-type">Entire house hosted by Jason</div>
               <div className="listing-amenities-preview">
                 <div className="preview-house">
                   <div className="preview-body">
                     <div className="amenities-preview">
-                      <div>
+                      <div className="amenities-text">
                         <img
                           className="amenities-icon"
                           src="./Screen Shot 2018-11-23 at 12.21.41 PM.png"
                         />
-                        4 guests
+                          4 guests
                       </div>
                       <span className="show-interpunct"> · </span>
-                      <div>
+                      <div className="amenities-text">
                         <img
                           className="amenities-icon"
                           src="./Screen Shot 2018-11-23 at 12.24.07 PM.png"
@@ -123,7 +123,7 @@ class ListingDetail extends React.Component {
                         1 bedroom
                       </div>
                       <span className="show-interpunct"> · </span>
-                      <div>
+                      <div className="amenities-text">
                         <img
                           className="amenities-icon"
                           src="./Screen Shot 2018-11-23 at 12.23.28 PM.png"
@@ -131,7 +131,7 @@ class ListingDetail extends React.Component {
                         2 beds
                       </div>
                       <span className="show-interpunct"> · </span>
-                      <div>
+                      <div className="amenities-text">
                         <img
                           className="amenities-icon"
                           src="Screen Shot 2018-11-23 at 12.23.48 PM.png"
@@ -142,6 +142,62 @@ class ListingDetail extends React.Component {
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="listing-intro-description-container">
+              <div className="listing-intro-description">
+                <div className="listing-intro-description-item">
+                  <div className="LID-item-image">
+                    <img className="LID-item-image-house" src="house.png"/>            
+                  </div>
+                  <div className="LID-item-text">
+                    <div className="LID-item-text-header">
+                      Entire Home
+                    </div>      
+                    <div className="LID-item-text-description">
+                      You'll have the house to yourself
+                    </div>      
+                  </div>
+                </div>
+                <div className="listing-intro-description-item">
+                  <div className="LID-item-image">
+                    <img className="LID-item-image-house" src="house.png"/>            
+                  </div>
+                  <div className="LID-item-text">
+                    <div className="LID-item-text-header">
+                      Self check-in
+                    </div>      
+                    <div className="LID-item-text-description">
+                      Check yourself in with the keypad
+                    </div>      
+                  </div>
+                </div>
+                <div className="listing-intro-description-item">
+                  <div className="LID-item-image">
+                    <img className="LID-item-image-house" src="house.png"/>            
+                  </div>
+                  <div className="LID-item-text">
+                    <div className="LID-item-text-header">
+                      Clean and tidy
+                    </div>      
+                    <div className="LID-item-text-description">
+                      This location is enrolled in the enhanced cleaning program
+                    </div>      
+                  </div>
+                </div>
+                <div className="listing-intro-description-item-bottom">
+                  <div className="LID-item-image">
+                    <img className="LID-item-image-house" src="house.png"/>            
+                  </div>
+                  <div className="LID-item-text">
+                    <div className="LID-item-text-header">
+                      Jason is Plus verified
+                    </div>      
+                    <div className="LID-item-text-description">
+                      Plus verified locations are highly rated and commited to providing great stays for guests
+                    </div>      
+                  </div>
+                </div>
+              </div>          
             </div>
             <span className="the-space">The space</span>
             <div>{this.props.listing.description}</div>
