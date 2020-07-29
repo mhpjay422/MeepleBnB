@@ -70,19 +70,19 @@ class ListingDetail extends React.Component {
                   </div>
                   <div className="list-show-image-side">
                     <div className="list-show-image-1-2">
-                      <img className="index-image" src={"3-1200x800.jpg"} />
+                      <img className="index-image-top" src={"3-1200x800.jpg"} />
                       <img
-                        className="index-image"
+                        className="index-image-bottom"
                         src={"Black-looks-exquisite-in-the-bachelor-pad-bedroom.jpg"}
                       />
                     </div>
                     <div className="list-show-image-1-2">
                       <img
-                        className="index-image"
+                        className="index-image-top"
                         src={"pharrell-williams-miami-penthouse-kitchen-1.jpg"}
                       />
                       <img
-                        className="index-image"
+                        className="index-image-bottom"
                         src={
                           "luxury-pictures-of-modern-bathrooms-21-ideas-beautiful-bathroom-designs-from-schmidt.jpg"
                         }
