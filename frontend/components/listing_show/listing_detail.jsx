@@ -167,7 +167,7 @@ class ListingDetail extends React.Component {
                       Self check-in
                     </div>      
                     <div className="LID-item-text-description">
-                      Check yourself in with the keypad
+                      Check yourself in from the app
                     </div>      
                   </div>
                 </div>
@@ -177,10 +177,10 @@ class ListingDetail extends React.Component {
                   </div>
                   <div className="LID-item-text">
                     <div className="LID-item-text-header">
-                      Clean and tidy
+                      Enhanced cleaning
                     </div>      
                     <div className="LID-item-text-description">
-                      This location is enrolled in the enhanced cleaning program
+                      Part of the enhanced cleaning program to ensure a deep clean between each stay
                     </div>      
                   </div>
                 </div>
@@ -190,7 +190,7 @@ class ListingDetail extends React.Component {
                   </div>
                   <div className="LID-item-text">
                     <div className="LID-item-text-header">
-                      Jason is Plus verified
+                      Fun guaranteed
                     </div>      
                     <div className="LID-item-text-description">
                       Plus verified locations are highly rated and commited to providing great stays for guests

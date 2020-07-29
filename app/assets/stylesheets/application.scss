@@ -1009,6 +1009,16 @@ a:hover {
 .LID-item-text-header {
   font-size: 16px;
   margin-bottom: 4px;
+  display: flex;
+}
+
+.plus-show-header {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: -3px;
+  left: -2px;
 }
 
 .LID-item-text-description {
