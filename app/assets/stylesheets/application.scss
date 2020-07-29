@@ -769,6 +769,16 @@ a:hover {
 .show-rating {
 }
 
+.plus-show {
+  padding-top: 3px;
+  height: 25px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: -4px;
+}
+
 .show-interpunct {
   margin: 0px 8px;
 }
@@ -783,7 +793,7 @@ a:hover {
   align-items: flex-end;
   line-height: 20px;
   height: 19px;
-  bottom: 2px;
+  bottom: 3px;
 }
 
 .list-show-images-container {

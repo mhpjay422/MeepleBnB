@@ -55,6 +55,11 @@ class ListingDetail extends React.Component {
                   fullSymbol={<img src="./star-solid.svg" className="star" />}
                 />
                 <span className="show-interpunct"> · </span>
+                <img
+                  className="plus-show"
+                  src="./Screen Shot 2018-11-23 at 11.15.19 AM.png"
+                />
+                <span className="show-interpunct"> · </span>
                 <div className="list-show-header-location">
                   New York, United States
                 </div>
