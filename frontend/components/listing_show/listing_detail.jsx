@@ -101,42 +101,44 @@ class ListingDetail extends React.Component {
         </div>
         <div className="listing-body-container">
           <div className="listing-body-description">
-            <div className="property-type">ENTIRE HOUSE</div>
-            <div className="listing-title">
-            </div>
-            <div className="listing-amenities-preview">
-              <div className="preview-house">
-                <div className="house-box" />
-                <div className="preview-body">
-                  <div className="amenities-preview">
-                    <li>
-                      <img
-                        className="amenities-icon"
-                        src="./Screen Shot 2018-11-23 at 12.21.41 PM.png"
-                      />
-                      4 guests
-                    </li>
-                    <li>
-                      <img
-                        className="amenities-icon"
-                        src="./Screen Shot 2018-11-23 at 12.24.07 PM.png"
-                      />
-                      1 bedroom
-                    </li>
-                    <li>
-                      <img
-                        className="amenities-icon"
-                        src="./Screen Shot 2018-11-23 at 12.23.28 PM.png"
-                      />
-                      2 beds
-                    </li>
-                    <li>
-                      <img
-                        className="amenities-icon"
-                        src="Screen Shot 2018-11-23 at 12.23.48 PM.png"
-                      />
-                      1 bath
-                    </li>
+            <div className="listing-body-amenities">
+              <div className="property-type">Entire house hosted by Jason</div>
+              <div className="listing-amenities-preview">
+                <div className="preview-house">
+                  <div className="preview-body">
+                    <div className="amenities-preview">
+                      <div>
+                        <img
+                          className="amenities-icon"
+                          src="./Screen Shot 2018-11-23 at 12.21.41 PM.png"
+                        />
+                        4 guests
+                      </div>
+                      <span className="show-interpunct"> · </span>
+                      <div>
+                        <img
+                          className="amenities-icon"
+                          src="./Screen Shot 2018-11-23 at 12.24.07 PM.png"
+                        />
+                        1 bedroom
+                      </div>
+                      <span className="show-interpunct"> · </span>
+                      <div>
+                        <img
+                          className="amenities-icon"
+                          src="./Screen Shot 2018-11-23 at 12.23.28 PM.png"
+                        />
+                        2 beds
+                      </div>
+                      <span className="show-interpunct"> · </span>
+                      <div>
+                        <img
+                          className="amenities-icon"
+                          src="Screen Shot 2018-11-23 at 12.23.48 PM.png"
+                        />
+                        1 bath
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -920,74 +920,31 @@ a:hover {
   width: 55%;
 }
 
-.property-type {
-  font-size: 20px;
-  font-weight: 600;
+.listing-body-amenities {
+  padding-bottom: 24px;
+  border-bottom: 1px solid lightgrey;
 }
 
-.listing-title {
-  font-weight: 900;
-  font-size: 35px;
-  padding-top: 5px;
-  padding-bottom: 10px;
+.property-type {
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .listing-amenities-preview {
-  border-bottom: 1px solid lightgrey;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 8px;
   display: flex;
   flex-direction: column;
-}
-
-.amenities-preview li {
-  display: flex;
-  align-items: center;
-}
-
-.amenities-icon {
-  height: 13px;
-  width: 13px;
-  margin-right: 7px;
 }
 
 .preview-house {
   display: flex;
   flex-direction: row;
-  height: 44px;
   width: 100%;
-  padding-bottom: 20px;
-}
-
-.house-box {
-  height: 16px;
-  width: 24px;
-  padding-bottom: 5px;
-}
-
-.house-icon {
-  max-width: 12px;
-  min-width: 12px;
-  max-height: 20px;
-  min-height: 20px;
-  background-size: cover;
-  margin-right: 7px;
 }
 
 .preview-body {
   display: flex;
   flex-direction: column;
-}
-
-.house-type {
-  height: 18px;
-  width: 100%;
-  padding-bottom: 5px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
 }
 
 .amenities-preview {
@@ -998,8 +955,10 @@ a:hover {
   list-style: none;
 }
 
-.amenities-preview li {
-  margin-right: 20px;
+.amenities-icon {
+  height: 13px;
+  width: 13px;
+  margin-right: 7px;
 }
 
 .the-space {
