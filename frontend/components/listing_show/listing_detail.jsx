@@ -200,14 +200,42 @@ class ListingDetail extends React.Component {
               </div>          
             </div>
             <div className="listing-body-info-container">
-              <span className="the-space">The space</span>
-              <div>{this.props.listing.description}</div>
-              <div>Address: {this.props.listing.address}</div>
+              <div className="listing-body-info-description">
+                {this.props.listing.description}. 
+                <br/>
+                <br/>
+                If you're looking for an affordable place to stay in the middle of it all then welcome to my home! This cozy queen size private bedroom has a true city feeling, only a few minutes walk to the nearest train station!. We offer coffee to all the guests :)
+                <br/>
+                <br/>
+                <div className="bold">The space</div>
+                  The apartment is in the center of it all, near the subway station, lots of restaurants and shops around. The building has a a lovely rooftop space in which you can go relax with view to the skyline.
+                <br/>
+                <br/>
+                Two people per room, but if there's more than two then I can offer my couch or sleeping bags ($30 per extra person), the room is big enough to fit more; or they can sleep in the living room if needed.
+                <br/>
+                <br/>
+                I also rent extra rooms on meeplebnb, same apartment.
+                <br/>
+                <br/>
+                <div className="bold">Guest access</div>
+                    You will have access to the entire shared apartment, be free to chill in the living room and make your meals in the kitchen, please buy your own ingredients and the kitchen is all yours! (You can store your food in the fridge if you need).
+                <br/>
+                <br/>
+                      (ROOFTOP IS CLOSED DURING WINTER AND FALL SEASON)
+                <br/>
+                <br/>
+                Fresh towels are provided.
+                <br/>
+                There's laundry in the building (not free).
+                <br/>
+                Shared bathroom, ALWAYS clean.
+              </div>
             </div>
             <div className="lat-lng">
               {this.props.listing.lat}
               {this.props.listing.lng}
             </div>
+            <div className="listing-body-info-addy">Address: {this.props.listing.address}</div>
             <div className="street-map" ref={map => (this.mapNode = map)}></div>
           </div>
           <BookingFormContainer listing={this.props.listing} />
