@@ -166,7 +166,7 @@ class BookingForm extends React.Component {
                 <div>{this.renderErrors()}</div>
                 <div className="button-hover">
                   <button className="booking-submit" onClick={this.handleSubmit}>
-                    <div className="book-button">Book</div>
+                    <div className="book-button">Reserve</div>
                   </button>
                 </div>
                 <div className="booking-charge-text">You won’t be charged yet</div>
