@@ -141,7 +141,7 @@ class BookingForm extends React.Component {
                 </div>
                 <div className="booking-guests-container">
                   <div className="booking-guests-text">
-                    Number of guests
+                    Guests
                   </div>
                   <div className="booking-guests-counter">
                     <button className="booking-guests-minus" onClick={this.handleCounterMinus}>
@@ -154,6 +154,7 @@ class BookingForm extends React.Component {
                       +
                     </button>
                   </div>
+                  
                 </div>
 
                 {/* <input
@@ -170,7 +171,6 @@ class BookingForm extends React.Component {
                   </button>
                 </div>
                 <div className="booking-charge-text">You won’t be charged yet</div>
-                <div className="booking-divider" />
               </div>
             </div>
           </div>
