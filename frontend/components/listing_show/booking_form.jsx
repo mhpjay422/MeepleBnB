@@ -49,11 +49,6 @@ class BookingForm extends React.Component {
       alert("Please choose a valid number of guests")
     }
 
-    if (condition) {
-      
-    }
-
-
     const booking = {
       guests: this.state.guests,
       date_start: this.state.startDate._d,
