@@ -1086,7 +1086,14 @@ a:hover {
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
   box-sizing: border-box;
-  
+}
+
+.booking-body-header {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .booking-price {
@@ -1115,25 +1122,14 @@ a:hover {
 .booking-rating {
   padding-left: 0px;
   margin-left: 0px;
-  width: 100%;
-  height: 30px;
+  width: auto;
+  height: auto;
   font-size: 8px;
-  padding-top: 8px;
-  padding-bottom: 22px;
-  border-bottom: 1px solid lightgrey;
-  display: flex;
-  flex-direction: row;
-  font-size: 13px;
-  display: flex;
-  align-items: center;
+  align-self: center;
 }
 
 .booking-rating div {
   margin-right: 3px;
-}
-
-.booking-rating-text {
-  margin-right: 20px;
 }
 
 .booking-star-left {
@@ -1164,6 +1160,7 @@ a:hover {
   height: 100%;
   border: 1px solid lightgray;
   border-radius: 12px;
+  margin-top: 20px;
 }
 
 .date-picker:hover {
@@ -1259,13 +1256,14 @@ div.DateInput.DateInput_1 {
 
 .booking-guests-input {
   display: flex;
-  height: 35px;
-  width: 8%;
-  font-size: 20px;
+  height: 44px;
+  width: 100%;
+  font-size: 12px;
   font-weight: 300;
-  padding-left: 16px;
-  padding-bottom: 10px;
-  line-height: 1.6em;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid lightgray;
+  padding: 0;
 }
 
 .booking-submit {

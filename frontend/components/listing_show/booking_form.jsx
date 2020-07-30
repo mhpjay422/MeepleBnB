@@ -89,24 +89,24 @@ class BookingForm extends React.Component {
           <div className="booking-body">
             <div className="booking-padding">
               <div className="booking-body-margin">
-                <div className="booking-price">
-                  <div className="booking-price-integer">
-                    ${this.props.listing.price}
-                  </div>
-                  <div className="booking-price-pernight">
-                    <div>/night</div>
+                <div className="booking-body-header">
+                  <div className="booking-price">
+                    <div className="booking-price-integer">
+                      ${this.props.listing.price}
+                    </div>
+                    <div className="booking-price-pernight">
+                      <div>/night</div>
+                    </div>
+                  </div>                  
+                  <div className="booking-rating">
+                    <Rating
+                      placeholderRating={3.5}
+                      emptySymbol={<img src="./star-solid.svg" className="star" />}
+                      placeholderSymbol={<img src="./star-solid.svg" className="star" />}
+                      fullSymbol={<img src="./star-solid.svg" className="star" />}
+                    />
                   </div>
                 </div>
-                <div className="booking-rating">
-                  <div className="booking-rating-text">Rating: </div>
-                  <Rating
-                    placeholderRating={3.5}
-                    emptySymbol={<img src="./star-solid.svg" className="star" />}
-                    placeholderSymbol={<img src="./star-solid.svg" className="star" />}
-                    fullSymbol={<img src="./star-solid.svg" className="star" />}
-                  />
-                </div>
-                <div className="booking-dates-header">Dates</div>
                 <div className="date-picker">
                   <DateRangePicker
                     className="date-range-picker-api"
@@ -125,12 +125,10 @@ class BookingForm extends React.Component {
                     renderCalendarDay={undefined}
                   />
                 </div>
-                <div className="booking-guests-header">Guests</div>
                 <input
-                  type="integer"
+                  type="text"
                   className="booking-guests-input"
-                  defaultValue="1"
-                  min="1"
+                  placeholder="1 guest"
                   onChange={this.handleGuests}
                 />
                 <div>{this.renderErrors()}</div>
