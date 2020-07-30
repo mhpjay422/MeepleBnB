@@ -38,8 +38,17 @@ class BookingForm extends React.Component {
     if (this.props.currentUserId === null) {
       alert("Please log in to make a booking");
     } 
-    else if (this.state.startDate === null || this.state.endDate === null) {
+    
+    if (this.state.startDate === null || this.state.endDate === null) {
       alert("Please choose valid date");
+    }
+
+    if (!(this.state.guests >= 1 && this.state.guests <= 4)) {
+      alert("Please choose a valid number of guests")
+    }
+
+    if (condition) {
+      
     }
 
 
@@ -125,13 +134,28 @@ class BookingForm extends React.Component {
                     renderCalendarDay={undefined}
                   />
                 </div>
-                <input
-                  type="text"
+                <div className="booking-guests-container">
+                  <div className="booking-guests-text">
+                    Number of guests
+                  </div>
+                  <div className="booking-guests-counter">
+                    <div className="booking-guests-minus">
+                    -  
+                    </div>
+                    <div className="booking-guests-value">
+                      {this.state.guests}
+                    </div>
+                    <div className="booking-guests-plus">+</div>
+                  </div>
+                </div>
+
+                {/* <input
+                  type="integer"
                   className="booking-guests-input"
                   min="1"
                   placeholder="1 guest"
                   onChange={this.handleGuests}
-                />
+                /> */}
                 <div>{this.renderErrors()}</div>
                 <div className="button-hover">
                   <button className="booking-submit" onClick={this.handleSubmit}>
