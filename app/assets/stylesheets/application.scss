@@ -1053,8 +1053,8 @@ a:hover {
 }
 
 .booking-form {
-  width: 35%;
-  margin-left: 10%;
+  width: 33%;
+  margin-left: 12%;
   position: relative;
   background-color: white;
   display: block;
@@ -1208,19 +1208,35 @@ div.DateInput.DateInput_1 {
   display: none;
 }
 
+.DateInput_input__focused .DateRangePickerInput_clearDates {
+  width: 10% !important;
+}
+
 .DateRangePickerInput_clearDates {
   width: auto !important;
   background-color: transparent !important;
-  padding: 10px 0 !important;
+  position: relative !important;
+  margin: 0 !important;  
+  top: 0 !important;
+  transform: none !important;
+}
+
+.DateRangePickerInput_clearDates__focused {
+  border: none !important;
 }
 
 .DateRangePickerInput__showClearDates {
   padding: 0 !important;
+  border: none !important;
 }
 
 #start-date,
 #end-date {
   margin: 0;
+  text-align: center;
+}
+
+#end-date {
 }
 
 #end-date:hover,
@@ -1228,14 +1244,8 @@ div.DateInput.DateInput_1 {
   cursor: pointer;
 }
 
-#start-date,
- #end-date {
-  text-align: center;
-}
-
-#start-date:focus,
-#end-date:focus {
-  color: #007a87;
+.DateInput_input__focused {
+  text-align: center !important;
 }
 
 .booking-guests-header {
