@@ -1267,6 +1267,10 @@ div.DateInput.DateInput_1 {
   outline: none;
 }
 
+.booking-guests-input:focus::placeholder {
+  color: transparent !important;
+}
+
 .booking-submit {
   min-height: 46px;
   width: 100%;

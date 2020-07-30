@@ -128,6 +128,7 @@ class BookingForm extends React.Component {
                 <input
                   type="text"
                   className="booking-guests-input"
+                  min="1"
                   placeholder="1 guest"
                   onChange={this.handleGuests}
                 />
