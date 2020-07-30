@@ -22,6 +22,8 @@ class BookingForm extends React.Component {
     this.handleGuests = this.handleGuests.bind(this);
     this.finalForm = this.finalForm.bind(this);
     this.formHelper = this.formHelper.bind(this);
+    this.handleCounterMinus = this.handleCounterMinus.bind(this);
+    this.handleCounterPlus = this.handleCounterPlus.bind(this);
   }
 
   componentDidMount() {
@@ -66,6 +68,14 @@ class BookingForm extends React.Component {
 
   handleGuests(e) {
     this.setState({ guests: e.target.value });
+  }
+
+  handleCounterMinus() {
+    this.setState({ guests: this.state.guests - 1})
+  }
+
+  handleCounterPlus() {
+    this.setState({ guests: this.state.guests + 1})
   }
 
   renderErrors() {
@@ -139,13 +149,15 @@ class BookingForm extends React.Component {
                     Number of guests
                   </div>
                   <div className="booking-guests-counter">
-                    <div className="booking-guests-minus">
-                    -  
-                    </div>
+                    <button className="booking-guests-minus" onClick={this.handleCounterMinus}>
+                      -  
+                    </button>
                     <div className="booking-guests-value">
                       {this.state.guests}
                     </div>
-                    <div className="booking-guests-plus">+</div>
+                    <button className="booking-guests-plus" onClick={this.handleCounterPlus}>
+                      +
+                    </button>
                   </div>
                 </div>
 
