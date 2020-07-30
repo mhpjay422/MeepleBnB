@@ -94,7 +94,7 @@ class BookingForm extends React.Component {
                     ${this.props.listing.price}
                   </div>
                   <div className="booking-price-pernight">
-                    <div>per night</div>
+                    <div>/night</div>
                   </div>
                 </div>
                 <div className="booking-rating">

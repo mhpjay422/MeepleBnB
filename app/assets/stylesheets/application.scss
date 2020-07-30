@@ -1155,6 +1155,7 @@ a:hover {
 
 .booking-dates-header {
   margin-top: 25px;
+  margin-bottom: 12px;
   font-size: 12px;
 }
 
@@ -1162,7 +1163,7 @@ a:hover {
   width: 100%;
   height: 100%;
   border: 1px solid lightgray;
-  border-radius: 2px;
+  border-radius: 12px;
 }
 
 .date-picker:hover {
@@ -1178,6 +1179,7 @@ a:hover {
   top: 0 !important;
   right: 0 !important;
   display: block !important;
+  background-color: transparent !important;
 }
 
 .DateRangePickerInput {
@@ -1185,7 +1187,9 @@ a:hover {
   left: 0 !important;
   display: flex !important;
   position: relative !important;
-  align-content: space-around;
+  align-content: space-around !important;
+  justify-content: space-between !important;
+  background-color: transparent !important;
 }
 
 div.DateInput.DateInput_1 {
@@ -1194,6 +1198,7 @@ div.DateInput.DateInput_1 {
  box-sizing: border-box !important;
  align-content: center !important;
  padding: 0 !important;
+ background-color: transparent !important;
 }
 
 .DateInput_input {
@@ -1201,15 +1206,13 @@ div.DateInput.DateInput_1 {
   font-size: 14px !important;
   justify-content: center !important;
   margin: 0 1px !important;
+  background-color: transparent !important;
 }
 
 .DateRangePickerInput_arrow {
   width: 0% !important;
-  display: none;
-}
-
-.DateInput_input__focused .DateRangePickerInput_clearDates {
-  width: 10% !important;
+  display: none !important;
+  background-color: transparent !important;
 }
 
 .DateRangePickerInput_clearDates {
@@ -1219,21 +1222,20 @@ div.DateInput.DateInput_1 {
   margin: 0 !important;  
   top: 0 !important;
   transform: none !important;
-}
-
-.DateRangePickerInput_clearDates__focused {
-  border: none !important;
+  background-color: transparent !important;
 }
 
 .DateRangePickerInput__showClearDates {
   padding: 0 !important;
   border: none !important;
+  background-color: transparent !important;
 }
 
 #start-date,
 #end-date {
   margin: 0;
   text-align: center;
+  background-color: transparent !important;
 }
 
 #end-date {
@@ -1244,8 +1246,10 @@ div.DateInput.DateInput_1 {
   cursor: pointer;
 }
 
-.DateInput_input__focused {
+.DateInput_input:focus .date-picker {
   text-align: center !important;
+  border: 1px solid black !important;
+  background-color: transparent !important;
 }
 
 .booking-guests-header {
