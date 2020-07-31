@@ -177,15 +177,16 @@ class BookingForm extends React.Component {
           </div>
           <div className="booking-bottom-container">
             <div className="booking-bottom-container-inner">
-              <span className="booking-bottom-text1">
-                This home is on people’s minds.
-                </span>
-              <div>It’s been viewed 500+ times in the past week.</div>
+              <div className="booking-bottom-text">
+                <div className="booking-bottom-text1">
+                  This home is on people’s minds.
+                </div>
+                <div className="booking-bottom-text2">
+                  It’s been viewed 500+ times in the past week.
+                </div>
+              </div>
+              <img className="lightbulb" src="./Screen Shot 2018-11-23 at 11.43.18 AM.png"/>
             </div>
-            <img
-              className="lightbulb"
-              src="./Screen Shot 2018-11-23 at 11.43.18 AM.png"
-            />
           </div>
         </div>
       </div>

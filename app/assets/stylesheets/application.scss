@@ -1320,12 +1320,12 @@ div.DateInput.DateInput_1 {
 .booking-submit {
   min-height: 46px;
   width: 100%;
-  background-color: #FF385C;
+  background-color: #db1338;
   font-size: 16px;
   color: white;
-  font-weight: 800;
+  font-weight: 400;
   margin-bottom: 10px;
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 0;
   outline: none;
   border: none;
@@ -1335,9 +1335,6 @@ div.DateInput.DateInput_1 {
   cursor: pointer;
 }
 
-.book-button:hover {
-  cursor: pointer;
-}
 .book-submit:hover {
   cursor: pointer;
 }
@@ -1345,7 +1342,9 @@ div.DateInput.DateInput_1 {
 .booking-charge-text {
   margin-top: 10px;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: 300;
 }
 
 .booking-divider {
@@ -1355,24 +1354,24 @@ div.DateInput.DateInput_1 {
 }
 
 .booking-bottom-container {
-  width: 326px;
-  height: 60px;
+  border: 1px solid lightgray;
   display: flex;
   flex-direction: row;
   justify-content: left;
   align-items: center;
   background-size: 48px;
-  transition: margin-top 0.4s ease 0s;
   background-repeat: no-repeat;
   background-position: right center;
+  border-radius: 12px;
 }
 
 .booking-bottom-container-inner {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-size: 13px;
   word-wrap: normal;
   justify-content: center;
+  padding: 28px 36px;
 }
 
 .booking-bottom-text1 {
@@ -1382,8 +1381,6 @@ div.DateInput.DateInput_1 {
 .lightbulb {
   height: 40px;
   width: 40px;
-  padding-right: 20px;
-  padding-left: 10px;
 }
 
 .alreadybooked-container {
