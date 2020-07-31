@@ -1368,19 +1368,27 @@ div.DateInput.DateInput_1 {
 .booking-bottom-container-inner {
   display: flex;
   flex-direction: row;
-  font-size: 13px;
+  font-size: 14px;
   word-wrap: normal;
   justify-content: center;
-  padding: 28px 36px;
+  padding: 24px 25px 16px 30px;
+  color: rgb(92, 90, 90);
 }
 
 .booking-bottom-text1 {
+  font-family: sans-serif;
   margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.booking-bottom-text2 {
+  font-family: sans-serif;
 }
 
 .lightbulb {
   height: 40px;
   width: 40px;
+  padding-left: 15px;
 }
 
 .alreadybooked-container {
