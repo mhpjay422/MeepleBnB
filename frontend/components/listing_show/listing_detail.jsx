@@ -201,6 +201,10 @@ class ListingDetail extends React.Component {
             </div>
             <div className="listing-body-info-container">
               <div className="listing-body-info-description">
+                *** <strong>Minimum two night stay</strong> ***
+                <br />
+                <br />
+                <br />
                 {this.props.listing.description}. 
                 <br/>
                 <br/>
