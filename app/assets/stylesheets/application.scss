@@ -1043,12 +1043,24 @@ a:hover {
 }
 
 .listing-body-info-location {
-  font-size: 22px;
+  font-size: 20px;
   padding: 16px 16px 16px 0;
+  font-weight: 600;
+  font-family: sans-serif;
 }
 
 .listing-body-info-addy {
   padding: 16px 0 48px;
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.listing-body-info-addy-prop {
+  padding-top: 8px;
+  font-family: sans-serif;
+  font-weight: 300;
+  font-size: 16px;
 }
 
 .listing-body-info-description {
