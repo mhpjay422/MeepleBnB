@@ -103,7 +103,7 @@ class BookingForm extends React.Component {
       if(this.state.guests === 1) {
         return <img className="minus-button-not-allowed" src="minus-light.png"></img>;
       } else {
-        return <img className="minus-button-allowed" src="minus.png"></img>;
+        return <img className="minus-button-allowed" src="minus-dark.png"></img>;
       }
     }
 
@@ -111,7 +111,7 @@ class BookingForm extends React.Component {
       if(this.state.guests === 4) {
         return <img className="plus-button-not-allowed" src="plus-light.png"></img>;
       } else {
-        return <img className="plus-button-allowed" src="plus.png"></img>;
+        return <img className="plus-button-allowed" src="plus-dark.png"></img>;
       }
     }
 
