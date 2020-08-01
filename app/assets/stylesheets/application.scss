@@ -1316,6 +1316,10 @@ div.DateInput.DateInput_1 {
   width: 43%;
 }
 
+.booking-guests-text:hover {
+  cursor: default;
+}
+
 .booking-guests-counter {
   width: 57%;
   display: flex;
@@ -1348,6 +1352,14 @@ div.DateInput.DateInput_1 {
   right: 12px;
 }
 
+.minus-button:hover {
+  cursor: pointer;
+}
+
+.plus-button:hover {
+  cursor: pointer;
+}
+
 .plus-button {
   display: flex;
   position: relative;
@@ -1367,6 +1379,9 @@ div.DateInput.DateInput_1 {
   font-weight: 600;
 }
 
+.booking-guests-value:hover {
+  cursor: default;
+}
 
 .booking-submit {
   min-height: 46px;
