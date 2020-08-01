@@ -1343,7 +1343,7 @@ div.DateInput.DateInput_1 {
   border: none;
 }
 
-.minus-button {
+.minus-button-allowed {
   display: flex;
   position: relative;
   height: 36px;
@@ -1352,15 +1352,41 @@ div.DateInput.DateInput_1 {
   right: 12px;
 }
 
-.minus-button:hover {
+.minus-button-not-allowed {
+  display: flex;
+  position: relative;
+  height: 36px;
+  width: 36px;
+  background: transparent;
+  right: 12px;
+}
+
+.minus-button-allowed:hover {
   cursor: pointer;
 }
 
-.plus-button:hover {
+.minus-button-not-allowed:hover {
+  cursor: not-allowed;
+}
+
+.plus-button-allowed:hover {
   cursor: pointer;
 }
 
-.plus-button {
+.plus-button-not-allowed:hover {
+  cursor: not-allowed;
+}
+
+.plus-button-allowed {
+  display: flex;
+  position: relative;
+  height: 36px;
+  width: 36px;
+  background: transparent;
+  right: 24px;
+}
+
+.plus-button-not-allowed {
   display: flex;
   position: relative;
   height: 36px;

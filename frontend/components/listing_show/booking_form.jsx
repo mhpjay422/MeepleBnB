@@ -65,7 +65,7 @@ class BookingForm extends React.Component {
   handleCounterMinus() {
     if(this.state.guests > 1) {
       this.setState({ guests: this.state.guests - 1})
-    }
+    } 
   }
 
   handleCounterPlus() {
@@ -98,6 +98,23 @@ class BookingForm extends React.Component {
   }
 
   render() {
+
+    const isMinusAllowed = () => {
+      if(this.state.guests === 1) {
+        return <img className="minus-button-not-allowed" src="minus.png"></img>;
+      } else {
+        return <img className="minus-button-allowed" src="minus.png"></img>;
+      }
+    }
+
+    const isPlusAllowed = () => {
+      if(this.state.guests === 4) {
+        return <img className="plus-button-not-allowed" src="plus.png"></img>;
+      } else {
+        return <img className="plus-button-allowed" src="plus.png"></img>;
+      }
+    }
+
     const form = (
       <div className="booking-form">
         <div className="booking-frame">
@@ -124,14 +141,13 @@ class BookingForm extends React.Component {
                 </div>
                 <div className="date-picker">
                   <DateRangePicker
-                    className="date-range-picker-api"
                     startDate={this.state.startDate}
                     startDateId="start-date"
                     endDate={this.state.endDate}
                     endDateId="end-date"
-                    startDatePlaceholderText="Check In"
+                    startDatePlaceholderText="Check-In"
                     showClearDates={true}
-                    endDatePlaceholderText="Check Out"
+                    endDatePlaceholderText="Check-Out"
                     onDatesChange={({ startDate, endDate }) =>
                       this.setState({ startDate, endDate })
                     }
@@ -147,13 +163,13 @@ class BookingForm extends React.Component {
                   </div>
                   <div className="booking-guests-counter">
                     <button className="booking-guests-minus" onClick={this.handleCounterMinus}>
-                      <img className="minus-button" src="minus.png"></img>  
+                      {isMinusAllowed()}  
                     </button>
                     <div className="booking-guests-value">
                       {this.state.guests}
                     </div>
                     <button className="booking-guests-plus" onClick={this.handleCounterPlus}>
-                      <img className="plus-button" src="plus.png"></img>
+                      {isPlusAllowed()}
                     </button>
                   </div>
                 </div>
