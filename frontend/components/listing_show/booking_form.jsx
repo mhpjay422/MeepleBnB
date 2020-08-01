@@ -39,26 +39,23 @@ class BookingForm extends React.Component {
 
     if (this.props.currentUserId === null) {
       alert("Please log in to make a booking");
-    } 
-    
-    if (this.state.startDate === null || this.state.endDate === null) {
-      alert("Please choose valid date");
-    }
-
-    if (!(this.state.guests >= 1 && this.state.guests <= 4)) {
+    } else if (this.state.startDate === null || this.state.endDate === null) {
+      alert("Please choose a valid date");
+    } else if (!(this.state.guests >= 1 && this.state.guests <= 4)) {
       alert("Please choose a valid number of guests")
+    } else {
+
+      const booking = {
+        guests: this.state.guests,
+        date_start: this.state.startDate._d,
+        date_end: this.state.endDate._d,
+        listing_id: parseInt(this.props.listing.id),
+        status: this.state.status,
+        price: this.props.listing.price
+      };
+
+      this.props.createBooking(booking);
     }
-
-    const booking = {
-      guests: this.state.guests,
-      date_start: this.state.startDate._d,
-      date_end: this.state.endDate._d,
-      listing_id: parseInt(this.props.listing.id),
-      status: this.state.status,
-      price: this.props.listing.price
-    };
-
-    this.props.createBooking(booking);
   }
 
   handleGuests(e) {
@@ -141,7 +138,7 @@ class BookingForm extends React.Component {
                     focusedInput={this.state.focusedInput}
                     onFocusChange={focusedInput => this.setState({ focusedInput })}
                     renderCalendarDay={undefined}
-                    minimumNights="2"
+                    minimumNights= {2}
                   />
                 </div>
                 <div className="booking-guests-container">
