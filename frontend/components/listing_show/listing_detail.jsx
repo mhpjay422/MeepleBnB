@@ -239,6 +239,7 @@ class ListingDetail extends React.Component {
               {this.props.listing.lat}
               {this.props.listing.lng}
             </div>
+            <div className="listing-body-info-location">Location</div>
             <div className="listing-body-info-addy">Address: {this.props.listing.address}</div>
             <div className="street-map" ref={map => (this.mapNode = map)}></div>
           </div>
