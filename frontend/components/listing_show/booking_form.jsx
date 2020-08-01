@@ -66,11 +66,15 @@ class BookingForm extends React.Component {
   }
 
   handleCounterMinus() {
-    this.setState({ guests: this.state.guests - 1})
+    if(this.state.guests > 1) {
+      this.setState({ guests: this.state.guests - 1})
+    }
   }
 
   handleCounterPlus() {
-    this.setState({ guests: this.state.guests + 1})
+    if(this.state.guests < 4) {
+      this.setState({ guests: this.state.guests + 1})
+    }
   }
 
   renderErrors() {
