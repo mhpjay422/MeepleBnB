@@ -146,18 +146,16 @@ class BookingForm extends React.Component {
                   </div>
                   <div className="booking-guests-counter">
                     <button className="booking-guests-minus" onClick={this.handleCounterMinus}>
-                      -  
+                      <img className="minus-button" src="minus.png"></img>  
                     </button>
                     <div className="booking-guests-value">
                       {this.state.guests}
                     </div>
                     <button className="booking-guests-plus" onClick={this.handleCounterPlus}>
-                      +
+                      <img className="plus-button" src="plus.png"></img>
                     </button>
                   </div>
-                  
                 </div>
-
                 {/* <input
                   type="integer"
                   className="booking-guests-input"
