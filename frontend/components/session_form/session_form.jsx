@@ -85,7 +85,6 @@ class SessionForm extends React.Component {
     }
 
     const passwordLabel = (
-      <label>
         <input
           className="form-submit"
           type="password"
@@ -95,7 +94,6 @@ class SessionForm extends React.Component {
           onKeyPress={this.keypress}
           onClick={this.clickClear("password")}
         />
-      </label>
     );
 
     const signupOrLogin = () => {
@@ -130,9 +128,8 @@ class SessionForm extends React.Component {
               <div className="email">{whichLabel()}</div>
               {passwordLabel}
             </div>
-            <div className="render-errors">{this.renderErrors()}</div>
             <input
-              className="session-submit form-submit"
+              className="session-submit"
               type="submit"
               value={this.props.formType}
             />
@@ -145,6 +142,7 @@ class SessionForm extends React.Component {
             </button>
           </div>
           </div>
+          <div className="render-errors">{this.renderErrors()}</div>
           <div className="strike">{signupOrLogin()}</div>
         </form>
       </div>

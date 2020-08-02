@@ -27,7 +27,7 @@ const mdp = (dispatch) => {
       <button
         className="or-otherform"
         onClick={() => dispatch(openModal('signup'))}>
-        Signup
+        Sign up
       </button>
     ),
     demoLogin: () => dispatch(login(demoUser)),

@@ -139,6 +139,24 @@ a:hover {
   text-decoration: none;
 }
 
+.modal-background {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 11;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .login-form-container {
   position: relative;
   max-width: 568px;
@@ -159,7 +177,7 @@ a:hover {
 }
 
 .login-header-container {
-  padding: 24px 24px 12px 24px;
+  padding: 24px 24px 3px 24px;
   border-bottom: 1px solid lightgray;
 }
 
@@ -184,6 +202,15 @@ a:hover {
 .label-submit {
   border: .5px solid rgb(158, 157, 157);
   border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.label-submit:hover {
+  cursor: default;
+}
+
+.form-submit:hover {
+  cursor: default;
 }
 
 .close-x {
@@ -195,6 +222,7 @@ a:hover {
   text-align: left;
   cursor: pointer;
   padding-bottom: 10px;
+  z-index: 12;
 }
 
 .login-greet {
@@ -223,7 +251,7 @@ a:hover {
 
 .form-submit {
   font-size: 16px;
-  height: 42px;
+  height: 48px;
   width: 100%;
   cursor: pointer;
   font-weight: bold;
@@ -234,59 +262,72 @@ a:hover {
   outline: none;
   border: none;
   background-color: transparent;
+  font-family: sans-serif;
+  font-weight: 400;
+}
+
+.form-submit::placeholder {
+  font-family: sans-serif;
+  font-weight: 300;
+  font-size: 16px;
 }
 
 .session-submit {
-  height: 46px;
+  height: 44px;
   width: 100%;
-  background-color: #ff5a5f;
+  background-color: #db1338;
   color: white;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  vertical-align: middle;
+  text-align: center;
+  padding: 0;
+  outline: none;
+  border: none;
+  font-family: sans-serif;
+  font-weight: 400;
+}
+
+.session-submit:hover {
+  cursor: pointer;
+}
+
+.demo-button:hover {
+  cursor: pointer;
 }
 
 .demo-button {
   background-color: #417af4;
   color: white;
-  height: 46px;
   width: 100%;
   text-align: center;
   margin: 0 auto;
+  border-radius: 8px;
+  height: 44px;
 }
 
 .or-otherform {
   text-decoration: none;
   text-shadow: 5px;
-  font-size: 16px;
-  height: 80px;
+  font-size: 13px;
   font-weight: 600;
-  color: #0a937a;
+  color: #1c695b;
   display: inline-block;
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
-}
-
-.modal-background {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 11;
-}
-
-.modal-child {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  text-decoration: underline;
+  outline: none;
 }
 
 .sl-text {
   text-align: center;
-  font-size: 16px;
+  font-size: 13px;
+  margin-top: 36px;
+  font-family: sans-serif;
+  font-weight: 300;
 }
 
 .greet-topsec {
