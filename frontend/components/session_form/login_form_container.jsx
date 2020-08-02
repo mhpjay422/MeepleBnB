@@ -9,7 +9,7 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 const msp = (state, ownProps) => {
   return {
     errors: state.errors.session,
-    formType: "Login",
+    formType: "Log in",
   };
 };
   const demoUser = {user: {

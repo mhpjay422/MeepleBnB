@@ -100,8 +100,6 @@ class SessionForm extends React.Component {
                 onClick={this.clickClear("email")}
               />
             </label>
-            <br />
-            <br />
           </div>
         );
       } else {
@@ -129,49 +127,40 @@ class SessionForm extends React.Component {
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <div onClick={this.props.closeModal} className="close-x">
-            X
+            <img src="close-window-X.png"/>
           </div>
-          <br />
-          <div className="login-greet">{this.props.formType} to continue</div>
+          <div className="login-header">
+            <div className="login-greet">{this.props.formType}</div>
+          </div>
           <div className="render-errors">{this.renderErrors()}</div>
           <div className="login-form">
             <div className="label-submit">
-              <br />
               {emailLabel()}
               {userLabel}
-              <br />
-              <br />
               {passwordLabel}
-              <br />
-              <br />
             </div>
             <input
               className="session-submit form-submit"
               type="submit"
               value={this.props.formType}
             />
-            <br />
-            <br />
           </div>
+          <div className="demoo">
+            <button
+              className="demo-button form-submit"
+              value="Login as Demo User"
+              onClick={this.demo}
+              >
+              {" "}
+              Log In as Demo User
+            </button>
+          </div>
+
+          <div>
+            <hr />
+          </div>
+          <div className="strike">{signupOrLogin()}</div>
         </form>
-        <div className="demoo">
-          <button
-            className="demo-button form-submit"
-            value="Login as Demo User"
-            onClick={this.demo}
-          >
-            {" "}
-            Log In as Demo User
-          </button>
-        </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <div>
-          <hr />
-        </div>
-        <div className="strike">{signupOrLogin()}</div>
       </div>
     );
   }
