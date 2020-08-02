@@ -1549,39 +1549,90 @@ div.DateInput.DateInput_1 {
 }
 
 .alreadybooked-container {
-  height: 300px;
-  width: 600px;
-  background-color: white;
-  margin-left: 10px;
+  width: 39%;
   justify-content: center;
   align-content: center;
   align-items: center;
+  margin-left: 6%;
+  position: relative;
+  background-color: white;
+  display: block;
 }
 
 .alreadybooked-body {
+  top: 128px;
+  background-color: white;
+  position: sticky;
+  box-sizing: border-box;
+  z-index: 1;
+  padding-right: 1px;
   display: flex;
   flex-direction: column;
   height: 200px;
-  width: 800px;
-  background-color: white;
-  margin-left: 25px;
-  margin-top: 50px;
-  justify-content: flex-start;
-  align-content: left;
   font-weight: bolder;
-  border-bottom: 1px solid lightgrey;
+}
+
+.alreadybooked-padding {
+  padding-bottom: 48px;
+}
+
+.alreadybooked-body {
+  margin-top: 48px;
+  display: block;
+  box-sizing: border-box;
+}
+
+.alreadybooked-body-margin {
+  padding: 24px;
+  border: 1px solid lightgrey;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+  box-sizing: border-box;
+}
+
+
+
+.booking-frame {
+  top: 128px;
+  background-color: white;
+  position: sticky;
+  display: block;
+  box-sizing: border-box;
+  z-index: 1;
+  padding-right: 1px;
+}
+
+.booking-padding {
+  padding-bottom: 48px;
+}
+
+.booking-body {
+  margin-top: 48px;
+  display: block;
+  box-sizing: border-box;
+}
+
+.booking-body-margin {
+  padding: 24px;
+  border: 1px solid lightgrey;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+  box-sizing: border-box;
 }
 
 .alreadybooked-text {
-  font-size: 40px;
-
+  font-size: 35px;
   padding-bottom: 40px;
-  padding-left: 25px;
+  overflow: hidden;
+  text-align: center;
+  padding-top: 30px;
 }
 
 .alreadybooked-text1 {
-  padding-left: 25px;
-  font-size: 30px;
+  padding-top: 40px;
+  font-size: 20px;
+  text-align: center;
+  padding-bottom: 30px;
 }
 
 .loggedin-buttons {

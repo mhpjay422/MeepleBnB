@@ -211,9 +211,15 @@ class BookingForm extends React.Component {
     const alreadyBookedForm = (
       <div className="alreadybooked-container">
         <div className="alreadybooked-body">
-          <div className="alreadybooked-text">Congratulations! </div>
-          <div className="alreadybooked-text1">
-            You are booked for this listing{" "}
+          <div className="alreadybooked-padding">
+            <div className="alreadybooked-body">
+              <div className="alreadybooked-body-margin">
+                <div className="alreadybooked-text">Congratulations! </div>
+                <div className="alreadybooked-text1">
+                  You are booked for this listing{" "}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
