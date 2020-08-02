@@ -148,12 +148,19 @@ a:hover {
   margin: auto;
   z-index: 12;
   background-color: white;
+  width: 568px;
 }
 
 .login-form-box {
   box-sizing: border-box;
   background-color: transparent;
   padding: 24px 24px;
+  outline: none;
+}
+
+.login-header-container {
+  padding: 24px 24px 12px 24px;
+  border-bottom: 1px solid lightgray;
 }
 
 .login-header {
@@ -168,14 +175,22 @@ a:hover {
 }
 
 .login-form {
-  height: 250px;
+}
+
+.email {
+  border-bottom: .5px solid rgb(158, 157, 157);
+}
+
+.label-submit {
+  border: .5px solid rgb(158, 157, 157);
+  border-radius: 8px;
 }
 
 .close-x {
   font-weight: 100;
   font-size: 20px;
   height: 16px;
-  width: 504px;
+  width: 24px;
   justify-content: flex-start;
   text-align: left;
   cursor: pointer;
@@ -191,10 +206,12 @@ a:hover {
   justify-content: center;
   position: relative;
   font-family: sans-serif;
+  min-height: 40px;
+  width: 100%;
+  text-align: center;
 }
 
 .errors {
-  width: 500px;
   text-decoration: none;
   display: flex;
   flex-direction: row;
@@ -207,31 +224,30 @@ a:hover {
 .form-submit {
   font-size: 16px;
   height: 42px;
-  width: 504px;
-  border-radius: 5px;
+  width: 100%;
   cursor: pointer;
   font-weight: bold;
   vertical-align: middle;
   text-align: center;
   background-color: white;
+  padding: 0;
+  outline: none;
+  border: none;
+  background-color: transparent;
 }
 
 .session-submit {
   height: 46px;
-  width: 510px;
+  width: 100%;
   background-color: #ff5a5f;
   color: white;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 .demo-button {
   background-color: #417af4;
   color: white;
   height: 46px;
-  width: 510px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  width: 100%;
   text-align: center;
   margin: 0 auto;
 }
@@ -252,6 +268,7 @@ a:hover {
 
 .modal-background {
   position: fixed;
+  width: 100%;
   top: 0;
   bottom: 0;
   right: 0;
