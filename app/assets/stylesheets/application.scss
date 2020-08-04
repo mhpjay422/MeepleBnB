@@ -37,8 +37,8 @@ body {
 .splash {
   background: image-url("arch.jpg");
   background-position: 30%;
-  width: 100%;
-  height: 100%;
+  width: 100vh;
+  height: 100vh;
   background-size: cover;
   background-repeat: repeat-x;
   position: absolute;
@@ -1644,36 +1644,32 @@ div.DateInput.DateInput_1 {
 }
 
 .trip-container {
-  height: 2000px;
-  display: flex;
-  justify-content: center;
+  padding: 0 80px 65px 80px;
+  max-width: 1600px;
+  margin: 36px auto 0;
+
 }
 
 .trip-body {
-  height: 2000px;
-  width: 1070px;
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
+
 }
 
 .trip-booked-trips-text {
-  font-size: 40px;
-  margin-bottom: 100px;
-  font-weight: 600;
+  font-size: 32px;
+  margin-bottom: 36px;
+  font-weight: 700;
 }
 
 .trip-content {
-  height: 1500px;
-  width: 1070px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .trip-items {
-  width: 1070px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -1681,7 +1677,7 @@ div.DateInput.DateInput_1 {
 }
 
 .trip-index-item {
-  width: 325px;
+  width: 33.333%;
   height: 500px;
   margin-bottom: 25px;
   box-sizing: border-box;
