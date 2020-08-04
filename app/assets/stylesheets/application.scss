@@ -1678,6 +1678,10 @@ div.DateInput.DateInput_1 {
   flex-direction: column;
   display: flex;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px !important;
+  transition: box-shadow 0.2s ease 0s;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .trip-index-item-img {
@@ -1706,16 +1710,15 @@ div.DateInput.DateInput_1 {
 .trip-space {
   height: 50px;
   width: 325px;
-  border-bottom: 1px solid lightgrey;
 }
 
 .trip-item-info {
   width: 325px;
   height: 100px;
   border-top: 1px solid lightgrey;
-  border-bottom: 1px solid lightgrey;
   justify-content: center;
   align-items: center;
+  
 }
 
 .trip-item-title {
