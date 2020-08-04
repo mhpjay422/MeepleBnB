@@ -76,7 +76,10 @@ class TripIndexItem extends React.Component {
                 />
               </div>
               <div className="trip-item-title">
-                {this.props.listings[this.props.trip.listing_id].title}
+                <div className="trip-item-title-text">
+                  {this.props.listings[this.props.trip.listing_id].title}
+                </div>
+                <img className="greater-arrow" src="greater.png"/>
               </div>
             </div>
           </div>

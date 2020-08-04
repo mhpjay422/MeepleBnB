@@ -1732,7 +1732,6 @@ div.DateInput.DateInput_1 {
 .trip-index-item-body-location {
   font-size: 22px;
   font-weight: 500;
-  margin-top: 6px;
   margin-bottom: 6px;
   overflow: hidden;
   font-family: Circular,
@@ -1741,13 +1740,15 @@ div.DateInput.DateInput_1 {
   Roboto,
   Helvetica Neue,
   sans-serif;
+  top: -6px;
+  position: relative;
 }
 
 .trip-index-item-body-description {
   display: flex;
-  padding-top: 10px;
+  margin-top: 4px;
   height: 40px;
-  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .trip-mini-img-container {
@@ -1761,11 +1762,25 @@ div.DateInput.DateInput_1 {
 }
 
 .trip-item-title {
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 100%;
+}
+
+.trip-item-title-text {
   font-weight: 300;
   font-size: 14px;
   font-family: sans-serif;
   display: flex;
   align-self: center;
+  overflow: hidden;
+}
+
+.greater-arrow {
+  height: 24px;
+  width: 24px;
 }
 
 .trip-index-item-bottom {
