@@ -69,23 +69,21 @@ class TripIndexItem extends React.Component {
               New York, New York
             </div>
             <div className="trip-index-item-body-description">
+              <div className="trip-mini-img-container">
+                <img
+                  className="mini-img"
+                  src={this.props.listings[this.props.trip.listing_id].picture_url}
+                />
+              </div>
               <div className="trip-item-title">
                 {this.props.listings[this.props.trip.listing_id].title}
               </div>
             </div>
-
-            <div className="trip-item-info">
-              <div className="trip-item-rating">
-                <div>Rating: </div>
-                <img className="star" src="./star-solid.svg" />
-                <img className="star" src="./star-solid.svg" />
-                <img className="star" src="./star-solid.svg" />
-                <img className="star" src="./star-solid.svg" />
-                <img className="star" src="./star-solid.svg" />
-              </div>
+          </div>
+          <div className="trip-index-item-bottom">
+            <div className="trip-index-item-bottom-text">
+              See More details
             </div>
-
-
           </div>
         </div>  
       </div>

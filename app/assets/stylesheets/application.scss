@@ -1665,7 +1665,7 @@ div.DateInput.DateInput_1 {
 .trip-index-item-container {
   min-width: 30%;
   max-width: 100%;
-  margin: 0 11px 25px;
+  margin: 0 11px 60px;
   box-sizing: border-box;
   padding-inline-start: 0;
 }
@@ -1708,6 +1708,7 @@ div.DateInput.DateInput_1 {
   padding: 24px 24px 0 24px;
   width: 100%;
   box-sizing: border-box;
+  border-bottom: 1px solid rgb(204, 200, 200);
 }
 
 .trip-index-item-body-header {
@@ -1743,27 +1744,38 @@ div.DateInput.DateInput_1 {
 }
 
 .trip-index-item-body-description {
+  display: flex;
   padding-top: 10px;
+  height: 40px;
+  padding-bottom: 10px;
 }
 
-.trip-item-info {
-  justify-content: center;
-  align-items: center;
+.trip-mini-img-container {
+  margin-right: 16px;
+}
+
+.mini-img {
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
 }
 
 .trip-item-title {
-  font-weight: bolder;
-  font-size: 17px;
-  padding-bottom: 30px;
+  font-weight: 300;
+  font-size: 14px;
+  font-family: sans-serif;
   display: flex;
-  word-wrap: break-word;
+  align-self: center;
 }
 
-.trip-item-rating {
-  font-size: 13px;
+.trip-index-item-bottom {
+  height: 60px;
   display: flex;
-  justify-content: center;
-  padding-bottom: 15px;
+}
+
+.trip-index-item-bottom-text {
+  margin: auto;
+  font-size: 14px;
 }
 
 .lat-lng {
