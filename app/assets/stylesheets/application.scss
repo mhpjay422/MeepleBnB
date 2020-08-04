@@ -1651,6 +1651,7 @@ div.DateInput.DateInput_1 {
   font-size: 32px;
   margin-bottom: 36px;
   font-weight: 700;
+  overflow: hidden;
 }
 
 .trip-items {
@@ -1663,8 +1664,9 @@ div.DateInput.DateInput_1 {
 }
 
 .trip-index-item-container {
-  min-width: 30%;
-  max-width: 100%;
+  min-width: 31%;
+  width: 31%;
+  max-width: 31%;
   margin: 0 11px 60px;
   box-sizing: border-box;
   padding-inline-start: 0;
@@ -1709,6 +1711,7 @@ div.DateInput.DateInput_1 {
   width: 100%;
   box-sizing: border-box;
   border-bottom: 1px solid rgb(204, 200, 200);
+  overflow: hidden;
 }
 
 .trip-index-item-body-header {
@@ -1727,6 +1730,7 @@ div.DateInput.DateInput_1 {
   font-family: sans-serif;
   color: rgb(158, 158, 158);
   width: 100%;
+  overflow: hidden;
 }
 
 .trip-index-item-body-location {
