@@ -18,7 +18,7 @@ l1 = Listing.create({
   })
 
 r1 = Review.create({
-  body: "", 
+  body: "Great stay! Staff was super helpful and accommodating. 10 out of 10 stay for sure.", 
   rating: 5, 
   listing_id = l1.id,
   author_id = d2.id
