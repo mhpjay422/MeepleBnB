@@ -1644,9 +1644,7 @@ div.DateInput.DateInput_1 {
 }
 
 .trip-container {
-  max-width: 1600px;
-  margin: 36px auto 0;
-  
+  margin: 36px auto 0;  
 }
 
 .trip-frame {
@@ -1709,11 +1707,35 @@ div.DateInput.DateInput_1 {
 }
 
 .trip-index-item-body {
-  padding-top: 24px;
+  padding: 24px 24px 0 24px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.trip-index-item-body-date {
-  height: 20px;
+.trip-index-item-body-date-range {
+  font-size: 12px;
+  font-family: sans-serif;
+  color: rgb(158, 158, 158);
+  display: flex;
+  justify-content: space-between;
+}
+
+.trip-index-item-body-location {
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  overflow: hidden;
+  font-family: Circular,
+  -apple-system,
+  BlinkMacSystemFont,
+  Roboto,
+  Helvetica Neue,
+  sans-serif;
+}
+
+.trip-index-item-body-description {
+  padding-top: 10px;
 }
 
 .trip-item-info {

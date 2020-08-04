@@ -59,11 +59,11 @@ class TripIndexItem extends React.Component {
             />
           </div>
           <div className="trip-index-item-body">
-            <div className="trip-index-item-body-date">
+            <div className="trip-index-item-body-date-range">
               {dateRange()} 
             </div>
             <div className="trip-index-item-body-location">
-
+              New York, New York
             </div>
             <div className="trip-index-item-body-description">
               <div className="trip-item-title">
