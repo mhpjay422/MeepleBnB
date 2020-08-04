@@ -1649,7 +1649,7 @@ div.DateInput.DateInput_1 {
   
 }
 
-.trip-body {
+.trip-frame {
   padding: 0 80px 65px 80px;
 }
 
@@ -1672,20 +1672,17 @@ div.DateInput.DateInput_1 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
 }
 
 .trip-index-item {
   width: 33.333%;
-  height: 500px;
   margin-bottom: 25px;
   box-sizing: border-box;
   flex-direction: column;
   display: flex;
   justify-content: space-between;
-  border: 1px solid lightgrey;
-  background-size: cover;
-  padding-right: 15px;
+  padding: 0;
+  padding-inline-start: 0;
   border-radius: 12px;
 }
 

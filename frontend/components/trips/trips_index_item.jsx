@@ -34,7 +34,6 @@ class TripIndexItem extends React.Component {
           {this.props.listings[this.props.trip.listing_id].title}
         </span>
         <div className="trip-item-info">
-          <br />
           <span className="trip-item-price">
             ${this.props.listings[this.props.trip.listing_id].price} per night ·
             Free cancellation
@@ -48,10 +47,7 @@ class TripIndexItem extends React.Component {
             <img className="star" src="./star-solid.svg" />
             <img className="star" src="./star-solid.svg" />
           </span>
-          <br />
         </div>
-
-        <hr />
       </div>
     );
   }
