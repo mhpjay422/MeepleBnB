@@ -1682,10 +1682,15 @@ div.DateInput.DateInput_1 {
   flex-direction: column;
   display: flex;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px !important;
-  transition: box-shadow 0.2s ease 0s;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
+}
+
+.trip-index-item-frame:hover {
+  box-shadow: rgba(0, 0, 0, 0.281) 0px 10px 18px;
+  transition: box-shadow 0.2s ease 0s;
+  cursor: pointer;
 }
 
 .trip-index-item-img {
@@ -1693,10 +1698,6 @@ div.DateInput.DateInput_1 {
   height: 180px;
   width: 100%;
   min-height: 1px;
-}
-
-.trip-index-item-img:hover {
-  cursor: pointer;
 }
 
 .trip-iiimg {
