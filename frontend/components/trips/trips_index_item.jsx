@@ -19,35 +19,41 @@ class TripIndexItem extends React.Component {
         <div className="trip-index-item-frame">
           <div className="trip-index-item-img">
             <img
-              className="trip-list-img"
+              className="trip-iiimg"
               src={this.props.listings[this.props.trip.listing_id].picture_url}
             />
           </div>
+          <div className="trip-index-item-body">
+            <div className="trip-index-item-body-date">
 
-          <div className="trip-plus-container">
-            <img
-              className="trip-plus"
-              src="./Screen Shot 2018-11-23 at 11.15.19 AM.png"
-            />
-          </div>
+            </div>
+            <div className="trip-index-item-body-location">
 
-          <span className="trip-item-title">
-            {this.props.listings[this.props.trip.listing_id].title}
-          </span>
-          <div className="trip-item-info">
-            <span className="trip-item-price">
-              ${this.props.listings[this.props.trip.listing_id].price} per night ·
-              Free cancellation
-            </span>
-            <br />
-            <span className="trip-item-rating">
-              <div>Rating: </div>
-              <img className="star" src="./star-solid.svg" />
-              <img className="star" src="./star-solid.svg" />
-              <img className="star" src="./star-solid.svg" />
-              <img className="star" src="./star-solid.svg" />
-              <img className="star" src="./star-solid.svg" />
-            </span>
+            </div>
+            <div className="trip-index-item-body-description">
+              <div className="trip-item-title">
+                {this.props.listings[this.props.trip.listing_id].title}
+              </div>
+            </div>
+
+
+            <div className="trip-plus-container">
+              <img className="trip-plus" src="./Screen Shot 2018-11-23 at 11.15.19 AM.png" />
+            </div>
+
+
+            <div className="trip-item-info">
+              <div className="trip-item-rating">
+                <div>Rating: </div>
+                <img className="star" src="./star-solid.svg" />
+                <img className="star" src="./star-solid.svg" />
+                <img className="star" src="./star-solid.svg" />
+                <img className="star" src="./star-solid.svg" />
+                <img className="star" src="./star-solid.svg" />
+              </div>
+            </div>
+
+            
           </div>
         </div>  
       </div>
