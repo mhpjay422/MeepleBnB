@@ -649,13 +649,6 @@ a:hover {
   align-items: center;
 }
 
-.trip-plus-container {
-  width: 325px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .trip-plus {
   padding-top: 3px;
   height: 25px;
@@ -1717,12 +1710,22 @@ div.DateInput.DateInput_1 {
   box-sizing: border-box;
 }
 
-.trip-index-item-body-date-range {
+.trip-index-item-body-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.trip-index-item-body-trip-plus {
+  height: 25px;
+  position: relative;
+  top: -3px;
+}
+
+.trip-index-item-body-header-date-range {
   font-size: 12px;
   font-family: sans-serif;
   color: rgb(158, 158, 158);
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
 }
 
 .trip-index-item-body-location {
@@ -1753,7 +1756,6 @@ div.DateInput.DateInput_1 {
   font-size: 17px;
   padding-bottom: 30px;
   display: flex;
-  justify-content: center;
   word-wrap: break-word;
 }
 

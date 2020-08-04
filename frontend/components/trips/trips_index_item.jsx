@@ -59,8 +59,11 @@ class TripIndexItem extends React.Component {
             />
           </div>
           <div className="trip-index-item-body">
-            <div className="trip-index-item-body-date-range">
-              {dateRange()} 
+            <div className="trip-index-item-body-header">
+              <div className="trip-index-item-body-header-date-range">
+                {dateRange()} 
+              </div>
+              <img className="trip-index-item-body-trip-plus" src="./Screen Shot 2018-11-23 at 11.15.19 AM.png" />
             </div>
             <div className="trip-index-item-body-location">
               New York, New York
@@ -70,12 +73,6 @@ class TripIndexItem extends React.Component {
                 {this.props.listings[this.props.trip.listing_id].title}
               </div>
             </div>
-
-
-            <div className="trip-plus-container">
-              <img className="trip-plus" src="./Screen Shot 2018-11-23 at 11.15.19 AM.png" />
-            </div>
-
 
             <div className="trip-item-info">
               <div className="trip-item-rating">
