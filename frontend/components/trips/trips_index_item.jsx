@@ -15,39 +15,41 @@ class TripIndexItem extends React.Component {
 
   render() {
     return (
-      <div className="trip-index-item" onClick={this.handleClick}>
-        <div className="trip-index-item-img">
-          <img
-            className="trip-list-img"
-            src={this.props.listings[this.props.trip.listing_id].picture_url}
-          />
-        </div>
+      <div className="trip-index-item-container" onClick={this.handleClick}>
+        <div className="trip-index-item-frame">
+          <div className="trip-index-item-img">
+            <img
+              className="trip-list-img"
+              src={this.props.listings[this.props.trip.listing_id].picture_url}
+            />
+          </div>
 
-        <div className="trip-plus-container">
-          <img
-            className="trip-plus"
-            src="./Screen Shot 2018-11-23 at 11.15.19 AM.png"
-          />
-        </div>
+          <div className="trip-plus-container">
+            <img
+              className="trip-plus"
+              src="./Screen Shot 2018-11-23 at 11.15.19 AM.png"
+            />
+          </div>
 
-        <span className="trip-item-title">
-          {this.props.listings[this.props.trip.listing_id].title}
-        </span>
-        <div className="trip-item-info">
-          <span className="trip-item-price">
-            ${this.props.listings[this.props.trip.listing_id].price} per night ·
-            Free cancellation
+          <span className="trip-item-title">
+            {this.props.listings[this.props.trip.listing_id].title}
           </span>
-          <br />
-          <span className="trip-item-rating">
-            <div>Rating: </div>
-            <img className="star" src="./star-solid.svg" />
-            <img className="star" src="./star-solid.svg" />
-            <img className="star" src="./star-solid.svg" />
-            <img className="star" src="./star-solid.svg" />
-            <img className="star" src="./star-solid.svg" />
-          </span>
-        </div>
+          <div className="trip-item-info">
+            <span className="trip-item-price">
+              ${this.props.listings[this.props.trip.listing_id].price} per night ·
+              Free cancellation
+            </span>
+            <br />
+            <span className="trip-item-rating">
+              <div>Rating: </div>
+              <img className="star" src="./star-solid.svg" />
+              <img className="star" src="./star-solid.svg" />
+              <img className="star" src="./star-solid.svg" />
+              <img className="star" src="./star-solid.svg" />
+              <img className="star" src="./star-solid.svg" />
+            </span>
+          </div>
+        </div>  
       </div>
     );
   }
