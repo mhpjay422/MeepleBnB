@@ -86,7 +86,7 @@ class BookingForm extends React.Component {
   }
 
   formHelper(booking) {
-    return (this.props.listing.id === booking.listing_id && booking.renter_id === this.props.currentUserId);
+    return (this.props.listing.id === booking.listing_id) && (booking.renter_id === this.props.currentUserId);
   }
 
   finalForm(alreadyBookedForm, form) {

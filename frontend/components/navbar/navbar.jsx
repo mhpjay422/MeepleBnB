@@ -6,7 +6,20 @@ import SearchContainer from '../searchbar/searchbar_container.jsx';
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {}
     this.handleClick = this.handleClick.bind(this);
+    this.logInDemo = this.logInDemo.bind(this);
+    this.logOut = this.logOut.bind(this);
+  }
+
+  logInDemo(e) {
+    this.props.demoLogin()
+    this.setState({ state: this.state });
+  }
+
+  logOut() {
+    this.props.logout()
+    this.setState({ state: this.state });
   }
 
   handleClick(e) {
@@ -33,7 +46,7 @@ class Navbar extends React.Component {
   }
 
   render() {
-
+  
   const demo = () => {
     if (this.props.loggedIn) {
       return (
@@ -42,7 +55,7 @@ class Navbar extends React.Component {
             <button className="header-button">Trips</button>
           </Link>
           <Link to={`/`}>
-            <button className="header-button" onClick={this.props.logout} >
+            <button className="header-button" onClick={this.logOut} >
               Log Out
             </button>
           </Link>
@@ -68,14 +81,17 @@ class Navbar extends React.Component {
             </button>
           </li>
           <li>
-            <button
-              className="greet-loginbuttons"
-              value="Login as Demo User"
-              onClick={this.props.demoLogin}
-            >
-              {" "}
-              Log In as Demo User
-            </button>
+            <Link to={`/greeting`}>
+              <button
+                className="greet-loginbuttons"
+                value="Login as Demo User"
+                onClick={this.logInDemo}
+                // onClick={this.handleClick}
+              >
+                {" "}
+                Log In as Demo User
+              </button>
+            </Link>
           </li>
         </nav>
       );
