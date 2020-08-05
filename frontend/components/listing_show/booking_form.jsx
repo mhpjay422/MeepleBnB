@@ -131,12 +131,17 @@ class BookingForm extends React.Component {
                     </div>
                   </div>                  
                   <div className="booking-rating">
-                    <Rating
+                    <img src="./star-solid.svg" className="star" />
+                    <img src="./star-solid.svg" className="star" />
+                    <img src="./star-solid.svg" className="star" />
+                    <img src="./star-solid.svg" className="star" />
+                    <img src="./star-solid.svg" className="star" />
+                    {/* <Rating
                       placeholderRating={3.5}
                       emptySymbol={<img src="./star-solid.svg" className="star" />}
                       placeholderSymbol={<img src="./star-solid.svg" className="star" />}
                       fullSymbol={<img src="./star-solid.svg" className="star" />}
-                    />
+                    /> */}
                   </div>
                 </div>
                 <div className="date-picker">

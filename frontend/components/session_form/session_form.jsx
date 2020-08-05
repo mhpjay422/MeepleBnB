@@ -57,43 +57,54 @@ class SessionForm extends React.Component {
 
   render() {
     const whichLabel = () => {
-      if (this.props.formType === "Signup") {
+      if (this.props.formType === "Sign up") {
         return (
+          <>
             <input
-              className="form-submit"
-              type="email"
-              placeholder="Email"
-              value={this.state.email}
-              onChange={this.update("email")}
-              onKeyPress={this.keypress}
-              onClick={this.clickClear("email")}
+              className = "form-submit email-component"
+              type = "email"
+              placeholder = "Email"
+              value = { this.state.email }
+              onChange = { this.update("email") }
+              onKeyPress = { this.keypress }
+              onClickOutside = { this.clickClear("email") }
             />
-        )
-      } else {
-        return (
             <input
               className="form-submit"
-              placeholder="Email"
               type="text"
+              placeholder="Username"
               value={this.state.username}
               onChange={this.update("username")}
               onKeyPress={this.keypress}
               onClick={this.clickClear("username")}
             />
+          </>
+        )
+      } else {
+        return (
+          <input
+            className="form-submit"
+            placeholder="Username"
+            type="text"
+            value={this.state.username}
+            onChange={this.update("username")}
+            onKeyPress={this.keypress}
+            onClick={this.clickClear("username")}
+          />
         )
       }
     }
 
     const passwordLabel = (
-        <input
-          className="form-submit"
-          type="password"
-          placeholder="Password"
-          value={this.state.password}
-          onChange={this.update("password")}
-          onKeyPress={this.keypress}
-          onClick={this.clickClear("password")}
-        />
+      <input
+        className="form-submit"
+        type="password"
+        placeholder="Password"
+        value={this.state.password}
+        onChange={this.update("password")}
+        onKeyPress={this.keypress}
+        onClick={this.clickClear("password")}
+      />
     );
 
     const signupOrLogin = () => {
@@ -116,7 +127,7 @@ class SessionForm extends React.Component {
       <div className="login-form-container">
         <div className="login-header-container">
           <div onClick={this.props.closeModal} className="close-x">
-            <img src="close-window-X.png"/>
+            <img src="close-window-X.png" />
           </div>
           <div className="login-header">
             <div className="login-greet">{this.props.formType}</div>
@@ -140,7 +151,7 @@ class SessionForm extends React.Component {
                 onClick={this.demo}>
                 Log In as Demo User
             </button>
-          </div>
+            </div>
           </div>
           <div className="render-errors">{this.renderErrors()}</div>
           <div className="strike">{signupOrLogin()}</div>
@@ -151,3 +162,4 @@ class SessionForm extends React.Component {
 }
 
 export default withRouter(SessionForm);
+

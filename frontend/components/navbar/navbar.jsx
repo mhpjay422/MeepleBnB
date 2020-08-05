@@ -67,17 +67,17 @@ class Navbar extends React.Component {
           <li>
             <button
               className="greet-loginbuttons"
-              onClick={() => this.props.openModal("login")}
+              onClick={() => this.props.openModal("log in")}
             >
-              Login
+              Log in
             </button>
           </li>
           <li>
             <button
               className="greet-loginbuttons"
-              onClick={() => this.props.openModal("signup")}
+              onClick={() => this.props.openModal("sign up")}
             >
-              Signup
+              Sign up
             </button>
           </li>
           <li>
