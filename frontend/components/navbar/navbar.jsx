@@ -41,9 +41,11 @@ class Navbar extends React.Component {
           <Link className="header-button" to={`/bookings/${this.props.users.id}`}>
             <button className="header-button">Trips</button>
           </Link>
-          <button className="header-button" onClick={this.props.logout}>
-            Log Out
-          </button>
+          <Link to={`/`}>
+            <button className="header-button" onClick={this.props.logout} >
+              Log Out
+            </button>
+          </Link>
         </div>
       );
     } else {

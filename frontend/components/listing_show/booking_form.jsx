@@ -173,13 +173,6 @@ class BookingForm extends React.Component {
                     </button>
                   </div>
                 </div>
-                {/* <input
-                  type="integer"
-                  className="booking-guests-input"
-                  min="1"
-                  placeholder="1 guest"
-                  onChange={this.handleGuests}
-                /> */}
                 <div>{this.renderErrors()}</div>
                 <div className="button-hover">
                   <button className="booking-submit" onClick={this.handleSubmit}>
