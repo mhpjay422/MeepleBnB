@@ -86,7 +86,6 @@ class Navbar extends React.Component {
                 className="greet-loginbuttons"
                 value="Login as Demo User"
                 onClick={this.logInDemo}
-                // onClick={this.handleClick}
               >
                 {" "}
                 Log In as Demo User

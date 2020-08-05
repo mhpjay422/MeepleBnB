@@ -6,8 +6,6 @@
   font-family: "MontrealRegular";
 }
 
-
-
 .main {
    position: block;
    min-height: 100vh;
@@ -812,7 +810,7 @@ a:hover {
 }
 
 .list-show-header-description-text {
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   font-size: 26px;
   line-height: 30px;
   font-weight: 600;
@@ -826,7 +824,8 @@ a:hover {
   flex-direction: row;
 }
 
-.show-rating {
+.show-rating:hover {
+  cursor: default;
 }
 
 .plus-show {
@@ -853,7 +852,8 @@ a:hover {
   align-items: flex-end;
   line-height: 20px;
   height: 19px;
-  bottom: 3px;
+  bottom: 2px;
+  color: rgb(107, 105, 105);
 }
 
 .list-show-images-container {
@@ -1905,10 +1905,6 @@ div.DateInput.DateInput_1 {
   flex-direction: row;
   width: 611px;
 }
-
-// .locpic:hover {
-  
-// }
 
 .locpic {
   width: 52px;

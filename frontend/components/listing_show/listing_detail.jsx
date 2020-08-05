@@ -47,13 +47,20 @@ class ListingDetail extends React.Component {
                 {this.props.listing.title}
               </div>
               <div className="list-show-header-description-otherInfo">
-                <Rating
+                {/* <Rating
                   className="show-rating"
                   placeholderRating={1}
                   emptySymbol={<img src="./star-solid.svg" className="star" />}
                   placeholderSymbol={<img src="./star-solid.svg" className="star" />}
                   fullSymbol={<img src="./star-solid.svg" className="star" />}
-                />
+                /> */}
+                <div className="show-rating">
+                  <img src="./star-solid.svg" className="star" />
+                  <img src="./star-solid.svg" className="star" />
+                  <img src="./star-solid.svg" className="star" />
+                  <img src="./star-solid.svg" className="star" />
+                  <img src="./star-solid.svg" className="star" />
+                </div>
                 <span className="show-interpunct"> · </span>
                 <img
                   className="plus-show"
