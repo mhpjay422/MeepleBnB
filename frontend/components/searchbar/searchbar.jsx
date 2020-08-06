@@ -94,73 +94,71 @@ class SearchBar extends React.Component {
   }
 
 
-render () {
+  render() {
 
-  const dropdownComponent = 
-    <ul className="searched-items">{
-      this.state.filteredList.map(listing => (
-        <div className="searched-item-row" key={listing.id} >
-          <img className="locpic" src="./locpic.png" />
-          <Link 
-            className="searched-item" 
-            listing={listing} 
-            to={`/listings/${listing.id}`}
-          >
-            {listing.address}
-          </Link>
-        </div>
-      ))}
-    </ul >
-
-  const shouldDropdownOpen = this.state.listOpen 
-
-  const isDropdownOpen = () => {
-    if (shouldDropdownOpen && (this.state.term !== "")) {
-      return dropdownComponent
-    } 
-  }
-
-  const searchBarClass = () => {
-    if (shouldDropdownOpen) {
-      return "search-bar-open"
-    } else {
-      return "search-bar-closed"
-    }
-  }
-
-  const searchDropClass = () => {
-    if (this.state.listOpen) {
-      return "search-drop-open"
-    } else {
-      return "search-drop-closed"
-    }
-  }
-
-  return (
-    <div className="search">
-      <div className={searchDropClass()}>
-        <div className="search-bar">
-          <div className="magglass">
-            <img className="magpic" src="./magglass.png" />
-          </div>
-          <form onSubmit={this.handleSubmit} >
-            <input
-              ref={node => this.node = node}
-              type="text"
-              className={searchBarClass()}
-              onChange={this.handleChange}
-              onClick={this.openList}
-              placeholder="Search..."
-              
+    const dropdownComponent = 
+      <ul className="searched-items">{
+        this.state.filteredList.map(listing => (
+          <div className="searched-item-row" key={listing.id} >
+            <img className="locpic" src="./locpic.png" />
+            <Link 
+              className="searched-item" 
+              listing={listing} 
+              to={`/listings/${listing.id}`}
             >
-            </input>
-          </form>
-        </div>
-        {isDropdownOpen()}
-      </div>
+              {listing.address}
+            </Link>
+          </div>
+        ))}
+      </ul >
 
-    </div>
-  );
+    const shouldDropdownOpen = this.state.listOpen 
+
+    const isDropdownOpen = () => {
+      if (shouldDropdownOpen && (this.state.term !== "")) {
+        return dropdownComponent
+      } 
+    }
+
+    const searchBarClass = () => {
+      if (shouldDropdownOpen) {
+        return "search-bar-open"
+      } else {
+        return "search-bar-closed"
+      }
+    }
+
+    const searchDropClass = () => {
+      if (this.state.listOpen) {
+        return "search-drop-open"
+      } else {
+        return "search-drop-closed"
+      }
+    }
+
+    return (
+      <div className="search">
+        <div className={searchDropClass()}>
+          <div className="search-bar">
+            <div className="magglass">
+              <img className="magpic" src="./magglass.png" />
+            </div>
+            <form onSubmit={this.handleSubmit} >
+              <input
+                ref={node => this.node = node}
+                type="text"
+                className={searchBarClass()}
+                onChange={this.handleChange}
+                onClick={this.openList}
+                placeholder="Search..."
+              >
+              </input>
+            </form>
+          </div>
+          {isDropdownOpen()}
+        </div>
+      </div>
+    );
   }
 }
 export default withRouter(SearchBar);

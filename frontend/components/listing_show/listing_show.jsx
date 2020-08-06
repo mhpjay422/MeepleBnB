@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ListingDetail from './listing_detail';
+import Footer from "../footer/footer.jsx"
 
 class ListingShow extends React.Component {
   constructor(props) {
@@ -16,11 +17,8 @@ class ListingShow extends React.Component {
     const { listing } = this.props;
     return(
       <div className="single-listing-show">
-        <div className="single-listing-map">
-        </div>
-        <div className="listing-details">
-          <ListingDetail listing={listing}/>
-        </div>
+        <ListingDetail listing={listing}/>
+        <Footer/>
       </div>
     );
   }

@@ -56,5 +56,5 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
   };
 
 
-    return splash();
+  return splash();
 };
