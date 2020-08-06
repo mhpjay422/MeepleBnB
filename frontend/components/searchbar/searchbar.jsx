@@ -43,6 +43,8 @@ class SearchBar extends React.Component {
           address: listing[1]
         }
       })
+
+      
       this.setState({ filteredList: objectListings }, () => {
         return;
       })
@@ -66,7 +68,7 @@ class SearchBar extends React.Component {
     });
     
     if(list.length === 0) {
-      list.push(["a", term])
+      list.push([null, "no matches"])
     }
 
     if(list.length <= 4 ) {
@@ -81,6 +83,12 @@ class SearchBar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
+
+    if(this.state.filteredList[0].id === null) {
+      this.props.fetchListings()
+    }
+
+    this.setState({ listOpen: false });
 
     if (this.props.history.location.pathname === "/greeting") {
       this.props.history.replace(this.props.history.location.pathname)
@@ -151,6 +159,7 @@ class SearchBar extends React.Component {
                 onChange={this.handleChange}
                 onClick={this.openList}
                 placeholder="Search..."
+                onKeyPress={this.openList}
               >
               </input>
             </form>

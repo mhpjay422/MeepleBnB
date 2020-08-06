@@ -9,6 +9,8 @@ export default class ListingIndex extends React.Component {
     this.state = {
       searchTerm: ""
     };
+    this.filteredListings = this.filteredListings.bind(this);
+    this.allPropsOrFiltered = this.allPropsOrFiltered.bind(this)
   }
 
   componentWillUpdate(newProps) {
@@ -29,39 +31,43 @@ export default class ListingIndex extends React.Component {
     }
   }
 
-  render() {
-    const filteredListings = (state, props) => {
-      let list = [];
+  filteredListings(state, props) {
+    let list = [];
 
-      props.listings.forEach(function (listing) {
-        const matched = listing.address.toLowerCase().includes(state.searchTerm.toLowerCase());
-        const noZipArray = listing.address.split(" ");
-        const noZip = noZipArray.slice(0, noZipArray.length - 1);
-        const newAddress = noZip.join(" ");
-        const newList = Object.assign({},listing);
-        newList.address = newAddress
+    props.listings.forEach(function (listing) {
+      const matched = listing.address.toLowerCase().includes(state.searchTerm.toLowerCase());
+      const noZipArray = listing.address.split(" ");
+      const noZip = noZipArray.slice(0, noZipArray.length - 1);
+      const newAddress = noZip.join(" ");
+      const newList = Object.assign({},listing);
+      newList.address = newAddress
 
-        if (matched) {
-          list.push(newList);
-        }
-      });
-
-      return list;
-    }
-
-    const emptySearchTerm = this.state.searchTerm === ""
-
-    const allPropsOrFiltered = () => {
-      if(emptySearchTerm) {
-        return this.props.listings
-      } else {
-        return filteredListings(this.state, this.props)
+      if (matched) {
+        list.push(newList);
       }
+    });
+
+    if(list.length) {
+      return list;
+    } else {
+      return this.props.listings;
     }
+  }
+  
+  allPropsOrFiltered(state, props) {
+    if (this.state.searchTerm === "") {
+      return this.props.listings
+    } else {
+      return this.filteredListings(state, props)
+    }
+  }
+
+  render() {
+    
 
     const sidenav = (
       <div className="sidenav">
-        <ListingMap listings={allPropsOrFiltered()} updateFilter={this.props.updateFilter} />
+        <ListingMap listings={this.allPropsOrFiltered(this.state, this.props)} updateFilter={this.props.updateFilter} />
       </div>
     );
 
@@ -71,7 +77,7 @@ export default class ListingIndex extends React.Component {
           <div className="list-header-container">
             <section>
               <div className="list-header-list-items-mini-text">
-                300+ stays
+                {this.props.length} stays
               </div>
               <div className="list-header-list-items-description">
                 <h1 className="list-header-list-items-description-text">
@@ -82,7 +88,7 @@ export default class ListingIndex extends React.Component {
           </div> 
         </div>
         <ul className="list-items">
-          {allPropsOrFiltered().map(listing => (
+          {this.allPropsOrFiltered(this.state, this.props).map(listing => (
             <ListingIndexItem listing={listing} key={listing.id} />
           ))}
         </ul >
@@ -91,8 +97,8 @@ export default class ListingIndex extends React.Component {
 
     return (
       <div className="index-body">
-        {listIndexItem}
-        {sidenav}
+          {listIndexItem}
+          {sidenav}
       </div>
     );
   }
