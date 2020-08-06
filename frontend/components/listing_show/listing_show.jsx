@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ListingDetail from './listing_detail';
-import Footer from "../footer/footer.jsx"
+import Footer from "../footer/footer_show_frame.jsx"
 
 class ListingShow extends React.Component {
   constructor(props) {

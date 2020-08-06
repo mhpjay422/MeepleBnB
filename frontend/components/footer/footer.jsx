@@ -4,8 +4,7 @@ export default ({}) => {
 
   const footer = () => {
     return (
-      <div className="footer-container">
-        <div className="footer-frame">
+        <>  
           <div className="footer-left">
             © 2020 Meeplebnb, Inc. All rights reserved
           </div>
@@ -20,8 +19,7 @@ export default ({}) => {
               <img className="github-img" src="github.png"></img>
             </a>
           </div>
-        </div>
-      </div>
+        </> 
     )
   }
 
