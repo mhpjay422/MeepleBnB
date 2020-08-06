@@ -43,7 +43,6 @@ class SearchBar extends React.Component {
           address: listing[1]
         }
       })
-
       
       this.setState({ filteredList: objectListings }, () => {
         return;
@@ -85,17 +84,13 @@ class SearchBar extends React.Component {
     e.preventDefault()
 
     if(this.state.filteredList[0].id === null) {
-      this.props.fetchListings()
+      this.props.fetchListings();
     }
 
     this.setState({ listOpen: false });
 
-    if (this.props.history.location.pathname === "/greeting") {
-      this.props.history.replace(this.props.history.location.pathname)
-    }
-
     this.props.history.push({
-      pathname: `/greeting`,
+      pathname: `/search_greeting`,
       search: this.state.term,
       state: { detail: this.state.term }
     });
