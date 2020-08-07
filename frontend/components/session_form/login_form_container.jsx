@@ -9,7 +9,7 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 const msp = (state, ownProps) => {
   return {
     errors: state.errors.session,
-    formType: "Log in",
+    formType: "Login",
   };
 };
   const demoUser = {user: {
@@ -26,8 +26,8 @@ const mdp = (dispatch) => {
     otherForm: (
       <button
         className="or-otherform"
-        onClick={() => dispatch(openModal('sign up'))}>
-        Sign up
+        onClick={() => dispatch(openModal('signup'))}>
+        Signup
       </button>
     ),
     demoLogin: () => dispatch(login(demoUser)),

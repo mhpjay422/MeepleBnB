@@ -10,10 +10,10 @@ function Modal({modal, closeModal}) {
   }
   let component;
   switch (modal) {
-    case 'log in':
+    case 'login':
       component = <LoginFormContainer />;
       break;
-    case 'sign up':
+    case 'signup':
       component = <SignupFormContainer />;
       break;
     default:

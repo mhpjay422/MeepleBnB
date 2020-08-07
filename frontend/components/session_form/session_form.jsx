@@ -57,7 +57,7 @@ class SessionForm extends React.Component {
 
   render() {
     const whichLabel = () => {
-      if (this.props.formType === "Sign up") {
+      if (this.props.formType === "Signup") {
         return (
           <>
             <input
@@ -145,12 +145,12 @@ class SessionForm extends React.Component {
               value={this.props.formType}
             />
             <div className="demoo">
-              <button
-                className="demo-button form-submit"
-                value="Login as Demo User"
-                onClick={this.demo}>
-                Log In as Demo User
-            </button>
+                <button
+                  className="demo-button form-submit"
+                  value="Login as Demo User"
+                  onClick={this.demo}>
+                  Log In as Demo User
+                </button>
             </div>
           </div>
           <div className="render-errors">{this.renderErrors()}</div>

@@ -26,7 +26,7 @@ MeepleBnB is an AirBnB inspired web application that allows users to search and 
 
 This application is hosted on Heroku. It also uses Google Places API to obtain city or country coordinates from a user's search.
 
-[Live Site](https://meeplebnb.herokuapp.com/#/)
+[Live Site](https://meeplebnb.herokuapp.com/)
 
 ![](./public/B&O.gif)
 &nbsp;

@@ -27,20 +27,17 @@ class Navbar extends React.Component {
 
     window.scroll(0, 0)
 
-    if (this.props.history.location.pathname === "/"){
-      return
-      
-    } else if (this.props.history.location.pathname === "/greeting") {
-      {this.props.history.location.pathname = "/", () => {return }}
+    if (this.props.history.location.pathname !== "/greeting") {
 
       this.props.history.push({
-        pathname: "/",
+        pathname: "/greeting",
         search: "",
         state: { detail: "" }
       })
+
     } else {
       this.props.history.push({
-        pathname: "/greeting",
+        pathname: "/",
         search: "",
         state: { detail: "" }
       })
@@ -69,17 +66,17 @@ class Navbar extends React.Component {
           <li>
             <button
               className="greet-loginbuttons"
-              onClick={() => this.props.openModal("log in")}
+              onClick={() => this.props.openModal("login")}
             >
-              Log in
+              Login
             </button>
           </li>
           <li>
             <button
               className="greet-loginbuttons"
-              onClick={() => this.props.openModal("sign up")}
+              onClick={() => this.props.openModal("signup")}
             >
-              Sign up
+              Signup
             </button>
           </li>
           <li>
@@ -90,7 +87,7 @@ class Navbar extends React.Component {
                 onClick={this.logInDemo}
               >
                 {" "}
-                Log In as Demo User
+                LogIn as Demo User
               </button>
             </Link>
           </li>
