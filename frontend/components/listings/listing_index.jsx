@@ -77,7 +77,7 @@ export default class ListingIndex extends React.Component {
           <div className="list-header-container">
             <section>
               <div className="list-header-list-items-mini-text">
-                {this.props.length} stays
+                {this.props.listings.length} stays
               </div>
               <div className="list-header-list-items-description">
                 <h1 className="list-header-list-items-description-text">
