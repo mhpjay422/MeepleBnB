@@ -37,70 +37,107 @@ class ListingDetail extends React.Component {
 
   render() {
 
-    const header = (
+    const bodyIntro = (
 
-      <div className="list-show-header">
-        <div className="list-show-header-description-container">
-          <div className="list-show-header-description">
-            <div className="list-show-header-description-text">
-              {this.props.listing.title}
-            </div>
-            <div className="list-show-header-description-otherInfo">
-              {/* <Rating
-                  className="show-rating"
-                  placeholderRating={1}
-                  emptySymbol={<img src="./star-solid.svg" className="star" />}
-                  placeholderSymbol={<img src="./star-solid.svg" className="star" />}
-                  fullSymbol={<img src="./star-solid.svg" className="star" />}
-                /> */}
-              <div className="show-rating">
-                <img src="./star-solid.svg" className="star" />
-                <img src="./star-solid.svg" className="star" />
-                <img src="./star-solid.svg" className="star" />
-                <img src="./star-solid.svg" className="star" />
-                <img src="./star-solid.svg" className="star" />
+      <div className="listing-body-intro">
+        <div className="property-type">Entire house hosted by Jason</div>
+        <div className="listing-amenities-preview">
+          <div className="preview-house">
+            <div className="preview-body">
+              <div className="amenities-preview">
+                <div className="amenities-text">
+                  <img
+                    className="amenities-icon"
+                    src="./Screen Shot 2018-11-23 at 12.21.41 PM.png"
+                  />
+                          4 guests
+                      </div>
+                <span className="show-interpunct"> · </span>
+                <div className="amenities-text">
+                  <img
+                    className="amenities-icon"
+                    src="./Screen Shot 2018-11-23 at 12.24.07 PM.png"
+                  />
+                        3 bedrooms
+                      </div>
+                <span className="show-interpunct"> · </span>
+                <div className="amenities-text">
+                  <img
+                    className="amenities-icon"
+                    src="./Screen Shot 2018-11-23 at 12.23.28 PM.png"
+                  />
+                        3 beds
+                      </div>
+                <span className="show-interpunct"> · </span>
+                <div className="amenities-text">
+                  <img
+                    className="amenities-icon"
+                    src="Screen Shot 2018-11-23 at 12.23.48 PM.png"
+                  />
+                        1 bath
+                      </div>
               </div>
-              <span className="show-interpunct"> · </span>
-              <img
-                className="plus-show"
-                src="./Screen Shot 2018-11-23 at 11.15.19 AM.png"
-              />
-              <span className="show-interpunct"> · </span>
-              <div className="list-show-header-location">
-                New York, United States
-                </div>
             </div>
           </div>
         </div>
-        <div className="list-show-images-container">
-          <div className="list-show-images">
-            <div className="list-show-images-pad">
-              <div className="list-show-images-frame">
-                <div className="list-show-image-main">
-                  <img className="index-image-main-1" src={this.props.listing.picture_url} />
-                </div>
-                <div className="list-show-image-side">
-                  <div className="list-show-image-1-2">
-                    <img className="index-image-top" src={"3-1200x800.jpg"} />
-                    <img
-                      className="index-image-bottom"
-                      src={"Black-looks-exquisite-in-the-bachelor-pad-bedroom.jpg"}
-                    />
-                  </div>
-                  <div className="list-show-image-1-2">
-                    <img
-                      className="index-image-top"
-                      src={"pharrell-williams-miami-penthouse-kitchen-1.jpg"}
-                    />
-                    <img
-                      className="index-image-bottom"
-                      src={
-                        "luxury-pictures-of-modern-bathrooms-21-ideas-beautiful-bathroom-designs-from-schmidt.jpg"
-                      }
-                    />
-                  </div>
-                </div>
-              </div>
+      </div>
+
+    )
+
+    const introDescription = (
+
+      <div className="listing-intro-description-container">
+        <div className="listing-intro-description">
+          <div className="listing-intro-description-item">
+            <div className="LID-item-image">
+              <img className="LID-item-image-img" src="house.png" />
+            </div>
+            <div className="LID-item-text">
+              <div className="LID-item-text-header">
+                Entire Home
+                    </div>
+              <div className="LID-item-text-description">
+                You'll have the house to yourself
+                    </div>
+            </div>
+          </div>
+          <div className="listing-intro-description-item">
+            <div className="LID-item-image">
+              <img className="LID-item-image-img" src="door.png" />
+            </div>
+            <div className="LID-item-text">
+              <div className="LID-item-text-header">
+                Self check-in
+                    </div>
+              <div className="LID-item-text-description">
+                Check yourself in from the app
+                    </div>
+            </div>
+          </div>
+          <div className="listing-intro-description-item">
+            <div className="LID-item-image">
+              <img className="LID-item-image-img" src="clean.png" />
+            </div>
+            <div className="LID-item-text">
+              <div className="LID-item-text-header">
+                Enhanced cleaning
+                    </div>
+              <div className="LID-item-text-description">
+                Part of the enhanced cleaning program to ensure a deep clean between each stay
+                    </div>
+            </div>
+          </div>
+          <div className="listing-intro-description-item-bottom">
+            <div className="LID-item-image">
+              <img className="LID-item-image-img" src="fun.png" />
+            </div>
+            <div className="LID-item-text">
+              <div className="LID-item-text-header">
+                Fun guaranteed
+                    </div>
+              <div className="LID-item-text-description">
+                Plus verified locations are highly rated and commited to providing great stays for guests
+                    </div>
             </div>
           </div>
         </div>
@@ -228,119 +265,98 @@ class ListingDetail extends React.Component {
 
     )
 
+    const headerDetail = (
 
-  return (
-    <div className="listing-detail-page">
-      <NavbarContainer />
-      <div className="list-show-body">
-        { header }
-        <div className="listing-body-container">
-          <div className="listing-body-description">
-            <div className="listing-body-intro">
-              <div className="property-type">Entire house hosted by Jason</div>
-              <div className="listing-amenities-preview">
-                <div className="preview-house">
-                  <div className="preview-body">
-                    <div className="amenities-preview">
-                      <div className="amenities-text">
-                        <img
-                          className="amenities-icon"
-                          src="./Screen Shot 2018-11-23 at 12.21.41 PM.png"
-                        />
-                          4 guests
-                      </div>
-                      <span className="show-interpunct"> · </span>
-                      <div className="amenities-text">
-                        <img
-                          className="amenities-icon"
-                          src="./Screen Shot 2018-11-23 at 12.24.07 PM.png"
-                        />
-                        3 bedrooms
-                      </div>
-                      <span className="show-interpunct"> · </span>
-                      <div className="amenities-text">
-                        <img
-                          className="amenities-icon"
-                          src="./Screen Shot 2018-11-23 at 12.23.28 PM.png"
-                        />
-                        3 beds
-                      </div>
-                      <span className="show-interpunct"> · </span>
-                      <div className="amenities-text">
-                        <img
-                          className="amenities-icon"
-                          src="Screen Shot 2018-11-23 at 12.23.48 PM.png"
-                        />
-                        1 bath
-                      </div>
-                    </div>
+      <div className="list-show-header">
+        <div className="list-show-header-description-container">
+          <div className="list-show-header-description">
+            <div className="list-show-header-description-text">
+              {this.props.listing.title}
+            </div>
+            <div className="list-show-header-description-otherInfo">
+              {/* <Rating
+                  className="show-rating"
+                  placeholderRating={1}
+                  emptySymbol={<img src="./star-solid.svg" className="star" />}
+                  placeholderSymbol={<img src="./star-solid.svg" className="star" />}
+                  fullSymbol={<img src="./star-solid.svg" className="star" />}
+                /> */}
+              <div className="show-rating">
+                <img src="./star-solid.svg" className="star" />
+                <img src="./star-solid.svg" className="star" />
+                <img src="./star-solid.svg" className="star" />
+                <img src="./star-solid.svg" className="star" />
+                <img src="./star-solid.svg" className="star" />
+              </div>
+              <span className="show-interpunct"> · </span>
+              <img
+                className="plus-show"
+                src="./Screen Shot 2018-11-23 at 11.15.19 AM.png"
+              />
+              <span className="show-interpunct"> · </span>
+              <div className="list-show-header-location">
+                New York, United States
+                </div>
+            </div>
+          </div>
+        </div>
+        <div className="list-show-images-container">
+          <div className="list-show-images">
+            <div className="list-show-images-pad">
+              <div className="list-show-images-frame">
+                <div className="list-show-image-main">
+                  <img className="index-image-main-1" src={this.props.listing.picture_url} />
+                </div>
+                <div className="list-show-image-side">
+                  <div className="list-show-image-1-2">
+                    <img className="index-image-top" src={"3-1200x800.jpg"} />
+                    <img
+                      className="index-image-bottom"
+                      src={"Black-looks-exquisite-in-the-bachelor-pad-bedroom.jpg"}
+                    />
+                  </div>
+                  <div className="list-show-image-1-2">
+                    <img
+                      className="index-image-top"
+                      src={"pharrell-williams-miami-penthouse-kitchen-1.jpg"}
+                    />
+                    <img
+                      className="index-image-bottom"
+                      src={
+                        "luxury-pictures-of-modern-bathrooms-21-ideas-beautiful-bathroom-designs-from-schmidt.jpg"
+                      }
+                    />
                   </div>
                 </div>
               </div>
             </div>
-            <div className="listing-intro-description-container">
-              <div className="listing-intro-description">
-                <div className="listing-intro-description-item">
-                  <div className="LID-item-image">
-                    <img className="LID-item-image-img" src="house.png"/>            
-                  </div>
-                  <div className="LID-item-text">
-                    <div className="LID-item-text-header">
-                      Entire Home
-                    </div>      
-                    <div className="LID-item-text-description">
-                      You'll have the house to yourself
-                    </div>      
-                  </div>
-                </div>
-                <div className="listing-intro-description-item">
-                  <div className="LID-item-image">
-                    <img className="LID-item-image-img" src="door.png"/>            
-                  </div>
-                  <div className="LID-item-text">
-                    <div className="LID-item-text-header">
-                      Self check-in
-                    </div>      
-                    <div className="LID-item-text-description">
-                      Check yourself in from the app
-                    </div>      
-                  </div>
-                </div>
-                <div className="listing-intro-description-item">
-                  <div className="LID-item-image">
-                    <img className="LID-item-image-img" src="clean.png"/>            
-                  </div>
-                  <div className="LID-item-text">
-                    <div className="LID-item-text-header">
-                      Enhanced cleaning
-                    </div>      
-                    <div className="LID-item-text-description">
-                      Part of the enhanced cleaning program to ensure a deep clean between each stay
-                    </div>      
-                  </div>
-                </div>
-                <div className="listing-intro-description-item-bottom">
-                  <div className="LID-item-image">
-                    <img className="LID-item-image-img" src="fun.png"/>            
-                  </div>
-                  <div className="LID-item-text">
-                    <div className="LID-item-text-header">
-                      Fun guaranteed
-                    </div>      
-                    <div className="LID-item-text-description">
-                      Plus verified locations are highly rated and commited to providing great stays for guests
-                    </div>      
-                  </div>
-                </div>
-              </div>          
-            </div>
-            { bodyInfo }
-            { sleepingArrangements }
-            { location }
           </div>
-          <BookingFormContainer listing={this.props.listing} />
         </div>
       </div>
+
+    )
+
+    const bodyDetail = (
+
+      <div className="listing-body-container">
+        <div className="listing-body-description">
+          {bodyIntro}
+          {introDescription}
+          {bodyInfo}
+          {sleepingArrangements}
+          {location}
+        </div>
+        <BookingFormContainer listing={this.props.listing} />
+      </div>
+
+    )
+
+
+  return (
+    <div className="listing-detail-page">
+      <NavbarContainer />
+      { headerDetail }
+      { bodyDetail }
     </div>
   );
 };
