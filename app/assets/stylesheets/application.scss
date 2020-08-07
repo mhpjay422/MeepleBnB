@@ -504,6 +504,33 @@ a:hover {
   font-family: sans-serif;
 }
 
+.sleeping-arrangements-images-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sleeping-arrangements-images-item-frame {
+  width: 33%;
+}
+
+.sleeping-arrangements-images-item1 {
+ padding-right: 8px;
+}
+
+.sleeping-arrangements-images-item2 {
+ padding-left: 8px;
+ padding-right: 8px;
+}
+
+.sleeping-arrangements-images-item-frame-inner {
+  padding: 24px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 12px;
+  border-image: initial;
+}
+
+
+
 .list-body {
   min-height: 100vh;
   width: 840px;

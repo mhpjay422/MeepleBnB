@@ -259,6 +259,25 @@ class ListingDetail extends React.Component {
                   Sleeping arrangements
                 </div>
               </div>
+              <div className="sleeping-arrangements-images-container">
+                <div className="sleeping-arrangements-images-item-frame">
+                  <div className="sleeping-arrangements-images-item1">
+                    <div className="sleeping-arrangements-images-item-frame-inner">
+                      <div className="inner">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="sleeping-arrangements-images-item-frame">
+                  <div className="sleeping-arrangements-images-item2">
+                    <div className="sleeping-arrangements-images-item-frame-inner">
+
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
             </div>
           </div>
           <BookingFormContainer listing={this.props.listing} />
