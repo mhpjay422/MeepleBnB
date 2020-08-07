@@ -38,9 +38,9 @@ class IndexItem extends React.Component {
               <div className="index-item-amenities1">
                 4 guests
                 <span> · </span>
-                1 bedroom
+                3 bedrooms
                 <span> · </span>
-                2 beds
+                3 beds
                 <span> · </span>
                 1 bath
               </div>

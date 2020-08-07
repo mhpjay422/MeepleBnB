@@ -490,7 +490,7 @@ a:hover {
 
 .sleeping-arrangements-container {
   padding: 48px 0;
-  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 
 .sleeping-arrangements-header {
@@ -513,7 +513,7 @@ a:hover {
 }
 
 .sleeping-arrangements-images-item-frame {
-  width: 30%;
+  width: 33%;
 }
 
 .sleeping-arrangements-images-item {
@@ -529,7 +529,45 @@ a:hover {
 }
 
 .sleeping-arrangements-image-container {
+}
+
+.bed-image-1 {
   padding-bottom: 16px;
+  height: 36px;
+  width: 36px;
+  left: -6px;
+  position: relative;
+}
+
+.bed-image-2 {
+  padding-bottom: 16px;
+  height: 36px;
+  width: 30px;
+  left: -3px;
+  position: relative;
+}
+
+.bed-img {
+  height: 100%;
+  width: 100%;
+  background-position: 50% 50%;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bed-image-header {
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.bed-image-text {
+  font-weight: 300;
+  font-size: 14px;
+  font-family: sans-serif;
+  line-height: 20px;
 }
 
 .list-body {
@@ -1160,9 +1198,14 @@ a:hover {
   font-weight: 600;
 }
 
+.listing-body-location-container {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
 .listing-body-info-location {
   font-size: 22px;
-  padding: 16px 16px 16px 0;
+  padding: 0px 16px 16px 0;
   font-weight: 600;
   font-family: sans-serif;
 }
