@@ -507,17 +507,16 @@ a:hover {
 .sleeping-arrangements-images-container {
   display: flex;
   justify-content: flex-start;
+  margin-left: -8px;
+  margin-right: -8px;
+
 }
 
 .sleeping-arrangements-images-item-frame {
-  width: 33%;
+  width: 30%;
 }
 
-.sleeping-arrangements-images-item1 {
- padding-right: 8px;
-}
-
-.sleeping-arrangements-images-item2 {
+.sleeping-arrangements-images-item {
  padding-left: 8px;
  padding-right: 8px;
 }
@@ -529,7 +528,9 @@ a:hover {
   border-image: initial;
 }
 
-
+.sleeping-arrangements-image-container {
+  padding-bottom: 16px;
+}
 
 .list-body {
   min-height: 100vh;

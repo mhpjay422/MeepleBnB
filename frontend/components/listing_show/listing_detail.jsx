@@ -261,22 +261,24 @@ class ListingDetail extends React.Component {
               </div>
               <div className="sleeping-arrangements-images-container">
                 <div className="sleeping-arrangements-images-item-frame">
-                  <div className="sleeping-arrangements-images-item1">
+                  <div className="sleeping-arrangements-images-item">
                     <div className="sleeping-arrangements-images-item-frame-inner">
-                      <div className="inner">
-
+                      <div className="sleeping-arrangements-image-container">
+                        <img className="bed-image" src="doublebed.png"></img>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="sleeping-arrangements-images-item-frame">
-                  <div className="sleeping-arrangements-images-item2">
+                  <div className="sleeping-arrangements-images-item">
                     <div className="sleeping-arrangements-images-item-frame-inner">
-
+                      <div className="sleeping-arrangements-image-container">
+                        <img className="bed-image" src="singlebed.png"></img>
+                        
+                      </div>
                     </div>
                   </div>
                 </div>
-                
               </div>
             </div>
           </div>
