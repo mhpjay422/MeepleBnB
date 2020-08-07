@@ -253,6 +253,13 @@ class ListingDetail extends React.Component {
               </div>             
             </div>
             <div className="street-map" ref={map => (this.mapNode = map)}></div>
+            <div className="sleeping-arrangements-container">
+              <div className="sleeping-arrangements-header">
+                <div className="sleeping-arrangements-text">
+                  Sleeping arrangements
+                </div>
+              </div>
+            </div>
           </div>
           <BookingFormContainer listing={this.props.listing} />
         </div>
