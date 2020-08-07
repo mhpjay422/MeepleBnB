@@ -25,6 +25,8 @@ class Navbar extends React.Component {
   handleClick(e) {
     e.preventDefault()
 
+    window.scroll(0, 0)
+
     if (this.props.history.location.pathname === "/"){
       return
       

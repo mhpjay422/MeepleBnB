@@ -160,6 +160,7 @@ class BookingForm extends React.Component {
                     onFocusChange={focusedInput => this.setState({ focusedInput })}
                     renderCalendarDay={undefined}
                     minimumNights= {2}
+                    autofocus = {false}
                   />
                 </div>
                 <div className="booking-guests-container">

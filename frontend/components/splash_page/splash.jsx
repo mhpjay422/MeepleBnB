@@ -19,21 +19,23 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
               <li>
                 <button
                   className="loginbuttons"
-                  onClick={() => openModal('login')}>Login
+                  onClick={() => openModal('log in')}>Login
                 </button>
               </li>
               <li>
                 <button
                   className="loginbuttons"
-                  onClick={() => openModal('signup')}>Signup
+                  onClick={() => openModal('sign up')}>Signup
                 </button>
               </li>
               <li>
-                <button
-                className="loginbuttons"
-                value="Login as Demo User"
-                  onClick={demoLogin}> Log In as Demo User
-                </button>
+                <Link to="/greeting">
+                  <button
+                    className="loginbuttons"
+                    value="Login as Demo User"
+                    onClick={demoLogin}> Log In as Demo User
+                  </button>
+                </Link>
               </li>
             </nav>
           </ul>

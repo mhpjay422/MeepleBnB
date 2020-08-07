@@ -13,7 +13,7 @@ const App = () => {
     <div>
       <Modal />
       <div className="main">
-        <Route exact path="/" component={SplashContainer} />
+        <Route path="/" component={SplashContainer} />
         <Route path="/greeting" component={GreetingContainer} />
         <Route path="/search_greeting" component={GreetingContainer} />
         <Route path="/listings/null" component={GreetingContainer} />

@@ -11,6 +11,7 @@ class IndexItem extends React.Component {
 
   handleClick() {
     const listingId = this.props.listing.id;
+    window.scroll(0,0)
     this.props.history.push(`/listings/${listingId}`);
   }
 
