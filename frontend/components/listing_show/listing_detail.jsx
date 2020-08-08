@@ -251,6 +251,21 @@ class ListingDetail extends React.Component {
 
     )
 
+    const dayPicker = (
+
+      <div className="daypicker-container">
+        <div className="daypicker-header">
+          <div className="daypicker-header-text1">
+            Blash
+          </div>
+          <div className="daypicker-header-text2">
+            Bleh
+          </div>
+        </div>
+      </div>
+
+    )
+
     const location = (
 
       <div className="listing-body-location-container">
@@ -344,6 +359,7 @@ class ListingDetail extends React.Component {
           {introDescription}
           {bodyInfo}
           {sleepingArrangements}
+          {dayPicker}
           {location}
         </div>
         <BookingFormContainer listing={this.props.listing} />
