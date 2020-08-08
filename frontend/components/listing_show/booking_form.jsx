@@ -19,7 +19,6 @@ class BookingForm extends React.Component {
       status: "PENDING"
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleGuests = this.handleGuests.bind(this);
     this.finalForm = this.finalForm.bind(this);
     this.formHelper = this.formHelper.bind(this);
     this.handleCounterMinus = this.handleCounterMinus.bind(this);
@@ -56,10 +55,6 @@ class BookingForm extends React.Component {
 
       this.props.createBooking(booking);
     }
-  }
-
-  handleGuests(e) {
-    this.setState({ guests: e.target.value });
   }
 
   handleCounterMinus() {

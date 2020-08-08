@@ -596,12 +596,17 @@ a:hover {
   font-family: sans-serif;
   font-weight: 600;
 }
+
 .daypicker-header-text2 {
   font-size: 14px;
   font-family: sans-serif;
   font-weight: 300;
   padding-top: 8px;
   color: rgb(113, 113, 113)
+}
+
+.daypicker-calendar-container {
+  margin-top: 24px;
 }
 
 .list-body {

@@ -3,11 +3,21 @@ import { Link } from "react-router";
 import NavbarContainer from "../navbar/navbar_container";
 import BookingFormContainer from "./booking_form_container";
 import Rating from "react-rating";
+import { DayPicker } from "react-dates";
+import "react-dates/lib/css/_datepicker.css";
 
 
 class ListingDetail extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      startDate: null,
+      endDate: null,
+      focusedInput: null,
+      guests: 1,
+      price: this.props.listing.price,
+      status: "PENDING"
+    };
   }
 
   componentDidMount() {
@@ -261,6 +271,25 @@ class ListingDetail extends React.Component {
           <div className="daypicker-header-text2">
             Add your travel dates for exact pricing
           </div>
+        </div>
+        <div className="daypicker-calendar-container">
+          <DayPicker
+            startDate={this.state.startDate}
+            startDateId="start-date"
+            endDate={this.state.endDate}
+            endDateId="end-date"
+            startDatePlaceholderText="Check-In"
+            showClearDates={true}
+            endDatePlaceholderText="Check-Out"
+            onDatesChange={({ startDate, endDate }) =>
+              this.setState({ startDate, endDate })
+            }
+            focusedInput={this.state.focusedInput}
+            onFocusChange={focusedInput => this.setState({ focusedInput })}
+            renderCalendarDay={undefined}
+            minimumNights={2}
+            autofocus={false}
+          />
         </div>
       </div>
 
