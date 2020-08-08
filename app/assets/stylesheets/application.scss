@@ -123,7 +123,7 @@ body {
 }
 
 .loginbuttons:hover {
-  border-bottom: 2px solid orange;
+  border-bottom: 1px solid orange;
   color: orange;
 }
 
@@ -344,7 +344,7 @@ a:hover {
 }
 
 .greet-topsec {
-  height: 79px;
+  height: 80px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -376,8 +376,38 @@ a:hover {
 .greet-loginbuttons:focus {
   outline: none;
 }
+
+.loggedin-buttons {
+  height: 100%;
+  width: 130px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px;
+  z-index: 5;
+}
+
+.header-button {
+  text-decoration: none;
+  text-shadow: 5px;
+  font-size: 15px;
+  height: 100%;
+  font-weight: bold;
+  color: black;
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
 .header-button:focus {
   outline: none;
+}
+
+.header-button:hover {
+  border-bottom: 1px solid orange;
+  color: orange;
 }
 
 .greet-loginbuttons {
@@ -396,27 +426,13 @@ a:hover {
 }
 
 .greet-loginbuttons:hover {
-  border-bottom: 2px solid orange;
+  border-bottom: 1px solid orange;
   color: orange;
 }
 
 .greet-icon {
   color: black;
   margin-left: 10px;
-}
-
-.header-button {
-  text-decoration: none;
-  text-shadow: 5px;
-  font-size: 15px;
-  height: 80px;
-  font-weight: bold;
-  color: black;
-  display: inline-block;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
 }
 
 .greethr {
@@ -1699,14 +1715,6 @@ div.DateInput.DateInput_1 {
   font-size: 20px;
   text-align: center;
   padding-bottom: 30px;
-}
-
-.loggedin-buttons {
-  width: 130px;
-  display: flex;
-  justify-content: space-between;
-  margin-right: 10px;
-  z-index: 5;
 }
 
 .trip-container {
