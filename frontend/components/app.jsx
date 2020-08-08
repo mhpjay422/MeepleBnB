@@ -18,7 +18,7 @@ const App = () => {
         <Route path="/search_greeting" component={GreetingContainer} />
         <Route path="/listings/null" component={GreetingContainer} />
         <Route path="/listings/:listingId" component={ListingShowContainer} />
-        <Route path="/bookings/:renterId" component={TripsIndexContainer} />
+        <ProtectedRoute path="/bookings/:renterId" component={TripsIndexContainer} />
       </div>
     </div>
   );
