@@ -1,11 +1,11 @@
 import React from "react";
 import { withRouter, Redirect } from "react-router-dom";
+import Rating from "react-rating";
 import "react-dates/initialize";
 import { DateRangePicker } from "react-dates";
 import momentPropTypes from "react-moment-proptypes";
 import moment from "moment";
 import "react-dates/lib/css/_datepicker.css";
-import Rating from "react-rating";
 
 class BookingForm extends React.Component {
   constructor(props) {
@@ -67,6 +67,11 @@ class BookingForm extends React.Component {
     if(this.state.guests < 4) {
       this.setState({ guests: this.state.guests + 1})
     }
+  }
+
+  componentDidUpdate() {
+
+  
   }
 
   renderErrors() {
@@ -155,7 +160,6 @@ class BookingForm extends React.Component {
                     onFocusChange={focusedInput => this.setState({ focusedInput })}
                     renderCalendarDay={undefined}
                     minimumNights= {2}
-                    autofocus = {false}
                   />
                 </div>
                 <div className="booking-guests-container">

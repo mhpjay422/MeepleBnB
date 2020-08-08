@@ -3,7 +3,11 @@ import { Link } from "react-router";
 import NavbarContainer from "../navbar/navbar_container";
 import BookingFormContainer from "./booking_form_container";
 import Rating from "react-rating";
-import { DayPicker } from "react-dates";
+
+import "react-dates/initialize";
+import { DayPickerRangeController } from 'react-dates';
+import momentPropTypes from "react-moment-proptypes";
+import moment from "moment";
 import "react-dates/lib/css/_datepicker.css";
 
 
@@ -13,11 +17,17 @@ class ListingDetail extends React.Component {
     this.state = {
       startDate: null,
       endDate: null,
-      focusedInput: null,
-      guests: 1,
-      price: this.props.listing.price,
-      status: "PENDING"
+      focusedInput: props.autoFocusEndDate ? 'endDate' : 'startDate',
     };
+
+    this.onFocusChange = this.onFocusChange.bind(this);
+  }
+
+  onFocusChange(focusedInput) {
+    this.setState({
+      // Force the focusedInput to always be truthy so that dates are always selectable
+      focusedInput: !focusedInput ? 'startDate' : focusedInput,
+    });
   }
 
   componentDidMount() {
@@ -33,6 +43,8 @@ class ListingDetail extends React.Component {
     this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
   }
   componentDidUpdate() {
+
+    debugger
 
     const mapOptions = {
       position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
@@ -273,22 +285,17 @@ class ListingDetail extends React.Component {
           </div>
         </div>
         <div className="daypicker-calendar-container">
-          <DayPicker
-            startDate={this.state.startDate}
-            startDateId="start-date"
-            endDate={this.state.endDate}
-            endDateId="end-date"
-            startDatePlaceholderText="Check-In"
-            showClearDates={true}
-            endDatePlaceholderText="Check-Out"
-            onDatesChange={({ startDate, endDate }) =>
-              this.setState({ startDate, endDate })
-            }
+          <DayPickerRangeController
+            startDate={this.state.startDate} 
+            endDate={this.state.endDate} 
+            onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
             focusedInput={this.state.focusedInput}
-            onFocusChange={focusedInput => this.setState({ focusedInput })}
-            renderCalendarDay={undefined}
+            onFocusChange={this.onFocusChange}
+            initialVisibleMonth={() => moment().add(2, "M")}
             minimumNights={2}
-            autofocus={false}
+            noBorder= {true}
+            numberOfMonths= {2}
+            renderCalendarDay={undefined}
           />
         </div>
       </div>

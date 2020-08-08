@@ -13,7 +13,8 @@ const mapStateToProps = (state = {}, ownProps) => {
     listing: ownProps.listing,
     currentUserId: state.session.id,
     errors: state.errors.booking,
-    bookings: Object.values(state.entities.bookings)
+    bookings: Object.values(state.entities.bookings),
+    autoFocusEndDate: false
   };
 };
 
