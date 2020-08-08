@@ -256,10 +256,10 @@ class ListingDetail extends React.Component {
       <div className="daypicker-container">
         <div className="daypicker-header">
           <div className="daypicker-header-text1">
-            Blash
+            Select check-in date
           </div>
           <div className="daypicker-header-text2">
-            Bleh
+            Add your travel dates for exact pricing
           </div>
         </div>
       </div>
