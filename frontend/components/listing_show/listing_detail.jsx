@@ -22,10 +22,7 @@ class ListingDetail extends React.Component {
 
     this.onFocusChange = this.onFocusChange.bind(this);
     this.receiveNewDatesFromBookingForm = this.receiveNewDatesFromBookingForm.bind(this);
-  }
-
-  receiveNewDatesFromBookingForm(data) {
-    this.setState(data)
+    this.clearDates = this.clearDates.bind(this);
   }
   
   componentDidMount() {
@@ -53,12 +50,20 @@ class ListingDetail extends React.Component {
     this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
   }
   
-    onFocusChange(focusedInput) {
-      this.setState({
-        // Force the focusedInput to always be truthy so that dates are always selectable
-        focusedInput: !focusedInput ? 'startDate' : focusedInput,
-      });
-    }
+  clearDates() {
+    this.setState({ startDate: null, endDate:null })
+  }
+  
+  receiveNewDatesFromBookingForm(data) {
+    this.setState(data)
+  }
+
+  onFocusChange(focusedInput) {
+    this.setState({
+      // Force the focusedInput to always be truthy so that dates are always selectable
+      focusedInput: !focusedInput ? 'startDate' : focusedInput,
+    });
+  }
 
   render() {
 
@@ -301,7 +306,7 @@ class ListingDetail extends React.Component {
           />
           <div className="daypicker-calendar-clear-dates-container">
             <button className="daypicker-calendar-clear-dates-button"
-
+                    onClick={this.clearDates}
             >
               Clear dates
             </button>
