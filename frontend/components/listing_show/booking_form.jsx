@@ -177,15 +177,15 @@ class BookingForm extends React.Component {
                     Guests
                   </div>
                   <div className="booking-guests-counter">
-                    <button className="booking-guests-minus" onClick={this.handleCounterMinus}>
-                      {isMinusAllowed()}  
-                    </button>
-                    <div className="booking-guests-value">
-                      {this.state.guests}
-                    </div>
-                    <button className="booking-guests-plus" onClick={this.handleCounterPlus}>
-                      {isPlusAllowed()}
-                    </button>
+                      <button className="booking-guests-minus" onClick={this.handleCounterMinus}>
+                        {isMinusAllowed()}  
+                      </button>
+                      <div className="booking-guests-value">
+                        {this.state.guests}
+                      </div>
+                      <button className="booking-guests-plus" onClick={this.handleCounterPlus}>
+                        {isPlusAllowed()}
+                      </button>
                   </div>
                 </div>
                 <div>{this.renderErrors()}</div>
