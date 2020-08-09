@@ -619,12 +619,20 @@ a:hover {
   align-items: flex-end;  
 }
 
+.daypicker-calendar-clear-dates-button:hover {
+  cursor: pointer;
+  background-color: rgb(241, 241, 241);
+}
+
 .daypicker-calendar-clear-dates-button {
+  border-radius: 8px;
   border: none;
   background-color: transparent;
   text-decoration: underline;
   outline: none;
   font-size: 14px;
+  width: auto;
+  padding: 8px;
 }
 
 .list-body {
