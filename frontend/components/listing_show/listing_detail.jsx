@@ -299,6 +299,13 @@ class ListingDetail extends React.Component {
             numberOfMonths= {2}
             renderCalendarDay={undefined}
           />
+          <div className="daypicker-calendar-clear-dates-container">
+            <button className="daypicker-calendar-clear-dates-button"
+
+            >
+              Clear dates
+            </button>
+          </div>
         </div>
       </div>
 
