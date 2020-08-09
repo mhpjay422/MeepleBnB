@@ -23,6 +23,7 @@ class BookingForm extends React.Component {
     this.formHelper = this.formHelper.bind(this);
     this.handleCounterMinus = this.handleCounterMinus.bind(this);
     this.handleCounterPlus = this.handleCounterPlus.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -30,16 +31,21 @@ class BookingForm extends React.Component {
   }
 
   componentWillUnmount(oldProps) {
-    this.props.clearBookingErrors();
+    // this.props.clearBookingErrors();
   }
 
   componentDidUpdate(prevProps) {
     
-    if ((prevProps.startDate !== this.props.startDate) || (prevProps.endDate !== this.props.endDate)) {
-      this.setState({
-        changedProp: this.props.changedProp
-      });
-    }
+    // if ((prevProps.startDate !== this.props.startDate) || (prevProps.endDate !== this.props.endDate)) {
+    //   this.setState({
+    //     changedProp: this.props.changedProp
+    //   });
+    // }
+  }
+
+  handleChange(data) {
+    this.setState(data);
+    this.props.liftStateToParent(data);
   }
 
   handleSubmit(e) {
@@ -157,8 +163,8 @@ class BookingForm extends React.Component {
                     startDatePlaceholderText="Check-In"
                     showClearDates={true}
                     endDatePlaceholderText="Check-Out"
-                    onDatesChange={({ startDate, endDate }) =>
-                      this.setState({ startDate, endDate })
+                    onDatesChange={({ startDate, endDate }) => 
+                      this.handleChange({ startDate, endDate })
                     }
                     focusedInput={this.state.focusedInput}
                     onFocusChange={focusedInput => this.setState({ focusedInput })}

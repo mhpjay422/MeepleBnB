@@ -9,7 +9,6 @@ import {
 } from "../../actions/booking_actions";
 
 const mapStateToProps = (state = {}, ownProps) => {
-  debugger
   return {
     listing: ownProps.listing,
     currentUserId: state.session.id,

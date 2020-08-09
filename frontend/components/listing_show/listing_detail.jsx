@@ -24,12 +24,8 @@ class ListingDetail extends React.Component {
     this.receiveNewDatesFromBookingForm = this.receiveNewDatesFromBookingForm.bind(this);
   }
 
-  receiveNewDatesFromBookingForm(dates) {
-    
-    this.setState({ 
-      startDate: dates.startDate,
-      endDate: dates.endDate
-     })
+  receiveNewDatesFromBookingForm(data) {
+    this.setState(data)
   }
   
   componentDidMount() {
@@ -45,6 +41,8 @@ class ListingDetail extends React.Component {
     this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
   }
   componentDidUpdate() {
+
+    debugger
     
     const mapOptions = {
       position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
@@ -298,7 +296,6 @@ class ListingDetail extends React.Component {
             onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
             focusedInput={this.state.focusedInput}
             onFocusChange={this.onFocusChange}
-            initialVisibleMonth={() => moment().add(2, "M")}
             minimumNights={2}
             noBorder= {true}
             numberOfMonths= {2}
