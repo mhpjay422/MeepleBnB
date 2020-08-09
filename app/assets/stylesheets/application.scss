@@ -613,6 +613,20 @@ a:hover {
   display: none;
 }
 
+.daypicker-calendar-clear-dates-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;  
+}
+
+.daypicker-calendar-clear-dates-button {
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  outline: none;
+  font-size: 14px;
+}
+
 .list-body {
   min-height: 100vh;
   width: 840px;
