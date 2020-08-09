@@ -44,8 +44,6 @@ class ListingDetail extends React.Component {
   }
   componentDidUpdate() {
 
-    debugger
-
     const mapOptions = {
       position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
       zoom: 10.4,
@@ -398,7 +396,11 @@ class ListingDetail extends React.Component {
           {dayPicker}
           {location}
         </div>
-        <BookingFormContainer listing={this.props.listing} />
+        <BookingFormContainer 
+          listing={this.props.listing} 
+          startDate={this.state.startDate} 
+          endDate={this.state.endDate}
+         />
       </div>
 
     )

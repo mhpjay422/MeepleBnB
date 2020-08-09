@@ -11,8 +11,8 @@ class BookingForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDate: null,
-      endDate: null,
+      startDate: this.props.startDate,
+      endDate: this.props.endDate,
       focusedInput: null,
       guests: 1,
       price: this.props.listing.price,
@@ -31,6 +31,15 @@ class BookingForm extends React.Component {
 
   componentWillUnmount(oldProps) {
     this.props.clearBookingErrors();
+  }
+
+  componentDidUpdate(prevProps) {
+    
+    if ((prevProps.startDate !== this.props.startDate) || (prevProps.endDate !== this.props.endDate)) {
+      this.setState({
+        changedProp: this.props.changedProp
+      });
+    }
   }
 
   handleSubmit(e) {
@@ -67,11 +76,6 @@ class BookingForm extends React.Component {
     if(this.state.guests < 4) {
       this.setState({ guests: this.state.guests + 1})
     }
-  }
-
-  componentDidUpdate() {
-
-  
   }
 
   renderErrors() {
@@ -146,9 +150,9 @@ class BookingForm extends React.Component {
                 </div>
                 <div className="date-picker">
                   <DateRangePicker
-                    startDate={this.state.startDate}
+                    startDate={this.props.startDate}
                     startDateId="start-date"
-                    endDate={this.state.endDate}
+                    endDate={this.props.endDate}
                     endDateId="end-date"
                     startDatePlaceholderText="Check-In"
                     showClearDates={true}
