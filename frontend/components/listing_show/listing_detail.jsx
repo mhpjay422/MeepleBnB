@@ -409,7 +409,7 @@ class ListingDetail extends React.Component {
           listing={this.props.listing} 
           startDate={this.state.startDate} 
           endDate={this.state.endDate}
-          liftStateFromChild={this.receiveNewDatesFromBookingForm}
+          liftStateToParent={this.receiveNewDatesFromBookingForm}
          />
       </div>
 
