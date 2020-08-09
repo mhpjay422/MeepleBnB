@@ -637,10 +637,12 @@ a:hover {
 
 .DayPickerNavigation_button__horizontalDefault {
   outline: none;
+  border: none !important;
 }
 
 .CalendarDay__default {
   outline: none;
+  border: none !important;
 }
 
 .list-body {
