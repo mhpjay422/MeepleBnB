@@ -21,15 +21,17 @@ class ListingDetail extends React.Component {
     };
 
     this.onFocusChange = this.onFocusChange.bind(this);
+    this.receiveNewDatesFromBookingForm = this.receiveNewDatesFromBookingForm.bind(this);
   }
 
-  onFocusChange(focusedInput) {
-    this.setState({
-      // Force the focusedInput to always be truthy so that dates are always selectable
-      focusedInput: !focusedInput ? 'startDate' : focusedInput,
-    });
+  receiveNewDatesFromBookingForm(dates) {
+    
+    this.setState({ 
+      startDate: dates.startDate,
+      endDate: dates.endDate
+     })
   }
-
+  
   componentDidMount() {
     
     const mapOptions = {
@@ -39,11 +41,11 @@ class ListingDetail extends React.Component {
         heading: 34
       }
     };
-
+    
     this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
   }
   componentDidUpdate() {
-
+    
     const mapOptions = {
       position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
       zoom: 10.4,
@@ -51,9 +53,16 @@ class ListingDetail extends React.Component {
         heading: 34
       }
     };
-
+    
     this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
   }
+  
+    onFocusChange(focusedInput) {
+      this.setState({
+        // Force the focusedInput to always be truthy so that dates are always selectable
+        focusedInput: !focusedInput ? 'startDate' : focusedInput,
+      });
+    }
 
   render() {
 
@@ -400,6 +409,7 @@ class ListingDetail extends React.Component {
           listing={this.props.listing} 
           startDate={this.state.startDate} 
           endDate={this.state.endDate}
+          liftStateFromChild={this.receiveNewDatesFromBookingForm}
          />
       </div>
 
