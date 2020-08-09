@@ -44,7 +44,7 @@ class BookingForm extends React.Component {
   }
 
   handleChange(data) {
-    this.setState(data);
+    // this.setState(data);
     this.props.liftStateToParent(data);
   }
 
