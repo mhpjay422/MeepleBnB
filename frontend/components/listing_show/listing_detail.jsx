@@ -25,6 +25,7 @@ class ListingDetail extends React.Component {
     this.clearDates = this.clearDates.bind(this);
     this.isInclusivelyAfterDay = this.isInclusivelyAfterDay.bind(this);
     this.isBeforeDay = this.isBeforeDay.bind(this);
+    this.daysDiff = this.daysDiff.bind(this);
   }
   
   componentDidMount() {
@@ -87,6 +88,10 @@ class ListingDetail extends React.Component {
     if (isSameYear && isSameMonth) return a.date() < b.date();
     if (isSameYear) return aMonth < bMonth;
     return aYear < bYear;
+  }
+
+  daysDiff() {
+    return this.state.endDate.diff(this.state.startDate, "days")
   }
 
   render() {
@@ -308,11 +313,11 @@ class ListingDetail extends React.Component {
     const dayPickerHeaderTop = () => {
 
       if(!this.state.startDate && !this.state.endDate) {
-        return <p>Select check-in date</p>
+        return "Select check-in date"
       } else if(this.state.startDate && !this.state.endDate) {
-        return <p>Select checkout date</p>;
+        return "Select checkout date";
       } else {
-        return <p>Book these days in New York</p>
+        return `${this.daysDiff()} days in New York`
       }
     
     }
@@ -320,11 +325,11 @@ class ListingDetail extends React.Component {
     const dayPickerHeaderBottom = () => {
 
       if (!this.state.startDate && !this.state.endDate) {
-        return <p>Add your travel dates for exact pricing</p>
+        return "Add your travel dates for exact pricing"
       } else if (this.state.startDate && !this.state.endDate) {
-        return <p>Minimum stay: 2 nights</p>;
+        return "Minimum stay: 2 nights";
       } else {
-        return <p>start date - end date</p>
+        return `${this.state.startDate.format('MMM DD, YYYY')} - ${this.state.endDate.format('MMM DD, YYYY')}`
       }
 
     }
