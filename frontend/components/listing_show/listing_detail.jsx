@@ -307,14 +307,26 @@ class ListingDetail extends React.Component {
 
     const dayPickerHeaderTop = () => {
 
-      if(this.state.startDate && !this.state.endDate) {
-        return <p>Select checkout date</p>;
-      } else if( this.state.startDate && this.state.endDate) {
-      return <p>Book these days in New York</p>
-      } else {
+      if(!this.state.startDate && !this.state.endDate) {
         return <p>Select check-in date</p>
+      } else if(this.state.startDate && !this.state.endDate) {
+        return <p>Select checkout date</p>;
+      } else {
+        return <p>Book these days in New York</p>
       }
     
+    }
+
+    const dayPickerHeaderBottom = () => {
+
+      if (!this.state.startDate && !this.state.endDate) {
+        return <p>Add your travel dates for exact pricing</p>
+      } else if (this.state.startDate && !this.state.endDate) {
+        return <p>Minimum stay: 2 nights</p>;
+      } else {
+        return <p>start date - end date</p>
+      }
+
     }
 
     const dayPicker = (
@@ -325,7 +337,7 @@ class ListingDetail extends React.Component {
             {dayPickerHeaderTop()}
           </div>
           <div className="daypicker-header-text2">
-            Add your travel dates for exact pricing
+            {dayPickerHeaderBottom()}
           </div>
         </div>
         <div className="daypicker-calendar-container">
