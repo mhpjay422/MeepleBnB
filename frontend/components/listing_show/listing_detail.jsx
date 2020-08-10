@@ -317,7 +317,7 @@ class ListingDetail extends React.Component {
       } else if(this.state.startDate && !this.state.endDate) {
         return "Select checkout date";
       } else {
-        return `${this.daysDiff()} days in New York`
+        return `${this.daysDiff()} nights in New York`
       }
     
     }
