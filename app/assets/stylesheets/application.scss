@@ -1468,7 +1468,7 @@ div.DateInput.DateInput_1 {
   background-color: transparent !important;
   text-transform: uppercase !important;
   font-family: sans-serif !important;
-  font-weight: 600 !important;
+  font-weight: 400 !important;
   color: rgb(107, 107, 107) !important;
 }
 
@@ -1561,7 +1561,7 @@ div.DateInput.DateInput_1 {
   align-self: center;
   text-transform: uppercase !important;
   font-family: sans-serif !important;
-  font-weight: 600 !important;
+  font-weight: 400 !important;
   width: 43%;
 }
 
@@ -1655,6 +1655,12 @@ div.DateInput.DateInput_1 {
 
 .booking-guests-value:hover {
   cursor: default;
+}
+
+.DateRangePickerInput_clearDates {
+  position: relative !important;
+  right: 8px !important;
+  border-radius: 50%;
 }
 
 .booking-submit {
