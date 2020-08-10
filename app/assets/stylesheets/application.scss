@@ -1626,13 +1626,23 @@ div.DateInput.DateInput_1 {
   cursor: not-allowed;
 }
 
+.booking-guests-value {
+  position: relative;
+  right: 8px;
+  width: 25%;
+  font-size: 16px;
+  color: rgb(44, 44, 44);
+  font-family: sans-serif;
+  font-weight: 500;
+}
+
 .plus-button-allowed {
   display: flex;
   position: relative;
   height: 36px;
   width: 36px;
   background: transparent;
-  right: 24px;
+  right: 18px;
 }
 
 .plus-button-not-allowed {
@@ -1641,17 +1651,7 @@ div.DateInput.DateInput_1 {
   height: 36px;
   width: 36px;
   background: transparent;
-  right: 24px;
-}
-
-.booking-guests-value {
-  position: relative;
-  right: 11px;
-  width: 25%;
-  font-size: 16px;
-  color: rgb(44, 44, 44);
-  font-family: sans-serif;
-  font-weight: 600;
+  right: 18px;
 }
 
 .booking-guests-value:hover {
