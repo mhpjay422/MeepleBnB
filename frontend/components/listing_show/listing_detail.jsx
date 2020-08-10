@@ -23,6 +23,8 @@ class ListingDetail extends React.Component {
     this.onFocusChange = this.onFocusChange.bind(this);
     this.receiveNewDatesFromBookingForm = this.receiveNewDatesFromBookingForm.bind(this);
     this.clearDates = this.clearDates.bind(this);
+    this.isInclusivelyAfterDay = this.isInclusivelyAfterDay.bind(this);
+    this.isBeforeDay = this.isBeforeDay.bind(this);
   }
   
   componentDidMount() {
@@ -63,6 +65,28 @@ class ListingDetail extends React.Component {
       // Force the focusedInput to always be truthy so that dates are always selectable
       focusedInput: !focusedInput ? 'startDate' : focusedInput,
     });
+  }
+
+  isInclusivelyAfterDay(a, b) {
+    if (!moment.isMoment(a) || !moment.isMoment(b)) return false;
+    return !this.isBeforeDay(a, b);
+  }
+
+  isBeforeDay(a, b) {
+    if (!moment.isMoment(a) || !moment.isMoment(b)) return false;
+
+    const aYear = a.year();
+    const aMonth = a.month();
+
+    const bYear = b.year();
+    const bMonth = b.month();
+
+    const isSameYear = aYear === bYear;
+    const isSameMonth = aMonth === bMonth;
+
+    if (isSameYear && isSameMonth) return a.date() < b.date();
+    if (isSameYear) return aMonth < bMonth;
+    return aYear < bYear;
   }
 
   render() {
@@ -303,6 +327,8 @@ class ListingDetail extends React.Component {
             noBorder= {true}
             numberOfMonths= {2}
             renderCalendarDay={undefined}
+            enableOutsideDays={false}
+            isOutsideRange={day => !this.isInclusivelyAfterDay(day, moment())}
           />
           <div className="daypicker-calendar-clear-dates-container">
             <button className="daypicker-calendar-clear-dates-button"
