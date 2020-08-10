@@ -305,12 +305,24 @@ class ListingDetail extends React.Component {
 
     )
 
+    const dayPickerHeaderTop = () => {
+
+      if(this.state.startDate && !this.state.endDate) {
+        return <p>Select checkout date</p>;
+      } else if( this.state.startDate && this.state.endDate) {
+      return <p>Book these days in New York</p>
+      } else {
+        return <p>Select check-in date</p>
+      }
+    
+    }
+
     const dayPicker = (
 
       <div className="daypicker-container">
         <div className="daypicker-header">
           <div className="daypicker-header-text1">
-            Select check-in date
+            {dayPickerHeaderTop()}
           </div>
           <div className="daypicker-header-text2">
             Add your travel dates for exact pricing
