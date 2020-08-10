@@ -1528,6 +1528,24 @@ div.DateInput.DateInput_1 {
   background-color: transparent !important;
 }
 
+.DayPicker_transitionContainer {
+  border-radius: 16px !important;
+}
+
+.DayPicker_focusRegion {
+  border-radius: 16px !important;
+}
+
+.DayPicker {
+  border-radius: 16px !important;
+}
+
+.DateRangePicker_picker {
+  border-radius: 16px !important;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px !important;
+
+}
+
 .booking-guests-header {
   margin-bottom: 7px;
   font-size: 12px;
