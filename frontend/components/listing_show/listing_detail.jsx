@@ -3,7 +3,6 @@ import { Link } from "react-router";
 import NavbarContainer from "../navbar/navbar_container";
 import BookingFormContainer from "./booking_form_container";
 import Rating from "react-rating";
-
 import "react-dates/initialize";
 import { DayPickerRangeController } from 'react-dates';
 import momentPropTypes from "react-moment-proptypes";
@@ -482,21 +481,23 @@ class ListingDetail extends React.Component {
           <div className="host-body-main">
             
             <div className="host-body-main-left">
-              <div className="host-body-main-left-icons">
-                <div className="host-body-main-left-icons-item-container">
-                  <div className="host-body-left-icons-item-icon">
-                    <img src="./star-solid.svg" className="star" />
-                    <img src="./star-solid.svg" className="star" />
-                    <img src="./star-solid.svg" className="star" />
-                    <img src="./star-solid.svg" className="star" />
-                    <img src="./star-solid.svg" className="star" />
+              <div className="host-body-main-left-container">
+                <div className="host-body-main-left-icons">
+                  <div className="host-body-main-left-icons-item-container">
+                    <div className="host-body-left-icons-item-icon">
+                      <img src="./star-solid.svg" className="star" />
+                      <img src="./star-solid.svg" className="star" />
+                      <img src="./star-solid.svg" className="star" />
+                      <img src="./star-solid.svg" className="star" />
+                      <img src="./star-solid.svg" className="star" />
+                    </div>
+                    <div className="host-body-left-icons-item-icon-text">
+                      {this.props.listing.id} Reviews
+                    </div>
                   </div>
-                  <div className="host-body-left-icons-item-icon-text">
-                    Beep
+                  <div className="host-body-main-left-icons-item-container">
+                    Boop
                   </div>
-                </div>
-                <div className="host-body-main-left-icons-item-container">
-                  Boop
                 </div>
               </div>
               <div className="host-body-main-left-description"></div>
