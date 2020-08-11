@@ -462,7 +462,7 @@ class ListingDetail extends React.Component {
           <div className="host-border-top"></div>
           <div className="host-body">
             <div className="host-body-header">
-              <div className="host-body-header-images">
+              <div className="host-body-header-images-container">
                 <img className="host-body-header-img" src="mememe.png"></img>
                 <div className="host-plus-detail">
                   <img
@@ -471,12 +471,14 @@ class ListingDetail extends React.Component {
                   />
                 </div>
               </div>
-              <div>
-                Goodbye
+              <div className="host-body-header-text-container">
+                <div className="host-body-header-text-top">
+                  Hosted by Jason
+                </div>
+                <div className="host-body-header-text-bottom">
+                  Joined in August 2020
+                </div>
               </div>
-            </div>
-            <div className="host-body-main">
-
             </div>
           </div>
         </div>

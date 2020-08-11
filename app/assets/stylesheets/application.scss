@@ -1784,10 +1784,10 @@ div.DateInput.DateInput_1 {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 24px;
+  align-items: center;
 }
 
-.host-body-header-images {
-  margin-right: 16px;
+.host-body-header-images-container {
   display: flex;
   flex-direction: row;
   justify-content: bottom;
@@ -1806,7 +1806,7 @@ div.DateInput.DateInput_1 {
   flex-direction: row;
   height: 100%;
   justify-content: bottom;
-  align-items: flex-end;
+  align-self: flex-end;
 }
 
 .plus-detail {
@@ -1819,6 +1819,29 @@ div.DateInput.DateInput_1 {
   bottom: -2px;
   right: 15px;
   border-radius: 8px;
+}
+
+.host-body-header-text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.host-body-header-text-top {
+  color: rgb(34, 34, 34);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  font-family: sans-serif,
+}
+
+.host-body-header-text-bottom {
+  color: rgb(168, 168, 168);
+  font-family: sans-serif,
+  sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  padding-top: 8px;
 }
 
 .alreadybooked-container {
