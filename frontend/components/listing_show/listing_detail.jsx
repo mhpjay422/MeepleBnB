@@ -456,25 +456,35 @@ class ListingDetail extends React.Component {
 
     )
 
-    const bodyDetail = (
-
-      <div className="listing-body-container">
-        <div className="listing-body-description">
-          {bodyIntro}
-          {introDescription}
-          {bodyInfo}
-          {sleepingArrangements}
-          {dayPicker}
-          {location}
-        </div>
-        <BookingFormContainer 
-          listing={this.props.listing} 
-          startDate={this.state.startDate} 
-          endDate={this.state.endDate}
-          liftStateToParent={this.receiveNewDatesFromBookingForm}
-         />
+    const host = (
+      <div>
+        hello
       </div>
+    )
 
+
+    const bodyDetail = (
+      <div className="listing-body-container">
+        <div className="listing-body-top">
+          <div className="listing-body-description">
+            {bodyIntro}
+            {introDescription}
+            {bodyInfo}
+            {sleepingArrangements}
+            {dayPicker}
+            {location}
+          </div>
+          <BookingFormContainer
+            listing={this.props.listing}
+            startDate={this.state.startDate}
+            endDate={this.state.endDate}
+            liftStateToParent={this.receiveNewDatesFromBookingForm}
+          />
+        </div>
+        <div className="listing-body-bottom">
+          {host}
+        </div>
+      </div>
     )
 
 
