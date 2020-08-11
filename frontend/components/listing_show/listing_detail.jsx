@@ -457,8 +457,10 @@ class ListingDetail extends React.Component {
     )
 
     const host = (
-      <div>
-        hello
+      <div className="host-conatiner">
+        <div className="host-frame">
+          Hello
+        </div>
       </div>
     )
 
