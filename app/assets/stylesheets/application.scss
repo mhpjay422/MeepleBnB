@@ -1759,8 +1759,8 @@ div.DateInput.DateInput_1 {
 }
 
 .host-container {
-  padding-left: 80px !important;
-  padding-right: 80px !important;
+  padding-left: 80px;
+  padding-right: 80px;
 }
 
 .host-frame {
@@ -1769,6 +1769,15 @@ div.DateInput.DateInput_1 {
   max-width: 1120px;
   height: 100%;
   width: 100%;
+}
+
+.host-border-top {
+  border-top: 1px solid rgb(221, 221, 221);
+}
+
+.host-body {
+  padding-top: 48px;
+  padding-bottom: 48px;
 }
 
 .alreadybooked-container {
