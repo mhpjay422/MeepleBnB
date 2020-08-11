@@ -461,7 +461,23 @@ class ListingDetail extends React.Component {
         <div className="host-frame">
           <div className="host-border-top"></div>
           <div className="host-body">
-          Hello
+            <div className="host-body-header">
+              <div className="host-body-header-images">
+                <img className="host-body-header-img" src="mememe.png"></img>
+                <div className="host-plus-detail">
+                  <img
+                    className="plus-detail"
+                    src="./Screen Shot 2018-11-23 at 10.49.36 AM.png"
+                  />
+                </div>
+              </div>
+              <div>
+                Goodbye
+              </div>
+            </div>
+            <div className="host-body-main">
+
+            </div>
           </div>
         </div>
       </div>

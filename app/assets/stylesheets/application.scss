@@ -1780,6 +1780,47 @@ div.DateInput.DateInput_1 {
   padding-bottom: 48px;
 }
 
+.host-body-header {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+}
+
+.host-body-header-images {
+  margin-right: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: bottom;
+}
+
+.host-body-header-img {
+  border-radius: 50%;
+  height: 64px;
+  width: 64px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.host-plus-detail {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: bottom;
+  align-items: flex-end;
+}
+
+.plus-detail {
+  padding-top: 3px;
+  height: 15px;
+  width: 30px;
+  display: flex;
+  align-self: bottom;
+  position: relative;
+  bottom: -2px;
+  right: 15px;
+  border-radius: 8px;
+}
+
 .alreadybooked-container {
   width: 39%;
   justify-content: center;
