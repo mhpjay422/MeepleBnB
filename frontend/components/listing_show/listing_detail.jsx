@@ -480,6 +480,25 @@ class ListingDetail extends React.Component {
                 </div>
               </div>
             </div>
+            <div className="host-body-main">
+              
+              <div className="host-body-main-left">
+                <div className="host-body-main-left-icons">
+                  <div className="host-body-main-left-icons-item">
+                    Beep
+                  </div>
+                  <div className="host-body-main-left-icons-item">
+                    Boop
+                  </div>
+                </div>
+                <div className="host-body-main-left-description"></div>
+              </div>
+              
+              <div className="host-body-main-right">
+                <div className="host-body-main-right-response"></div>
+                <div className="host-body-main-right-icon"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

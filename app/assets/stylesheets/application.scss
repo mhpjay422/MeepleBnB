@@ -1844,6 +1844,35 @@ div.DateInput.DateInput_1 {
   padding-top: 8px;
 }
 
+.host-body-main {
+  margin-left: -8px;
+  margin-right: -8px;
+  width: calc(100% + 16px);
+}
+
+.host-body-main-left {
+  padding-right: 8px;
+}
+
+.host-body-main-left-icons {
+  margin-left: -12px;
+  margin-right: -12px;
+  margin-bottom: 24px;
+  flex-flow: row wrap;
+  display: flex;
+  list-style: none;
+  margin: 0px 0px 12px;
+  padding: 0px;
+}
+
+.host-body-main-left-icons-item {
+  margin-bottom: 0px;
+  padding-left: 12px;
+  padding-right: 12px;
+  display: block;
+  box-sizing: border-box;
+}
+
 .alreadybooked-container {
   width: 39%;
   justify-content: center;
