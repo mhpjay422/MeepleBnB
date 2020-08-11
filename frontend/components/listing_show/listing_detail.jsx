@@ -457,73 +457,87 @@ class ListingDetail extends React.Component {
     )
 
     const host = (
-      <div className="host-conatiner">
-        <div className="host-frame">
-          <div className="host-border-top"></div>
-          <div className="host-body">
-            <div className="host-body-header">
-              <div className="host-body-header-images-container">
-                <img className="host-body-header-img" src="mememe.png"></img>
-                <div className="host-plus-detail">
-                  <img
-                    className="plus-detail"
-                    src="./Screen Shot 2018-11-23 at 10.49.36 AM.png"
-                  />
-                </div>
-              </div>
-              <div className="host-body-header-text-container">
-                <div className="host-body-header-text-top">
-                  Hosted by Jason
-                </div>
-                <div className="host-body-header-text-bottom">
-                  Joined in August 2020
-                </div>
+      <>
+        <div className="host-border-top"></div>
+        <div className="host-body">
+          <div className="host-body-header">
+            <div className="host-body-header-images-container">
+              <img className="host-body-header-img" src="mememe.png"></img>
+              <div className="host-plus-detail">
+                <img
+                  className="plus-detail"
+                  src="./Screen Shot 2018-11-23 at 10.49.36 AM.png"
+                />
               </div>
             </div>
-            <div className="host-body-main">
-              
-              <div className="host-body-main-left">
-                <div className="host-body-main-left-icons">
-                  <div className="host-body-main-left-icons-item">
-                    Beep
-                  </div>
-                  <div className="host-body-main-left-icons-item">
-                    Boop
-                  </div>
-                </div>
-                <div className="host-body-main-left-description"></div>
+            <div className="host-body-header-text-container">
+              <div className="host-body-header-text-top">
+                Hosted by Jason
               </div>
-              
-              <div className="host-body-main-right">
-                <div className="host-body-main-right-response"></div>
-                <div className="host-body-main-right-icon"></div>
+              <div className="host-body-header-text-bottom">
+                Joined in August 2020
               </div>
             </div>
           </div>
+          <div className="host-body-main">
+            
+            <div className="host-body-main-left">
+              <div className="host-body-main-left-icons">
+                <div className="host-body-main-left-icons-item-container">
+                  <div className="host-body-left-icons-item-icon">
+                    <img src="./star-solid.svg" className="star" />
+                    <img src="./star-solid.svg" className="star" />
+                    <img src="./star-solid.svg" className="star" />
+                    <img src="./star-solid.svg" className="star" />
+                    <img src="./star-solid.svg" className="star" />
+                  </div>
+                  <div className="host-body-left-icons-item-icon-text">
+                    Beep
+                  </div>
+                </div>
+                <div className="host-body-main-left-icons-item-container">
+                  Boop
+                </div>
+              </div>
+              <div className="host-body-main-left-description"></div>
+            </div>
+            
+            <div className="host-body-main-right">
+              <div className="host-body-main-right-response"></div>
+              <div className="host-body-main-right-icon"></div>
+            </div>
+          </div>
         </div>
-      </div>
+      </>
     )
 
 
     const bodyDetail = (
       <div className="listing-body-container">
-        <div className="listing-body-top">
-          <div className="listing-body-description">
-            {bodyIntro}
-            {introDescription}
-            {bodyInfo}
-            {sleepingArrangements}
-            {dayPicker}
-            {location}
+        <div className="listing-body-frame">
+          <div className="listing-body-top">
+            <div className="listing-body-description">
+              {bodyIntro}
+              {introDescription}
+              {bodyInfo}
+              {sleepingArrangements}
+              {dayPicker}
+              {location}
+            </div>
+            <BookingFormContainer
+              listing={this.props.listing}
+              startDate={this.state.startDate}
+              endDate={this.state.endDate}
+              liftStateToParent={this.receiveNewDatesFromBookingForm}
+            />
           </div>
-          <BookingFormContainer
-            listing={this.props.listing}
-            startDate={this.state.startDate}
-            endDate={this.state.endDate}
-            liftStateToParent={this.receiveNewDatesFromBookingForm}
-          />
         </div>
-        <div className="listing-body-bottom">
+      </div>
+    )
+
+    const bodySectionHost = (
+      <div className="body-section-container">
+        <div className="body-section-frame">
           {host}
         </div>
       </div>
@@ -535,6 +549,7 @@ class ListingDetail extends React.Component {
       <NavbarContainer />
       { headerDetail }
       { bodyDetail }
+      { bodySectionHost }
     </div>
   );
 };

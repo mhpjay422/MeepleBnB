@@ -1143,12 +1143,17 @@ a:hover {
 }
 
 .listing-body-container {
-  max-width: 1120px;
   padding-left: 80px;
   padding-right: 80px;
+  
+}
+
+.listing-body-frame {
   margin-left: auto;
   margin-right: auto;
-  -webkit-box-pack: start;
+  max-width: 1120px;
+  height: 100%;
+  width: 100%;
 }
 
 .listing-body-top {
@@ -1321,6 +1326,7 @@ a:hover {
   position: relative;
   background-color: white;
   display: block;
+  padding-bottom: 48px;
 }
 
 .booking-frame {
@@ -1758,12 +1764,13 @@ div.DateInput.DateInput_1 {
   padding-left: 15px;
 }
 
-.host-container {
+.body-section-container {
+  max-width: none;
   padding-left: 80px;
   padding-right: 80px;
 }
 
-.host-frame {
+.body-section-frame {
   margin-left: auto;
   margin-right: auto;
   max-width: 1120px;
@@ -1848,10 +1855,18 @@ div.DateInput.DateInput_1 {
   margin-left: -8px;
   margin-right: -8px;
   width: calc(100% + 16px);
+  -webkit-box-pack: start !important;
+  -webkit-box-align: stretch !important;
+  display: flex !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  flex-wrap: wrap !important;
 }
 
 .host-body-main-left {
   padding-right: 8px;
+  padding-left: 8px;
+  box-sizing: border-box;
 }
 
 .host-body-main-left-icons {
@@ -1865,12 +1880,23 @@ div.DateInput.DateInput_1 {
   padding: 0px;
 }
 
-.host-body-main-left-icons-item {
+.host-body-main-left-icons-item-container {
   margin-bottom: 0px;
   padding-left: 12px;
   padding-right: 12px;
-  display: block;
+  display: flex;
   box-sizing: border-box;
+}
+
+.host-body-left-icons-item {
+  -webkit-box-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.host-body-left-icons-item-icon-text {
+  margin-left: 8px;
 }
 
 .alreadybooked-container {
