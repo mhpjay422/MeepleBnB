@@ -1869,6 +1869,7 @@ div.DateInput.DateInput_1 {
   padding-left: 8px;
   box-sizing: border-box;
   position: relative;
+  width: 41%;
 }
 
 .host-body-main-left-icons {
@@ -1900,7 +1901,7 @@ div.DateInput.DateInput_1 {
 .host-body-left-icons-item-icon-text {
   margin-left: 8px;
   color: #222222;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 16px;
   line-height: 20px;
 }
@@ -1925,6 +1926,18 @@ div.DateInput.DateInput_1 {
   position: relative;
   border-radius: 8px;
   bottom: 1px;
+}
+
+.host-body-main-left-intro-container {
+  margin-bottom: 24px;
+}
+
+.host-body-main-left-intro-frame {
+  color: rgb(34, 34, 34);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  word-break: break-word;
 }
 
 .alreadybooked-container {
