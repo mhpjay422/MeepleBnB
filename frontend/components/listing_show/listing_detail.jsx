@@ -507,51 +507,30 @@ class ListingDetail extends React.Component {
                   <span>Born and raised in NYC. World traveler, foodie, coffee lover, and board game enthusiast. Always making the best out every life experience. I love people, making new friends and of course hosting incredible people from all over the world!!!</span>
                 </div>
               </div>
-              <div className="host-body-main-left-description"></div>
+              <div className="host-body-main-left-description">
+                <div className="host-body-main-left-description-text-top-container">
+                  <div className="host-body-main-left-description-text-top-header">
+                    During your stay
+                  </div>
+                  <div className="host-body-main-left-description-text-top-body">
+                    My goal as a host is to provide a phenomenal guest experience. I want to provide something memorable worthy that will want turn into something you will constantly return to. Something that will refer us to your family and friends. I’m committed to make your stay the most pleasant one so please don’t hesitate emailing or texting anytime, I’ll do my best to get back to you as fast as I can!
+                  </div>
+                </div>
+                <div className="host-body-main-left-description-text-bottom-container">
+                  <div className="host-body-main-left-description-text-bottom-header">
+                    Jason is Plus Verified
+                  </div>
+                  <div className="host-body-main-left-description-text-bottom-body">
+                    Plus Verified hosts are experienced, highly rated hosts who are committed to providing great stays for guests.
+                  </div>
+                </div>
+              </div>
             </div>
             
             <div className="host-body-main-right">
               <div className="host-body-main-right-response">Blah</div>
               <div className="host-body-main-right-icon">Blah Blah</div>
             </div>
-
-            
-
-            <div className="listing-body-info-description">
-              *** <strong>Minimum two night stay</strong> ***
-            <br />
-              <br />
-              <br />
-              {this.props.listing.description}.
-            <br />
-              <br />
-          If you're looking for an affordable place to stay in the middle of it all then welcome to my home! This cozy queen size private bedroom has a true city feeling, only a few minutes walk to the nearest train station!. We offer coffee to all the guests :)
-            <br />
-              <br />
-              <div className="bold">The space</div>
-          The apartment is in the center of it all, near the subway station, lots of restaurants and shops around. The building has a a lovely rooftop space in which you can go relax with view to the skyline.
-            <br />
-              <br />
-          Two people per room, but if there's more than two then I can offer my couch or sleeping bags ($30 per extra person), the room is big enough to fit more; or they can sleep in the living room if needed.
-            <br />
-              <br />
-          I also rent extra rooms on meeplebnb, same apartment.
-            <br />
-              <br />
-              <div className="bold">Guest access</div>
-          You will have access to the entire shared apartment, be free to chill in the living room and make your meals in the kitchen, please buy your own ingredients and the kitchen is all yours! (You can store your food in the fridge if you need).
-            <br />
-              <br />
-          (ROOFTOP IS CLOSED DURING WINTER AND FALL SEASON)
-            <br />
-              <br />
-          Fresh towels are provided.
-            <br />
-          There's laundry in the building (not free).
-            <br />
-          Shared bathroom, ALWAYS clean.
-        </div>
-
 
           </div>
         </div>
