@@ -528,8 +528,19 @@ class ListingDetail extends React.Component {
             </div>
             
             <div className="host-body-main-right">
-              <div className="host-body-main-right-response">Blah</div>
-              <div className="host-body-main-right-icon">Blah Blah</div>
+              <div className="host-body-main-right-response-container">
+                <div className="host-body-main-right-response">
+                  Languages: English, Chinese, Mandarin, Cantonese
+                </div>
+                <div className="host-body-main-right-response">
+                  Response rate: 100%
+                </div>
+                <div className="host-body-main-right-response">
+                  Response time: within an hour
+                </div>
+              </div>
+              <div className="host-body-main-right-contact-button">Blah Blah</div>
+              <div className="host-body-main-right-warning">Blah Blah Blah</div>
             </div>
 
           </div>
