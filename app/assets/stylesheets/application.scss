@@ -1995,6 +1995,39 @@ div.DateInput.DateInput_1 {
   line-height: 20px;
 }
 
+.host-body-main-right-contact-button {
+  margin-top: 32px;
+}
+
+.contact-host {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  width: auto;
+  touch-action: manipulation;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 23px;
+  padding-right: 23px;
+  color: rgb(0, 0, 0);
+  margin: 0px;
+  text-decoration: none;
+  border-radius: 8px;
+  border-width: 1px;
+  border-style: solid;
+  outline: none;
+  transition: box-shadow 0.2s ease 0s,
+  -ms-transform 0.1s ease 0s,
+  -webkit-transform 0.1s ease 0s,
+  transform 0.1s ease 0s;
+  border-color: rgb(34, 34, 34);
+  background: rgb(255, 255, 255);
+}
+
 .alreadybooked-container {
   width: 39%;
   justify-content: center;

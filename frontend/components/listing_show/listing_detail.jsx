@@ -539,9 +539,13 @@ class ListingDetail extends React.Component {
                   Response time: within an hour
                 </div>
               </div>
-              <div className="host-body-main-right-contact-button">Blah Blah</div>
+              <div className="host-body-main-right-contact-button">
+                <a className="contact-host" href="mailto:mhpjay@gmail.com">Contact Host</a>
+              </div>
               <div className="host-body-main-right-warning">Blah Blah Blah</div>
             </div>
+
+
 
           </div>
         </div>
