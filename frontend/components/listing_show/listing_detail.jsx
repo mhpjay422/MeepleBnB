@@ -542,7 +542,12 @@ class ListingDetail extends React.Component {
               <div className="host-body-main-right-contact-button">
                 <a className="contact-host" href="mailto:mhpjay@gmail.com">Contact Host</a>
               </div>
-              <div className="host-body-main-right-warning">Blah Blah Blah</div>
+              <div className="host-body-main-right-warning">
+                <div className="keylock-icon">
+                  <img className="keylock-img" src="keylock.png"/>
+                </div>
+                To protect your payment, never transfer money or communicate outside of the Meeplebnb website or app.
+              </div>
             </div>
 
 
