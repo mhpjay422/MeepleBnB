@@ -442,19 +442,22 @@ class ListingDetail extends React.Component {
       <>
         <div className="listing-body-info-location">Location</div>
         <div className="street-map" ref={map => (this.mapNode = map)}></div>
-        <div className="listing-body-info-addy">Address:
-          <div className="listing-body-info-addy-prop">
-            {this.props.listing.address}
+        <div className="listing-body-location-bottom-container">
+          <div className="listing-body-location-bottom-left">
+            <div className="listing-body-info-addy">Address:
+              <div className="listing-body-info-addy-prop">
+                {this.props.listing.address}
+              </div>
+            </div>
+            <div className="listing-body-info-addy-description">We are located in the heart of New York. Steps from local shops, bars, and restuarants. Public transit is readily available to get to wherever you would like to go. </div>
           </div>
         </div>
-        <div className="listing-body-info-addy-description">We are located in the heart of New York. Steps from local shops, bars, and restuarants. Public transit is readily available to get to wherever you would like to go. </div>
       </>
     )
 
     const host = (
       <>
         <div className="host-border-top"></div>
-        <div className="host-body">
           <div className="host-body-header">
             <div className="host-body-header-images-container">
               <img className="host-body-header-img" src="mememe.png"></img>
@@ -541,7 +544,6 @@ class ListingDetail extends React.Component {
               </div>
             </div>
           </div>
-        </div>
       </>
     )
     

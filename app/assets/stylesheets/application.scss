@@ -1290,16 +1290,30 @@ a:hover {
   font-weight: 600;
 }
 
-.listing-body-location-container {
-  padding-top: 48px;
-  padding-bottom: 48px;
+.listing-body-info-location {
+  margin-bottom: 16px;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
 }
 
-.listing-body-info-location {
+.listing-body-location {
   font-size: 22px;
   padding: 48px 0 24px;
   font-weight: 500;
   font-family: sans-serif;
+}
+
+.listing-body-location-bottom-container {
+  margin-left: -8px;
+  margin-right: -8px;
+  width: calc(100% + 16px);
+}
+.listing-body-location-bottom-left {
+  width: 41%;
+  margin-right: 8%;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .listing-body-info-addy {
@@ -1777,15 +1791,14 @@ div.DateInput.DateInput_1 {
 }
 
 .body-section-frame {
+  padding-top: 48px;
+  padding-bottom: 48px;
   margin-left: auto;
   margin-right: auto;
   max-width: 1120px;
   height: 100%;
   width: 100%;
-}
-
-.host-border-top {
-  border-top: 1px solid rgb(221, 221, 221);
+  border-bottom: 1px solid rgb(221, 221, 221);
 }
 
 .host-body {
@@ -1861,12 +1874,12 @@ div.DateInput.DateInput_1 {
   margin-left: -8px;
   margin-right: -8px;
   width: calc(100% + 16px);
-  -webkit-box-pack: start !important;
-  -webkit-box-align: stretch !important;
-  display: flex !important;
-  align-items: stretch !important;
-  justify-content: flex-start !important;
-  flex-wrap: wrap !important;
+  -webkit-box-pack: start;
+  -webkit-box-align: stretch;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
   box-sizing: border-box;
 }
 
