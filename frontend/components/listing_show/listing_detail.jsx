@@ -139,7 +139,6 @@ class ListingDetail extends React.Component {
           </div>
         </div>
       </div>
-
     )
 
     const introDescription = (
@@ -200,7 +199,6 @@ class ListingDetail extends React.Component {
           </div>
         </div>
       </div>
-
     )
 
     const bodyInfo = (
@@ -367,7 +365,6 @@ class ListingDetail extends React.Component {
           </div>
         </div>
       </div>
-
     )
     
     const headerDetail = (
@@ -438,8 +435,20 @@ class ListingDetail extends React.Component {
           </div>
         </div>
       </div>
+    )
 
-)
+
+    const location = (
+      <>
+        <div className="listing-body-info-location">Location</div>
+        <div className="listing-body-info-addy">Address:
+                <div className="listing-body-info-addy-prop">
+            {this.props.listing.address}
+          </div>
+        </div>
+        <div className="street-map" ref={map => (this.mapNode = map)}></div>
+      </>
+    )
 
     const host = (
       <>
@@ -465,7 +474,6 @@ class ListingDetail extends React.Component {
             </div>
           </div>
           <div className="host-body-main">
-            
             <div className="host-body-main-left">
               <div className="host-body-main-left-container">
                 <div className="host-body-main-left-icons">
@@ -512,7 +520,6 @@ class ListingDetail extends React.Component {
                 </div>
               </div>
             </div>
-            
             <div className="host-body-main-right">
               <div className="host-body-main-right-response-container">
                 <div className="host-body-main-right-response">
@@ -537,7 +544,6 @@ class ListingDetail extends React.Component {
       </>
     )
     
-    
     const bodyDetail = (
       <div className="listing-body-container">
         <div className="listing-body-frame">
@@ -558,18 +564,6 @@ class ListingDetail extends React.Component {
           </div>
         </div>
       </div>
-    )
-    
-    const location = (
-      <>
-        <div className="listing-body-info-location">Location</div>
-        <div className="listing-body-info-addy">Address:
-                <div className="listing-body-info-addy-prop">
-            {this.props.listing.address}
-          </div>
-        </div>
-        <div className="street-map" ref={map => (this.mapNode = map)}></div>
-     </>
     )
 
     const bodySectionLocation = (
