@@ -1317,7 +1317,7 @@ a:hover {
 }
 
 .listing-body-info-addy {
-  padding: 24px 0 48px;
+  padding: 0 0 24px;
   font-family: sans-serif;
   font-weight: 500;
   font-size: 18px;
@@ -1328,6 +1328,14 @@ a:hover {
   font-family: sans-serif;
   font-weight: 300;
   font-size: 16px;
+}
+
+.listing-body-info-addy-description {
+  color: rgb(34, 34, 34) !important;
+  font-weight: 300 !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  word-break: break-word !important;
 }
 
 .listing-body-info-description {
