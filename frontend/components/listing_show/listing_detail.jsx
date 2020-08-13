@@ -369,23 +369,9 @@ class ListingDetail extends React.Component {
       </div>
 
     )
-
-    const location = (
-
-      <div className="listing-body-location-container">
-        <div className="listing-body-info-location">Location</div>
-        <div className="listing-body-info-addy">Address:
-                <div className="listing-body-info-addy-prop">
-            {this.props.listing.address}
-          </div>
-        </div>
-        <div className="street-map" ref={map => (this.mapNode = map)}></div>
-      </div>
-
-    )
-
+    
     const headerDetail = (
-
+      
       <div className="list-show-header">
         <div className="list-show-header-description-container">
           <div className="list-show-header-description">
@@ -453,7 +439,7 @@ class ListingDetail extends React.Component {
         </div>
       </div>
 
-    )
+)
 
     const host = (
       <>
@@ -530,9 +516,6 @@ class ListingDetail extends React.Component {
             <div className="host-body-main-right">
               <div className="host-body-main-right-response-container">
                 <div className="host-body-main-right-response">
-                  Languages: English, Chinese, Mandarin, Cantonese
-                </div>
-                <div className="host-body-main-right-response">
                   Response rate: 100%
                 </div>
                 <div className="host-body-main-right-response">
@@ -549,15 +532,12 @@ class ListingDetail extends React.Component {
                 To protect your payment, never transfer money or communicate outside of the Meeplebnb website or app.
               </div>
             </div>
-
-
-
           </div>
         </div>
       </>
     )
-
-
+    
+    
     const bodyDetail = (
       <div className="listing-body-container">
         <div className="listing-body-frame">
@@ -568,7 +548,6 @@ class ListingDetail extends React.Component {
               {bodyInfo}
               {sleepingArrangements}
               {dayPicker}
-              {location}
             </div>
             <BookingFormContainer
               listing={this.props.listing}
@@ -577,6 +556,26 @@ class ListingDetail extends React.Component {
               liftStateToParent={this.receiveNewDatesFromBookingForm}
             />
           </div>
+        </div>
+      </div>
+    )
+    
+    const location = (
+      <>
+        <div className="listing-body-info-location">Location</div>
+        <div className="listing-body-info-addy">Address:
+                <div className="listing-body-info-addy-prop">
+            {this.props.listing.address}
+          </div>
+        </div>
+        <div className="street-map" ref={map => (this.mapNode = map)}></div>
+     </>
+    )
+
+    const bodySectionLocation = (
+      <div className="body-section-container">
+        <div className="body-section-frame">
+          {location}
         </div>
       </div>
     )
@@ -595,6 +594,7 @@ class ListingDetail extends React.Component {
       <NavbarContainer />
       { headerDetail }
       { bodyDetail }
+      { bodySectionLocation }
       { bodySectionHost }
     </div>
   );

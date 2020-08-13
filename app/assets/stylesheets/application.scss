@@ -588,7 +588,6 @@ a:hover {
 
 .daypicker-container {
   padding: 48px 0;
-  border-bottom: 1px solid lightgray;
 }
 
 .daypicker-header-text1 {
@@ -1145,7 +1144,6 @@ a:hover {
 .listing-body-container {
   padding-left: 80px;
   padding-right: 80px;
-  
 }
 
 .listing-body-frame {
@@ -1154,6 +1152,7 @@ a:hover {
   max-width: 1120px;
   height: 100%;
   width: 100%;
+  border-bottom: 1px solid lightgray;
 }
 
 .listing-body-top {
@@ -1278,11 +1277,6 @@ a:hover {
   bottom: 0;
 }
 
-.listing-body-info-container {
-  padding: 32px 0 48px;
-  border-bottom: 1px solid lightgray;
-}
-
 .bold {
   font-weight: 600;
 }
@@ -1294,13 +1288,13 @@ a:hover {
 
 .listing-body-info-location {
   font-size: 22px;
-  padding: 0px 16px 16px 0;
-  font-weight: 600;
+  padding-top: 48px;
+  font-weight: 500;
   font-family: sans-serif;
 }
 
 .listing-body-info-addy {
-  padding: 16px 0 48px;
+  padding: 48px 0 24px;
   font-family: sans-serif;
   font-weight: 500;
   font-size: 18px;
