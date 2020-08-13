@@ -1308,6 +1308,8 @@ a:hover {
   margin-left: -8px;
   margin-right: -8px;
   width: calc(100% + 16px);
+  display: flex;
+
 }
 .listing-body-location-bottom-left {
   width: 41%;
@@ -1331,11 +1333,38 @@ a:hover {
 }
 
 .listing-addy-description {
-  color: rgb(34, 34, 34) !important;
-  font-weight: 300 !important;
-  font-size: 16px !important;
-  line-height: 24px !important;
-  word-break: break-word !important;
+  color: rgb(34, 34, 34);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  word-break: break-word;
+}
+
+.listing-body-location-bottom-right {
+  width: 50%;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.listing-body-location-bottom-right-header {
+  font-weight: 500;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.listing-body-location-bottom-right-score {
+  display: flex;
+  margin-top: 12px;
+}
+
+.listing-body-location-bottom-right-score-integer {
+  width: 36px;
+  height: 32px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 700;
+  background: rgb(235, 235, 235);
+  border-radius: 8px;
 }
 
 .listing-body-info-description {
