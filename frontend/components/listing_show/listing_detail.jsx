@@ -455,6 +455,33 @@ class ListingDetail extends React.Component {
             <div className="listing-body-location-bottom-right-header">Getting Around</div>
             <div className="listing-body-location-bottom-right-score">
               <div className="listing-body-location-bottom-right-score-integer">100</div>
+              <div className="listing-body-location-bottom-right-score-description">
+                <div className="listing-body-location-bottom-right-score-description-type">Walk Score®</div>
+                <div className="listing-body-location-bottom-right-score-description-text">
+                  <span className="detail-interpunct"> · </span>
+                  Daily errands don't require a car.
+                </div>
+              </div>
+            </div>
+            <div className="listing-body-location-bottom-right-score">
+              <div className="listing-body-location-bottom-right-score-integer">100</div>
+              <div className="listing-body-location-bottom-right-score-description">
+                <div className="listing-body-location-bottom-right-score-description-type">Transit Score®</div>
+                <div className="listing-body-location-bottom-right-score-description-text">
+                  <span className="detail-interpunct"> · </span>
+                  World-class public transportation.
+                </div>
+              </div>
+            </div>
+            <div className="listing-body-location-bottom-right-score">
+              <div className="listing-body-location-bottom-right-score-integer">97</div>
+              <div className="listing-body-location-bottom-right-score-description">
+                <div className="listing-body-location-bottom-right-score-description-type">Bike Score®</div>
+                <div className="listing-body-location-bottom-right-score-description-text">
+                  <span className="detail-interpunct"> · </span>
+                  Daily errands can be accomplished on a bike.
+                </div>
+              </div>
             </div>
           </div>
         </div>

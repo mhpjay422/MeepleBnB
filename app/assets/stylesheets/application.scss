@@ -1029,6 +1029,9 @@ a:hover {
   margin: 0px 8px;
 }
 
+.detail-interpunct {
+}
+
 .list-show-header-location {
   display: flex;
   position: relative;
@@ -1360,11 +1363,33 @@ a:hover {
   width: 36px;
   height: 32px;
   text-align: center;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 32px;
   font-weight: 700;
   background: rgb(235, 235, 235);
   border-radius: 8px;
+}
+
+.listing-body-location-bottom-right-score-description {
+  flex-direction: row;
+  justify-content: flex-start;
+  line-height: 32px;
+  margin-left: 12px;
+  display: flex;
+}
+
+.listing-body-location-bottom-right-score-description-type {
+  white-space: nowrap;
+  font-size: 16px;
+  margin-right: 4px;
+  font-weight: 300;
+}
+
+.listing-body-location-bottom-right-score-description-text {
+  font-size: 16px;
+  color: rgb(113, 113, 113);
+  padding-top: 1px;
+  font-weight: 300;
 }
 
 .listing-body-info-description {
