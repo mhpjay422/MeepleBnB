@@ -24,6 +24,7 @@ class BookingForm extends React.Component {
     this.handleCounterMinus = this.handleCounterMinus.bind(this);
     this.handleCounterPlus = this.handleCounterPlus.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.focusMethod = this.focusMethod.bind(this);
   }
 
   componentDidMount() {
@@ -44,7 +45,7 @@ class BookingForm extends React.Component {
   }
 
   handleChange(data) {
-    // this.setState(data);
+    this.setState(data);
     this.props.liftStateToParent(data);
   }
 
@@ -107,6 +108,10 @@ class BookingForm extends React.Component {
     }
   }
 
+  focusMethod() {
+    document.getElementById("start-date").focus();
+  }
+
   render() {
 
     const isMinusAllowed = () => {
@@ -122,6 +127,21 @@ class BookingForm extends React.Component {
         return <img className="plus-button-not-allowed" src="plus-light.png"></img>;
       } else {
         return <img className="plus-button-allowed" src="plus.png"></img>;
+      }
+    }
+
+    const openOrReserve = () => {
+      if(this.state.startDate && this.state.endDate) {
+        return <button className="booking-submit" onClick={this.handleSubmit}>
+                 <div className="book-button">Reserve</div>
+               </button>
+          
+        
+      } else {
+        return <button className="booking-submit" onClick={this.focusMethod}>
+                 <div className="book-button">Check Availability</div>
+               </button>
+        
       }
     }
 
@@ -190,9 +210,7 @@ class BookingForm extends React.Component {
                 </div>
                 <div>{this.renderErrors()}</div>
                 <div className="button-hover">
-                  <button className="booking-submit" onClick={this.handleSubmit}>
-                    <div className="book-button">Reserve</div>
-                  </button>
+                  {openOrReserve()}
                 </div>
                 <div className="booking-charge-text">You won’t be charged yet</div>
               </div>
