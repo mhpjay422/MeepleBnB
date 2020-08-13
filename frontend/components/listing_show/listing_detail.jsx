@@ -441,12 +441,13 @@ class ListingDetail extends React.Component {
     const location = (
       <>
         <div className="listing-body-info-location">Location</div>
+        <div className="street-map" ref={map => (this.mapNode = map)}></div>
         <div className="listing-body-info-addy">Address:
-                <div className="listing-body-info-addy-prop">
+          <div className="listing-body-info-addy-prop">
             {this.props.listing.address}
           </div>
         </div>
-        <div className="street-map" ref={map => (this.mapNode = map)}></div>
+        <div className="listing-body-info-addy-description">We are located in the heart of New York. Steps from local shops, bars, and restuarants. Public transit is readily available to get to wherever you would like to go. </div>
       </>
     )
 

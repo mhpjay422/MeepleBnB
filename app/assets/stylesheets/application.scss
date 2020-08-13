@@ -501,7 +501,16 @@ a:hover {
 .street-map {
   height: 500px;
   width: 100%;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
+  overflow: visible;
+}
+
+.listing-body-info-state {
+  margin-bottom: 16px;
+  color: rgb(34, 34, 34);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .sleeping-arrangements-container {
@@ -1288,13 +1297,13 @@ a:hover {
 
 .listing-body-info-location {
   font-size: 22px;
-  padding-top: 48px;
+  padding: 48px 0 24px;
   font-weight: 500;
   font-family: sans-serif;
 }
 
 .listing-body-info-addy {
-  padding: 48px 0 24px;
+  padding: 24px 0 48px;
   font-family: sans-serif;
   font-weight: 500;
   font-size: 18px;
