@@ -1299,7 +1299,7 @@ a:hover {
 
 .listing-body-location {
   font-size: 22px;
-  padding: 48px 0 24px;
+  padding: 0 0 24px;
   font-weight: 500;
   font-family: sans-serif;
 }
@@ -1311,26 +1311,26 @@ a:hover {
 }
 .listing-body-location-bottom-left {
   width: 41%;
-  margin-right: 8%;
+  margin-right: 9%;
   padding-left: 8px;
   padding-right: 8px;
 }
 
-.listing-body-info-addy {
+.listing-addy {
   padding: 0 0 24px;
   font-family: sans-serif;
   font-weight: 500;
   font-size: 18px;
 }
 
-.listing-body-info-addy-prop {
+.listing-addy-prop {
   padding-top: 8px;
   font-family: sans-serif;
   font-weight: 300;
   font-size: 16px;
 }
 
-.listing-body-info-addy-description {
+.listing-addy-description {
   color: rgb(34, 34, 34) !important;
   font-weight: 300 !important;
   font-size: 16px !important;
