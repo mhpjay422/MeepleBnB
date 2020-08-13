@@ -25,6 +25,7 @@ class ListingDetail extends React.Component {
     this.isInclusivelyAfterDay = this.isInclusivelyAfterDay.bind(this);
     this.isBeforeDay = this.isBeforeDay.bind(this);
     this.daysDiff = this.daysDiff.bind(this);
+    this.focusMap = this.focusMap.bind(this);
   }
   
   componentDidMount() {
@@ -34,7 +35,10 @@ class ListingDetail extends React.Component {
       zoom: 10.4,
       pov: {
         heading: 34
-      }
+      },
+      addressControlOptions: {
+        position: google.maps.ControlPosition.BOTTOM_CENTER
+      },
     };
     
     this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
@@ -46,10 +50,17 @@ class ListingDetail extends React.Component {
       zoom: 10.4,
       pov: {
         heading: 34
-      }
+      },
+      fullscreenControlOptions: {
+        position: google.maps.ControlPosition.LEFT_BOTTOM
+      },
     };
     
     this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
+  }
+
+  focusMap() {
+    document.querySelector('[class="gm-control-active gm-fullscreen-control"]').click();
   }
   
   clearDates() {
@@ -447,6 +458,7 @@ class ListingDetail extends React.Component {
               </div>
             </div>
             <div className="listing-addy-description">We are located in the heart of New York. Steps from local shops, bars, and restuarants. Public transit is readily available to get to wherever you would like to go around the city. The nightlife in the area is vibrant and shows why this is the city that never sleeps.</div>
+            <button className="full-map" type="button" onClick={this.focusMap}></button>
           </div>
           <div className="listing-body-location-bottom-right">
             <div className="listing-body-location-bottom-right-header">Getting Around</div>

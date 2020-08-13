@@ -6,7 +6,15 @@ const mapOptions = {
   center: { lat: 40.740508, lng: -73.971915 },
   zoom: 12.5,
   gestureHandling: 'greedy',
-  zoomControl: true
+  zoomControl: true, 
+  fullscreenControl: false, 
+  mapTypeControl: false,
+  streetViewControlOptions: {
+    position: google.maps.ControlPosition.RIGHT
+  },
+  zoomControlOptions: {
+    position: google.maps.ControlPosition.TOP_RIGHT
+  },
 };
 
 class ListingMap extends React.Component {
