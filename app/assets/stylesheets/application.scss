@@ -991,7 +991,7 @@ a:hover {
   margin-bottom: 6px;
   font-size: 26px;
   line-height: 30px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .list-show-header-description-otherInfo {
@@ -1024,14 +1024,14 @@ a:hover {
   display: flex;
   position: relative;
   font-size: 14px;
-  font-weight: 100;
+  font-weight: 500;
   border-bottom: 1px solid rgb(197, 197, 197);
   display: block;
   align-items: flex-end;
   line-height: 20px;
   height: 19px;
   bottom: 3px;
-  color: rgb(107, 105, 105);
+  color: rgb(113, 113, 113)
 }
 
 .list-show-images-container {
@@ -1312,6 +1312,8 @@ a:hover {
   font-weight: 200;
   font-size: 16px;
   line-height: 24px;
+  padding: 32px 0 48px 0;
+  border-bottom: 1px solid lightgrey;
 }
 
 .booking-form {
