@@ -450,6 +450,7 @@ class ListingDetail extends React.Component {
               </div>
             </div>
             <div className="listing-addy-description">We are located in the heart of New York. Steps from local shops, bars, and restuarants. Public transit is readily available to get to wherever you would like to go around the city. The nightlife in the area is vibrant and shows why this is the city that never sleeps.</div>
+            <button title="Toggle fullscreen view" aria-label="Toggle fullscreen view" type="button"></button>
           </div>
           <div className="listing-body-location-bottom-right">
             <div className="listing-body-location-bottom-right-header">Getting Around</div>
