@@ -44,6 +44,7 @@ class ListingDetail extends React.Component {
     this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
   }
   componentDidUpdate() {
+    window.scroll(0, 0)
     
     const mapOptions = {
       position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
@@ -458,14 +459,17 @@ class ListingDetail extends React.Component {
               </div>
             </div>
             <div className="listing-addy-description">We are located in the heart of New York. Steps from local shops, bars, and restuarants. Public transit is readily available to get to wherever you would like to go around the city. The nightlife in the area is vibrant and shows why this is the city that never sleeps.</div>
-            <button className="full-map" type="button" onClick={this.focusMap}></button>
+            <div className="full-map-container">
+              {/* CREATE new page to move panorama map and switch out a flat map */}
+              {/* <button className="full-map" type="button" onClick={this.focusMap}>Explore the area</button> */}
+            </div>  
           </div>
           <div className="listing-body-location-bottom-right">
             <div className="listing-body-location-bottom-right-header">Getting Around</div>
             <div className="listing-body-location-bottom-right-score">
               <div className="listing-body-location-bottom-right-score-integer">100</div>
               <div className="listing-body-location-bottom-right-score-description">
-                <div className="listing-body-location-bottom-right-score-description-type">Walk Score®</div>
+                <div className="listing-body-location-bottom-right-score-description-type">Walk Score</div>
                 <div className="listing-body-location-bottom-right-score-description-text">
                   <span className="detail-interpunct"> · </span>
                   Daily errands don't require a car.
@@ -475,7 +479,7 @@ class ListingDetail extends React.Component {
             <div className="listing-body-location-bottom-right-score">
               <div className="listing-body-location-bottom-right-score-integer">100</div>
               <div className="listing-body-location-bottom-right-score-description">
-                <div className="listing-body-location-bottom-right-score-description-type">Transit Score®</div>
+                <div className="listing-body-location-bottom-right-score-description-type">Transit Score</div>
                 <div className="listing-body-location-bottom-right-score-description-text">
                   <span className="detail-interpunct"> · </span>
                   World-class public transportation.
@@ -485,7 +489,7 @@ class ListingDetail extends React.Component {
             <div className="listing-body-location-bottom-right-score">
               <div className="listing-body-location-bottom-right-score-integer">97</div>
               <div className="listing-body-location-bottom-right-score-description">
-                <div className="listing-body-location-bottom-right-score-description-type">Bike Score®</div>
+                <div className="listing-body-location-bottom-right-score-description-type">Bike Score</div>
                 <div className="listing-body-location-bottom-right-score-description-text">
                   <span className="detail-interpunct"> · </span>
                   Daily errands can be accomplished on a bike.
@@ -622,7 +626,6 @@ class ListingDetail extends React.Component {
     const bodySectionHost = (
       <div className="body-section-container">
         <div className="body-section-frame">
-          <img class="bubble" src="bubble.png"></img>
           {host}
         </div>
       </div>

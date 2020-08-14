@@ -6,9 +6,6 @@ import ListingShowContainer from "../listing_show/listing_show_container";
 class IndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      hoveredID: null
-    }
 
     this.handleClick = this.handleClick.bind(this);
     this.hovered = this.hovered.bind(this);
@@ -21,7 +18,7 @@ class IndexItem extends React.Component {
   }
 
   hovered() {
-    this.setState({ hoveredID: this.props.listing.id})
+    this.props.setHoveredListItem(this.props.listing.id)
   }
 
   render() {

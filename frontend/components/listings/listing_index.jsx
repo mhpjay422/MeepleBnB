@@ -7,10 +7,12 @@ export default class ListingIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: ""
+      searchTerm: "",
+      hoverID: null
     };
     this.filteredListings = this.filteredListings.bind(this);
-    this.allPropsOrFiltered = this.allPropsOrFiltered.bind(this)
+    this.allPropsOrFiltered = this.allPropsOrFiltered.bind(this);
+    this.setHoveredListItem = this.setHoveredListItem.bind(this);
   }
 
   componentWillUpdate(newProps) {
@@ -29,6 +31,11 @@ export default class ListingIndex extends React.Component {
         })
       }
     }
+  }
+
+  setHoveredListItem(data) {
+    debugger
+    this.setState({hoverID: data})
   }
 
   filteredListings(state, props) {
@@ -89,7 +96,7 @@ export default class ListingIndex extends React.Component {
         </div>
         <ul className="list-items">
           {this.allPropsOrFiltered(this.state, this.props).map(listing => (
-            <ListingIndexItem listing={listing} key={listing.id} />
+            <ListingIndexItem listing={listing} key={listing.id} setHoveredListItem={this.setHoveredListItem}/>
           ))}
         </ul >
       </div>
