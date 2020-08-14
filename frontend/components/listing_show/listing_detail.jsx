@@ -335,7 +335,7 @@ class ListingDetail extends React.Component {
 
       if (!this.state.startDate && !this.state.endDate) {
         return "Add your travel dates for exact pricing"
-      } else if (this.state.startDate && !this.state.endDate) {
+      } else if (this.state.startDate && !this.state.endDate || !this.state.startDate && this.state.endDate) {
         return "Minimum stay: 2 nights";
       } else {
         return `${this.state.startDate.format('MMM DD, YYYY')} - ${this.state.endDate.format('MMM DD, YYYY')}`
