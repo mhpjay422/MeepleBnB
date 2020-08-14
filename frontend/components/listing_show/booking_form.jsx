@@ -31,17 +31,18 @@ class BookingForm extends React.Component {
     this.props.fetchBookings(this.props.currentUserId);
   }
 
-  componentWillUnmount(oldProps) {
-    // this.props.clearBookingErrors();
-  }
+  // componentWillUnmount(oldProps) {
+  //   this.props.clearBookingErrors();
+  // }
 
   componentDidUpdate(prevProps) {
-    
-    // if ((prevProps.startDate !== this.props.startDate) || (prevProps.endDate !== this.props.endDate)) {
-    //   this.setState({
-    //     changedProp: this.props.changedProp
-    //   });
-    // }
+   
+    if ((prevProps.startDate !== this.props.startDate) || (prevProps.endDate !== this.props.endDate)) {
+      this.setState({
+        startDate: this.props.startDate,
+        endDate: this.props.endDate
+      });
+    }
   }
 
   handleChange(data) {
@@ -131,17 +132,15 @@ class BookingForm extends React.Component {
     }
 
     const openOrReserve = () => {
-      if(this.state.startDate && this.state.endDate) {
-        return <button className="booking-submit" onClick={this.handleSubmit}>
-                 <div className="book-button">Reserve</div>
-               </button>
-          
-        
-      } else {
+      if(!this.state.startDate && !this.state.endDate) {
         return <button className="booking-submit" onClick={this.focusMethod}>
                  <div className="book-button">Check Availability</div>
                </button>
-        
+          
+      } else {
+        return <button className="booking-submit" onClick={this.handleSubmit}>
+                 <div className="book-button">Reserve</div>
+               </button>
       }
     }
 
@@ -190,8 +189,6 @@ class BookingForm extends React.Component {
                     onFocusChange={focusedInput => this.setState({ focusedInput })}
                     renderCalendarDay={undefined}
                     minimumNights= {2}
-                    autoFocus= {false}
-                    autoFocusEndDate= {false}
                   />
                 </div>
                 <div className="booking-guests-container">

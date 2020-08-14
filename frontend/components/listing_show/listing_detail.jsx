@@ -66,6 +66,7 @@ class ListingDetail extends React.Component {
   
   clearDates() {
     this.setState({ startDate: null, endDate:null })
+    this.forceUpdate()
   }
   
   receiveNewDatesFromBookingForm(data) {
