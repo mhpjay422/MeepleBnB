@@ -29,6 +29,7 @@ class ListingDetail extends React.Component {
   }
   
   componentDidMount() {
+    window.scroll(0, 0)
     
     const mapOptions = {
       position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
@@ -44,7 +45,6 @@ class ListingDetail extends React.Component {
     this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
   }
   componentDidUpdate() {
-    window.scroll(0, 0)
     
     const mapOptions = {
       position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
