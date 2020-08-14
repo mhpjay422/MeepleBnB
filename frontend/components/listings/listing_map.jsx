@@ -26,8 +26,8 @@ class ListingMap extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.listings !== prevProps.listings){
-      this.MarkerManager.updateMarkers(this.props.listings);
+    if ((this.props.listings !== prevProps.listings) || (this.props.hovered !== prevProps.hovered)){
+      this.MarkerManager.updateMarkers(this.props.listings, this.props.hovered);
     }
   }
 
@@ -50,9 +50,7 @@ class ListingMap extends React.Component {
   render() {
     return (
       <div className="map" >
-        <div className="google-map" ref={map => (this.mapNode = map)}>
-
-        </div>
+        <div className="google-map" ref={map => (this.mapNode = map)}/>
       </div>
     );
   }

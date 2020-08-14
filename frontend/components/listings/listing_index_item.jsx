@@ -18,7 +18,7 @@ class IndexItem extends React.Component {
   }
 
   hovered() {
-    this.props.setHoveredListItem(this.props.listing.id)
+    this.props.setHoveredListItem(this.props.listing)
   }
 
   render() {

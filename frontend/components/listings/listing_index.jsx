@@ -8,7 +8,7 @@ export default class ListingIndex extends React.Component {
     super(props);
     this.state = {
       searchTerm: "",
-      hoverID: null
+      hovered: null
     };
     this.filteredListings = this.filteredListings.bind(this);
     this.allPropsOrFiltered = this.allPropsOrFiltered.bind(this);
@@ -34,8 +34,8 @@ export default class ListingIndex extends React.Component {
   }
 
   setHoveredListItem(data) {
+    this.setState({hovered: data})
     debugger
-    this.setState({hoverID: data})
   }
 
   filteredListings(state, props) {
@@ -74,7 +74,11 @@ export default class ListingIndex extends React.Component {
 
     const sidenav = (
       <div className="sidenav">
-        <ListingMap listings={this.allPropsOrFiltered(this.state, this.props)} updateFilter={this.props.updateFilter} />
+        <ListingMap 
+          listings={this.allPropsOrFiltered(this.state, this.props)} 
+          updateFilter={this.props.updateFilter } 
+          hovered={this.state.hovered}
+        />
       </div>
     );
 

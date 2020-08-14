@@ -5,7 +5,10 @@ export default class MarkerManager {
     this.handleClick = handleClick;
   }
 
-  updateMarkers(listings) {
+  updateMarkers(listings, hovered) {
+
+    this.markers = {}
+    
     const markersSet = {};
     listings.forEach(listing => markersSet[listing.id] = listing);
 
@@ -16,6 +19,21 @@ export default class MarkerManager {
     Object.keys(this.markers)
       .filter(listingId => !markersSet[listingId])
       .forEach((listingId) => this.removeMarker(this.markers[listingId]));
+
+    if(hovered) {
+      this.removeMarker(this.markers[hovered.id]);
+      this.createHoveredMarkerFromListing(hovered);
+    }
+  }
+
+  updateMarker(listing) {
+    debugger
+    // if (this.props.listing !== prevProps.listing) {
+    //   this.removeMarker(this.markers[prevProps.listing.id])
+    //   this.createMarkerFromListing(prevProps.listing.id);
+    // }
+
+    
   }
 
   createMarkerFromListing(listing) {
@@ -35,6 +53,31 @@ export default class MarkerManager {
         fontfamily: "sans-serif",
         text: `$${listing.price}`,
         color: 'black',
+        fontSize: '11px',
+        fontWeight: 'bolder'
+      }
+    });
+    newMarker.addListener('click', () => this.handleClick(listing));
+    this.markers[newMarker.listingId] = newMarker;
+    }
+
+  createHoveredMarkerFromListing(listing) {
+    let latlng = new google.maps.LatLng(listing.lat, listing.lng);
+    var image = {
+      url: 'http://maps.google.com/mapfiles/kml/paddle/blu-blank.png',
+      size: new google.maps.Size(100, 100),
+      origin: new google.maps.Point(-17, -31),
+    };
+    let newMarker = new google.maps.Marker({
+      position: latlng,
+      map: this.map,
+      listingId: listing.id,
+      title: listing.title,
+      icon : image,
+      label: {
+        fontfamily: "sans-serif",
+        text: `$${listing.price}`,
+        color: 'white',
         fontSize: '11px',
         fontWeight: 'bolder'
       }
