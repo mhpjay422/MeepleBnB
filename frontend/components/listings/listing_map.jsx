@@ -7,13 +7,13 @@ const mapOptions = {
   zoom: 12.5,
   gestureHandling: 'greedy',
   zoomControl: true, 
-  fullscreenControl: false, 
+  fullscreenControl: true, 
   mapTypeControl: false,
   streetViewControlOptions: {
     position: google.maps.ControlPosition.RIGHT
   },
   zoomControlOptions: {
-    position: google.maps.ControlPosition.TOP_RIGHT
+    position: google.maps.ControlPosition.RIGHT
   },
 };
 

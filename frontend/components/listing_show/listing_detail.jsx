@@ -622,6 +622,7 @@ class ListingDetail extends React.Component {
     const bodySectionHost = (
       <div className="body-section-container">
         <div className="body-section-frame">
+          <img class="bubble" src="bubble.png"></img>
           {host}
         </div>
       </div>
