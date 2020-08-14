@@ -13,6 +13,7 @@ export default class ListingIndex extends React.Component {
     this.filteredListings = this.filteredListings.bind(this);
     this.allPropsOrFiltered = this.allPropsOrFiltered.bind(this);
     this.setHoveredListItem = this.setHoveredListItem.bind(this);
+    this.unhovered = this.unhovered.bind(this)
   }
 
   componentWillUpdate(newProps) {
@@ -31,6 +32,10 @@ export default class ListingIndex extends React.Component {
         })
       }
     }
+  }
+
+  unhovered() {
+    this.setState({ hovered: null })
   }
 
   setHoveredListItem(data) {
@@ -98,7 +103,7 @@ export default class ListingIndex extends React.Component {
             </section>
           </div> 
         </div>
-        <ul className="list-items">
+        <ul className="list-items" onMouseLeave={this.unhovered}>
           {this.allPropsOrFiltered(this.state, this.props).map(listing => (
             <ListingIndexItem listing={listing} key={listing.id} setHoveredListItem={this.setHoveredListItem}/>
           ))}
