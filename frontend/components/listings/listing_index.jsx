@@ -8,7 +8,7 @@ export default class ListingIndex extends React.Component {
     super(props);
     this.state = {
       searchTerm: "",
-      hovered: null
+      hovered: [null, null]
     };
     this.filteredListings = this.filteredListings.bind(this);
     this.allPropsOrFiltered = this.allPropsOrFiltered.bind(this);
@@ -35,12 +35,13 @@ export default class ListingIndex extends React.Component {
   }
 
   unhovered() {
-    this.setState({ hovered: null })
+    let newArray = this.state.hovered.slice(1).concat(null);
+    this.setState({ hovered: newArray })
   }
 
-  setHoveredListItem(data) {
-    this.setState({hovered: data})
-    debugger
+  setHoveredListItem(listing) {
+    let newArray = this.state.hovered.slice(1).concat(listing);
+    this.setState({ hovered: newArray})
   }
 
   filteredListings(state, props) {

@@ -8,7 +8,7 @@ const mapOptions = {
   gestureHandling: 'greedy',
   zoomControl: true, 
   fullscreenControl: true, 
-  mapTypeControl: false,
+  mapTypeControl: true,
   streetViewControlOptions: {
     position: google.maps.ControlPosition.RIGHT
   },
@@ -26,8 +26,12 @@ class ListingMap extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if ((this.props.listings !== prevProps.listings) || (this.props.hovered !== prevProps.hovered)){
-      this.MarkerManager.updateMarkers(this.props.listings, this.props.hovered);
+    if (this.props.listings !== prevProps.listings){
+      this.MarkerManager.updateMarkers(this.props.listings);
+    }
+
+    if (this.props.hovered !== prevProps.hovered) {
+      this.MarkerManager.updateHovered(this.props.hovered);
     }
   }
 

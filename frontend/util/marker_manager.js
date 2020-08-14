@@ -5,9 +5,7 @@ export default class MarkerManager {
     this.handleClick = handleClick;
   }
 
-  updateMarkers(listings, hovered) {
-
-    this.markers = {}
+  updateMarkers(listings) {
     
     const markersSet = {};
     listings.forEach(listing => markersSet[listing.id] = listing);
@@ -20,26 +18,27 @@ export default class MarkerManager {
       .filter(listingId => !markersSet[listingId])
       .forEach((listingId) => this.removeMarker(this.markers[listingId]));
 
-    if(hovered) {
-      this.removeMarker(this.markers[hovered.id]);
-      this.createHoveredMarkerFromListing(hovered);
-    }
   }
 
-  updateMarker(listing) {
-    debugger
-    // if (this.props.listing !== prevProps.listing) {
-    //   this.removeMarker(this.markers[prevProps.listing.id])
-    //   this.createMarkerFromListing(prevProps.listing.id);
-    // }
+  updateHovered(hovered) {
 
-    
+    if (hovered[0] && this.markers[hovered[0].id]) {
+      this.removeMarker(this.markers[hovered[0].id])
+      this.createMarkerFromListing(hovered[0], this.handleClick)
+    }
+
+    if (hovered[1] && this.markers[hovered[1].id]) {
+      this.removeMarker(this.markers[hovered[1].id])
+      this.createHoveredMarkerFromListing(hovered[1], this.handleClick)
+    }
   }
 
   createMarkerFromListing(listing) {
     let latlng = new google.maps.LatLng(listing.lat, listing.lng);
     var image = {
       url: 'http://maps.google.com/mapfiles/kml/paddle/wht-blank.png',
+      // size: new google.maps.Size(50, 100),
+      // origin: new google.maps.Point(0, -8),
       size: new google.maps.Size(100, 100),
       origin: new google.maps.Point(-17, -31),
     };
@@ -50,11 +49,11 @@ export default class MarkerManager {
       title: listing.title,
       icon : image,
       label: {
-        fontfamily: "sans-serif",
+        fontfamily: "Montserrat",
         text: `$${listing.price}`,
         color: 'black',
         fontSize: '11px',
-        fontWeight: 'bolder'
+        fontWeight: '900'
       }
     });
     newMarker.addListener('click', () => this.handleClick(listing));
@@ -75,11 +74,11 @@ export default class MarkerManager {
       title: listing.title,
       icon : image,
       label: {
-        fontfamily: "sans-serif",
+        fontfamily: "Monoton",
         text: `$${listing.price}`,
         color: 'white',
         fontSize: '11px',
-        fontWeight: 'bolder'
+        fontWeight: '900'
       }
     });
     newMarker.addListener('click', () => this.handleClick(listing));
