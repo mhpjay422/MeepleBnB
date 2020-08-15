@@ -710,6 +710,21 @@ a:hover {
   background-color: white;
 }
 
+.if-search-container {
+  margin: 0 auto;
+  position: relative;
+  padding-left: 24px;
+  padding-right: 24px;
+  max-width: none;
+  margin-top: 24px;
+}
+
+.if-search {
+  font-size: 19px;
+  line-height: 24px;
+  font-weight: 300;
+}
+
 .list-items {
   min-height: 400px;
   max-width: none;

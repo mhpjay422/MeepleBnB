@@ -88,6 +88,19 @@ export default class ListingIndex extends React.Component {
       </div>
     );
 
+    const ifSearch = (searchTerm) => {
+      let text = `Showing results for "${this.state.searchTerm}" in New York`
+
+      debugger
+      if(this.state.searchTerm !== "") {
+        return (
+        <div className="if-search-container">
+          <div className="if-search">{text}</div>
+        </div>
+        )
+      }
+    }
+
     const listIndexItem = (
       <div className="list-body">
         <div className="list-header">
@@ -104,6 +117,7 @@ export default class ListingIndex extends React.Component {
             </section>
           </div> 
         </div>
+        {ifSearch(this.state.searchTerm)}
         <ul className="list-items" onMouseLeave={this.unhovered}>
           {this.allPropsOrFiltered(this.state, this.props).map(listing => (
             <ListingIndexItem listing={listing} key={listing.id} setHoveredListItem={this.setHoveredListItem}/>
