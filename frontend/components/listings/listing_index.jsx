@@ -16,6 +16,12 @@ export default class ListingIndex extends React.Component {
     this.unhovered = this.unhovered.bind(this)
   }
 
+  componentWillMount() {
+    this.props.history.push({
+      pathname: `/search_greeting`,
+    });
+  }
+
   componentWillUpdate(newProps) {
     if(this.props !== newProps) {
       if (newProps.location.state) {
