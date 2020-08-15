@@ -18,7 +18,7 @@ export default class ListingIndex extends React.Component {
 
   componentWillMount() {
     this.props.history.push({
-      pathname: `/search_greeting`,
+      search: ``,
     });
   }
 
