@@ -1,9 +1,9 @@
 class Api::ReviewsController < ApplicationController
-    # before_action :require_logged_in
+    before_action :require_logged_in, only: [:create]
 
     def index
-        @reviews = Review.all
-        render :index
+        @reviews = current_listing.reviews
+        render "/api/reviews/index"
     end
 
     def create
@@ -24,6 +24,10 @@ class Api::ReviewsController < ApplicationController
     # end
 
     private
+
+    def current_listing
+      Listing.find(params[:id])
+    end
 
     def review_params
         params.require(:review).permit(
