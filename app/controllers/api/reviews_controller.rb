@@ -7,14 +7,24 @@ class Api::ReviewsController < ApplicationController
     end
 
     def create
-        @review = Review.create!(review_params)
-        render json: @review
+        @review = Review.new(review_params)
+        @review.author_id = current_user.id
+        if @review.save
+            render "/api/reviews/show"
+        else
+            flash.now[:errors] = @review.errors.full_messages
+            render "/api/reviews/show"
+        end
     end
 
     def destroy
         @review = Review.find(params[:id])
         @review.destroy
         render json: @review
+    end
+
+    def new 
+        @review = Review.new
     end
 
     # def update
@@ -31,7 +41,9 @@ class Api::ReviewsController < ApplicationController
 
     def review_params
         params.require(:review).permit(
-            :body, 
+            :body,
+            :listing_id,
+            :author_id, 
             :rating
         )
     end
