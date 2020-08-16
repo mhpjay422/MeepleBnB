@@ -111,42 +111,44 @@ class ListingDetail extends React.Component {
     const bodyIntro = (
 
       <div className="listing-body-intro">
-        <div className="property-type">Entire house hosted by Jason</div>
-        <div className="listing-amenities-preview">
-          <div className="preview-house">
-            <div className="preview-body">
-              <div className="amenities-preview">
-                <div className="amenities-text">
-                  <img
-                    className="amenities-icon"
-                    src="./Screen Shot 2018-11-23 at 12.21.41 PM.png"
-                  />
-                          4 guests
-                      </div>
-                <span className="show-interpunct"> · </span>
-                <div className="amenities-text">
-                  <img
-                    className="amenities-icon"
-                    src="./Screen Shot 2018-11-23 at 12.24.07 PM.png"
-                  />
-                        3 bedrooms
-                      </div>
-                <span className="show-interpunct"> · </span>
-                <div className="amenities-text">
-                  <img
-                    className="amenities-icon"
-                    src="./Screen Shot 2018-11-23 at 12.23.28 PM.png"
-                  />
-                        3 beds
-                      </div>
-                <span className="show-interpunct"> · </span>
-                <div className="amenities-text">
-                  <img
-                    className="amenities-icon"
-                    src="Screen Shot 2018-11-23 at 12.23.48 PM.png"
-                  />
-                        1 bath
-                      </div>
+        <div className="listing-body-intro-left">
+          <div className="property-type">Entire house hosted by Jason</div>
+          <div className="listing-amenities-preview">
+            <div className="preview-house">
+              <div className="preview-body">
+                <div className="amenities-preview">
+                  <div className="amenities-text">
+                    <img
+                      className="amenities-icon"
+                      src="./Screen Shot 2018-11-23 at 12.21.41 PM.png"
+                    />
+                            4 guests
+                        </div>
+                  <span className="show-interpunct"> · </span>
+                  <div className="amenities-text">
+                    <img
+                      className="amenities-icon"
+                      src="./Screen Shot 2018-11-23 at 12.24.07 PM.png"
+                    />
+                          3 bedrooms
+                        </div>
+                  <span className="show-interpunct"> · </span>
+                  <div className="amenities-text">
+                    <img
+                      className="amenities-icon"
+                      src="./Screen Shot 2018-11-23 at 12.23.28 PM.png"
+                    />
+                          3 beds
+                        </div>
+                  <span className="show-interpunct"> · </span>
+                  <div className="amenities-text">
+                    <img
+                      className="amenities-icon"
+                      src="Screen Shot 2018-11-23 at 12.23.48 PM.png"
+                    />
+                          1 bath
+                        </div>
+                </div>
               </div>
             </div>
           </div>
@@ -165,10 +167,10 @@ class ListingDetail extends React.Component {
             <div className="LID-item-text">
               <div className="LID-item-text-header">
                 Entire Home
-                    </div>
+              </div>
               <div className="LID-item-text-description">
                 You'll have the house to yourself
-                    </div>
+              </div>
             </div>
           </div>
           <div className="listing-intro-description-item">
