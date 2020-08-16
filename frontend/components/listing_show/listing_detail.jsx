@@ -153,6 +153,17 @@ class ListingDetail extends React.Component {
             </div>
           </div>
         </div>
+        <div className="listing-body-intro-right">
+          <div className="listing-body-intro-right-images-container">
+            <img className="listing-body-intro-right-img" src="mememe.png"></img>
+            <div className="listing-body-intro-right-detail">
+              <img
+                className="plus-detail"
+                src="./Screen Shot 2018-11-23 at 10.49.36 AM.png"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     )
 

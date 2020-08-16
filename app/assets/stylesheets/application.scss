@@ -1205,6 +1205,37 @@ a:hover {
   flex: 0 1 100%;
 }
 
+.listing-body-intro-right {
+  margin-left: 16px;
+}
+
+.listing-body-intro-right-images-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: bottom;
+  align-items: flex-end;
+  justify-content: space-between;
+  right: -16px;
+  position: relative;
+}
+
+.listing-body-intro-right-img {
+  border-radius: 50%;
+  height: 64px;
+  width: 64px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.listing-body-intro-right-plus-detail {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: bottom;
+  align-self: flex-end;
+}
+
+
 .property-type {
   font-size: 20px;
   font-weight: 500;
