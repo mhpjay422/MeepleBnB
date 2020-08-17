@@ -97,7 +97,6 @@ export default class ListingIndex extends React.Component {
     const ifSearch = (searchTerm) => {
       let text = `Showing results for "${this.state.searchTerm}" in New York`
 
-      debugger
       if(this.state.searchTerm !== "") {
         return (
         <div className="if-search-container">

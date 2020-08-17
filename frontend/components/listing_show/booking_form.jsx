@@ -36,7 +36,6 @@ class BookingForm extends React.Component {
   // }
 
   componentDidUpdate(prevProps) {
-   
     if ((prevProps.startDate !== this.props.startDate) || (prevProps.endDate !== this.props.endDate)) {
       this.setState({
         startDate: this.props.startDate,
@@ -52,7 +51,6 @@ class BookingForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
     if (this.props.currentUserId === null) {
       alert("Please log in to make a booking");
     } else if (this.state.startDate === null || this.state.endDate === null) {
