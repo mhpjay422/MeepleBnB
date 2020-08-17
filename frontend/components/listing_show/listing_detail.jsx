@@ -515,6 +515,15 @@ class ListingDetail extends React.Component {
       </>
     )
 
+    const reviews = (
+      <>
+        <div className="reviews-top"></div>
+        <div className="reviews-top-description"></div>
+        <div className="reviews-body"></div>
+        <div className="reviews-bottom"></div>
+      </>  
+    )
+
     const host = (
       <>
         <div className="host-border-top"></div>
@@ -637,6 +646,14 @@ class ListingDetail extends React.Component {
       </div>
     )
 
+    const bodySectionReviews = (
+      <div className="body-section-container">
+        <div className="body-section-frame">
+          {reviews}
+        </div>
+      </div>
+    )
+
     const bodySectionHost = (
       <div className="body-section-container">
         <div className="body-section-frame">
@@ -652,6 +669,7 @@ class ListingDetail extends React.Component {
       { headerDetail }
       { bodyDetail }
       { bodySectionLocation }
+      { bodySectionReviews }
       { bodySectionHost }
     </div>
   );
