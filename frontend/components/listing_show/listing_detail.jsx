@@ -517,7 +517,16 @@ class ListingDetail extends React.Component {
 
     const reviews = (
       <>
-        <div className="reviews-top"></div>
+        <div className="reviews-top-container">
+          <div className="reviews-top-main">
+            <div className="reviews-top-image">
+
+            </div>
+            <div className="reviews-top-text">
+              RATING(numReveiws)
+            </div>
+          </div>
+        </div>
         <div className="reviews-top-description"></div>
         <div className="reviews-body"></div>
         <div className="reviews-bottom"></div>
