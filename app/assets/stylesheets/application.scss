@@ -1971,6 +1971,27 @@ div.DateInput.DateInput_1 {
   padding: 0px;
 }
 
+.reviews-top-description {
+
+}
+
+.reviews-body-container {
+  margin-left: -8px;
+  margin-right: -8px;
+  width: calc(100% + 16px);
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.reviews-body-item {
+  width: 42%;
+  margin-right: 8%;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
 .host-body {
   padding-top: 48px;
   padding-bottom: 48px;

@@ -528,7 +528,11 @@ class ListingDetail extends React.Component {
           </div>
         </div>
         <div className="reviews-top-description"></div>
-        <div className="reviews-body"></div>
+        <div className="reviews-body-container">
+          <div className="reviews-body-item">
+
+          </div>
+        </div>
         <div className="reviews-bottom"></div>
       </>
     )
