@@ -47,8 +47,8 @@ export const fetchReviews = (listingId) => dispatch => {
   });
 };
 
-export const updateReview = id => dispatch => {
-  return ReviewAPIUtil.updateReview(id).then(payload => {
+export const updateReview = (id, review) => dispatch => {
+  return ReviewAPIUtil.updateReview((id, review)).then(payload => {
     return dispatch(receiveReview(payload));
   });
 };
