@@ -42,7 +42,9 @@ export const clearBookingErrors = () => {
 
 
 export const fetchReviews = (listingId) => dispatch => {
+  
   return ReviewAPIUtil.fetchReviews(listingId).then(payload => {
+    
     return dispatch(receiveReviews(payload));
   });
 };

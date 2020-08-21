@@ -29,6 +29,7 @@ class ListingDetail extends React.Component {
   }
   
   componentDidMount() {
+    
     window.scroll(0, 0)
     
     const mapOptions = {

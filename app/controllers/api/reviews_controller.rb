@@ -2,6 +2,7 @@ class Api::ReviewsController < ApplicationController
     before_action :require_logged_in, only: [:create]
 
     def index
+      
         @reviews = current_listing.reviews
         render "/api/reviews/index"
     end
@@ -36,7 +37,7 @@ class Api::ReviewsController < ApplicationController
     private
 
     def current_listing
-      Listing.find(params[:id])
+      Listing.find(params[:listing_id])
     end
 
     def review_params

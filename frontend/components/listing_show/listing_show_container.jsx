@@ -13,12 +13,15 @@ const msp = (state, { match }) => {
   return {listing, listingId};
 };
 
-const mdp = dispatch => ({
+const mdp = dispatch => {
+  return ({
   fetchListing: id => dispatch(fetchListing(id)), 
   fetchReviews: id => dispatch(fetchReviews(id)), 
   updateReview: (id, review) => dispatch(updateReview(id, review)),
   createReview: review => dispatch(createReview(review)),
   deleteReview: id => dispatch(deleteReview(id)),
-});
+  });
+
+}
 
 export default connect(msp, mdp)(ListingShow);
