@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import ListingDetail from './listing_detail';
 import Footer from "../footer/footer_show_frame.jsx"
 
@@ -11,13 +10,17 @@ class ListingShow extends React.Component {
   componentDidMount() {
     const { listingId } = this.props;
     this.props.fetchListing(listingId);
+    this.props.fetchReviews(listingId);
   }
 
   render() {
-    const { listing } = this.props;
+    const { listing, reviews } = this.props;
     return(
       <div className="single-listing-show">
-        <ListingDetail listing={listing}/>
+        <ListingDetail 
+          listing={listing}
+          reviews={reviews}
+        />
         <Footer/>
       </div>
     );
