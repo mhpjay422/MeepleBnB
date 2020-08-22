@@ -29,7 +29,6 @@ class ListingDetail extends React.Component {
   }
   
   componentDidMount() {
-    
     window.scroll(0, 0)
     
     const mapOptions = {
@@ -528,11 +527,17 @@ class ListingDetail extends React.Component {
             </div>
           </div>
         </div>
-        <div className="reviews-top-description"></div>
-        <div className="reviews-body-container">
-          <div className="reviews-body-item">
+        <div className="reviews-top-description">
 
-          </div>
+        </div>
+        <div className="reviews-body-container">
+          {/* <div className="reviews-body-items">
+            {this.props.reviews.map(review => (
+              <div className="reviews-body-item">
+                Hello
+              </div>
+            ))}
+          </div> */}
         </div>
         <div className="reviews-bottom"></div>
       </>

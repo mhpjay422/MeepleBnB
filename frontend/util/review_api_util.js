@@ -1,9 +1,8 @@
 export const fetchReviews = listingId => {
-  
   $.ajax({
     url: `api/listings/${listingId}/reviews`,
     method: "get"
-  });
+  })
 }
 
 export const updateReview = id =>

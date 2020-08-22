@@ -1,4 +1,6 @@
 import * as ReviewAPIUtil from "../util/review_api_util";
+import * as BookingAPIUtil from "../util/booking_api_util";
+
 
 export const RECEIVE_ALL_REVIEWS = "RECEIVE_ALL_REVIEWS";
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
@@ -7,6 +9,7 @@ export const CLEAR_REVIEW_ERRORS = "CLEAR_REVIEW_ERRORS";
 export const DELETE_REVIEW = "DELETE_REVIEW";
 
 const receiveReviews = reviews => {
+  debugger
   return {
     type: RECEIVE_ALL_REVIEWS,
     reviews
@@ -42,9 +45,9 @@ export const clearBookingErrors = () => {
 
 
 export const fetchReviews = (listingId) => dispatch => {
-  
+  debugger
   return ReviewAPIUtil.fetchReviews(listingId).then(payload => {
-    
+    debugger
     return dispatch(receiveReviews(payload));
   });
 };

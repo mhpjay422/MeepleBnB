@@ -10,7 +10,7 @@ class ListingShow extends React.Component {
   componentDidMount() {
     const { listingId } = this.props;
     this.props.fetchListing(listingId);
-    this.props.fetchReviews(listingId);
+    // this.props.fetchReviews(listingId);
   }
 
   render() {

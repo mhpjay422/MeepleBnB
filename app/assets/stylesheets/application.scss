@@ -1972,7 +1972,9 @@ div.DateInput.DateInput_1 {
 }
 
 .reviews-top-description {
-
+  margin-left: -8px;
+  margin-right: -8px;
+  width: calc(100% + 16px);
 }
 
 .reviews-body-container {
@@ -1985,7 +1987,7 @@ div.DateInput.DateInput_1 {
   flex-wrap: wrap;
 }
 
-.reviews-body-item {
+.reviews-body-items {
   width: 42%;
   margin-right: 8%;
   padding-left: 8px;

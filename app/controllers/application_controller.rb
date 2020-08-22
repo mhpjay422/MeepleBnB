@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :logged_in?
 
+  after_action { puts response.body }
+
   private
 
   def current_user

@@ -50,7 +50,13 @@ class Api::BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:listing_id, :date_end, :date_start, :status, :price)
+    params.require(:booking).permit(
+        :listing_id, 
+        :date_end, 
+        :date_start, 
+        :status, 
+        :price
+     )
   end
 
 end
