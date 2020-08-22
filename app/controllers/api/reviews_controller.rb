@@ -1,11 +1,9 @@
 class Api::ReviewsController < ApplicationController
     before_action :require_logged_in, only: [:create]
 
-    def index
-        
+    def index        
         @current_listing = current_listing
         @reviews = @current_listing.reviews
-        debugger
         render "/api/reviews/index"
     end
 

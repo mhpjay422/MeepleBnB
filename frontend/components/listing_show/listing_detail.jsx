@@ -45,7 +45,6 @@ class ListingDetail extends React.Component {
     this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
   }
   componentDidUpdate() {
-    
     const mapOptions = {
       position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
       zoom: 10.4,
@@ -548,9 +547,7 @@ class ListingDetail extends React.Component {
                     </div>
                   </div>
                   <div className="reviews-body-item-text">
-                    <div className="reviews-body-item-text-text">
                     We loved staying at David's beautiful home! The pool is perfect and the house is close to wonderful hiking trails. The kitchen was well stocked. It was the perfect place for a family getaway.
-                    </div>
                   </div>
                 </div>
               </div>

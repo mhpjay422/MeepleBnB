@@ -9,64 +9,61 @@ export const CLEAR_REVIEW_ERRORS = "CLEAR_REVIEW_ERRORS";
 export const DELETE_REVIEW = "DELETE_REVIEW";
 
 const receiveReviews = reviews => {
-  debugger
   return {
     type: RECEIVE_ALL_REVIEWS,
     reviews
   };
 };
 
-const receiveReview = review => {
-  return {
-    type: RECEIVE_REVIEW,
-    review
-  };
-};
+// const receiveReview = review => {
+//   return {
+//     type: RECEIVE_REVIEW,
+//     review
+//   };
+// };
 
-const removeReview = id => {
-  return {
-    type: DELETE_REVIEW,
-    reviewId: id
-  };
-};
+// const removeReview = id => {
+//   return {
+//     type: DELETE_REVIEW,
+//     reviewId: id
+//   };
+// };
 
-const receiveReviewErrors = errors => {
-  return {
-    type: RECEIVE_REVIEW_ERRORS,
-    errors
-  };
-};
+// const receiveReviewErrors = errors => {
+//   return {
+//     type: RECEIVE_REVIEW_ERRORS,
+//     errors
+//   };
+// };
 
-export const clearBookingErrors = () => {
-  return {
-    type: CLEAR_REVIEW_ERRORS
-  };
-};
+// export const clearReviewErrors = () => {
+//   return {
+//     type: CLEAR_REVIEW_ERRORS
+//   };
+// };
 
 
 export const fetchReviews = (listingId) => dispatch => {
-  debugger
   return ReviewAPIUtil.fetchReviews(listingId).then(payload => {
-    debugger
     return dispatch(receiveReviews(payload));
   });
 };
 
-export const updateReview = (id, review) => dispatch => {
-  return ReviewAPIUtil.updateReview((id, review)).then(payload => {
-    return dispatch(receiveReview(payload));
-  });
-};
+// export const updateReview = (id, review) => dispatch => {
+//   return ReviewAPIUtil.updateReview((id, review)).then(payload => {
+//     return dispatch(receiveReview(payload));
+//   });
+// };
 
-export const createReview = review => dispatch => {
-  return ReviewAPIUtil.createReview(review).then(
-    payload => dispatch(receiveReview(payload)),
-    err => dispatch(receiveReviewErrors(err.responseJSON))
-  );
-};
+// export const createReview = review => dispatch => {
+//   return ReviewAPIUtil.createReview(review).then(
+//     payload => dispatch(receiveReview(payload)),
+//     err => dispatch(receiveReviewErrors(err.responseJSON))
+//   );
+// };
 
-export const deleteReview = (listingId, id) => dispatch => {
-  return ReviewAPIUtil.deleteReview(listingId, id).then(payload => {
-    return dispatch(removeReview(payload));
-  });
-};
+// export const deleteReview = (listingId, id) => dispatch => {
+//   return ReviewAPIUtil.deleteReview(listingId, id).then(payload => {
+//     return dispatch(removeReview(payload));
+//   });
+// };

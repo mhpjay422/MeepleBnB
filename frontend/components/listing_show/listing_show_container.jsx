@@ -10,7 +10,8 @@ import { fetchReviews,
 const msp = (state, { match }) => {
   const listingId = parseInt(match.params.listingId);
   const listing =  state.entities.listings[listingId] || {};
-  return {listing, listingId};
+  const reviews = Object.values(state.entities.reviews)
+  return {listing, listingId, reviews};
 };
 
 const mdp = dispatch => {

@@ -1,7 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import Rating from "react-rating";
-import ListingShowContainer from "../listing_show/listing_show_container";
 
 class IndexItem extends React.Component {
   constructor(props) {
