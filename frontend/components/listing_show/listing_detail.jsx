@@ -8,6 +8,7 @@ import { DayPickerRangeController } from 'react-dates';
 import momentPropTypes from "react-moment-proptypes";
 import moment from "moment";
 import "react-dates/lib/css/_datepicker.css";
+import ListingDetailReviewItem from "./listing_detail_review_item"
 
 
 class ListingDetail extends React.Component {
@@ -531,26 +532,8 @@ class ListingDetail extends React.Component {
         </div>
         <div className="reviews-body-container">
           <div className="reviews-body-items">
-            {/* {this.props.reviews.map(review => ( */}
-            {[1,2,3].map(review => (
-              <div className="reviews-body-item-container">
-                <div className="reviews-body-item">
-                  <div className="reviews-body-item-header">
-                    <div className="reviews-body-item-header-icon">
-                      Icon
-                    </div>
-                    <div className="reviews-body-item-header-text-top">
-                      Name 
-                      <div className="reviews-body-item-header-text-bottom">
-                        Date
-                      </div>
-                    </div>
-                  </div>
-                  <div className="reviews-body-item-text">
-                    We loved staying at David's beautiful home! The pool is perfect and the house is close to wonderful hiking trails. The kitchen was well stocked. It was the perfect place for a family getaway.
-                  </div>
-                </div>
-              </div>
+            {this.props.reviews.map(review => (
+              <ListingDetailReviewItem review={review}/>
             ))}
           </div>
         </div>
