@@ -41,7 +41,7 @@ class ListingDetailReviewItem extends React.Component {
         <div className="reviews-body-item">
           <div className="reviews-body-item-header">
             <div className="reviews-body-item-header-icon">
-              Icon
+              <img src="userimage.png"></img>
             </div>
             <div className="reviews-body-item-header-text-top">
               {review.author.username}
