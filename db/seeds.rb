@@ -30,7 +30,7 @@ r1 = Review.create({
 
 r2 = Review.create({
   body: "An awesome stay! Staff was super helpful and accommodating. 10 out of 10 stay for sure. The house is very nice and comfortable! Location is very convenient. Jason was very helpful and friendly, he’s a super host!", 
-  rating: 4.9, 
+  rating: 5, 
   listing_id: l1.id,
   author_id: d3.id
 })
@@ -51,14 +51,14 @@ r4 = Review.create({
 
 r5 = Review.create({
   body: "An amazing stay! Staff was super helpful and accommodating. 10 out of 10 stay for sure. The house is very nice and comfortable! Location is very convenient. Jason was very helpful and friendly, he’s a super host!", 
-  rating: 4.5, 
+  rating: 5, 
   listing_id: l1.id,
   author_id: d6.id
 })
 
 r6 = Review.create({
   body: "A glorious stay! Staff was super helpful and accommodating. 10 out of 10 stay for sure. The house is very nice and comfortable! Location is very convenient. Jason was very helpful and friendly, he’s a super host!", 
-  rating: 4.7, 
+  rating: 4, 
   listing_id: l1.id,
   author_id: d7.id
 })

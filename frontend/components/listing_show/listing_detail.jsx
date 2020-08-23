@@ -46,7 +46,7 @@ class ListingDetail extends React.Component {
     this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
   }
   componentDidUpdate() {
-    debugger
+    
     const mapOptions = {
       position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
       zoom: 10.4,
@@ -516,15 +516,32 @@ class ListingDetail extends React.Component {
       </>
     )
 
+    const avgRating = (reviews) => {
+      let count = 0
+
+      if(reviews.length) {
+        
+        let reduced = reviews.reduce((acc, cur) => {
+          if(cur.rating) {
+            count++
+            return acc + cur.rating
+          } else {
+            return acc
+          }
+        }, 0)
+        return (reduced / count).toFixed(2);
+      }
+    }
+
     const reviews = (
       <>
         <div className="reviews-top-container">
           <div className="reviews-top-main">
             <div className="reviews-top-image">
-
+              <img src="bnbstar.png"></img>
             </div>
             <div className="reviews-top-text">
-              RATING({this.props.reviews.length} reviews)
+              {avgRating(this.props.reviews)} ({this.props.reviews.length} reviews)
             </div>
           </div>
         </div>
