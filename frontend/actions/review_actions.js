@@ -45,7 +45,6 @@ const receiveReviews = reviews => {
 
 export const fetchReviews = (listingId) => dispatch => {
   return ReviewAPIUtil.fetchReviews(listingId).then(payload => {
-    debugger
     return dispatch(receiveReviews(payload));
   });
 };

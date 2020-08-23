@@ -17,8 +17,7 @@ const reviewsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_REVIEWS:
-      debugger
-      return merge({}, state, action.reviews.reviews, action.reviews.users);
+      return merge({}, state, action.reviews.reviews);
     case RECEIVE_REVIEW:
       return merge({}, state, action.review);
     case DELETE_REVIEW:

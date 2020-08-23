@@ -9,7 +9,6 @@ class ListingDetailReviewItem extends React.Component {
   }
 
   componentDidMount() {
-    debugger
   }
 
   formatDate(date) {
@@ -30,11 +29,9 @@ class ListingDetailReviewItem extends React.Component {
     const splitDate = date.split("-");
     const dateYear = splitDate[0];
     const monthDigit = parseInt(splitDate[1])
-    debugger
     const dateMonth = calendarYear[monthDigit];
 
-    return `${dateMonth} ${dateYear}`
-    
+    return `${dateMonth} ${dateYear}`    
   }
 
   render() {
