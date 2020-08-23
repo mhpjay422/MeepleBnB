@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchListing } from '../../actions/listing_actions';
-import ListingShow from './listing_show';
+import ListingDetail from './listing_detail';
 import { fetchReviews,
          updateReview,
          createReview, 
@@ -10,6 +10,7 @@ import { fetchReviews,
 const msp = (state, { match }) => {
   const listingId = parseInt(match.params.listingId);
   const listing =  state.entities.listings[listingId] || {};
+  debugger
   const reviews = Object.values(state.entities.reviews)
   return {listing, listingId, reviews};
 };
@@ -25,4 +26,4 @@ const mdp = dispatch => {
 
 }
 
-export default connect(msp, mdp)(ListingShow);
+export default connect(msp, mdp)(ListingDetail);

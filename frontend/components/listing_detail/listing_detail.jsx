@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { Link } from "react-router";
 import NavbarContainer from "../navbar/navbar_container";
 import BookingFormContainer from "./booking_form_container";
@@ -9,15 +9,17 @@ import momentPropTypes from "react-moment-proptypes";
 import moment from "moment";
 import "react-dates/lib/css/_datepicker.css";
 import ListingDetailReviewItem from "./listing_detail_review_item"
-
+import Footer from "../footer/footer_show_frame.jsx"
 
 class ListingDetail extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       startDate: null,
       endDate: null,
       focusedInput: props.autoFocusEndDate ? 'endDate' : 'startDate',
+      reviews: this.props.reviews
     };
 
     this.onFocusChange = this.onFocusChange.bind(this);
@@ -28,10 +30,13 @@ class ListingDetail extends React.Component {
     this.daysDiff = this.daysDiff.bind(this);
     this.focusMap = this.focusMap.bind(this);
   }
-  
+
   componentDidMount() {
+    const { listingId } = this.props;
+    this.props.fetchReviews(listingId);
+    this.props.fetchListing(listingId);
     window.scroll(0, 0)
-    
+
     const mapOptions = {
       position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
       zoom: 10.4,
@@ -42,11 +47,12 @@ class ListingDetail extends React.Component {
         position: google.maps.ControlPosition.BOTTOM_CENTER
       },
     };
-    
+
     this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
   }
+
   componentDidUpdate() {
-    
+
     const mapOptions = {
       position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
       zoom: 10.4,
@@ -57,19 +63,19 @@ class ListingDetail extends React.Component {
         position: google.maps.ControlPosition.LEFT_BOTTOM
       },
     };
-    
+
     this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
   }
 
   focusMap() {
     document.querySelector('[class="gm-control-active gm-fullscreen-control"]').click();
   }
-  
+
   clearDates() {
-    this.setState({ startDate: null, endDate:null })
+    this.setState({ startDate: null, endDate: null })
     this.forceUpdate()
   }
-  
+
   receiveNewDatesFromBookingForm(data) {
     this.setState(data)
   }
@@ -111,7 +117,7 @@ class ListingDetail extends React.Component {
 
     const avgRating = (reviews) => {
       let count = 0
-
+      debugger
       if (reviews.length) {
 
         let reduced = reviews.reduce((acc, cur) => {
@@ -251,31 +257,31 @@ class ListingDetail extends React.Component {
         <div className="listing-body-info-description">
           *** <strong>Minimum two night stay</strong> ***
             <br />
-            <br />
-            <br />
+          <br />
+          <br />
           {this.props.listing.description}.
             <br />
-            <br />
+          <br />
           If you're looking for an affordable place to stay in the middle of it all then welcome to my home! This cozy queen size private bedroom has a true city feeling, only a few minutes walk to the nearest train station!. We offer coffee to all the guests :)
             <br />
-            <br />
+          <br />
           <div className="bold">The space</div>
           The apartment is in the center of it all, near the subway station, lots of restaurants and shops around. The building has a a lovely rooftop space in which you can go relax with view to the skyline.
             <br />
-            <br />
+          <br />
           Two people per room, but if there's more than two then I can offer my couch or sleeping bags ($30 per extra person), the room is big enough to fit more; or they can sleep in the living room if needed.
             <br />
-            <br />
+          <br />
           I also rent extra rooms on meeplebnb, same apartment.
             <br />
-            <br />
+          <br />
           <div className="bold">Guest access</div>
           You will have access to the entire shared apartment, be free to chill in the living room and make your meals in the kitchen, please buy your own ingredients and the kitchen is all yours! (You can store your food in the fridge if you need).
             <br />
-            <br />
+          <br />
           (ROOFTOP IS CLOSED DURING WINTER AND FALL SEASON)
             <br />
-            <br />
+          <br />
           Fresh towels are provided.
             <br />
           There's laundry in the building (not free).
@@ -353,14 +359,14 @@ class ListingDetail extends React.Component {
 
     const dayPickerHeaderTop = () => {
 
-      if(!this.state.startDate && !this.state.endDate) {
+      if (!this.state.startDate && !this.state.endDate) {
         return "Select check-in date"
-      } else if(this.state.startDate && !this.state.endDate) {
+      } else if (this.state.startDate && !this.state.endDate) {
         return "Select checkout date";
       } else {
         return `${this.daysDiff()} nights in New York`
       }
-    
+
     }
 
     const dayPickerHeaderBottom = () => {
@@ -388,14 +394,14 @@ class ListingDetail extends React.Component {
         </div>
         <div className="daypicker-calendar-container">
           <DayPickerRangeController
-            startDate={this.state.startDate} 
-            endDate={this.state.endDate} 
+            startDate={this.state.startDate}
+            endDate={this.state.endDate}
             onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
             focusedInput={this.state.focusedInput}
             onFocusChange={this.onFocusChange}
             minimumNights={2}
-            noBorder= {true}
-            numberOfMonths= {2}
+            noBorder={true}
+            numberOfMonths={2}
             renderCalendarDay={undefined}
             enableOutsideDays={false}
             isOutsideRange={day => !this.isInclusivelyAfterDay(day, moment())}
@@ -408,9 +414,9 @@ class ListingDetail extends React.Component {
         </div>
       </div>
     )
-    
+
     const headerDetail = (
-      
+
       <div className="list-show-header">
         <div className="list-show-header-description-container">
           <div className="list-show-header-description">
@@ -430,7 +436,7 @@ class ListingDetail extends React.Component {
                   <img className="list-show-header-reviews-img" src="bnbstarsm.png"></img>
                 </div>
                 <div className="list-show-header-reviews-text">
-                  {avgRating(this.props.reviews)} 
+                  {avgRating(this.props.reviews)}
                   <div className="list-show-header-reviews-text-count">
                     ({this.props.reviews.length})
                   </div>
@@ -498,7 +504,7 @@ class ListingDetail extends React.Component {
             <div className="full-map-container">
               {/* CREATE new page to move panorama map and switch out a flat map */}
               {/* <button className="full-map" type="button" onClick={this.focusMap}>Explore the area</button> */}
-            </div>  
+            </div>
           </div>
           <div className="listing-body-location-bottom-right">
             <div className="listing-body-location-bottom-right-header">Getting Around</div>
@@ -553,8 +559,8 @@ class ListingDetail extends React.Component {
 
         </div>
         <div className="reviews-body-container">
-          {this.props.reviews.map(review => (
-            <ListingDetailReviewItem key={review.id} review={review}/>
+          {this.state.reviews.map(review => (
+            <ListingDetailReviewItem key={review.id} review={review} />
           ))}
         </div>
         <div className="reviews-bottom"></div>
@@ -564,95 +570,95 @@ class ListingDetail extends React.Component {
     const host = (
       <>
         <div className="host-border-top"></div>
-          <div className="host-body-header">
-            <div className="host-body-header-images-container">
-              <img className="host-body-header-img" src="mememe.png"></img>
-              <div className="host-plus-detail">
-                <img
-                  className="plus-detail"
-                  src="./Screen Shot 2018-11-23 at 10.49.36 AM.png"
-                />
+        <div className="host-body-header">
+          <div className="host-body-header-images-container">
+            <img className="host-body-header-img" src="mememe.png"></img>
+            <div className="host-plus-detail">
+              <img
+                className="plus-detail"
+                src="./Screen Shot 2018-11-23 at 10.49.36 AM.png"
+              />
+            </div>
+          </div>
+          <div className="host-body-header-text-container">
+            <div className="host-body-header-text-top">
+              Hosted by Jason
+              </div>
+            <div className="host-body-header-text-bottom">
+              Joined in August 2020
+              </div>
+          </div>
+        </div>
+        <div className="host-body-main">
+          <div className="host-body-main-left">
+            <div className="host-body-main-left-container">
+              <div className="host-body-main-left-icons">
+                <div className="host-body-main-left-icons-item-container">
+                  <div className="host-body-left-icons-item-icon">
+                    <img src="./star-solid.svg" className="star" />
+                    <img src="./star-solid.svg" className="star" />
+                    <img src="./star-solid.svg" className="star" />
+                    <img src="./star-solid.svg" className="star" />
+                    <img src="./star-solid.svg" className="star" />
+                  </div>
+                  <div className="host-body-left-icons-item-icon-text">
+                    {this.props.listing.id} Reviews
+                    </div>
+                </div>
+                <div className="host-body-main-left-icons-item-container-right">
+                  <div className="host-body-main-left-icons-item-icon2">
+                    <img className="plus-detail-main-left-img" src="./Screen Shot 2018-11-23 at 11.15.19 AM.png"></img>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="host-body-header-text-container">
-              <div className="host-body-header-text-top">
-                Hosted by Jason
+            <div className="host-body-main-left-intro-container">
+              <div className="host-body-main-left-intro-frame">
+                <span>Born and raised in NYC. World traveler, foodie, coffee lover, and board game enthusiast. Always making the best out every life experience. I love people, making new friends and of course hosting incredible people from all over the world!!!</span>
               </div>
-              <div className="host-body-header-text-bottom">
-                Joined in August 2020
+            </div>
+            <div className="host-body-main-left-description">
+              <div className="host-body-main-left-description-text-top-container">
+                <div className="host-body-main-left-description-text-top-header">
+                  During your stay
+                  </div>
+                <div className="host-body-main-left-description-text-top-body">
+                  My goal as a host is to provide a phenomenal guest experience. I want to provide something memorable worthy that will want turn into something you will constantly return to. Something that will refer us to your family and friends. I’m committed to make your stay the most pleasant one so please don’t hesitate emailing or texting anytime, I’ll do my best to get back to you as fast as I can!
+                  </div>
+              </div>
+              <div className="host-body-main-left-description-text-bottom-container">
+                <div className="host-body-main-left-description-text-bottom-header">
+                  Jason is Plus Verified
+                  </div>
+                <div className="host-body-main-left-description-text-bottom-body">
+                  Plus Verified hosts are experienced, highly rated hosts who are committed to providing great stays for guests.
+                  </div>
               </div>
             </div>
           </div>
-          <div className="host-body-main">
-            <div className="host-body-main-left">
-              <div className="host-body-main-left-container">
-                <div className="host-body-main-left-icons">
-                  <div className="host-body-main-left-icons-item-container">
-                    <div className="host-body-left-icons-item-icon">
-                      <img src="./star-solid.svg" className="star" />
-                      <img src="./star-solid.svg" className="star" />
-                      <img src="./star-solid.svg" className="star" />
-                      <img src="./star-solid.svg" className="star" />
-                      <img src="./star-solid.svg" className="star" />
-                    </div>
-                    <div className="host-body-left-icons-item-icon-text">
-                      {this.props.listing.id} Reviews
-                    </div>
-                  </div>
-                  <div className="host-body-main-left-icons-item-container-right">
-                    <div className="host-body-main-left-icons-item-icon2">
-                      <img className="plus-detail-main-left-img" src="./Screen Shot 2018-11-23 at 11.15.19 AM.png"></img>
-                    </div>
-                  </div>
+          <div className="host-body-main-right">
+            <div className="host-body-main-right-response-container">
+              <div className="host-body-main-right-response">
+                Response rate: 100%
                 </div>
-              </div>
-              <div className="host-body-main-left-intro-container">
-                <div className="host-body-main-left-intro-frame">
-                  <span>Born and raised in NYC. World traveler, foodie, coffee lover, and board game enthusiast. Always making the best out every life experience. I love people, making new friends and of course hosting incredible people from all over the world!!!</span>
+              <div className="host-body-main-right-response">
+                Response time: within an hour
                 </div>
-              </div>
-              <div className="host-body-main-left-description">
-                <div className="host-body-main-left-description-text-top-container">
-                  <div className="host-body-main-left-description-text-top-header">
-                    During your stay
-                  </div>
-                  <div className="host-body-main-left-description-text-top-body">
-                    My goal as a host is to provide a phenomenal guest experience. I want to provide something memorable worthy that will want turn into something you will constantly return to. Something that will refer us to your family and friends. I’m committed to make your stay the most pleasant one so please don’t hesitate emailing or texting anytime, I’ll do my best to get back to you as fast as I can!
-                  </div>
-                </div>
-                <div className="host-body-main-left-description-text-bottom-container">
-                  <div className="host-body-main-left-description-text-bottom-header">
-                    Jason is Plus Verified
-                  </div>
-                  <div className="host-body-main-left-description-text-bottom-body">
-                    Plus Verified hosts are experienced, highly rated hosts who are committed to providing great stays for guests.
-                  </div>
-                </div>
-              </div>
             </div>
-            <div className="host-body-main-right">
-              <div className="host-body-main-right-response-container">
-                <div className="host-body-main-right-response">
-                  Response rate: 100%
-                </div>
-                <div className="host-body-main-right-response">
-                  Response time: within an hour
-                </div>
+            <div className="host-body-main-right-contact-button">
+              <a className="contact-host" href="mailto:mhpjay@gmail.com">Contact Host</a>
+            </div>
+            <div className="host-body-main-right-warning">
+              <div className="keylock-icon">
+                <img className="keylock-img" src="keylock.png" />
               </div>
-              <div className="host-body-main-right-contact-button">
-                <a className="contact-host" href="mailto:mhpjay@gmail.com">Contact Host</a>
-              </div>
-              <div className="host-body-main-right-warning">
-                <div className="keylock-icon">
-                  <img className="keylock-img" src="keylock.png"/>
-                </div>
                 To protect your payment, never transfer money or communicate outside of the Meeplebnb website or app.
               </div>
-            </div>
           </div>
+        </div>
       </>
     )
-    
+
     const bodyDetail = (
       <div className="listing-body-container">
         <div className="listing-body-frame">
@@ -700,17 +706,20 @@ class ListingDetail extends React.Component {
     )
 
 
-  return (
-    <div className="listing-detail-page">
-      <NavbarContainer />
-      { headerDetail }
-      { bodyDetail }
-      { bodySectionLocation }
-      { bodySectionReviews }
-      { bodySectionHost }
-    </div>
-  );
-};
+    return (
+      <div className="single-listing-show">
+        <div className="listing-detail-page">
+          <NavbarContainer />
+          {headerDetail}
+          {bodyDetail}
+          {bodySectionLocation}
+          {bodySectionReviews}
+          {bodySectionHost}
+        </div>
+        <Footer />
+      </div >
+    );
+  };
 }
 
 export default ListingDetail;

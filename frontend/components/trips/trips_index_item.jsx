@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import ListingShowContainer from "../listing_show/listing_show_container";
+import ListingDetailContainer from "../listing_detail/listing_detail_container";
 
 class TripIndexItem extends React.Component {
   constructor(props) {

@@ -5,7 +5,7 @@ import SignUpFormContainer from "./session_form/signup_form_container";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import SplashContainer from "./splash_page/splash_container";
 import Modal from "./modal/modal";
-import ListingShowContainer from "./listing_show/listing_show_container";
+import ListingDetailContainer from "./listing_detail/listing_detail_container";
 import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
 import TripsIndexContainer from "./trips/trips_container";
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
         <Route path="/greeting" component={GreetingContainer} />
         <Route path="/search_greeting" component={GreetingContainer} />
         <Route path="/listings/null" component={GreetingContainer} />
-        <Route path="/listings/:listingId" component={ListingShowContainer} />
+        <Route path="/listings/:listingId" component={ListingDetailContainer} />
         <ProtectedRoute path="/bookings/:renterId" component={TripsIndexContainer} />
       </div>
     </div>
