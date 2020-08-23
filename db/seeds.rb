@@ -3,12 +3,12 @@ Listing.delete_all
 Review.delete_all
 
 demoUser = User.create({username: "demoUser", email: "demoUser@gmail.com", password: "starwars"})
-d2 = User.create({username: "Craig", email: "craig@gmail.com", password: "starwars"})
-d3 = User.create({username: "Molly", email: "molly@gmail.com", password: "starwars"})
-d4 = User.create({username: "Jack", email: "jack@gmail.com", password: "starwars"})
-d5 = User.create({username: "Jill", email: "jill@gmail.com", password: "starwars"})
-d6 = User.create({username: "Pinnochio", email: "pinnochio@gmail.com", password: "starwars"})
-d7 = User.create({username: "Humpty", email: "humpty@gmail.com", password: "starwars"})
+d2 = User.create({username: "Harry", email: "harry@gmail.com", password: "starwars"})
+d3 = User.create({username: "Hermoine", email: "hermoine@gmail.com", password: "starwars"})
+d4 = User.create({username: "Han", email: "han@gmail.com", password: "starwars"})
+d5 = User.create({username: "Chewy", email: "chewy@gmail.com", password: "starwars"})
+d6 = User.create({username: "Mario", email: "mario@gmail.com", password: "starwars"})
+d7 = User.create({username: "Luigi", email: "luigi@gmail.com", password: "starwars"})
 
 l1 = Listing.create({
   lat: 40.805248,

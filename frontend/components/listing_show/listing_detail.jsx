@@ -46,6 +46,7 @@ class ListingDetail extends React.Component {
     this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
   }
   componentDidUpdate() {
+    debugger
     const mapOptions = {
       position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
       zoom: 10.4,
@@ -523,7 +524,7 @@ class ListingDetail extends React.Component {
 
             </div>
             <div className="reviews-top-text">
-              RATING(numReveiws)
+              RATING({this.props.reviews.length} reviews)
             </div>
           </div>
         </div>
