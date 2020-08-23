@@ -559,7 +559,7 @@ class ListingDetail extends React.Component {
 
         </div>
         <div className="reviews-body-container">
-          {this.state.reviews.map(review => (
+          {this.props.reviews.map(review => (
             <ListingDetailReviewItem key={review.id} review={review} />
           ))}
         </div>
