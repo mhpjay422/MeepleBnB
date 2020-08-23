@@ -1026,6 +1026,44 @@ a:hover {
   flex-direction: row;
 }
 
+.list-show-header-reviews {
+  display: inline-flex;
+  min-width: 0px;
+  position: relative;
+  bottom: 2px;
+}
+
+.list-show-header-reviews-image {
+  font-size: 18px;
+  margin-right: 2px;
+  
+}
+
+.list-show-header-reviews-img {
+  position: relative;
+  top: 1px;
+}
+
+.list-show-header-reviews-text {
+  color: rgb(34, 34, 34);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+}
+
+.list-show-header-reviews-text-count {
+  padding-left: 4px;
+  color: #717171;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .show-rating:hover {
   cursor: default;
 }

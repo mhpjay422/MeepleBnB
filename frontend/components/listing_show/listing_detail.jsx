@@ -109,6 +109,23 @@ class ListingDetail extends React.Component {
 
   render() {
 
+    const avgRating = (reviews) => {
+      let count = 0
+
+      if (reviews.length) {
+
+        let reduced = reviews.reduce((acc, cur) => {
+          if (cur.rating) {
+            count++
+            return acc + cur.rating
+          } else {
+            return acc
+          }
+        }, 0)
+        return (reduced / count).toFixed(2);
+      }
+    }
+
     const bodyIntro = (
 
       <div className="listing-body-intro">
@@ -408,12 +425,16 @@ class ListingDetail extends React.Component {
                   placeholderSymbol={<img src="./star-solid.svg" className="star" />}
                   fullSymbol={<img src="./star-solid.svg" className="star" />}
                 /> */}
-              <div className="show-rating">
-                <img src="./star-solid.svg" className="star" />
-                <img src="./star-solid.svg" className="star" />
-                <img src="./star-solid.svg" className="star" />
-                <img src="./star-solid.svg" className="star" />
-                <img src="./star-solid.svg" className="star" />
+              <div className="list-show-header-reviews">
+                <div className="list-show-header-reviews-image">
+                  <img className="list-show-header-reviews-img" src="bnbstarsm.png"></img>
+                </div>
+                <div className="list-show-header-reviews-text">
+                  {avgRating(this.props.reviews)} 
+                  <div className="list-show-header-reviews-text-count">
+                    ({this.props.reviews.length})
+                  </div>
+                </div>
               </div>
               <span className="show-interpunct"> · </span>
               <img
@@ -515,23 +536,6 @@ class ListingDetail extends React.Component {
         </div>
       </>
     )
-
-    const avgRating = (reviews) => {
-      let count = 0
-
-      if(reviews.length) {
-        
-        let reduced = reviews.reduce((acc, cur) => {
-          if(cur.rating) {
-            count++
-            return acc + cur.rating
-          } else {
-            return acc
-          }
-        }, 0)
-        return (reduced / count).toFixed(2);
-      }
-    }
 
     const reviews = (
       <>
