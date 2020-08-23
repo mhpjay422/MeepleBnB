@@ -586,7 +586,7 @@ class ListingDetail extends React.Component {
               </div>
             <div className="host-body-header-text-bottom">
               Joined in August 2020
-              </div>
+            </div>
           </div>
         </div>
         <div className="host-body-main">
@@ -595,14 +595,10 @@ class ListingDetail extends React.Component {
               <div className="host-body-main-left-icons">
                 <div className="host-body-main-left-icons-item-container">
                   <div className="host-body-left-icons-item-icon">
-                    <img src="./star-solid.svg" className="star" />
-                    <img src="./star-solid.svg" className="star" />
-                    <img src="./star-solid.svg" className="star" />
-                    <img src="./star-solid.svg" className="star" />
-                    <img src="./star-solid.svg" className="star" />
+                    <img src="./bnbstar.png" className="star" />
                   </div>
                   <div className="host-body-left-icons-item-icon-text">
-                    {this.props.listing.id} Reviews
+                    {this.props.reviews.length} Reviews
                     </div>
                 </div>
                 <div className="host-body-main-left-icons-item-container-right">

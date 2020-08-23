@@ -956,8 +956,8 @@ a:hover {
 }
 
 .star {
-  height: 14.5px;
-  width: 14.5px;
+  height: 20px;
+  width: 20px;
   line-height: 5px;
 }
 
@@ -2182,6 +2182,11 @@ div.DateInput.DateInput_1 {
   box-sizing: border-box;
 }
 
+.host-body-left-icons-item-icon {
+  position: relative;
+  bottom: 1px;
+}
+
 .host-body-left-icons-item {
   -webkit-box-align: center;
   display: flex;
@@ -2216,7 +2221,6 @@ div.DateInput.DateInput_1 {
   align-self: bottom;
   position: relative;
   border-radius: 8px;
-  bottom: 1px;
 }
 
 .host-body-main-left-intro-container {
