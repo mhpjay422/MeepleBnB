@@ -6,14 +6,19 @@ class ListingDetailReviewItem extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    debugger
+  }
+
   render() {
+    const { review } = this.props;
     return (
       <div className="reviews-body-item-container">
         <div className="reviews-body-item">
           <div className="reviews-body-item-header">
             <div className="reviews-body-item-header-icon">
               Icon
-                    </div>
+            </div>
             <div className="reviews-body-item-header-text-top">
               Name
                       <div className="reviews-body-item-header-text-bottom">
@@ -22,8 +27,8 @@ class ListingDetailReviewItem extends React.Component {
             </div>
           </div>
           <div className="reviews-body-item-text">
-            We loved staying at David's beautiful home! The pool is perfect and the house is close to wonderful hiking trails. The kitchen was well stocked. It was the perfect place for a family getaway.
-                  </div>
+            {review.body}
+          </div>
         </div>
       </div>
     )

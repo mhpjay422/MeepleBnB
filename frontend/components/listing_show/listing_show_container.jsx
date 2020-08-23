@@ -8,6 +8,7 @@ import { fetchReviews,
 } from '../../actions/review_actions';
 
 const msp = (state, { match }) => {
+  debugger
   const listingId = parseInt(match.params.listingId);
   const listing =  state.entities.listings[listingId] || {};
   const reviews = Object.values(state.entities.reviews)

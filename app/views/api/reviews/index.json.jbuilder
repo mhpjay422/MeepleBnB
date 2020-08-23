@@ -1,7 +1,11 @@
 @reviews.each do |review|
   json.reviews do
     json.set! review.id do
-        json.partial! 'api/reviews/review', review: review 
+      json.extract! review, :id, :body, :rating, :listing_id, :created_at
+      user = review.author
+      json.set! "author" do
+        json.partial! 'api/users/user', user: user
+      end
     end
   end
 end
