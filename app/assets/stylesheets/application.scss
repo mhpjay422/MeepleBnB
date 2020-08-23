@@ -1987,18 +1987,11 @@ div.DateInput.DateInput_1 {
   flex-wrap: wrap;
 }
 
-.reviews-body-items {
-  width: 42%;
-  margin-right: 8%;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
 .reviews-body-item-container {
+  width: 41%;
+  margin-right: 7%;
   padding-left: 8px;
   padding-right: 8px;
-  width: 41.6667%;
-  margin-right: 8.33333%;
 }
 
 .reviews-body-item {
@@ -2007,6 +2000,7 @@ div.DateInput.DateInput_1 {
 
 .reviews-body-item-header {
   margin-bottom: 16px;
+  display: flex;
 }
 
 .reviews-body-item-header-icon {

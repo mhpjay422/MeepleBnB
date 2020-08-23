@@ -5,6 +5,10 @@ Review.delete_all
 demoUser = User.create({username: "demoUser", email: "demoUser@gmail.com", password: "starwars"})
 d2 = User.create({username: "Craig", email: "craig@gmail.com", password: "starwars"})
 d3 = User.create({username: "Molly", email: "molly@gmail.com", password: "starwars"})
+d4 = User.create({username: "Jack", email: "jack@gmail.com", password: "starwars"})
+d5 = User.create({username: "Jill", email: "jill@gmail.com", password: "starwars"})
+d6 = User.create({username: "Pinnochio", email: "pinnochio@gmail.com", password: "starwars"})
+d7 = User.create({username: "Humpty", email: "humpty@gmail.com", password: "starwars"})
 
 l1 = Listing.create({
   lat: 40.805248,
@@ -28,7 +32,35 @@ r2 = Review.create({
   body: "An awesome stay! Staff was super helpful and accommodating. 10 out of 10 stay for sure.", 
   rating: 5, 
   listing_id: l1.id,
-  author_id: d2.id
+  author_id: d3.id
+})
+
+r3 = Review.create({
+  body: "A stupendous stay! Staff was super helpful and accommodating. 10 out of 10 stay for sure.", 
+  rating: 5, 
+  listing_id: l1.id,
+  author_id: d4.id
+})
+
+r4 = Review.create({
+  body: "A fantastic stay! Staff was super helpful and accommodating. 10 out of 10 stay for sure.", 
+  rating: 5, 
+  listing_id: l1.id,
+  author_id: d5.id
+})
+
+r5 = Review.create({
+  body: "An amazing stay! Staff was super helpful and accommodating. 10 out of 10 stay for sure.", 
+  rating: 5, 
+  listing_id: l1.id,
+  author_id: d6.id
+})
+
+r6 = Review.create({
+  body: "A glorious stay! Staff was super helpful and accommodating. 10 out of 10 stay for sure.", 
+  rating: 5, 
+  listing_id: l1.id,
+  author_id: d7.id
 })
 
 l11 = Listing.create({

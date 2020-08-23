@@ -531,11 +531,9 @@ class ListingDetail extends React.Component {
 
         </div>
         <div className="reviews-body-container">
-          <div className="reviews-body-items">
-            {this.props.reviews.map(review => (
-              <ListingDetailReviewItem key={review.id} review={review}/>
-            ))}
-          </div>
+          {this.props.reviews.map(review => (
+            <ListingDetailReviewItem key={review.id} review={review}/>
+          ))}
         </div>
         <div className="reviews-bottom"></div>
       </>
