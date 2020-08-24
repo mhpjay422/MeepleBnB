@@ -19,7 +19,6 @@ class ListingDetail extends React.Component {
       startDate: null,
       endDate: null,
       focusedInput: props.autoFocusEndDate ? 'endDate' : 'startDate',
-      reviews: this.props.reviews
     };
 
     this.onFocusChange = this.onFocusChange.bind(this);
@@ -52,8 +51,6 @@ class ListingDetail extends React.Component {
   }
 
   componentDidUpdate() {
-
-    debugger
      
     const mapOptions = {
       position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
@@ -672,6 +669,7 @@ class ListingDetail extends React.Component {
               startDate={this.state.startDate}
               endDate={this.state.endDate}
               liftStateToParent={this.receiveNewDatesFromBookingForm}
+              reviews={this.props.reviews}
             />
           </div>
         </div>

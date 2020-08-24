@@ -14,7 +14,6 @@ const msp = (state, { match }) => {
   const cloneReviews = Object.assign({}, state.entities.reviews)
   delete cloneReviews["host_reviews"]
   const reviews = Object.values(cloneReviews)
-  debugger
   return {listing, listingId, reviews, hostReviews};
 };
 

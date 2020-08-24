@@ -1581,7 +1581,7 @@ a:hover {
 
 .booking-price-pernight {
   font-weight: 200;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 34px;
   display: flex;
   flex-direction: row;
@@ -1589,19 +1589,35 @@ a:hover {
   margin-left: 2px;
   margin-right: 0px;
   padding-right: 0px;
+  bottom: 3px;
+  position: relative;
 }
 
-.booking-rating {
-  padding-left: 0px;
-  margin-left: 0px;
-  width: auto;
-  height: auto;
-  font-size: 8px;
-  align-self: center;
+.booking-rating-container {
+  position: relative;
+  align-items: baseline;
+  display: flex;
+  font-size: 14px;
+  line-height: 18px;
+  top: 5px;
 }
 
-.booking-rating div {
-  margin-right: 3px;
+.booking-rating-score {
+  color: rgb(34, 34, 34);
+  padding-left: 4px;
+  font-weight: 500;
+  align-self: bottom;
+}
+
+.booking-rating-img {
+  align-self: bottom;
+}
+
+.booking-rating-count {
+  color: rgb(113, 113, 113);
+  padding-left: 4px;
+  font-weight: 300;
+  align-self: bottom;
 }
 
 .booking-star-left {

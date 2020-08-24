@@ -142,6 +142,22 @@ class BookingForm extends React.Component {
       }
     }
 
+    const avgRating = (reviews) => {
+      let count = 0
+      if (reviews.length) {
+
+        let reduced = reviews.reduce((acc, cur) => {
+          if (cur.rating) {
+            count++
+            return acc + cur.rating
+          } else {
+            return acc
+          }
+        }, 0)
+        return (reduced / count).toFixed(2);
+      }
+    }
+
     const form = (
       <div className="booking-form">
         <div className="booking-frame">
@@ -154,15 +170,17 @@ class BookingForm extends React.Component {
                       ${this.props.listing.price}
                     </div>
                     <div className="booking-price-pernight">
-                      <div>/night</div>
+                      <div>/ night</div>
                     </div>
                   </div>                  
-                  <div className="booking-rating">
-                    <img src="./star-solid.svg" className="star" />
-                    <img src="./star-solid.svg" className="star" />
-                    <img src="./star-solid.svg" className="star" />
-                    <img src="./star-solid.svg" className="star" />
-                    <img src="./star-solid.svg" className="star" />
+                  <div className="booking-rating-container">
+                    <img src="bnbstarxsm.png" className="booking-rating-img"/>
+                    <div className="booking-rating-score">
+                      {avgRating(this.props.reviews)}
+                    </div>
+                    <div className="booking-rating-count">
+                      ({this.props.reviews.length})
+                    </div>
                     {/* <Rating
                       placeholderRating={3.5}
                       emptySymbol={<img src="./star-solid.svg" className="star" />}
