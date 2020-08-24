@@ -3,6 +3,7 @@ Listing.delete_all
 Review.delete_all
 
 demoUser = User.create({username: "demoUser", email: "demoUser@gmail.com", password: "starwars"})
+d1 = User.create({username: "Jason", email: "jason@gmail.com", password: "starwars"})
 d2 = User.create({username: "Harry", email: "harry@gmail.com", password: "starwars"})
 d3 = User.create({username: "Hermoine", email: "hermoine@gmail.com", password: "starwars"})
 d4 = User.create({username: "Han", email: "han@gmail.com", password: "starwars"})
@@ -18,7 +19,7 @@ l1 = Listing.create({
   address: "2871 Broadway, New York, NY 10025",
   price: 279,
   picture_url: "./images (4).jpeg",
-  owner_id: demoUser.id
+  owner_id: d1.id
   })
 
 r1 = Review.create({
@@ -71,8 +72,15 @@ l11 = Listing.create({
   address: "11-11 Broadway, Astoria, NY 11103",
   price: 259,
   picture_url: "boardgameroom.jpeg",
-  owner_id: d3.id
+  owner_id: d1.id
   })
+
+r6 = Review.create({
+  body: "A remarkable stay! Staff was super helpful and accommodating. 10 out of 10 stay for sure. The house is very nice and comfortable! Location is very convenient. Jason was very helpful and friendly, he’s a super host!", 
+  rating: 5, 
+  listing_id: l11.id,
+  author_id: d7.id
+})
 
 l2 = Listing.create({
   lat: 40.729397,
@@ -82,7 +90,7 @@ l2 = Listing.create({
   address: "230 Thompson St, New York, NY 10012",
   price: 129,
   picture_url: "./download (1).jpeg",
-  owner_id: d2.id
+  owner_id: d1.id
   })
 
 l3 = Listing.create({
@@ -93,7 +101,7 @@ l3 = Listing.create({
   address: "11 E 33rd St, New York, NY 10016",
   price: 199,
   picture_url: "./images.jpeg",
-  owner_id: d3.id
+  owner_id: d1.id
   })
 
 l4 = Listing.create({
@@ -104,7 +112,7 @@ l4 = Listing.create({
   address: "261 Madison Ave 9th Floor, New York, NY 10016",
   price: 159,
   picture_url: "./images (6).jpeg",
-  owner_id: d2.id
+  owner_id: d1.id
   })
 
 l5 = Listing.create({
@@ -115,7 +123,7 @@ l5 = Listing.create({
   address: "42-11 Broadway, Astoria, NY 11103",
   price: 259,
   picture_url: "./download (8).jpeg",
-  owner_id: d3.id
+  owner_id: d1.id
   })
 
 l6 = Listing.create({
@@ -126,7 +134,7 @@ l6 = Listing.create({
   address: "1562 Grand St, Brooklyn, NY 11211",
   price: 179,
   picture_url: "./images (2).jpeg",
-  owner_id: demoUser.id
+  owner_id: d1.id
   })
 
 l7 = Listing.create({
@@ -137,7 +145,7 @@ l7 = Listing.create({
   address: "7128 Broadway, New York, NY 10025",
   price: 279,
   picture_url: "./download.jpeg",
-  owner_id: demoUser.id
+  owner_id: d1.id
   })
 
 l8 = Listing.create({
@@ -148,7 +156,7 @@ l8 = Listing.create({
   address: "37 Mott St, New York, NY 10013",
   price: 129,
   picture_url: "./download (10).jpeg",
-  owner_id: d2.id
+  owner_id: d1.id
   })
 
 l9 = Listing.create({
@@ -159,7 +167,7 @@ l9 = Listing.create({
   address: "330 W 55th St New York, NY 10019",
   price: 199,
   picture_url: "./download (9).jpeg",
-  owner_id: d3.id
+  owner_id: d1.id
   })
 
 l10 = Listing.create({
@@ -170,7 +178,7 @@ l10 = Listing.create({
   address: "1131 3rd Ave, New York, NY 10065",
   price: 159,
   picture_url: "./download (7).jpeg",
-  owner_id: d2.id
+  owner_id: d1.id
   })
 
 l17 = Listing.create({
@@ -181,7 +189,7 @@ l17 = Listing.create({
   address: "10-93 Jackson Ave, Long Island City, NY 11101",
   price: 259,
   picture_url: "./images (5).jpeg",
-  owner_id: d3.id
+  owner_id: d1.id
   })
 
 l12 = Listing.create({
@@ -192,7 +200,7 @@ l12 = Listing.create({
   address: "25 Jay St, Brooklyn, NY 11201",
   price: 179,
   picture_url: "./download (4).jpeg",
-  owner_id: demoUser.id
+  owner_id: d1.id
   })
 
 l13 = Listing.create({
@@ -203,7 +211,7 @@ l13 = Listing.create({
   address: "200 5th Ave, New York, NY 10010",
   price: 279,
   picture_url: "./download (2).jpeg",
-  owner_id: demoUser.id
+  owner_id: d1.id
   })
 
 l14 = Listing.create({
@@ -214,7 +222,7 @@ l14 = Listing.create({
   address: "75 9th Ave, New York, NY 10011",
   price: 129,
   picture_url: "./download (11).jpeg",
-  owner_id: d2.id
+  owner_id: d1.id
   })
 
 l15 = Listing.create({
@@ -225,5 +233,5 @@ l15 = Listing.create({
   address: "11 Wall St, New York, NY 10005",
   price: 199,
   picture_url: "./download (3).jpeg",
-  owner_id: d3.id
+  owner_id: d1.id
   })
