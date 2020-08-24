@@ -1,7 +1,6 @@
 import React from "react";
 import ListingIndexItem from "./listing_index_item";
 import ListingMap from "../listings/listing_map";
-import { fetchListings } from "../../actions/listing_actions";
 
 export default class ListingIndex extends React.Component {
   constructor(props) {
@@ -16,10 +15,17 @@ export default class ListingIndex extends React.Component {
     this.unhovered = this.unhovered.bind(this)
   }
 
+  componentDidMount() {
+    this.props.fetchReviews("all");
+  }
+
   componentWillMount() {
     this.props.history.push({
       search: ``,
     });
+  }
+
+  componentDidUpdate() {
   }
 
   componentWillUpdate(newProps) {
@@ -124,7 +130,12 @@ export default class ListingIndex extends React.Component {
         {ifSearch(this.state.searchTerm)}
         <ul className="list-items" onMouseLeave={this.unhovered}>
           {this.allPropsOrFiltered(this.state, this.props).map(listing => (
-            <ListingIndexItem listing={listing} key={listing.id} setHoveredListItem={this.setHoveredListItem}/>
+            <ListingIndexItem 
+            listing={listing} 
+            key={listing.id} 
+            setHoveredListItem={this.setHoveredListItem}
+            allReviews={this.props.allReviews}
+            />
           ))}
         </ul >
       </div>

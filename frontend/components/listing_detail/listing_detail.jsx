@@ -32,7 +32,7 @@ class ListingDetail extends React.Component {
 
   componentDidMount() {
     const { listingId } = this.props;
-    this.props.fetchReviews(listingId);
+    this.props.fetchListingReviews(listingId);
     this.props.fetchListing(listingId);
     window.scroll(0, 0)
 

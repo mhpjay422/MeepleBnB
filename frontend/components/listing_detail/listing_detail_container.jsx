@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import { fetchListing } from '../../actions/listing_actions';
 import ListingDetail from './listing_detail';
-import { fetchReviews,
+import {
+         fetchListingReviews,
          updateReview,
          createReview, 
          deleteReview
@@ -20,7 +21,7 @@ const msp = (state, { match }) => {
 const mdp = dispatch => {
   return ({
   fetchListing: id => dispatch(fetchListing(id)), 
-  fetchReviews: id => dispatch(fetchReviews(id)), 
+  fetchListingReviews: id => dispatch(fetchListingReviews(id)), 
   updateReview: (id, review) => dispatch(updateReview(id, review)),
   createReview: review => dispatch(createReview(review)),
   deleteReview: id => dispatch(deleteReview(id)),

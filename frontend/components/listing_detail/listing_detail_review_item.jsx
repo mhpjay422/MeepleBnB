@@ -11,6 +11,8 @@ class ListingDetailReviewItem extends React.Component {
   componentDidMount() {
   }
 
+
+
   formatDate(date) {
     const calendarYear = {
       1: "January", 
@@ -36,24 +38,52 @@ class ListingDetailReviewItem extends React.Component {
 
   render() {
     const { review } = this.props;
+
+    const item = (review) => {
+      if (review.author) {
+        return (
+          <div className="reviews-body-item">
+            <div className="reviews-body-item-header">
+              <div className="reviews-body-item-header-icon">
+                <img src="userimage.png"></img>
+              </div>
+              <div className="reviews-body-item-header-text-top">
+                {review.author.username}
+                <div className="reviews-body-item-header-text-bottom">
+                  {this.formatDate(review.created_at)}
+                </div>
+              </div>
+            </div>
+            <div className="reviews-body-item-text">
+              {review.body}
+            </div>
+          </div>
+        )
+      } else {
+        return <></>
+      }
+    }
+
+    const createdDate = (review) => {
+      if (this.formatDate(review.created_at)) {
+        return this.formatDate(review.created_at)
+      } else {
+        return ""
+      }
+    }
+
+    const body = (review) => {
+      if (review.body) {
+        return review.body
+      } else {
+        return ""
+      }
+    }
+
+
     return (
       <div className="reviews-body-item-container">
-        <div className="reviews-body-item">
-          <div className="reviews-body-item-header">
-            <div className="reviews-body-item-header-icon">
-              <img src="userimage.png"></img>
-            </div>
-            <div className="reviews-body-item-header-text-top">
-              {review.author.username}
-                      <div className="reviews-body-item-header-text-bottom">
-                {this.formatDate(review.created_at)}
-                      </div>
-            </div>
-          </div>
-          <div className="reviews-body-item-text">
-            {review.body}
-          </div>
-        </div>
+        {item(review)}
       </div>
     )
   }
