@@ -11,7 +11,7 @@ export const DELETE_REVIEW = "DELETE_REVIEW";
 const receiveReviews = reviews => {
   return {
     type: RECEIVE_ALL_REVIEWS,
-    reviews
+    reviews, 
   };
 };
 
@@ -45,6 +45,7 @@ const receiveReviews = reviews => {
 
 export const fetchReviews = (listingId) => dispatch => {
   return ReviewAPIUtil.fetchReviews(listingId).then(payload => {
+    debugger
     return dispatch(receiveReviews(payload));
   });
 };

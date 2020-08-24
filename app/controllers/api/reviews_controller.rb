@@ -1,7 +1,11 @@
 class Api::ReviewsController < ApplicationController
     before_action :require_logged_in, only: [:create]
 
-    def index        
+    def index
+        @host = listing_host        
+        @listings = Listing.all.select { |listing| listing.owner_id == @host.id}
+        @host_reviews = @listings.reduce(0) { |sum, listing| sum + listing.reviews.length}
+        @host_count = {"host_reviews": @host_reviews}
         @current_listing = current_listing
         @reviews = @current_listing.reviews
         render "/api/reviews/index"
@@ -38,6 +42,10 @@ class Api::ReviewsController < ApplicationController
 
     def current_listing
       Listing.find(params[:listing_id])
+    end
+
+    def listing_host
+      User.find(current_listing.owner_id)
     end
 
     def review_params

@@ -9,3 +9,5 @@
     end
   end
 end
+json.extract! @host_count, :host_reviews 
+

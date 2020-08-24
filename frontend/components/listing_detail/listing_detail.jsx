@@ -53,6 +53,8 @@ class ListingDetail extends React.Component {
 
   componentDidUpdate() {
 
+    debugger
+     
     const mapOptions = {
       position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
       zoom: 10.4,
@@ -117,7 +119,6 @@ class ListingDetail extends React.Component {
 
     const avgRating = (reviews) => {
       let count = 0
-      debugger
       if (reviews.length) {
 
         let reduced = reviews.reduce((acc, cur) => {
@@ -598,7 +599,7 @@ class ListingDetail extends React.Component {
                     <img src="./bnbstar.png" className="star" />
                   </div>
                   <div className="host-body-left-icons-item-icon-text">
-                    {this.props.reviews.length} Reviews
+                    {this.props.hostReviews} Reviews
                     </div>
                 </div>
                 <div className="host-body-main-left-icons-item-container-right">

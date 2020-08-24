@@ -10,9 +10,12 @@ import { fetchReviews,
 const msp = (state, { match }) => {
   const listingId = parseInt(match.params.listingId);
   const listing =  state.entities.listings[listingId] || {};
+  const hostReviews = state.entities.reviews.host_reviews
+  const cloneReviews = Object.assign({}, state.entities.reviews)
+  delete cloneReviews["host_reviews"]
+  const reviews = Object.values(cloneReviews)
   debugger
-  const reviews = Object.values(state.entities.reviews)
-  return {listing, listingId, reviews};
+  return {listing, listingId, reviews, hostReviews};
 };
 
 const mdp = dispatch => {
