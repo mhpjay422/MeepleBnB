@@ -8,11 +8,6 @@ class ListingDetailReviewItem extends React.Component {
     this.formatDate = this.formatDate.bind(this);
   }
 
-  componentDidMount() {
-  }
-
-
-
   formatDate(date) {
     const calendarYear = {
       1: "January", 
@@ -63,23 +58,6 @@ class ListingDetailReviewItem extends React.Component {
         return <></>
       }
     }
-
-    const createdDate = (review) => {
-      if (this.formatDate(review.created_at)) {
-        return this.formatDate(review.created_at)
-      } else {
-        return ""
-      }
-    }
-
-    const body = (review) => {
-      if (review.body) {
-        return review.body
-      } else {
-        return ""
-      }
-    }
-
 
     return (
       <div className="reviews-body-item-container">

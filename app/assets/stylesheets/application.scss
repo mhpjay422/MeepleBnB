@@ -919,11 +919,35 @@ a:hover {
 }
 
 .index-item-rating {
-  margin-right: 12px;
-  display: block;
-  box-sizing: border-box;
-  -webkit-box-direction: normal;
-  margin-bottom: -5px;
+  display: flex;
+  font-size: 14px;
+  line-height: 18px;
+  align-items: center;
+}
+
+.index-item-rating-image {
+  align-items: center;
+  display: flex;
+  margin-right: 4px;
+}
+
+.index-item-rating-avg {
+  color: #222222;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  align-items: baseline;
+  position: relative;
+  top: 1px;
+}
+
+.index-item-rating-total {
+  margin-left: 4px;
+  color: #717171;
+  position: relative;
+  top: 1px;
+  line-height: 18px;
+  font-size: 14px;
 }
 
 .index-item-price-container {

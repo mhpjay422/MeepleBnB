@@ -1,15 +1,16 @@
 import React from 'react';
-import { Link } from "react-router";
+// import { Link } from "react-router";
 import NavbarContainer from "../navbar/navbar_container";
 import BookingFormContainer from "./booking_form_container";
-import Rating from "react-rating";
+// import Rating from "react-rating";
 import "react-dates/initialize";
 import { DayPickerRangeController } from 'react-dates';
-import momentPropTypes from "react-moment-proptypes";
+// import momentPropTypes from "react-moment-proptypes";
 import moment from "moment";
 import "react-dates/lib/css/_datepicker.css";
 import ListingDetailReviewItem from "./listing_detail_review_item"
 import Footer from "../footer/footer_show_frame.jsx"
+import { avgRating } from "../helper_methods/helper_methods"
 
 class ListingDetail extends React.Component {
   constructor(props) {
@@ -113,22 +114,6 @@ class ListingDetail extends React.Component {
   }
 
   render() {
-
-    const avgRating = (reviews) => {
-      let count = 0
-      if (reviews.length) {
-
-        let reduced = reviews.reduce((acc, cur) => {
-          if (cur.rating) {
-            count++
-            return acc + cur.rating
-          } else {
-            return acc
-          }
-        }, 0)
-        return (reduced / count).toFixed(2);
-      }
-    }
 
     const bodyIntro = (
 

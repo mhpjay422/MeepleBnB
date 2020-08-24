@@ -1,11 +1,12 @@
 import React from "react";
 import { withRouter, Redirect } from "react-router-dom";
-import Rating from "react-rating";
+// import Rating from "react-rating";
 import "react-dates/initialize";
 import { DateRangePicker } from "react-dates";
-import momentPropTypes from "react-moment-proptypes";
-import moment from "moment";
+// import momentPropTypes from "react-moment-proptypes";
+// import moment from "moment";
 import "react-dates/lib/css/_datepicker.css";
+import { avgRating } from "../helper_methods/helper_methods"
 
 class BookingForm extends React.Component {
   constructor(props) {
@@ -139,22 +140,6 @@ class BookingForm extends React.Component {
         return <button className="booking-submit" onClick={this.handleSubmit}>
                  <div className="book-button">Reserve</div>
                </button>
-      }
-    }
-
-    const avgRating = (reviews) => {
-      let count = 0
-      if (reviews.length) {
-
-        let reduced = reviews.reduce((acc, cur) => {
-          if (cur.rating) {
-            count++
-            return acc + cur.rating
-          } else {
-            return acc
-          }
-        }, 0)
-        return (reduced / count).toFixed(2);
       }
     }
 

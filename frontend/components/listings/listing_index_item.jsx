@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import Rating from "react-rating";
+// import Rating from "react-rating";
+import { avgRating } from "../helper_methods/helper_methods"
 
 class IndexItem extends React.Component {
   constructor(props) {
@@ -59,12 +60,15 @@ class IndexItem extends React.Component {
               </div>
               <div className="index-item-footer">
                 <div className="index-item-rating">
-                  <Rating
-                    placeholderRating={1}
-                    emptySymbol={<img src="./star-solid.svg" className="star" />}
-                    placeholderSymbol={<img src="./star-solid.svg" className="star" />}
-                    fullSymbol={<img src="./star-solid.svg" className="star" />}
-                  />
+                  <div className="index-item-rating-image">
+                    <img className="index-item-rating-img" src="bnbstarsm.png"/>
+                  </div>
+                  <div className="index-item-rating-avg">
+                    {avgRating(this.props.allReviews)}
+                  </div>
+                  <div className="index-item-rating-total">
+                    ({this.props.allReviews.length})
+                  </div>
                 </div>
                 <div className="index-item-price-container">
                   <div className="index-item-price">

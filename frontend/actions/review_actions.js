@@ -51,17 +51,17 @@ const receiveListingReviews = reviews => {
 
 
 export const fetchReviews = (listingId) => dispatch => {
-  debugger
+  
   return ReviewAPIUtil.fetchReviews(listingId).then(payload => {
-    debugger
+    
     return dispatch(receiveReviews(payload));
   });
 };
 
 export const fetchListingReviews = (listingId) => dispatch => {
-  debugger
+  
   return ReviewAPIUtil.fetchListingReviews(listingId).then(payload => {
-    debugger
+    
     return dispatch(receiveListingReviews(payload));
   });
 };
