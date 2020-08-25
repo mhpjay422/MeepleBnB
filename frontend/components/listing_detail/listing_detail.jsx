@@ -593,7 +593,7 @@ class ListingDetail extends React.Component {
             </div>
             <div className="host-body-main-left-intro-container">
               <div className="host-body-main-left-intro-frame">
-                <span>Born and raised in NYC. World traveler, foodie, coffee lover, and board game enthusiast. Always making the best out every life experience. I love people, making new friends and of course hosting incredible people from all over the world!!!</span>
+                <span>Born and raised in NYC. World traveler, foodie, coffee lover, and tabletop game enthusiast. Always making the best out every life experience. I love people, making new friends and of course hosting incredible people from all over the world!!!</span>
               </div>
             </div>
             <div className="host-body-main-left-description">

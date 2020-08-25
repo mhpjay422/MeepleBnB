@@ -23,7 +23,6 @@ class IndexItem extends React.Component {
   }
 
   filteredReviews(reviews) {
-    debugger
     const listingId = this.props.listing.id;
     return reviews.filter(review => review.listing_id === listingId)
   }
