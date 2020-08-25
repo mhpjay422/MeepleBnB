@@ -638,6 +638,25 @@ class ListingDetail extends React.Component {
       </>
     )
 
+    const amenities = (
+      <>
+        <div className="amenities-container">
+          <div className="amenities-header">
+            <div className="amenities-header-text">
+              Amenities
+            </div>
+          </div>
+          <div className="amenities-body">
+
+          </div>
+          <div className="amenities-button">
+
+          </div>
+        </div>
+      </>
+
+    )
+
     const bodyDetail = (
       <div className="listing-body-container">
         <div className="listing-body-frame">
@@ -646,6 +665,7 @@ class ListingDetail extends React.Component {
               {bodyIntro}
               {introDescription}
               {bodyInfo}
+              {amenities}
               {sleepingArrangements}
               {dayPicker}
             </div>
