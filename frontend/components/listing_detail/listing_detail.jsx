@@ -646,8 +646,87 @@ class ListingDetail extends React.Component {
               Amenities
             </div>
           </div>
-          <div className="amenities-body">
-
+          <div className="amenities-body-container">
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Kitchen</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="kitchen.png"/>
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Wifi</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="wifi.png" />
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Hot Tub</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="hottub.png" />
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Free parking on premises</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="parking.png" />
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Laptop-friendly workspace</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="laptop.png" />
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Cable TV</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="fun.png" />
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Iron</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="iron.png" />
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Hair Dryer</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="dryer.png" />
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Washer</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="washer.png" />
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Dryer</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="dryerr.png" />
+                </div>
+              </div>
+            </div>
           </div>
           <div className="amenities-button">
 

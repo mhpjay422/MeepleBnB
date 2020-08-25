@@ -611,6 +611,47 @@ a:hover {
   line-height: 26px;
 }
 
+.amenities-body-container {
+  margin-left: -8px;
+  margin-right: -8px;
+  width: calc(100% + 16px);
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.amenities-body-item-container {
+  width: 50%;
+  padding-left: 8px;
+  padding-right: 8px;
+  position: relative;
+  margin-left: 0%;
+  margin-right: 0%;
+  box-sizing: border-box;
+}
+
+.amenities-body-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  max-width: 83.3333%;
+  padding-bottom: 16px;
+  font-weight: 300;
+}
+
+.amenities-body-item-image {
+  margin-right: 16px;
+  margin-left: 0px;
+  min-width: 24px;
+}
+
+.amenities-body-item-img {
+  height: 24px;
+  width: 24px;
+}
+
 
 
 .daypicker-container {
