@@ -744,8 +744,8 @@ class ListingDetail extends React.Component {
               {bodyIntro}
               {introDescription}
               {bodyInfo}
-              {amenities}
               {sleepingArrangements}
+              {amenities}
               {dayPicker}
             </div>
             <BookingFormContainer

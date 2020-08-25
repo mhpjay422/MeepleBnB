@@ -524,7 +524,7 @@ a:hover {
 
 .sleeping-arrangements-text {
   color: rgb(34, 34, 34);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 22px;
   font-family: sans-serif;
 }
@@ -598,6 +598,7 @@ a:hover {
 .amenities-container {
   padding-top: 48px;
   padding-bottom: 48px;
+  border-bottom: 1px solid lightgrey;
 }
 
 .amenities-header {
@@ -606,7 +607,7 @@ a:hover {
 
 .amenities-header-text {
   color: rgb(34, 34, 34);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 22px;
   line-height: 26px;
 }

@@ -17,3 +17,4 @@ export const avgRating = (reviews) => {
     return 0
   }
 }
+
