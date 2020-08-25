@@ -9,6 +9,7 @@ class IndexItem extends React.Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.hovered = this.hovered.bind(this);
+    this.filteredReviews = this.filteredReviews.bind(this);
   }
 
   handleClick() {
@@ -19,6 +20,12 @@ class IndexItem extends React.Component {
 
   hovered() {
     this.props.setHoveredListItem(this.props.listing)
+  }
+
+  filteredReviews(reviews) {
+    debugger
+    const listingId = this.props.listing.id;
+    return reviews.filter(review => review.listing_id === listingId)
   }
 
   render() {
@@ -67,7 +74,7 @@ class IndexItem extends React.Component {
                     {avgRating(this.props.allReviews)}
                   </div>
                   <div className="index-item-rating-total">
-                    ({this.props.allReviews.length})
+                    ({this.filteredReviews(this.props.allReviews).length})
                   </div>
                 </div>
                 <div className="index-item-price-container">
