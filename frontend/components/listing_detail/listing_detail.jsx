@@ -783,60 +783,37 @@ class ListingDetail extends React.Component {
       </div>
     )
 
+    const things = (
+      <>
+        <div className="things-header-container">
+          <div className="things-header">
+            Things to know
+          </div>
+        </div>
+        <div className="things-body">
+          <div className="things-body-third">
+            <div className="things-body-third-header">
+              House Rules
+            </div>
+            <div className="things-body-third-item">
+              <div className="things-body-third-item-image">
+                <img className="things-body-third-item-img" src="bnbstar.png"></img>
+              </div>
+              <div className="things-body-third-item-text">
+                Check-in: After 4:00 PM
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    )
+
     const bodySectionThings = (
       <div className="body-section-container">
         <div className="body-section-frame">
           {things}
         </div>
       </div>
-    )
-
-    const things = (
-      <>
-        <div className="things-header">
-          <div className="things-body">
-            <div className="things-body-third">
-              <div className="things-body-third-header">
-
-              </div>
-              <div className="things-body-third-item">
-                <div className="things-body-third-item-image">
-
-                </div>
-                <div className="things-body-third-item-text">
-
-                </div>
-              </div>
-            </div>
-            <div className="things-body-third">
-              <div className="things-body-third-header">
-
-              </div>
-              <div className="things-body-third-item">
-                <div className="things-body-third-item-image">
-
-                </div>
-                <div className="things-body-third-item-text">
-
-                </div>
-              </div>
-            </div>
-            <div className="things-body-third">
-              <div className="things-body-third-header">
-
-              </div>
-              <div className="things-body-third-item">
-                <div className="things-body-third-item-image">
-
-                </div>
-                <div className="things-body-third-item-text">
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </>
     )
 
 

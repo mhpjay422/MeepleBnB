@@ -2448,15 +2448,15 @@ div.DateInput.DateInput_1 {
 }
 
 .host-body-main-right-warning {
-  color: rgb(34, 34, 34) !important;
-  font-weight: 300 !important;
-  font-size: 12px !important;
-  line-height: 16px !important;
+  color: rgb(34, 34, 34);
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 .keylock-icon {
-  margin-left: 0px !important;
-  margin-right: 16px !important;
+  margin-left: 0px;
+  margin-right: 16px;
 }
 
 .keylock-img {
@@ -2466,8 +2466,15 @@ div.DateInput.DateInput_1 {
   fill: rgb(255, 180, 0);
 }
 
+.things-header-container{
+  padding-bottom: 24px;
+}
+
 .things-header{
-  
+  color: rgb(34, 34, 34);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
 }
 
 .alreadybooked-container {
