@@ -340,6 +340,103 @@ class ListingDetail extends React.Component {
 
     )
 
+    const amenities = (
+      <>
+        <div className="amenities-container">
+          <div className="amenities-header">
+            <div className="amenities-header-text">
+              Amenities
+            </div>
+          </div>
+          <div className="amenities-body-container">
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Kitchen</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="kitchen.png" />
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Wifi</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="wifi.png" />
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Hot Tub</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="hottub.png" />
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Free parking on premises</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="parking.png" />
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Laptop-friendly workspace</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="laptop.png" />
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Cable TV</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="fun.png" />
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Iron</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="iron.png" />
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Hair Dryer</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="dryer.png" />
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Washer</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="washer.png" />
+                </div>
+              </div>
+            </div>
+            <div className="amenities-body-item-container">
+              <div className="amenities-body-item">
+                <div>Dryer</div>
+                <div className="amenities-body-item-image">
+                  <img className="amenities-body-item-img" src="dryerr.png" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="amenities-button">
+
+          </div>
+        </div>
+      </>
+    )
+
     const dayPickerHeaderTop = () => {
 
       if (!this.state.startDate && !this.state.endDate) {
@@ -638,104 +735,6 @@ class ListingDetail extends React.Component {
       </>
     )
 
-    const amenities = (
-      <>
-        <div className="amenities-container">
-          <div className="amenities-header">
-            <div className="amenities-header-text">
-              Amenities
-            </div>
-          </div>
-          <div className="amenities-body-container">
-            <div className="amenities-body-item-container">
-              <div className="amenities-body-item">
-                <div>Kitchen</div>
-                <div className="amenities-body-item-image">
-                  <img className="amenities-body-item-img" src="kitchen.png"/>
-                </div>
-              </div>
-            </div>
-            <div className="amenities-body-item-container">
-              <div className="amenities-body-item">
-                <div>Wifi</div>
-                <div className="amenities-body-item-image">
-                  <img className="amenities-body-item-img" src="wifi.png" />
-                </div>
-              </div>
-            </div>
-            <div className="amenities-body-item-container">
-              <div className="amenities-body-item">
-                <div>Hot Tub</div>
-                <div className="amenities-body-item-image">
-                  <img className="amenities-body-item-img" src="hottub.png" />
-                </div>
-              </div>
-            </div>
-            <div className="amenities-body-item-container">
-              <div className="amenities-body-item">
-                <div>Free parking on premises</div>
-                <div className="amenities-body-item-image">
-                  <img className="amenities-body-item-img" src="parking.png" />
-                </div>
-              </div>
-            </div>
-            <div className="amenities-body-item-container">
-              <div className="amenities-body-item">
-                <div>Laptop-friendly workspace</div>
-                <div className="amenities-body-item-image">
-                  <img className="amenities-body-item-img" src="laptop.png" />
-                </div>
-              </div>
-            </div>
-            <div className="amenities-body-item-container">
-              <div className="amenities-body-item">
-                <div>Cable TV</div>
-                <div className="amenities-body-item-image">
-                  <img className="amenities-body-item-img" src="fun.png" />
-                </div>
-              </div>
-            </div>
-            <div className="amenities-body-item-container">
-              <div className="amenities-body-item">
-                <div>Iron</div>
-                <div className="amenities-body-item-image">
-                  <img className="amenities-body-item-img" src="iron.png" />
-                </div>
-              </div>
-            </div>
-            <div className="amenities-body-item-container">
-              <div className="amenities-body-item">
-                <div>Hair Dryer</div>
-                <div className="amenities-body-item-image">
-                  <img className="amenities-body-item-img" src="dryer.png" />
-                </div>
-              </div>
-            </div>
-            <div className="amenities-body-item-container">
-              <div className="amenities-body-item">
-                <div>Washer</div>
-                <div className="amenities-body-item-image">
-                  <img className="amenities-body-item-img" src="washer.png" />
-                </div>
-              </div>
-            </div>
-            <div className="amenities-body-item-container">
-              <div className="amenities-body-item">
-                <div>Dryer</div>
-                <div className="amenities-body-item-image">
-                  <img className="amenities-body-item-img" src="dryerr.png" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="amenities-button">
-
-          </div>
-        </div>
-      </>
-
-    )
-
     const bodyDetail = (
       <div className="listing-body-container">
         <div className="listing-body-frame">
@@ -784,6 +783,62 @@ class ListingDetail extends React.Component {
       </div>
     )
 
+    const bodySectionThings = (
+      <div className="body-section-container">
+        <div className="body-section-frame">
+          {things}
+        </div>
+      </div>
+    )
+
+    const things = (
+      <>
+        <div className="things-header">
+          <div className="things-body">
+            <div className="things-body-third">
+              <div className="things-body-third-header">
+
+              </div>
+              <div className="things-body-third-item">
+                <div className="things-body-third-item-image">
+
+                </div>
+                <div className="things-body-third-item-text">
+
+                </div>
+              </div>
+            </div>
+            <div className="things-body-third">
+              <div className="things-body-third-header">
+
+              </div>
+              <div className="things-body-third-item">
+                <div className="things-body-third-item-image">
+
+                </div>
+                <div className="things-body-third-item-text">
+
+                </div>
+              </div>
+            </div>
+            <div className="things-body-third">
+              <div className="things-body-third-header">
+
+              </div>
+              <div className="things-body-third-item">
+                <div className="things-body-third-item-image">
+
+                </div>
+                <div className="things-body-third-item-text">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    )
+
 
     return (
       <div className="single-listing-show">
@@ -794,6 +849,7 @@ class ListingDetail extends React.Component {
           {bodySectionLocation}
           {bodySectionReviews}
           {bodySectionHost}
+          {bodySectionThings}
         </div>
         <Footer />
       </div >
