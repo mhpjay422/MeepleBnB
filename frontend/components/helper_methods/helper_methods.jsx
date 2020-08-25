@@ -10,6 +10,10 @@ export const avgRating = (reviews) => {
         return acc
       }
     }, 0)
+    
     return (reduced / count).toFixed(2);
+    
+  } else {
+    return 0
   }
 }

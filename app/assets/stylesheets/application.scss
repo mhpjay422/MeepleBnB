@@ -995,18 +995,20 @@ a:hover {
   font-weight: 600;
   font-size: 14px;
   line-height: 18px;
-  align-items: baseline;
   position: relative;
   top: 1px;
+  align-self: center;
 }
 
 .index-item-rating-total {
   margin-left: 4px;
   color: #717171;
   position: relative;
-  top: 1px;
   line-height: 18px;
   font-size: 14px;
+  align-self: center;
+  font-weight: 500;
+  top: 1px;
 }
 
 .index-item-price-container {

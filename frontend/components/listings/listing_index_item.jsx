@@ -24,7 +24,11 @@ class IndexItem extends React.Component {
 
   filteredReviews(reviews) {
     const listingId = this.props.listing.id;
-    return reviews.filter(review => review.listing_id === listingId)
+    if(reviews) {
+      return reviews.filter(review => review.listing_id === listingId) || []
+    } else {
+      return []
+    }
   }
 
   render() {
@@ -70,7 +74,7 @@ class IndexItem extends React.Component {
                     <img className="index-item-rating-img" src="bnbstarsm.png"/>
                   </div>
                   <div className="index-item-rating-avg">
-                    {avgRating(this.props.allReviews)}
+                    {avgRating(this.filteredReviews(this.props.allReviews))}
                   </div>
                   <div className="index-item-rating-total">
                     ({this.filteredReviews(this.props.allReviews).length})
