@@ -852,8 +852,8 @@ class ListingDetail extends React.Component {
                 Health & safety
               </div>
               <div className="things-body-third-item">
-                <div className="things-body-third-item-image">
-                  <img className="things-body-third-item-img" src="bnbstar.png"></img>
+                <div className="things-body-third-item-image-spray">
+                  <img className="things-body-third-item-img" src="spray.png"></img>
                 </div>
                 <div className="things-body-third-item-text">
                   Airbnb's social-distancing and other COVID-19-related guidelines apply
@@ -861,7 +861,7 @@ class ListingDetail extends React.Component {
               </div>
               <div className="things-body-third-item">
                 <div className="things-body-third-item-image">
-                  <img className="things-body-third-item-img" src="bnbstar.png"></img>
+                  <img className="things-body-third-item-img" src="mark.png"></img>
                 </div>
                 <div className="things-body-third-item-text">
                   Security camera/recording device
@@ -869,7 +869,7 @@ class ListingDetail extends React.Component {
               </div>
               <div className="things-body-third-item">
                 <div className="things-body-third-item-image">
-                  <img className="things-body-third-item-img" src="bnbstar.png"></img>
+                  <img className="things-body-third-item-img" src="check.png"></img>
                 </div>
                 <div className="things-body-third-item-text">
                   Carbon monoxide alarm
@@ -877,7 +877,7 @@ class ListingDetail extends React.Component {
               </div>
               <div className="things-body-third-item">
                 <div className="things-body-third-item-image">
-                  <img className="things-body-third-item-img" src="bnbstar.png"></img>
+                  <img className="things-body-third-item-img" src="check.png"></img>
                 </div>
                 <div className="things-body-third-item-text">
                   Smoke alarm
