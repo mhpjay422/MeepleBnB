@@ -791,16 +791,18 @@ class ListingDetail extends React.Component {
           </div>
         </div>
         <div className="things-body">
-          <div className="things-body-third">
-            <div className="things-body-third-header">
-              House Rules
-            </div>
-            <div className="things-body-third-item">
-              <div className="things-body-third-item-image">
-                <img className="things-body-third-item-img" src="bnbstar.png"></img>
+          <div className="things-body-third-container">
+            <div className="things-body-third-blueprint">
+              <div className="things-body-third-header">
+                House Rules
               </div>
-              <div className="things-body-third-item-text">
-                Check-in: After 4:00 PM
+              <div className="things-body-third-item">
+                <div className="things-body-third-item-image">
+                  <img className="things-body-third-item-img" src="bnbstar.png"></img>
+                </div>
+                <div className="things-body-third-item-text">
+                  Check-in: After 4:00 PM
+                </div>
               </div>
             </div>
           </div>

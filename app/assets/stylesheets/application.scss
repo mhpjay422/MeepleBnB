@@ -2477,6 +2477,37 @@ div.DateInput.DateInput_1 {
   line-height: 26px;
 }
 
+.things-body-container{
+  margin-left: -8px;
+  margin-right: -8px;
+  width: calc(100% + 16px);
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.things-body-third-container{
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 33.3333%;
+  margin-right: 32px;
+}
+
+.things-body-third-blueprint {
+  color: rgb(34, 34, 34);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.things-body-third-header {
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
+
 .alreadybooked-container {
   width: 39%;
   justify-content: center;
