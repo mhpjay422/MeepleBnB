@@ -846,6 +846,45 @@ class ListingDetail extends React.Component {
               </div>
             </div>
           </div>
+          <div className="things-body-third-container">
+            <div className="things-body-third-blueprint">
+              <div className="things-body-third-header">
+                Health & safety
+              </div>
+              <div className="things-body-third-item">
+                <div className="things-body-third-item-image">
+                  <img className="things-body-third-item-img" src="bnbstar.png"></img>
+                </div>
+                <div className="things-body-third-item-text">
+                  Airbnb's social-distancing and other COVID-19-related guidelines apply
+                </div>
+              </div>
+              <div className="things-body-third-item">
+                <div className="things-body-third-item-image">
+                  <img className="things-body-third-item-img" src="bnbstar.png"></img>
+                </div>
+                <div className="things-body-third-item-text">
+                  Security camera/recording device
+                </div>
+              </div>
+              <div className="things-body-third-item">
+                <div className="things-body-third-item-image">
+                  <img className="things-body-third-item-img" src="bnbstar.png"></img>
+                </div>
+                <div className="things-body-third-item-text">
+                  Carbon monoxide alarm
+                </div>
+              </div>
+              <div className="things-body-third-item">
+                <div className="things-body-third-item-image">
+                  <img className="things-body-third-item-img" src="bnbstar.png"></img>
+                </div>
+                <div className="things-body-third-item-text">
+                  Smoke alarm
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </>
     )

@@ -2490,8 +2490,10 @@ div.DateInput.DateInput_1 {
 .things-body-third-container{
   padding-left: 8px;
   padding-right: 8px;
-  width: 33.3333%;
+  width: 30%;
   margin-right: 32px;
+  box-sizing: border-box;
+  position: relative
 }
 
 .things-body-third-blueprint {
