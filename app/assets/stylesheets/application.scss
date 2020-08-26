@@ -2508,6 +2508,22 @@ div.DateInput.DateInput_1 {
   line-height: 20px;
 }
 
+.things-body-third-item {
+  align-items: baseline;
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.things-body-third-item-image {
+  font-size: 20px;
+  line-height: 16px;
+  margin-right: 12px;
+  min-width: 20px;
+  transform: translateY(1px);
+  position: relative;
+  top: 3px;
+}
+
 .alreadybooked-container {
   width: 39%;
   justify-content: center;
