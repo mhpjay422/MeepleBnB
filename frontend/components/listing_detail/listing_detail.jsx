@@ -885,6 +885,16 @@ class ListingDetail extends React.Component {
               </div>
             </div>
           </div>
+          <div className="things-body-third-container">
+            <div className="things-body-third-blueprint">
+              <div className="things-body-third-header">
+                Cancellation policy
+              </div>
+              <div className="things-body-third-item">
+                Cancel before 4:00 PM one week prior and get a 50% refund, minus the service fee.
+              </div>
+            </div>
+          </div>
         </div>
       </>
     )
