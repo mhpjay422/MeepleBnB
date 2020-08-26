@@ -798,7 +798,7 @@ class ListingDetail extends React.Component {
               </div>
               <div className="things-body-third-item">
                 <div className="things-body-third-item-image">
-                  <img className="things-body-third-item-img" src="bnbstar.png"></img>
+                  <img className="things-body-third-item-img" src="clock.png"></img>
                 </div>
                 <div className="things-body-third-item-text">
                   Check-in: After 4:00 PM
@@ -806,7 +806,7 @@ class ListingDetail extends React.Component {
               </div>
               <div className="things-body-third-item">
                 <div className="things-body-third-item-image">
-                  <img className="things-body-third-item-img" src="bnbstar.png"></img>
+                  <img className="things-body-third-item-img" src="clock.png"></img>
                 </div>
                 <div className="things-body-third-item-text">
                   Checkout: 11:00 AM
@@ -814,7 +814,7 @@ class ListingDetail extends React.Component {
               </div>
               <div className="things-body-third-item">
                 <div className="things-body-third-item-image">
-                  <img className="things-body-third-item-img" src="bnbstar.png"></img>
+                  <img className="things-body-third-item-img" src="opendoor.png"></img>
                 </div>
                 <div className="things-body-third-item-text">
                   Self check-in with smart lock
@@ -822,7 +822,7 @@ class ListingDetail extends React.Component {
               </div>
               <div className="things-body-third-item">
                 <div className="things-body-third-item-image">
-                  <img className="things-body-third-item-img" src="bnbstar.png"></img>
+                  <img className="things-body-third-item-img" src="smoke.png"></img>
                 </div>
                 <div className="things-body-third-item-text">
                   No smoking
@@ -830,7 +830,7 @@ class ListingDetail extends React.Component {
               </div>
               <div className="things-body-third-item">
                 <div className="things-body-third-item-image">
-                  <img className="things-body-third-item-img" src="bnbstar.png"></img>
+                  <img className="things-body-third-item-img" src="party.png"></img>
                 </div>
                 <div className="things-body-third-item-text">
                   No parties or events
@@ -838,7 +838,7 @@ class ListingDetail extends React.Component {
               </div>
               <div className="things-body-third-item">
                 <div className="things-body-third-item-image">
-                  <img className="things-body-third-item-img" src="bnbstar.png"></img>
+                  <img className="things-body-third-item-img" src="paw.png"></img>
                 </div>
                 <div className="things-body-third-item-text">
                   Pets are allowed
