@@ -901,7 +901,7 @@ class ListingDetail extends React.Component {
 
     const bodySectionThings = (
       <div className="body-section-container">
-        <div className="body-section-frame">
+        <div className="body-section-frame-things">
           {things}
         </div>
       </div>

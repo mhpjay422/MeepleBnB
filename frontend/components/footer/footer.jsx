@@ -16,7 +16,7 @@ export default ({}) => {
               <img className="linkedin-img" src="linked.png"></img>
             </a>
             <a className="github-link" href="https://github.com/mhpjay422">
-              <img className="github-img" src="github.png"></img>
+              <img className="github-img" src="github2.png"></img>
             </a>
           </div>
         </> 
