@@ -2027,10 +2027,57 @@ div.DateInput.DateInput_1 {
   font-weight: 300;
 }
 
-.booking-divider {
-  height: 25px;
-  width: 100%;
-  border-bottom: 1px solid #ebebeb;
+.booking-reserve-detail-container {
+  margin-top: 24px;
+}
+
+.booking-reserve-detail-frame {
+  color: rgb(34, 34, 34);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.booking-reserve-detail-charges {
+
+}
+
+.booking-reserve-detail-charges-item {
+  padding-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.booking-reserve-detail-charges-item-text {
+  flex-shrink: 1;
+  flex-grow: 1;
+  white-space: normal;
+  text-decoration: underline;
+}
+
+.booking-reserve-detail-charges-item-price {
+  white-space: nowrap
+}
+
+.booking-reserve-total {
+  border-top: 1px solid rgb(221, 221, 221);
+  margin: 16px 0px 0px;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.booking-reserve-total-text {
+  flex-shrink: 1;
+  flex-grow: 1;
+  white-space: normal;
+  font-weight: 800;
+}
+
+.booking-reserve-total-price {
+  padding-left: 16px;
+  white-space: nowrap;
+  font-weight: 800;
 }
 
 .booking-bottom-container {

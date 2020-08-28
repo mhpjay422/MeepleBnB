@@ -217,20 +217,45 @@ class BookingForm extends React.Component {
                   <div className="booking-reserve-detail-frame">
                     <div className="booking-reserve-detail-charges">
                       <div className="booking-reserve-detail-charges-item">
-                        
+                        <div className="booking-reserve-detail-charges-item-text">
+                          $1300 x 2 nights
+                        </div>
+                        <div className="booking-reserve-detail-charges-item-price">
+                          $2,600
+                        </div>
                       </div>
                       <div className="booking-reserve-detail-charges-item">
-                        
+                        <div className="booking-reserve-detail-charges-item-text">
+                          Cleaning fee
+                        </div>
+                        <div className="booking-reserve-detail-charges-item-price">
+                          $449
+                        </div>
                       </div>
                       <div className="booking-reserve-detail-charges-item">
-                        
+                        <div className="booking-reserve-detail-charges-item-text">
+                          Service fee
+                        </div>
+                        <div className="booking-reserve-detail-charges-item-price">
+                          $430
+                        </div>
                       </div>
                       <div className="booking-reserve-detail-charges-item">
-                        
+                        <div className="booking-reserve-detail-charges-item-text">
+                          Occupancy taxes and fees
+                        </div>
+                        <div className="booking-reserve-detail-charges-item-price">
+                          $300
+                        </div>
                       </div>
                     </div>
                     <div className="booking-reserve-total">
-
+                      <div className="booking-reserve-total-text">
+                        Total
+                        </div>
+                      <div className="booking-reserve-total-price">
+                        $3,700
+                        </div>
                     </div>    
                   </div>
                 </div>    
