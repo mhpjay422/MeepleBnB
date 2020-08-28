@@ -7,11 +7,15 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
   const nav = (
     <div className="splash-topbar">
       <section className="topsec">
+
           <div className="leftbar">
             <Link to="/greeting" className="navbar-left">
-              <img src="./3d-meeple4.png" />
+              <img src="./3d-meeple5.png" />
             </Link>
-          <SearchContainer />
+            <div className="leftbar-text">
+              meeplebnb
+            </div>
+          {/* <SearchContainer /> */}
           </div>
           
           <ul className="twobar">

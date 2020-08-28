@@ -32,16 +32,6 @@ body {
   background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
-.splash {
-  background: image-url("arch.jpg");
-  background-position: 30%;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-repeat: repeat-x;
-  position: absolute;
-}
-
 .topbar {
   background-color: rgba(0, 0, 0, 0.3);
   align-items: center;
@@ -56,39 +46,67 @@ body {
   height: 79px;
 }
 
-.topsec {
-  height: 80px;
+.splash {
+  background: image-url("arch.jpg");
+  background-position: 30%;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  height: 100%;
+  background-size: cover;
+  background-repeat: repeat-x;
+  position: absolute;
 }
 
 .splash-topbar {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: transparent;
   align-items: center;
   display: flex;
   justify-content: space-between;
 }
 
+.topsec {
+  height: 80px;
+  padding-left: 80px;
+  padding-right: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  flex: 1 0 140px;
+  align-items: center;
+}
+
 .navbar-left {
-  background-color: none;
-  margin-left: 30px;
-  margin-right: 15px;
-  padding-right: 15px;
+  background-color: transparent;
+  margin-right: 6px;
 }
 
 .navbar-left:hover {
   cursor: pointer;
 }
 
+.leftbar-text {
+  font-size: 21px;
+  color: white;
+  font-weight: 600;
+  position: relative;
+  bottom: 4px;
+}
+
 .twobar {
   height: 79px;
-  width: auto;
   justify-content: flex-end;
-  padding: 5px;
   display: flex;
-  margin: 0 10px;
   align-items: flex-end;
+  flex: 1 0 140px;
 }
 
 .twobar li {
@@ -101,7 +119,6 @@ body {
 }
 
 .splashbuttons {
-  width: 500px;
   font-weight: bolder;
   color: white;
   text-align: right;
@@ -2824,15 +2841,6 @@ div.DateInput.DateInput_1 {
 
 .lat-lng {
   color: white;
-}
-
-.leftbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  height: 100%;
 }
 
 .search {

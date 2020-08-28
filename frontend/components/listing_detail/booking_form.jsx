@@ -160,7 +160,6 @@ class BookingForm extends React.Component {
 
     const readyToBook = () => {
       if(this.state.startDate && this.state.endDate) {
-        debugger
         return (
           <div className="booking-reserve-detail-container">
             <div className="booking-reserve-detail-frame">
