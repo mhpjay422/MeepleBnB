@@ -143,6 +143,63 @@ class BookingForm extends React.Component {
       }
     }
 
+    const readyToBook = () => {
+      if(this.state.startDate && this.state.endDate) {
+        return (
+          <div className="booking-reserve-detail-container">
+            <div className="booking-reserve-detail-frame">
+              <div className="booking-reserve-detail-charges">
+                <div className="booking-reserve-detail-charges-item">
+                  <div className="booking-reserve-detail-charges-item-text">
+                    $1300 x 2 nights
+                        </div>
+                  <div className="booking-reserve-detail-charges-item-price">
+                    $2,600
+                        </div>
+                </div>
+                <div className="booking-reserve-detail-charges-item">
+                  <div className="booking-reserve-detail-charges-item-text">
+                    Cleaning fee
+                        </div>
+                  <div className="booking-reserve-detail-charges-item-price">
+                    $449
+                        </div>
+                </div>
+                <div className="booking-reserve-detail-charges-item">
+                  <div className="booking-reserve-detail-charges-item-text">
+                    Service fee
+                        </div>
+                  <div className="booking-reserve-detail-charges-item-price">
+                    $430
+                        </div>
+                </div>
+                <div className="booking-reserve-detail-charges-item">
+                  <div className="booking-reserve-detail-charges-item-text">
+                    Occupancy taxes and fees
+                        </div>
+                  <div className="booking-reserve-detail-charges-item-price">
+                    $300
+                        </div>
+                </div>
+              </div>
+              <div className="booking-reserve-total">
+                <div className="booking-reserve-total-text">
+                  Total
+                        </div>
+                <div className="booking-reserve-total-price">
+                  $3,700
+                        </div>
+              </div>
+            </div>
+          </div> 
+        )
+      } else {
+        return 
+          <>
+          </>
+      }
+    }
+
     const form = (
       <div className="booking-form">
         <div className="booking-frame">
@@ -213,52 +270,7 @@ class BookingForm extends React.Component {
                   {openOrReserve()}
                 </div>
                 <div className="booking-charge-text">You won’t be charged yet</div>
-                <div className="booking-reserve-detail-container">
-                  <div className="booking-reserve-detail-frame">
-                    <div className="booking-reserve-detail-charges">
-                      <div className="booking-reserve-detail-charges-item">
-                        <div className="booking-reserve-detail-charges-item-text">
-                          $1300 x 2 nights
-                        </div>
-                        <div className="booking-reserve-detail-charges-item-price">
-                          $2,600
-                        </div>
-                      </div>
-                      <div className="booking-reserve-detail-charges-item">
-                        <div className="booking-reserve-detail-charges-item-text">
-                          Cleaning fee
-                        </div>
-                        <div className="booking-reserve-detail-charges-item-price">
-                          $449
-                        </div>
-                      </div>
-                      <div className="booking-reserve-detail-charges-item">
-                        <div className="booking-reserve-detail-charges-item-text">
-                          Service fee
-                        </div>
-                        <div className="booking-reserve-detail-charges-item-price">
-                          $430
-                        </div>
-                      </div>
-                      <div className="booking-reserve-detail-charges-item">
-                        <div className="booking-reserve-detail-charges-item-text">
-                          Occupancy taxes and fees
-                        </div>
-                        <div className="booking-reserve-detail-charges-item-price">
-                          $300
-                        </div>
-                      </div>
-                    </div>
-                    <div className="booking-reserve-total">
-                      <div className="booking-reserve-total-text">
-                        Total
-                        </div>
-                      <div className="booking-reserve-total-price">
-                        $3,700
-                        </div>
-                    </div>    
-                  </div>
-                </div>    
+                {readyToBook()}
               </div>
             </div>
           </div>
