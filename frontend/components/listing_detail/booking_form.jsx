@@ -213,6 +213,27 @@ class BookingForm extends React.Component {
                   {openOrReserve()}
                 </div>
                 <div className="booking-charge-text">You won’t be charged yet</div>
+                <div className="booking-reserve-detail-container">
+                  <div className="booking-reserve-detail-frame">
+                    <div className="booking-reserve-detail-charges">
+                      <div className="booking-reserve-detail-charges-item">
+                        
+                      </div>
+                      <div className="booking-reserve-detail-charges-item">
+                        
+                      </div>
+                      <div className="booking-reserve-detail-charges-item">
+                        
+                      </div>
+                      <div className="booking-reserve-detail-charges-item">
+                        
+                      </div>
+                    </div>
+                    <div className="booking-reserve-total">
+
+                    </div>    
+                  </div>
+                </div>    
               </div>
             </div>
           </div>
