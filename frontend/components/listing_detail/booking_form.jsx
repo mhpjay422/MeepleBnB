@@ -26,6 +26,9 @@ class BookingForm extends React.Component {
     this.handleCounterPlus = this.handleCounterPlus.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.focusMethod = this.focusMethod.bind(this);
+    this.nights = this.nights.bind(this);
+    this.nightsTotalPrice = this.nightsTotalPrice.bind(this);
+    this.bookingTotalPrice = this.bookingTotalPrice.bind(this);
   }
 
   componentDidMount() {
@@ -112,6 +115,18 @@ class BookingForm extends React.Component {
     document.getElementById("start-date").focus();
   }
 
+  nights() {
+    return (this.state.endDate._d.getTime() - this.state.startDate._d.getTime()) / (1000 * 60 * 60 * 24)
+  }
+
+  nightsTotalPrice() {
+    return this.nights() * this.props.listing.price
+  }
+
+  bookingTotalPrice() {
+    return this.nightsTotalPrice() + 449 + 430 + 300
+  }
+
   render() {
 
     const isMinusAllowed = () => {
@@ -145,50 +160,31 @@ class BookingForm extends React.Component {
 
     const readyToBook = () => {
       if(this.state.startDate && this.state.endDate) {
+        debugger
         return (
           <div className="booking-reserve-detail-container">
             <div className="booking-reserve-detail-frame">
               <div className="booking-reserve-detail-charges">
                 <div className="booking-reserve-detail-charges-item">
-                  <div className="booking-reserve-detail-charges-item-text">
-                    $1300 x 2 nights
-                        </div>
-                  <div className="booking-reserve-detail-charges-item-price">
-                    $2,600
-                        </div>
+                  <div className="booking-reserve-detail-charges-item-text">${this.props.listing.price} x {this.nights()} nights</div>
+                  <div className="booking-reserve-detail-charges-item-price">${this.nightsTotalPrice()}</div>
                 </div>
                 <div className="booking-reserve-detail-charges-item">
-                  <div className="booking-reserve-detail-charges-item-text">
-                    Cleaning fee
-                        </div>
-                  <div className="booking-reserve-detail-charges-item-price">
-                    $449
-                        </div>
+                  <div className="booking-reserve-detail-charges-item-text">Cleaning fee</div>
+                  <div className="booking-reserve-detail-charges-item-price">$449</div>
                 </div>
                 <div className="booking-reserve-detail-charges-item">
-                  <div className="booking-reserve-detail-charges-item-text">
-                    Service fee
-                        </div>
-                  <div className="booking-reserve-detail-charges-item-price">
-                    $430
-                        </div>
+                  <div className="booking-reserve-detail-charges-item-text">Service fee</div>
+                  <div className="booking-reserve-detail-charges-item-price">$430</div>
                 </div>
                 <div className="booking-reserve-detail-charges-item">
-                  <div className="booking-reserve-detail-charges-item-text">
-                    Occupancy taxes and fees
-                        </div>
-                  <div className="booking-reserve-detail-charges-item-price">
-                    $300
-                        </div>
+                  <div className="booking-reserve-detail-charges-item-text">Occupancy taxes and fees</div>
+                  <div className="booking-reserve-detail-charges-item-price">$300</div>
                 </div>
               </div>
               <div className="booking-reserve-total">
-                <div className="booking-reserve-total-text">
-                  Total
-                        </div>
-                <div className="booking-reserve-total-price">
-                  $3,700
-                        </div>
+                <div className="booking-reserve-total-text">Total</div>
+                <div className="booking-reserve-total-price">${this.bookingTotalPrice()}</div>
               </div>
             </div>
           </div> 
