@@ -33,7 +33,7 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
                   </fieldset>
                   <div className="splash-search-form-container">
                     <div className="splash-search-form-frame">
-                      <div className="splash-search-form-location-container">
+                      <div className="splash-search-form-location-container" id="location-search">
                         <div className="splash-search-form-location-container-inner">
                           <div className="splash-search-form-location-container-inner-z">
                             <div className="splash-search-form-location-input-header">
@@ -49,7 +49,7 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
                           </div>
                         </div>
                       </div>
-                      <div className="splash-search-form-border"></div>
+                      <div className="splash-search-form-border-1"></div>
                       <div className="splash-search-form-dates-container">
                         <div className="splash-search-form-dates-item-container">
                           <div className="splash-search-form-dates-item-container-inner">
@@ -59,7 +59,7 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
                             </div>
                           </div>
                         </div>
-                        <div className="splash-search-form-border"></div>
+                        <div className="splash-search-form-border-2"></div>
                         <div className="splash-search-form-dates-item-container">
                           <div className="splash-search-form-dates-item-container-inner">
                             <div className="splash-search-form-dates-item-frame">
@@ -69,7 +69,7 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
                           </div>
                         </div>
                       </div>
-                      <div className="splash-search-form-border"></div>
+                      <div className="splash-search-form-border-3"></div>
                       <div className="splash-search-guest-container">
                         <div className="splash-search-guest-container-inner">
                           <div className="splash-search-guest-frame">

@@ -253,6 +253,14 @@ body {
   z-index: 0;
 }
 
+.splash-search-form-location-container-inner:hover {
+  background-color: #EBEBEB;
+}
+
+.splash-search-form-location-container:hover~.splash-search-form-border-1 {
+  display: none;
+}
+
 .splash-search-form-location-input-header {
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -277,7 +285,21 @@ body {
   outline: none;
 }
 
-.splash-search-form-border {
+.splash-search-form-border-1 {
+  align-self: center;
+  border-right: 1px solid #DDDDDD;
+  flex: 0 0 0px;
+  height: 32px;
+}
+
+.splash-search-form-border-2 {
+  align-self: center;
+  border-right: 1px solid #DDDDDD;
+  flex: 0 0 0px;
+  height: 32px;
+}
+
+.splash-search-form-border-3 {
   align-self: center;
   border-right: 1px solid #DDDDDD;
   flex: 0 0 0px;
