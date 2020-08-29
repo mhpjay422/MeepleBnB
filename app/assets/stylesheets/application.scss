@@ -255,6 +255,8 @@ body {
 
 .splash-search-form-location-container-inner:hover {
   background-color: #EBEBEB;
+  position: relative;
+  left: 3px;
 }
 
 .splash-search-form-location-container:hover~.splash-search-form-border-1 {
@@ -437,6 +439,13 @@ body {
   width: 0px;
   z-index: 1;
   box-sizing: border-box;
+}
+
+.splash-search-guest-container:hover {
+  background-color: #EBEBEB;
+  position: relative;
+  right: 3px;
+  border-radius: 32px;
 }
 
 .splash-search-guest-frame {
