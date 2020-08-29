@@ -313,13 +313,44 @@ body {
   position: relative;
 }
 
-.splash-search-form-dates-item-container {
+.splash-search-form-dates-item-container-1 {
   align-items: center;
   display: flex;
   flex: 1 0 0%;
   margin: -1px;
   min-width: 0px;
   position: relative;
+  border-radius: 32px;
+}
+
+.splash-search-form-dates-item-container-2 {
+  align-items: center;
+  display: flex;
+  flex: 1 0 0%;
+  margin: -1px;
+  min-width: 0px;
+  position: relative;
+  border-radius: 32px;
+}
+
+.splash-search-form-dates-item-container-1:hover {
+  background-color: #EBEBEB;
+  position: relative;
+  right: 3px;
+}
+
+.splash-search-form-dates-item-container-1:hover~.splash-search-form-border-2 {
+  display: none;
+}
+
+.splash-search-form-dates-item-container-2:hover {
+  background-color: #EBEBEB;
+  position: relative;
+  right: 3px;
+}
+
+.splash-search-form-dates-item-container-2:hover~.splash-search-form-border-3 {
+  display: none;
 }
 
 .splash-search-form-dates-container-inner {

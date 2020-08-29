@@ -49,23 +49,21 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
                           </div>
                         </div>
                       </div>
-                      <div className="splash-search-form-border-1"></div>
-                      <div className="splash-search-form-dates-container">
-                        <div className="splash-search-form-dates-item-container">
-                          <div className="splash-search-form-dates-item-container-inner">
-                            <div className="splash-search-form-dates-item-frame">
-                              <div className="splash-search-form-dates-item-header">Check in</div>
-                              <div className="splash-search-form-dates-item-body">Add dates</div>
-                            </div>
+                      <div className="splash-search-form-border-1" id="border1"></div>
+                      <div className="splash-search-form-dates-item-container-1">
+                        <div className="splash-search-form-dates-item-container-inner">
+                          <div className="splash-search-form-dates-item-frame">
+                            <div className="splash-search-form-dates-item-header">Check in</div>
+                            <div className="splash-search-form-dates-item-body">Add dates</div>
                           </div>
                         </div>
-                        <div className="splash-search-form-border-2"></div>
-                        <div className="splash-search-form-dates-item-container">
-                          <div className="splash-search-form-dates-item-container-inner">
-                            <div className="splash-search-form-dates-item-frame">
-                              <div className="splash-search-form-dates-item-header">Check out</div>
-                              <div className="splash-search-form-dates-item-body">Add dates</div>
-                            </div>
+                      </div>
+                      <div className="splash-search-form-border-2"></div>
+                      <div className="splash-search-form-dates-item-container-2" id="search-dates">
+                        <div className="splash-search-form-dates-item-container-inner">
+                          <div className="splash-search-form-dates-item-frame">
+                            <div className="splash-search-form-dates-item-header">Check out</div>
+                            <div className="splash-search-form-dates-item-body">Add dates</div>
                           </div>
                         </div>
                       </div>
