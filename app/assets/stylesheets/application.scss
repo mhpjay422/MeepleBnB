@@ -3287,14 +3287,27 @@ div.DateInput.DateInput_1 {
   color: white;
 }
 
-.search {
-  display: flex;
-  width: 463px;
-  height: 47px;
-  flex-direction: row;
-  justify-content: start;
-  padding: 0;
-  margin: 0;
+.search-bar-container {
+  // display: flex;
+  // width: 463px;
+  // height: 47px;
+  // flex-direction: row;
+  // justify-content: start;
+  // padding: 0;
+  // margin: 0;
+
+  display: block;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  background: none;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  color: #222222;
+  text-overflow: ellipsis;
+  outline: none;
 }
 
 .search-drop-open {
@@ -3323,8 +3336,6 @@ div.DateInput.DateInput_1 {
 .search-bar-open {
   all: unset;
   display: flex;
-  width: 551px;
-  height: 46px;
   background-color: white;
   flex-direction: row;
   justify-content: flex-start;
@@ -3338,14 +3349,12 @@ div.DateInput.DateInput_1 {
   transition-property: width;
   transition-duration: .1s;
   transition-timing-function: ease;
-  box-shadow: 1px 1px 3px 1px #ccc;
 }
 
 .search-bar-closed {
   all: unset;
   display: flex;
-  width: 401px;
-  height: 46px;
+
   background-color: white;
   flex-direction: row;
   justify-content: flex-start;
@@ -3357,7 +3366,6 @@ div.DateInput.DateInput_1 {
   transition-property: width;
   transition-duration: .1s;
   transition-timing-function: linear;
-  box-shadow: 1px 1px 3px 1px #ccc;
 }
 
 .magglass {
@@ -3365,8 +3373,7 @@ div.DateInput.DateInput_1 {
   width: 40px;
   padding-right: 10px;
   background-color: white;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+  border-radius: 32px;
   border: none;
   box-shadow: 1px 1px 3px 1px #ccc;
 
@@ -3387,26 +3394,28 @@ div.DateInput.DateInput_1 {
   align-content: left;
   background-color: white;
   font-weight: bold;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border-radius: 32px;
   padding-left: 0px;
-  position: relative;
+  position: absolute;
   z-index: 1000;
-  top: 3px;
   box-shadow: 1px 1px 3px 1px #ccc;
   transition-property: width;
   transition-duration: .1s;
   transition-timing-function: linear;
+  top: 60px;
+  left: 10px;
 }
 
 .searched-item-row {
   display: flex;
   flex-direction: row;
   width: 611px;
+  background-color: transparent;
 }
 
 .locpic {
   width: 52px;
+  background-color: transparent;
 }
 
 .searched-item {
@@ -3420,25 +3429,26 @@ div.DateInput.DateInput_1 {
   align-content: middle;
   font-size: 15px;
   font-weight: 400;
+  background-color: transparent;
 }
 
 .searched-item:hover {
   color: black;
-  background-color: #f1f1f1;
+  border-radius: 32px;
 }
 
-.searched-item-row:hover .locpic {
+.searched-item-row:hover{
   filter: invert(6%);
+  background-color: green;
 }
 
 .locpic:hover ~ .searched-item {
   color: black;
-  background-color: #f1f1f1;
+  border-radius: 32px;
 }
 
 .footer-container {
   border-top: 2px solid #dddddd;
-  background-color: #F7F7F7;
   font-family: sans-serif;
 }
 

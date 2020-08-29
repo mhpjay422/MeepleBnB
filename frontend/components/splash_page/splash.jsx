@@ -39,13 +39,14 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
                             <div className="splash-search-form-location-input-header">
                               Location
                             </div>
-                            <input 
+                              <SearchContainer />
+                            {/* <input 
                               className="splash-search-form-location-input-input"
                               autoComplete="off"
                               autoCorrect="off"
                               placeholder="Where are you going?"
                               role="combobox">
-                            </input>
+                            </input> */}
                           </div>
                         </div>
                       </div>

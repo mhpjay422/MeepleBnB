@@ -140,29 +140,20 @@ class SearchBar extends React.Component {
     }
 
     return (
-      <div className="search">
-        <div className={searchDropClass()}>
-          <div className="search-bar">
-            <div className="magglass">
-              <img className="magpic" src="./magglass.png" />
-            </div>
-            <form onSubmit={this.handleSubmit} >
-              <input
-                ref={node => this.node = node}
-                type="text"
-                className={searchBarClass()}
-                onChange={this.handleChange}
-                onClick={this.openList}
-                placeholder="Search..."
-                onKeyPress={this.openList}
-              >
-              </input>
-            </form>
-          </div>
-          {isDropdownOpen()}
-        </div>
-      </div>
-    );
+      <>
+        <input 
+            className="search-bar-container"
+            ref={node => this.node = node}
+            type="text"
+            onChange={this.handleChange}
+            onClick={this.openList}
+            placeholder="Where are you going?"
+            onKeyPress={this.openList}
+            onSubmit={this.handleSubmit}>
+        </input>
+        {isDropdownOpen()}
+      </>
+      );
   }
 }
 export default withRouter(SearchBar);
