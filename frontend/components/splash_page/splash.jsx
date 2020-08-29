@@ -81,7 +81,7 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
                           <button className="splash-search-submit-frame">
                             <div className="splash-search-submit-icon-container">
                               <div className="splash-search-submit-icon">
-
+                                <img src="search.png"></img>
                               </div>
                             </div>
                           </button>
@@ -128,10 +128,12 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
       );
     } else {
       return(
-        <div className="splash">
+        <>
+          <img className="splash" src="background1.jpg">
+          </img>
           {nav}
-        </div>
-      );
+        </>
+        );
     }
   };
 
