@@ -44,10 +44,45 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
                               autoComplete="off"
                               autoCorrect="off"
                               placeholder="Where are you going?"
-                              role="combobox"
-                            >
+                              role="combobox">
                             </input>
-
+                          </div>
+                        </div>
+                      </div>
+                      <div className="splash-search-form-border"></div>
+                      <div className="splash-search-form-dates-container">
+                        <div className="splash-search-form-dates-item-container">
+                          <div className="splash-search-form-dates-item-container-inner">
+                            <div className="splash-search-form-dates-item-frame">
+                              <div className="splash-search-form-dates-item-header">Check in</div>
+                              <div className="splash-search-form-dates-item-body">Add dates</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="splash-search-form-border"></div>
+                        <div className="splash-search-form-dates-item-container">
+                          <div className="splash-search-form-dates-item-container-inner">
+                            <div className="splash-search-form-dates-item-frame">
+                              <div className="splash-search-form-dates-item-header">Check out</div>
+                              <div className="splash-search-form-dates-item-body">Add dates</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="splash-search-form-border"></div>
+                      <div className="splash-search-form-location-container">
+                        <div className="splash-search-form-location-container-inner">
+                          <div className="splash-search-form-location-container-inner-z">
+                            <div className="splash-search-form-location-input-header">
+                              Location
+                              </div>
+                            <input
+                              className="splash-search-form-location-input-input"
+                              autoComplete="off"
+                              autoCorrect="off"
+                              placeholder="Where are you going?"
+                              role="combobox">
+                            </input>
                           </div>
                         </div>
                       </div>
