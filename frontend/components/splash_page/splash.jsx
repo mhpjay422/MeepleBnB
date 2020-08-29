@@ -70,20 +70,21 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
                         </div>
                       </div>
                       <div className="splash-search-form-border"></div>
-                      <div className="splash-search-form-location-container">
-                        <div className="splash-search-form-location-container-inner">
-                          <div className="splash-search-form-location-container-inner-z">
-                            <div className="splash-search-form-location-input-header">
-                              Location
-                              </div>
-                            <input
-                              className="splash-search-form-location-input-input"
-                              autoComplete="off"
-                              autoCorrect="off"
-                              placeholder="Where are you going?"
-                              role="combobox">
-                            </input>
+                      <div className="splash-search-guest-container">
+                        <div className="splash-search-guest-container-inner">
+                          <div className="splash-search-guest-frame">
+                              <div className="splash-search-guest-header">Guests</div>
+                              <div className="splash-search-guest-body">Add guests</div>
                           </div>
+                        </div>
+                        <div className="splash-search-submit-container">
+                          <button className="splash-search-submit-frame">
+                            <div className="splash-search-submit-icon-container">
+                              <div className="splash-search-submit-icon">
+
+                              </div>
+                            </div>
+                          </button>
                         </div>
                       </div>
                     </div>

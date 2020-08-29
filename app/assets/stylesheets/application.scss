@@ -348,6 +348,127 @@ body {
   width: 100%;
 }
 
+.splash-search-guest-container {
+  align-items: center;
+  display: flex;
+  margin: -1px;
+  min-width: 0px;
+  position: relative;
+  flex: 0.95 0 auto;
+}
+
+.splash-search-guest-container-inner {
+  appearance: none;
+  background: transparent;
+  border: 0px;
+  color: inherit;
+  cursor: pointer;
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0px;
+  outline: none;
+  overflow: visible;
+  padding: 1px;
+  text-align: left;
+  text-decoration: none;
+  user-select: auto;
+  flex: 1 0 0%;
+  width: 0px;
+  z-index: 1;
+}
+
+.splash-search-guest-frame {
+  padding: 14px 24px;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+  width: 100%;
+  z-index: 1;
+}
+
+.splash-search-guest-header {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding-bottom: 2px;
+}
+
+.splash-search-guest-body {
+  font-size: 14px;
+  line-height: 18px;
+  color: #717171;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.splash-search-submit-container {
+  flex: 0 0 auto;
+  margin-left: -6px;
+  padding-right: 9px;
+  position: relative;
+  z-index: 5;
+}
+
+.splash-search-submit-frame {
+  background-color: #FF385C;
+  border: 0px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  margin: 0px;
+  outline: none;
+  overflow: hidden;
+  padding: 0px;
+  text-align: inherit;
+  text-decoration: none;
+  user-select: auto;
+  border-radius: 24px;
+  height: 48px;
+  max-width: 48px;
+  position: relative;
+  transition: 0.2s max-width cubic-bezier(0.35, 0, 0.65, 1);
+  vertical-align: middle;
+  z-index: 0;
+}
+
+.splash-search-submit-icon-container {
+  display: inline-flex;
+  padding: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.splash-search-submit-icon {
+  display: inline-flex;
+  padding: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.splash-search-submit-frame::before {
+  background: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
+  bottom: 0px;
+  content: "";
+  left: 0px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  transition: 0.2s opacity cubic-bezier(0.35, 0, 0.65, 1);
+  will-change: opacity;
+  z-index: 0;
+  opacity: 0;
+}
+
 .twobar {
   height: 79px;
   justify-content: flex-end;
