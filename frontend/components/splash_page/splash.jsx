@@ -17,6 +17,46 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
             </div>
           {/* <SearchContainer /> */}
           </div>
+
+          <div className="splash-search-container">
+            <div className="splash-search-container-absolute">
+              <div className="splash-search-padding">
+                <div className="splash-search-frame">
+                  <fieldset className="splash-search-top">
+                    <div className="splash-search-top-tabs">
+                      <div className="splash-search-top-tab">
+                        <span className="search-tab-stay">
+                          Places to stay
+                        </span>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <div className="splash-search-form-container">
+                    <div className="splash-search-form-frame">
+                      <div className="splash-search-form-location-container">
+                        <div className="splash-search-form-location-container-inner">
+                          <div className="splash-search-form-location-container-inner-z">
+                            <div className="splash-search-form-location-input-header">
+                              Location
+                            </div>
+                            <input 
+                              className="splash-search-form-location-input-input"
+                              autoComplete="off"
+                              autoCorrect="off"
+                              placeholder="Where are you going?"
+                              role="combobox"
+                            >
+                            </input>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           
           <ul className="twobar">
             <nav className="splashbuttons">

@@ -71,6 +71,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 100;
 }
 
 .leftbar {
@@ -99,6 +100,179 @@ body {
   font-weight: 600;
   position: relative;
   bottom: 4px;
+}
+
+.splash-search-container {
+  text-align: center;
+  flex: 0 1 auto;
+  min-width: 0px;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.splash-search-container-absolute {
+  padding-left: 80px;
+  padding-right: 80px;
+  top: 0px;
+  transform-origin: 50% 0%;
+  left: 0px;
+  position: absolute;
+  text-align: left;
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+  transition: -ms-transform 150ms ease,
+  -webkit-transform 150ms ease,
+  transform 150ms ease,
+  opacity 50ms ease 20ms,
+  pointer-events 0ms 150ms;
+  box-sizing: border-box;
+}
+
+.splash-search-padding {
+  padding-bottom: 16px;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.splash-search-frame {
+  margin: 0 auto;
+  max-width: 850px;
+}
+
+.splash-search-top {
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.splash-search-top-tabs {
+  align-items: center;
+  display: flex;
+  height: 80px;
+  justify-content: center;
+}
+
+.splash-search-top-tab {
+  line-height: normal;
+  cursor: default;
+}
+
+.search-tab-stay::before {
+  transform: scaleX(1);
+  background-color: currentcolor;
+  border-radius: 1px;
+  bottom: 0px;
+  content: "";
+  height: 2px;
+  left: 50%;
+  margin-left: -9px;
+  position: absolute;
+  transition: 0.2s -ms-transform cubic-bezier(0, 0, 0.1, 1),
+  0.2s -webkit-transform cubic-bezier(0, 0, 0.1, 1),
+  0.2s transform cubic-bezier(0, 0, 0.1, 1);
+  width: 18px;
+  box-sizing: border-box;
+}
+
+.search-tab-stay {
+  cursor: default;
+  opacity: 1;
+
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  padding: 10px 16px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  z-index: 0;
+  color: #FFFFFF;
+}
+
+.splash-search-form-container {
+  border: 1px solid #DDDDDD;
+  border-radius: 32px;
+  color: #222222;
+  display: flex;
+  height: 66px;
+  position: relative;
+  width: 100%;
+  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15),
+  0px 3px 8px rgba(0, 0, 0, 0.1);
+  background-color: #FFFFFF;
+}
+
+.splash-search-form-frame {
+  display: flex;
+  flex: 1 1 0%;
+  height: 100%;
+  min-width: 0px;
+  pointer-events: auto;
+}
+
+.splash-search-form-location-container {
+  flex: 1.5 0 0%;
+  min-width: 0px;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex: 1 0 0%;
+  margin: -1px;
+  min-width: 0px;
+}
+
+.splash-search-form-location-container-inner {
+  cursor: pointer;
+  display: block;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+  border-radius: 32px;
+  flex: 1 0 0%;
+  min-width: 0px;
+  padding: 14px 32px;
+}
+
+.splash-search-form-location-container-inner-z {
+  position: relative;
+  z-index: 1;
+}
+
+.splash-search-form-location-container-inner-z::after {
+  background-clip: padding-box;
+  border: 1px solid transparent;
+  border-radius: 32px;
+  bottom: 0px;
+  content: "";
+  left: 0px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  z-index: 0;
+}
+
+.splash-search-form-location-input-header {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 12px;
+  line-height: 16px;
+  padding-bottom: 2px;
+}
+
+.splash-search-form-location-input-input {
+  display: block;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  background: none;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  color: #222222;
+  text-overflow: ellipsis;
+  outline: none;
 }
 
 .twobar {
