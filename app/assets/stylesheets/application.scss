@@ -3288,14 +3288,6 @@ div.DateInput.DateInput_1 {
 }
 
 .search-bar-container {
-  // display: flex;
-  // width: 463px;
-  // height: 47px;
-  // flex-direction: row;
-  // justify-content: start;
-  // padding: 0;
-  // margin: 0;
-
   display: block;
   border: 0px;
   margin: 0px;
@@ -3384,7 +3376,7 @@ div.DateInput.DateInput_1 {
 }
 
 .searched-items {
-  width: 611px;
+  width: 500px;
   margin: 0;
   margin-bottom: 10px;
   flex-direction: column;
@@ -3396,26 +3388,45 @@ div.DateInput.DateInput_1 {
   font-weight: bold;
   border-radius: 32px;
   padding-left: 0px;
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   box-shadow: 1px 1px 3px 1px #ccc;
   transition-property: width;
   transition-duration: .1s;
   transition-timing-function: linear;
-  top: 60px;
-  left: 10px;
+  top: 160px;
+  right: 884px;
+  background-color: white;
+}
+
+.search-margin-bottom {
+  margin-bottom: 25px;
+}
+
+.search-margin-top {
+  margin-top: 25px;
 }
 
 .searched-item-row {
   display: flex;
   flex-direction: row;
-  width: 611px;
   background-color: transparent;
 }
 
-.locpic {
+.locpic-image {
+  background-color: rgb(226, 223, 223);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  height: 52px;
   width: 52px;
+  margin: 8px 0 8px 20px;
+}
+
+.locpic {
   background-color: transparent;
+  align-self: center;
+  margin: auto;
 }
 
 .searched-item {
@@ -3424,27 +3435,25 @@ div.DateInput.DateInput_1 {
   color: black;
   cursor: pointer;
   display: block;
-  top: 50%;
-  width: 596px;
+  position: relative;
+  top: 5px;
   align-content: middle;
   font-size: 15px;
   font-weight: 400;
   background-color: transparent;
+  margin-left: 10px;
 }
 
 .searched-item:hover {
   color: black;
-  border-radius: 32px;
 }
 
 .searched-item-row:hover{
-  filter: invert(6%);
-  background-color: green;
+  background-color: rgb(238, 236, 236);
 }
 
 .locpic:hover ~ .searched-item {
   color: black;
-  border-radius: 32px;
 }
 
 .footer-container {

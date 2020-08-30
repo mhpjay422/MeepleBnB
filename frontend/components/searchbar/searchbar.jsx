@@ -100,19 +100,23 @@ class SearchBar extends React.Component {
   render() {
 
     const dropdownComponent = 
-      <ul className="searched-items">{
-        this.state.filteredList.map(listing => (
-          <div className="searched-item-row" key={listing.id} >
-            <img className="locpic" src="./locpic.png" />
-            <Link 
-              className="searched-item" 
-              listing={listing} 
-              to={`/listings/${listing.id}`}
-            >
-              {listing.address}
-            </Link>
-          </div>
-        ))}
+      <ul className="searched-items">
+        <div className="search-margin-bottom"></div>
+          {this.state.filteredList.map(listing => (
+            <div className="searched-item-row" key={listing.id} >
+              <div className="locpic-image">
+                <img className="locpic" src="./locpick.png" />
+              </div>
+              <Link 
+                className="searched-item" 
+                listing={listing} 
+                to={`/listings/${listing.id}`}
+              >
+                {listing.address}
+              </Link>
+            </div>
+          ))}
+        <div className="search-margin-top"></div>
       </ul >
 
     const shouldDropdownOpen = this.state.listOpen 
@@ -140,7 +144,7 @@ class SearchBar extends React.Component {
     }
 
     return (
-      <>
+      <form>
         <input 
             className="search-bar-container"
             ref={node => this.node = node}
@@ -152,8 +156,8 @@ class SearchBar extends React.Component {
             onSubmit={this.handleSubmit}>
         </input>
         {isDropdownOpen()}
-      </>
-      );
+      </form>
+    );
   }
 }
 export default withRouter(SearchBar);
