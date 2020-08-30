@@ -100,24 +100,30 @@ class SearchBar extends React.Component {
   render() {
 
     const dropdownComponent = 
-      <ul className="searched-items">
-        <div className="search-margin-bottom"></div>
-          {this.state.filteredList.map(listing => (
-            <div className="searched-item-row" key={listing.id} >
-              <div className="locpic-image">
-                <img className="locpic" src="./locpick.png" />
-              </div>
-              <Link 
-                className="searched-item" 
-                listing={listing} 
-                to={`/listings/${listing.id}`}
-              >
-                {listing.address}
-              </Link>
-            </div>
-          ))}
-        <div className="search-margin-top"></div>
-      </ul >
+
+
+
+            <ul className="searched-items">
+              <div className="search-margin-bottom"></div>
+                {this.state.filteredList.map(listing => (
+                  <div className="searched-item-row" key={listing.id} >
+                    <div className="locpic-image">
+                      <img className="locpic" src="./locpick.png" />
+                    </div>
+                    <Link 
+                      className="searched-item" 
+                      listing={listing} 
+                      to={`/listings/${listing.id}`}
+                    >
+                      {listing.address}
+                    </Link>
+                  </div>
+                ))}
+              <div className="search-margin-top"></div>
+            </ul >
+            
+
+
 
     const shouldDropdownOpen = this.state.listOpen 
 

@@ -34,7 +34,7 @@ export default ({ users, logout, loggedIn, demoLogin, openModal}) => {
                   <div className="splash-search-form-container">
                     <div className="splash-search-form-frame">
                       <div className="splash-search-form-location-container" id="location-search">
-                        <div className="splash-search-form-location-container-inner">
+                        <div className="splash-search-form-location-container-inner" onClick={() => this.node.focus()}>
                           <div className="splash-search-form-location-container-inner-z">
                             <div className="splash-search-form-location-input-header">
                               Location

@@ -3375,9 +3375,45 @@ div.DateInput.DateInput_1 {
   padding-left: 3px;
 }
 
+.dropdown-container {
+  text-align: center;
+  flex: 0 1 auto;
+  min-width: 0px;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.dropdown-container-absolute {
+  padding-left: 80px;
+  padding-right: 80px;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.dropdown-padding {
+  padding-bottom: 16px;
+  position: relative;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.dropdown-frame {
+  margin: 100px auto 0 auto;
+  max-width: 850px;
+  position: relative;
+}
+
 .searched-items {
   width: 500px;
-  margin: 0;
+  min-width: 0;
+  margin-left: -31px;
   margin-bottom: 10px;
   flex-direction: column;
   display: flex;
@@ -3388,15 +3424,14 @@ div.DateInput.DateInput_1 {
   font-weight: bold;
   border-radius: 32px;
   padding-left: 0px;
-  position: fixed;
-  z-index: 1000;
+  padding-right: 1px;
   box-shadow: 1px 1px 3px 1px #ccc;
   transition-property: width;
   transition-duration: .1s;
   transition-timing-function: linear;
-  top: 160px;
-  right: 884px;
   background-color: white;
+  position: absolute;
+  top: 65px;
 }
 
 .search-margin-bottom {
@@ -3411,6 +3446,8 @@ div.DateInput.DateInput_1 {
   display: flex;
   flex-direction: row;
   background-color: transparent;
+  width: 100%;
+  min-width: 0;
 }
 
 .locpic-image {
