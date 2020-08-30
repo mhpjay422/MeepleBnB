@@ -144,7 +144,7 @@ class SearchBar extends React.Component {
     }
 
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input 
             className="search-bar-container"
             ref={node => this.node = node}
@@ -153,7 +153,7 @@ class SearchBar extends React.Component {
             onClick={this.openList}
             placeholder="Where are you going?"
             onKeyPress={this.openList}
-            onSubmit={this.handleSubmit}>
+            >
         </input>
         {isDropdownOpen()}
       </form>
