@@ -151,6 +151,7 @@ class SearchBar extends React.Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
+        
         <input 
             className="search-bar-container"
             ref={node => this.node = node}

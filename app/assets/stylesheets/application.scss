@@ -3489,6 +3489,10 @@ div.DateInput.DateInput_1 {
   background-color: rgb(238, 236, 236);
 }
 
+.searched-item-row:hover~splash-search-form-location-container {
+  background-color: white;
+}
+
 .locpic:hover ~ .searched-item {
   color: black;
 }
