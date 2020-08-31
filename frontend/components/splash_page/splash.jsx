@@ -22,7 +22,16 @@ export default class Splash extends React.Component {
     this.onFocusChange = this.onFocusChange.bind(this);
     this.isInclusivelyAfterDay = this.isInclusivelyAfterDay.bind(this);
     this.isBeforeDay = this.isBeforeDay.bind(this);
+    this.handleClickOutsideCalendar = this.handleClickOutsideCalendar.bind(this);
+    this.openCalendar = this.openCalendar.bind(this);
+  }
 
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutsideCalendar);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutsideCalendar);
   }
 
   onFocusChange(focusedInput) {
@@ -57,7 +66,6 @@ export default class Splash extends React.Component {
   checkinDate() {
     
     if(this.state.startDate) {
-      debugger
       const date = this.state.startDate._d.toDateString().split(" ");
       const month = date[1]
       const day = date[2]
@@ -70,7 +78,6 @@ export default class Splash extends React.Component {
   checkoutDate() {
     
     if(this.state.endDate) {
-      debugger
       const date = this.state.endDate._d.toDateString().split(" ");
       const month = date[1]
       const day = date[2]
@@ -80,7 +87,42 @@ export default class Splash extends React.Component {
     }
   }
 
+  handleClickOutsideCalendar(e) {
+    if (this.picker && !this.picker.contains(e.target)) {
+      this.setState({ pickerOpen: false })
+    }
+  }
+
+  openCalendar() {
+    this.setState({ pickerOpen:true })
+  }
+
   render() {
+
+    const dayPicker = () => {
+      if(this.state.pickerOpen) {
+        return (
+          <DayPickerRangeController
+            startDate={this.state.startDate}
+            endDate={this.state.endDate}
+            onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+            focusedInput={this.state.focusedInput}
+            onFocusChange={this.onFocusChange}
+            minimumNights={2}
+            noBorder={true}
+            numberOfMonths={2}
+            renderCalendarDay={undefined}
+            enableOutsideDays={false}
+            isOutsideRange={day => !this.isInclusivelyAfterDay(day, moment())}
+          />
+        )
+      } else {
+        return (
+          <>
+          </>
+        )
+      }
+    }
  
     const nav = (
       <div className="splash-topbar">
@@ -111,7 +153,9 @@ export default class Splash extends React.Component {
                       <div className="splash-search-form-frame">
                         <SearchContainer />
                         <div className="splash-search-form-border-1" id="border1"></div>
-                        <div className="splash-search-form-dates-item-container-1">
+                        <div 
+                        className="splash-search-form-dates-item-container-1"
+                        onClick={this.openCalendar}>
                           <div className="splash-search-form-dates-item-container-inner">
                             <div className="splash-search-form-dates-item-frame">
                               <div className="splash-search-form-dates-item-header">Check in</div>
@@ -120,22 +164,14 @@ export default class Splash extends React.Component {
                           </div>
                         </div>
                         <div className="splash-search-form-border-2"></div>
-                        <div className="splash-daypicker">
-                          <DayPickerRangeController
-                            startDate={this.state.startDate}
-                            endDate={this.state.endDate}
-                            onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
-                            focusedInput={this.state.focusedInput}
-                            onFocusChange={this.onFocusChange}
-                            minimumNights={2}
-                            noBorder={true}
-                            numberOfMonths={2}
-                            renderCalendarDay={undefined}
-                            enableOutsideDays={false}
-                            isOutsideRange={day => !this.isInclusivelyAfterDay(day, moment())}
-                          />
+                        <div 
+                        className="splash-daypicker"
+                        ref={picker => this.picker = picker}>
+                          {dayPicker()}
                         </div>
-                        <div className="splash-search-form-dates-item-container-2" id="search-dates">
+                        <div 
+                        className="splash-search-form-dates-item-container-2" 
+                        onClick={this.openCalendar}>
                           <div className="splash-search-form-dates-item-container-inner">
                             <div className="splash-search-form-dates-item-frame">
                               <div className="splash-search-form-dates-item-header">Check out</div>

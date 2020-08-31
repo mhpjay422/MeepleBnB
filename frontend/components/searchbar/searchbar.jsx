@@ -10,10 +10,10 @@ class SearchBar extends React.Component {
       filteredList:[], 
       listOpen: false,
       splashInner: false,
-      location: false,
+      focusLocation: false,
     };
 
-    this.location = this.location.bind(this);
+    this.focusLocation = this.focusLocation.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.findListings = this.findListings.bind(this);
     this.openList = this.openList.bind(this);
@@ -22,7 +22,8 @@ class SearchBar extends React.Component {
     this.focus = this.focus.bind(this);
     this.changeBackgroundHover = this.changeBackgroundHover.bind(this);
     this.changeBackgroundUnhover = this.changeBackgroundUnhover.bind(this);
-    this.focusInput = this.focusInput.bind(this);
+
+    // this.focusInput = this.focusInput.bind(this);
   }
 
   handleClick(e){
@@ -110,13 +111,13 @@ class SearchBar extends React.Component {
     this.node.focus();
   }
 
-  focusInput() {
-    document.querySelector('[class="search-bar-container"]').click();
-  }
+  // focusInput() {
+  //   document.querySelector('[class="search-bar-container"]').click();
+  // }
 
-  location() {
+  focusLocation() {
     this.setState({ 
-      location: true,
+      focusLocation: true,
       listOpen: true,
     })
   }
@@ -128,6 +129,8 @@ class SearchBar extends React.Component {
   changeBackgroundUnhover() {
     this.setState({ splashInner: false })
   }
+
+  
 
   render() {
 
@@ -198,7 +201,7 @@ class SearchBar extends React.Component {
     }
 
     const isHovered = () => {
-      if (this.state.location || !this.state.splashInner) {
+      if (this.state.focusLocation || !this.state.splashInner) {
         return "splash-search-form-location-container-inner"
       } else {
         return "splash-search-form-location-container-inner-hovered"
@@ -214,7 +217,7 @@ class SearchBar extends React.Component {
         className={isHovered()}
         onMouseOver={this.changeBackgroundHover}
         onMouseLeave={this.changeBackgroundUnhover}
-        onFocus={this.location}>
+        onFocus={this.focusLocation}>
           <div className="splash-search-form-location-container-inner-z">
             <div className="splash-search-form-location-input-header">
               Location
