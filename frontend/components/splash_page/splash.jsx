@@ -141,6 +141,21 @@ export default class Splash extends React.Component {
                           </div>
                         </div>
                         <div className="splash-search-form-border-2"></div>
+                        <div className="splash-daypicker">
+                          <DayPickerRangeController
+                            startDate={this.state.startDate}
+                            endDate={this.state.endDate}
+                            onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+                            focusedInput={this.state.focusedInput}
+                            onFocusChange={this.onFocusChange}
+                            minimumNights={2}
+                            noBorder={true}
+                            numberOfMonths={2}
+                            renderCalendarDay={undefined}
+                            enableOutsideDays={false}
+                            isOutsideRange={day => !this.isInclusivelyAfterDay(day, moment())}
+                          />
+                        </div>
                         <div className="splash-search-form-dates-item-container-2" id="search-dates">
                           <div className="splash-search-form-dates-item-container-inner">
                             <div className="splash-search-form-dates-item-frame">
@@ -211,21 +226,6 @@ export default class Splash extends React.Component {
           <>
             <img className="splash" src="background1.jpg"/>
             {nav}
-            <div className="splash-daypicker">
-              <DayPickerRangeController
-                startDate={this.state.startDate}
-                endDate={this.state.endDate}
-                onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
-                focusedInput={this.state.focusedInput}
-                onFocusChange={this.onFocusChange}
-                minimumNights={2}
-                noBorder={true}
-                numberOfMonths={2}
-                renderCalendarDay={undefined}
-                enableOutsideDays={false}
-                isOutsideRange={day => !this.isInclusivelyAfterDay(day, moment())}
-              />
-            </div>
           </>
           );
       }
