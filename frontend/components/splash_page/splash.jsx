@@ -1,21 +1,82 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import SearchContainer from '../searchbar/searchbar_container.jsx';
+import "react-dates/initialize";
+import { DayPickerRangeController } from 'react-dates';
+import momentPropTypes from "react-moment-proptypes";
+import moment from "moment";
+import "react-dates/lib/css/_datepicker.css";
 
 export default class Splash extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      splashInner: false,
+      startDate: null,
+      endDate: null,
+      focusedInput: props.autoFocusEndDate ? 'endDate' : 'startDate',
     };
 
+    this.onFocusChange = this.onFocusChange.bind(this);
+    this.isInclusivelyAfterDay = this.isInclusivelyAfterDay.bind(this);
+    this.isBeforeDay = this.isBeforeDay.bind(this);
+    this.changeBackgroundHover = this.changeBackgroundHover.bind(this);
+    this.changeBackgroundUnhover = this.changeBackgroundUnhover.bind(this);
   }
+
+  changeBackgroundHover(e) {
+    e.stopPropagation()
+    this.setState({ splashInner: true })
+  }
+
+  changeBackgroundUnhover(e) {
+    e.stopPropagation()
+    this.setState({ splashInner: false })
+  }
+
+  onFocusChange(focusedInput) {
+    this.setState({
+      // Force the focusedInput to always be truthy so that dates are always selectable
+      focusedInput: !focusedInput ? 'startDate' : focusedInput,
+    });
+  }
+
+  isInclusivelyAfterDay(a, b) {
+    if (!moment.isMoment(a) || !moment.isMoment(b)) return false;
+    return !this.isBeforeDay(a, b);
+  }
+
+  isBeforeDay(a, b) {
+    if (!moment.isMoment(a) || !moment.isMoment(b)) return false;
+
+    const aYear = a.year();
+    const aMonth = a.month();
+
+    const bYear = b.year();
+    const bMonth = b.month();
+
+    const isSameYear = aYear === bYear;
+    const isSameMonth = aMonth === bMonth;
+
+    if (isSameYear && isSameMonth) return a.date() < b.date();
+    if (isSameYear) return aMonth < bMonth;
+    return aYear < bYear;
+  }
+
+
   render() {
+
+    const isHovered = () => {
+      if(this.state.splashInner) {
+        return "splash-search-form-location-container-inner-hovered"
+      } else {
+        return "splash-search-form-location-container-inner"
+      }
+    }
  
     const nav = (
       <div className="splash-topbar">
         <section className="topsec">
-  
             <div className="leftbar">
               <Link to="/greeting" className="navbar-left">
                 <img src="./3d-meeple5.png" />
@@ -23,7 +84,6 @@ export default class Splash extends React.Component {
               <div className="leftbar-text">
                 meeplebnb
               </div>
-            {/* <SearchContainer /> */}
             </div>
   
             <div className="splash-search-container">
@@ -42,7 +102,10 @@ export default class Splash extends React.Component {
                     <div className="splash-search-form-container">
                       <div className="splash-search-form-frame">
                         <div className="splash-search-form-location-container" id="location-search">
-                        <div className="splash-search-form-location-container-inner" onClick={() => this.searchInput.focus()}>
+                          <div className={isHovered()} 
+                            //  onClick={() => this.searchInput.focus()}
+                             onMouseOver={this.changeBackgroundHover}
+                             onMouseLeave={this.changeBackgroundUnhover}>
                             <div className="splash-search-form-location-container-inner-z">
                               <div className="splash-search-form-location-input-header">
                                 Location
@@ -138,9 +201,21 @@ export default class Splash extends React.Component {
       } else {
         return(
           <>
-            <img className="splash" src="background1.jpg">
-            </img>
+            <img className="splash" src="background1.jpg"/>
             {nav}
+            <DayPickerRangeController
+              startDate={this.state.startDate}
+              endDate={this.state.endDate}
+              onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+              focusedInput={this.state.focusedInput}
+              onFocusChange={this.onFocusChange}
+              minimumNights={2}
+              noBorder={true}
+              numberOfMonths={2}
+              renderCalendarDay={undefined}
+              enableOutsideDays={false}
+              isOutsideRange={day => !this.isInclusivelyAfterDay(day, moment())}
+            />
           </>
           );
       }
