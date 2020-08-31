@@ -10,10 +10,10 @@ class SearchBar extends React.Component {
       filteredList:[], 
       listOpen: false,
       splashInner: false,
-      focusSearch: false,
+      location: false,
     };
 
-    this.focusSearch = this.focusSearch.bind(this);
+    this.location = this.location.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.findListings = this.findListings.bind(this);
     this.openList = this.openList.bind(this);
@@ -105,7 +105,6 @@ class SearchBar extends React.Component {
   }
 
   focus() {
-    debugger
     this.node.focus();
   }
 
@@ -113,45 +112,71 @@ class SearchBar extends React.Component {
     document.querySelector('[class="search-bar-container"]').click();
   }
 
-  focusSearch() {
-    this.setState({ focusSearch:true })
+  location() {
+    this.setState({ 
+      location: true,
+      listOpen: true,
+    })
   }
 
-  changeBackgroundHover(e) {
+  changeBackgroundHover() {
     this.setState({ splashInner: true })
   }
 
-  changeBackgroundUnhover(e) {
+  changeBackgroundUnhover() {
     this.setState({ splashInner: false })
   }
 
   render() {
 
-    const dropdownComponent = 
-            <ul className="searched-items">
-              <div className="search-margin-bottom"></div>
-                {this.state.filteredList.map(listing => (
-                  <div className="searched-item-row" key={listing.id} >
-                    <div className="locpic-image">
-                      <img className="locpic" src="./locpick.png" />
-                    </div>
-                    <Link 
-                      className="searched-item" 
-                      listing={listing} 
-                      to={`/listings/${listing.id}`}
-                    >
-                      {listing.address}
-                    </Link>
-                  </div>
-                ))}
-              <div className="search-margin-top"></div>
-            </ul >
-
-    const shouldDropdownOpen = this.state.listOpen 
+    const dropdownComponent = () => {
+      debugger
+      if (this.state.term === "") {
+        return (
+          <ul className="searched-items">
+            <div className="search-margin-bottom"></div>
+              <div className="searched-item-row" >
+                <div className="locpic-image">
+                  <img className="locpic" src="./locpick.png" />
+                </div>
+                <Link 
+                className="searched-item"
+                to={`/search_greeting`}>
+                  See locations in New York
+                </Link>
+              </div>
+            <div className="search-margin-top"></div>
+          </ul >
+        )
+      } else {
+        return (
+          <ul className="searched-items">
+            <div className="search-margin-bottom"></div>
+            {this.state.filteredList.map(listing => (
+              <div className="searched-item-row" key={listing.id} >
+                <div className="locpic-image">
+                  <img className="locpic" src="./locpick.png" />
+                </div>
+                <Link
+                  className="searched-item"
+                  listing={listing}
+                  to={`/listings/${listing.id}`}
+                >
+                  {listing.address}
+                </Link>
+              </div>
+            ))}
+            <div className="search-margin-top"></div>
+          </ul >
+        )
+      }
+    }
 
     const isDropdownOpen = () => {
-      if (shouldDropdownOpen && (this.state.term !== "")) {
-        return dropdownComponent
+      const shouldDropdownOpen = this.state.listOpen;
+
+      if (shouldDropdownOpen) {
+        return dropdownComponent()
       } 
     }
 
@@ -172,7 +197,7 @@ class SearchBar extends React.Component {
     }
 
     const isHovered = () => {
-      if (this.state.focusSearch || !this.state.splashInner) {
+      if (this.state.location || !this.state.splashInner) {
         return "splash-search-form-location-container-inner"
       } else {
         return "splash-search-form-location-container-inner-hovered"
@@ -188,7 +213,7 @@ class SearchBar extends React.Component {
         className={isHovered()}
         onMouseOver={this.changeBackgroundHover}
         onMouseLeave={this.changeBackgroundUnhover}
-        onFocus={this.focusSearch}>
+        onFocus={this.location}>
           <div className="splash-search-form-location-container-inner-z">
             <div className="splash-search-form-location-input-header">
               Location

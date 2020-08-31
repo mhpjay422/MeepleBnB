@@ -14,7 +14,7 @@ export default class Splash extends React.Component {
       startDate: null,
       endDate: null,
       focusedInput: props.autoFocusEndDate ? 'endDate' : 'startDate',
-      
+      pickerOpen: false,
     };
     
     this.checkinDate = this.checkinDate.bind(this);
