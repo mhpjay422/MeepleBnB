@@ -13,7 +13,7 @@ export default class Splash extends React.Component {
     this.state = {
       startDate: null,
       endDate: null,
-      focusedInput: props.autoFocusEndDate ? 'endDate' : 'startDate',
+      focusedInput: 'startDate',
       pickerOpen: false,
     };
     
@@ -23,7 +23,8 @@ export default class Splash extends React.Component {
     this.isInclusivelyAfterDay = this.isInclusivelyAfterDay.bind(this);
     this.isBeforeDay = this.isBeforeDay.bind(this);
     this.handleClickOutsideCalendar = this.handleClickOutsideCalendar.bind(this);
-    this.openCalendar = this.openCalendar.bind(this);
+    this.openCalendarStart = this.openCalendarStart.bind(this);
+    this.openCalendarEnd = this.openCalendarEnd.bind(this);
   }
 
   componentDidMount() {
@@ -93,8 +94,12 @@ export default class Splash extends React.Component {
     }
   }
 
-  openCalendar() {
-    this.setState({ pickerOpen:true })
+  openCalendarStart() {
+    this.setState({ pickerOpen: true, focusedInput: 'startDate' })
+  }
+
+  openCalendarEnd() {
+    this.setState({ pickerOpen: true, focusedInput: 'endDate' })
   }
 
   render() {
@@ -155,7 +160,7 @@ export default class Splash extends React.Component {
                         <div className="splash-search-form-border-1" id="border1"></div>
                         <div 
                         className="splash-search-form-dates-item-container-1"
-                        onClick={this.openCalendar}>
+                        onClick={this.openCalendarStart}>
                           <div className="splash-search-form-dates-item-container-inner">
                             <div className="splash-search-form-dates-item-frame">
                               <div className="splash-search-form-dates-item-header">Check in</div>
@@ -171,7 +176,7 @@ export default class Splash extends React.Component {
                         </div>
                         <div 
                         className="splash-search-form-dates-item-container-2" 
-                        onClick={this.openCalendar}>
+                        onClick={this.openCalendarEnd}>
                           <div className="splash-search-form-dates-item-container-inner">
                             <div className="splash-search-form-dates-item-frame">
                               <div className="splash-search-form-dates-item-header">Check out</div>
