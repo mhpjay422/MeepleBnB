@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapOptions = {
   center: { lat: 40.740508, lng: -73.971915 },
-  zoom: 12.5,
+  zoom: 11.5,
   gestureHandling: 'greedy',
   zoomControl: true, 
   fullscreenControl: true, 

@@ -19,7 +19,7 @@ export default class ListingIndex extends React.Component {
     this.props.fetchReviews("all");
   }
 
-  componentWillMount() {
+  componentWillUnmount() {
     this.props.history.push({
       search: ``,
     });

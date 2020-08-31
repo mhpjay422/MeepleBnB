@@ -89,6 +89,7 @@ class SearchBar extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger
     e.preventDefault()
 
     if(this.state.filteredList[0].id === null) {
@@ -100,8 +101,9 @@ class SearchBar extends React.Component {
     this.props.history.push({
       pathname: `/search_greeting`,
       search: this.state.term,
-      state: { detail: this.state.term }
+      state: { detail: this.state.term },
     });
+    debugger
   }
 
   focus() {
@@ -130,7 +132,6 @@ class SearchBar extends React.Component {
   render() {
 
     const dropdownComponent = () => {
-      debugger
       if (this.state.term === "") {
         return (
           <ul className="searched-items">
