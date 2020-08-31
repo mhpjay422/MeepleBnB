@@ -5,16 +5,22 @@ import { Link } from "react-router-dom";
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.findListings = this.findListings.bind(this);
-    this.openList = this.openList.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       term:'', 
       filteredList:[], 
       listOpen: false
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.findListings = this.findListings.bind(this);
+    this.openList = this.openList.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.textInput = React.createRef();
+    this.focus = this.focus.bind(this);
+    this.changeBackgroundHover = this.changeBackgroundHover.bind(this);
+    this.changeBackgroundUnhover = this.changeBackgroundUnhover.bind(this);
+    this.focusInput = this.focusInput.bind(this);
   }
 
   handleClick(e){
@@ -96,13 +102,27 @@ class SearchBar extends React.Component {
     });
   }
 
+  focus() {
+    this.textInput.current.focus();
+  }
+
+  focusInput() {
+    document.querySelector('[class="search-bar-container"]').click();
+  }
+
+  changeBackgroundHover(e) {
+    e.stopPropagation()
+    this.setState({ splashInner: true })
+  }
+
+  changeBackgroundUnhover(e) {
+    e.stopPropagation()
+    this.setState({ splashInner: false })
+  }
 
   render() {
 
     const dropdownComponent = 
-
-
-
             <ul className="searched-items">
               <div className="search-margin-bottom"></div>
                 {this.state.filteredList.map(listing => (
@@ -121,9 +141,6 @@ class SearchBar extends React.Component {
                 ))}
               <div className="search-margin-top"></div>
             </ul >
-            
-
-
 
     const shouldDropdownOpen = this.state.listOpen 
 
@@ -149,23 +166,47 @@ class SearchBar extends React.Component {
       }
     }
 
+    const isHovered = () => {
+      if (this.state.splashInner) {
+        return "splash-search-form-location-container-inner-hovered"
+      } else {
+        return "splash-search-form-location-container-inner"
+      }
+    }
+
     return (
-      <form onSubmit={this.handleSubmit}
-            className="search-bar-container-form">
-        
-        <input 
-            className="search-bar-container"
-            ref={node => this.node = node}
-            type="text"
-            onChange={this.handleChange}
-            onClick={this.openList}
-            placeholder="Where are you going?"
-            onKeyPress={this.openList}
-            >
-        </input>
-        {isDropdownOpen()}
-      </form>
+      <div className="splash-search-form-location-container"
+        id="location-search"
+        onClick={this.focus}>
+        <div className={isHovered()}
+          onMouseOver={this.changeBackgroundHover}
+          onMouseLeave={this.changeBackgroundUnhover}
+          onClick={this.focus}>
+          <div className="splash-search-form-location-container-inner-z"
+            onClick={this.focus}>
+            <div className="splash-search-form-location-input-header"
+              onClick={this.focus}>
+              Location
+            </div>
+            <form onSubmit={this.handleSubmit}
+              className="search-bar-container-form">
+              <input
+                className="search-bar-container"
+                ref={node => this.node = node}
+                type="text"
+                onChange={this.handleChange}
+                onClick={this.openList}
+                placeholder="Where are you going?"
+                onKeyPress={this.openList}>
+              </input>
+              {isDropdownOpen()}
+            </form>
+          </div>
+        </div>
+      </div>
+      
     );
   }
 }
 export default withRouter(SearchBar);
+
