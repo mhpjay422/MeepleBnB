@@ -8,9 +8,12 @@ class SearchBar extends React.Component {
     this.state = {
       term:'', 
       filteredList:[], 
-      listOpen: false
+      listOpen: false,
+      splashInner: false,
+      focusSearch: false,
     };
 
+    this.focusSearch = this.focusSearch.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.findListings = this.findListings.bind(this);
     this.openList = this.openList.bind(this);
@@ -110,13 +113,15 @@ class SearchBar extends React.Component {
     document.querySelector('[class="search-bar-container"]').click();
   }
 
+  focusSearch() {
+    this.setState({ focusSearch:true })
+  }
+
   changeBackgroundHover(e) {
-    e.stopPropagation()
     this.setState({ splashInner: true })
   }
 
   changeBackgroundUnhover(e) {
-    e.stopPropagation()
     this.setState({ splashInner: false })
   }
 
@@ -167,20 +172,23 @@ class SearchBar extends React.Component {
     }
 
     const isHovered = () => {
-      if (this.state.splashInner) {
-        return "splash-search-form-location-container-inner-hovered"
-      } else {
+      if (this.state.focusSearch || !this.state.splashInner) {
         return "splash-search-form-location-container-inner"
+      } else {
+        return "splash-search-form-location-container-inner-hovered"
       }
     }
 
     return (
-      <div className="splash-search-form-location-container"
-        id="location-search"
-        onClick={this.focus}>
-        <div className={isHovered()}
-          onMouseOver={this.changeBackgroundHover}
-          onMouseLeave={this.changeBackgroundUnhover}>
+      <div 
+      className="splash-search-form-location-container"
+      id="location-search"
+      onClick={this.focus}>
+        <div 
+        className={isHovered()}
+        onMouseOver={this.changeBackgroundHover}
+        onMouseLeave={this.changeBackgroundUnhover}
+        onFocus={this.focusSearch}>
           <div className="splash-search-form-location-container-inner-z">
             <div className="splash-search-form-location-input-header">
               Location

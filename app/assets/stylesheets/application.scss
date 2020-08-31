@@ -3513,20 +3513,20 @@ div.DateInput.DateInput_1 {
  background-color: white;
 }
 
-.splash-search-form-location-container-inner-hovered .searched-item-row:hover::after {
- cursor: pointer;
- display: block;
- background-clip: padding-box;
- border: 1px solid transparent;
- border-radius: 32px;
- flex: 1 0 0%;
- min-width: 0px;
- padding: 14px 32px;
- box-sizing: border-box;
- background-color: #EBEBEB;
-//  pointer-events: none;
- background-color: white;
-}
+// .splash-search-form-location-container-inner-hovered .searched-item-row:hover::after {
+//  cursor: pointer;
+//  display: block;
+//  background-clip: padding-box;
+//  border: 1px solid transparent;
+//  border-radius: 32px;
+//  flex: 1 0 0%;
+//  min-width: 0px;
+//  padding: 14px 32px;
+//  box-sizing: border-box;
+//  background-color: #EBEBEB;
+// //  pointer-events: none;
+//  background-color: white;
+// }
 
 .locpic:hover ~ .searched-item {
   color: black;
