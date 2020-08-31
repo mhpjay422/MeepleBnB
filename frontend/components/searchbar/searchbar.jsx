@@ -16,7 +16,6 @@ class SearchBar extends React.Component {
     this.openList = this.openList.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.textInput = React.createRef();
     this.focus = this.focus.bind(this);
     this.changeBackgroundHover = this.changeBackgroundHover.bind(this);
     this.changeBackgroundUnhover = this.changeBackgroundUnhover.bind(this);
@@ -103,7 +102,8 @@ class SearchBar extends React.Component {
   }
 
   focus() {
-    this.textInput.current.focus();
+    debugger
+    this.node.focus();
   }
 
   focusInput() {
@@ -180,24 +180,20 @@ class SearchBar extends React.Component {
         onClick={this.focus}>
         <div className={isHovered()}
           onMouseOver={this.changeBackgroundHover}
-          onMouseLeave={this.changeBackgroundUnhover}
-          onClick={this.focus}>
-          <div className="splash-search-form-location-container-inner-z"
-            onClick={this.focus}>
-            <div className="splash-search-form-location-input-header"
-              onClick={this.focus}>
+          onMouseLeave={this.changeBackgroundUnhover}>
+          <div className="splash-search-form-location-container-inner-z">
+            <div className="splash-search-form-location-input-header">
               Location
             </div>
             <form onSubmit={this.handleSubmit}
-              className="search-bar-container-form">
-              <input
-                className="search-bar-container"
-                ref={node => this.node = node}
-                type="text"
-                onChange={this.handleChange}
-                onClick={this.openList}
-                placeholder="Where are you going?"
-                onKeyPress={this.openList}>
+                  className="search-bar-container-form">
+              <input className="search-bar-container"
+                     ref={node => this.node = node}
+                     type="text"
+                     onChange={this.handleChange}
+                     onClick={this.openList}
+                     placeholder="Where are you going?"
+                     onKeyPress={this.openList}>
               </input>
               {isDropdownOpen()}
             </form>
