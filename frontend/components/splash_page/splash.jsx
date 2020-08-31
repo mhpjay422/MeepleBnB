@@ -15,8 +15,11 @@ export default class Splash extends React.Component {
       startDate: null,
       endDate: null,
       focusedInput: props.autoFocusEndDate ? 'endDate' : 'startDate',
+      
     };
 
+    this.checkinDate = this.checkinDate.bind(this);
+    this.checkoutDate = this.checkoutDate.bind(this);
     this.onFocusChange = this.onFocusChange.bind(this);
     this.isInclusivelyAfterDay = this.isInclusivelyAfterDay.bind(this);
     this.isBeforeDay = this.isBeforeDay.bind(this);
@@ -66,6 +69,34 @@ export default class Splash extends React.Component {
 
   focusMap() {
     document.querySelector('[class="search-container"]').click();
+  }
+
+  checkinDate() {
+    
+    if(this.state.startDate) {
+      debugger
+      const date = this.state.startDate._d.toDateString().split(" ");
+      const month = date[1]
+      const day = date[2]
+      const year = date[3]
+      return `${month}-${day}-${year}`
+    } else {
+      return "Add dates"
+    }
+  }
+
+  checkoutDate() {
+    
+    if(this.state.endDate) {
+      debugger
+      const date = this.state.endDate._d.toDateString().split(" ");
+      const month = date[1]
+      const day = date[2]
+      const year = date[3]
+      return `${month}-${day}-${year}`
+    } else {
+      return "Add dates"
+    }
   }
 
 
@@ -136,7 +167,7 @@ export default class Splash extends React.Component {
                           <div className="splash-search-form-dates-item-container-inner">
                             <div className="splash-search-form-dates-item-frame">
                               <div className="splash-search-form-dates-item-header">Check in</div>
-                              <div className="splash-search-form-dates-item-body">Add dates</div>
+                            <div className="splash-search-form-dates-item-body">{this.checkinDate()}</div>
                             </div>
                           </div>
                         </div>
@@ -160,7 +191,7 @@ export default class Splash extends React.Component {
                           <div className="splash-search-form-dates-item-container-inner">
                             <div className="splash-search-form-dates-item-frame">
                               <div className="splash-search-form-dates-item-header">Check out</div>
-                              <div className="splash-search-form-dates-item-body">Add dates</div>
+                            <div className="splash-search-form-dates-item-body">{this.checkoutDate()}</div>
                             </div>
                           </div>
                         </div>
