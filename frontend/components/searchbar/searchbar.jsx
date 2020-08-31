@@ -150,7 +150,8 @@ class SearchBar extends React.Component {
     }
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}
+            className="search-bar-container-form">
         
         <input 
             className="search-bar-container"

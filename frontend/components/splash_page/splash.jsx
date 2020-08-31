@@ -22,6 +22,7 @@ export default class Splash extends React.Component {
     this.isBeforeDay = this.isBeforeDay.bind(this);
     this.changeBackgroundHover = this.changeBackgroundHover.bind(this);
     this.changeBackgroundUnhover = this.changeBackgroundUnhover.bind(this);
+    this.focusMap = this.focusMap.bind(this);
   }
 
   changeBackgroundHover(e) {
@@ -63,6 +64,10 @@ export default class Splash extends React.Component {
     return aYear < bYear;
   }
 
+  focusMap() {
+    document.querySelector('[class="search-container"]').click();
+  }
+
 
   render() {
 
@@ -101,18 +106,21 @@ export default class Splash extends React.Component {
                     </fieldset>
                     <div className="splash-search-form-container">
                       <div className="splash-search-form-frame">
-                        <div className="splash-search-form-location-container" id="location-search">
+                        <div className="splash-search-form-location-container" 
+                             id="location-search"
+                             onClick={this.focusMap}>
                           <div className={isHovered()} 
-                            //  onClick={() => this.searchInput.focus()}
-                             onMouseOver={this.changeBackgroundHover}
-                             onMouseLeave={this.changeBackgroundUnhover}>
-                            <div className="splash-search-form-location-container-inner-z">
-                              <div className="splash-search-form-location-input-header">
+                               onMouseOver={this.changeBackgroundHover}
+                               onMouseLeave={this.changeBackgroundUnhover}
+                               onClick={this.focusMap}>
+                            <div className="splash-search-form-location-container-inner-z"
+                                 onClick={this.focusMap}>
+                              <div className="splash-search-form-location-input-header"
+                                   onClick={this.focusMap}>
                                 Location
                               </div>
-                              <div>
-                                <SearchContainer />
-                              </div>
+                                <SearchContainer className="search-container">
+                                </SearchContainer>
                               {/* <input 
                                 className="splash-search-form-location-input-input"
                                 autoComplete="off"
@@ -203,19 +211,21 @@ export default class Splash extends React.Component {
           <>
             <img className="splash" src="background1.jpg"/>
             {nav}
-            <DayPickerRangeController
-              startDate={this.state.startDate}
-              endDate={this.state.endDate}
-              onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
-              focusedInput={this.state.focusedInput}
-              onFocusChange={this.onFocusChange}
-              minimumNights={2}
-              noBorder={true}
-              numberOfMonths={2}
-              renderCalendarDay={undefined}
-              enableOutsideDays={false}
-              isOutsideRange={day => !this.isInclusivelyAfterDay(day, moment())}
-            />
+            <div className="splash-daypicker">
+              <DayPickerRangeController
+                startDate={this.state.startDate}
+                endDate={this.state.endDate}
+                onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+                focusedInput={this.state.focusedInput}
+                onFocusChange={this.onFocusChange}
+                minimumNights={2}
+                noBorder={true}
+                numberOfMonths={2}
+                renderCalendarDay={undefined}
+                enableOutsideDays={false}
+                isOutsideRange={day => !this.isInclusivelyAfterDay(day, moment())}
+              />
+            </div>
           </>
           );
       }

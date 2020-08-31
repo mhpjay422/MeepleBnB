@@ -234,7 +234,7 @@ body {
   padding: 14px 32px;
   box-sizing: border-box;
   background-color: white;
-  pointer-events: none;
+  // pointer-events: none;
 }
 
 .splash-search-form-location-container-inner-hovered {
@@ -248,7 +248,8 @@ body {
   padding: 14px 32px;
   box-sizing: border-box;
   background-color: #EBEBEB;
-  pointer-events: none;
+  // pointer-events: none;
+  box-sizing: border-box;
 }
 
 
@@ -262,18 +263,18 @@ body {
   pointer-events: auto;
 }
 
-.splash-search-form-location-container-inner-z::after {
-  background-clip: padding-box;
-  border: 1px solid transparent;
-  border-radius: 32px;
-  bottom: 0px;
-  content: "";
-  left: 0px;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  z-index: 0;
-}
+// .splash-search-form-location-container-inner-z::after {
+//   background-clip: padding-box;
+//   border: 1px solid transparent;
+//   border-radius: 32px;
+//   bottom: 0px;
+//   content: "";
+//   left: 0px;
+//   position: absolute;
+//   right: 0px;
+//   top: 0px;
+//   z-index: 0;
+// }
 
 .splash-search-form-location-input-header {
   font-weight: 700;
@@ -599,6 +600,12 @@ body {
 .loginbuttons:hover {
   border-bottom: 1px solid orange;
   color: orange;
+}
+
+.splash-daypicker {
+  position: relative;
+  top: 80px;
+  left: 347px;
 }
 
 .icon {
