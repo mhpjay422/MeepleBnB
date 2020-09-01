@@ -15,6 +15,7 @@ export default class Splash extends React.Component {
       endDate: null,
       focusedInput: 'startDate',
       pickerOpen: false,
+      barFocused: false,
     };
     
     this.checkinDate = this.checkinDate.bind(this);
@@ -25,14 +26,19 @@ export default class Splash extends React.Component {
     this.handleClickOutsideCalendar = this.handleClickOutsideCalendar.bind(this);
     this.openCalendarStart = this.openCalendarStart.bind(this);
     this.openCalendarEnd = this.openCalendarEnd.bind(this);
+    this.handleClickOutsideBar = this.handleClickOutsideBar.bind(this);
+    this.focusBar = this.focusBar.bind(this);
+    this.unFocusBar = this.unFocusBar.bind(this);
   }
 
   componentDidMount() {
     document.addEventListener('mousedown', this.handleClickOutsideCalendar);
+    document.addEventListener('mousedown', this.handleClickOutsideBar);
   }
 
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutsideCalendar);
+    document.removeEventListener('mousedown', this.handleClickOutsideBar);
   }
 
   onFocusChange(focusedInput) {
@@ -94,12 +100,26 @@ export default class Splash extends React.Component {
     }
   }
 
+  handleClickOutsideBar(e) {
+    if (this.bar && !this.bar.contains(e.target)) {
+      this.setState({ barFocused: false })
+    }
+  }
+
   openCalendarStart() {
     this.setState({ pickerOpen: true, focusedInput: 'startDate' })
   }
 
   openCalendarEnd() {
     this.setState({ pickerOpen: true, focusedInput: 'endDate' })
+  }
+
+  focusBar() {
+    this.setState({ barFocused: true })
+  }
+
+  unFocusBar() {
+    this.setState({ barFocused: false })
   }
 
   render() {
@@ -128,9 +148,35 @@ export default class Splash extends React.Component {
         )
       }
     }
+
+    const searchsubmit = () => {
+      if(this.state.barFocused) {
+        return (
+          <button className="splash-search-submit-frame-focused">
+            <div className="splash-search-submit-icon-container">
+              <div className="splash-search-submit-icon">
+                Search
+              </div>
+            </div>
+          </button>
+        )
+      } else {
+        return (
+          <button className="splash-search-submit-frame">
+            <div className="splash-search-submit-icon-container">
+              <div className="splash-search-submit-icon">
+                <img src="search.png"></img>
+              </div>
+            </div>
+          </button>
+        )
+      }
+    }
  
     const nav = (
-      <div className="splash-topbar">
+      <div 
+      className="splash-topbar"
+      >
         <section className="topsec">
             <div className="leftbar">
               <Link to="/greeting" className="navbar-left">
@@ -155,7 +201,11 @@ export default class Splash extends React.Component {
                       </div>
                     </fieldset>
                     <div className="splash-search-form-container">
-                      <div className="splash-search-form-frame">
+                      <div 
+                      className="splash-search-form-frame"
+                      onClick={this.focusBar}
+                      ref={bar => this.bar = bar}
+                      >
                         <SearchContainer />
                         <div className="splash-search-form-border-1" id="border1"></div>
                         <div 
@@ -193,13 +243,7 @@ export default class Splash extends React.Component {
                             </div>
                           </div>
                           <div className="splash-search-submit-container">
-                            <button className="splash-search-submit-frame">
-                              <div className="splash-search-submit-icon-container">
-                                <div className="splash-search-submit-icon">
-                                  <img src="search.png"></img>
-                                </div>
-                              </div>
-                            </button>
+                            {searchsubmit()}
                           </div>
                         </div>
                       </div>
