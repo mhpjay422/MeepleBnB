@@ -32,12 +32,12 @@ export default class Splash extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('mousedown', this.handleClickOutsideCalendar);
+    document.addEventListener('mouseup', this.handleClickOutsideCalendar);
     document.addEventListener('mousedown', this.handleClickOutsideBar);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutsideCalendar);
+    document.removeEventListener('mouseup', this.handleClickOutsideCalendar);
     document.removeEventListener('mousedown', this.handleClickOutsideBar);
   }
 
@@ -71,7 +71,6 @@ export default class Splash extends React.Component {
   }
 
   checkinDate() {
-    
     if(this.state.startDate) {
       const date = this.state.startDate._d.toDateString().split(" ");
       const month = date[1]
@@ -83,7 +82,6 @@ export default class Splash extends React.Component {
   }
 
   checkoutDate() {
-    
     if(this.state.endDate) {
       const date = this.state.endDate._d.toDateString().split(" ");
       const month = date[1]
@@ -204,8 +202,7 @@ export default class Splash extends React.Component {
                       <div 
                       className="splash-search-form-frame"
                       onClick={this.focusBar}
-                      ref={bar => this.bar = bar}
-                      >
+                      ref={bar => this.bar = bar}>
                         <SearchContainer />
                         <div className="splash-search-form-border-1" id="border1"></div>
                         <div 
