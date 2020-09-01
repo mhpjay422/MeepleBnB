@@ -16,6 +16,8 @@ export default class Splash extends React.Component {
       focusedInput: 'startDate',
       pickerOpen: false,
       barFocused: false,
+      checkIn:false,
+      checkOut:false,
     };
     
     this.checkinDate = this.checkinDate.bind(this);
@@ -23,7 +25,8 @@ export default class Splash extends React.Component {
     this.onFocusChange = this.onFocusChange.bind(this);
     this.isInclusivelyAfterDay = this.isInclusivelyAfterDay.bind(this);
     this.isBeforeDay = this.isBeforeDay.bind(this);
-    this.handleClickOutsideCalendar = this.handleClickOutsideCalendar.bind(this);
+    this.handleClickOutsideCalendarStart = this.handleClickOutsideCalendarStart.bind(this);
+    this.handleClickOutsideCalendarEnd = this.handleClickOutsideCalendarEnd.bind(this);
     this.openCalendarStart = this.openCalendarStart.bind(this);
     this.openCalendarEnd = this.openCalendarEnd.bind(this);
     this.handleClickOutsideBar = this.handleClickOutsideBar.bind(this);
@@ -32,12 +35,14 @@ export default class Splash extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('mouseup', this.handleClickOutsideCalendar);
+    document.addEventListener('mouseup', this.handleClickOutsideCalendarStart);
+    document.addEventListener('mouseup', this.handleClickOutsideCalendarEnd);
     document.addEventListener('mousedown', this.handleClickOutsideBar);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mouseup', this.handleClickOutsideCalendar);
+    document.removeEventListener('mouseup', this.handleClickOutsideCalendarStart);
+    document.removeEventListener('mouseup', this.handleClickOutsideCalendarEnd);
     document.removeEventListener('mousedown', this.handleClickOutsideBar);
   }
 
@@ -94,6 +99,20 @@ export default class Splash extends React.Component {
 
   handleClickOutsideCalendar(e) {
     if (this.picker && !this.picker.contains(e.target)) {
+      this.setState({ pickerOpen: false})
+    }
+  }
+
+  handleClickOutsideCalendarStart(e) {
+    this.setState({ checkIn: false })
+    if (this.picker && !this.picker.contains(e.target)) {
+      this.setState({ pickerOpen: false })
+    }
+  }
+  
+  handleClickOutsideCalendarEnd(e) {
+    this.setState({ checkOut: false })
+    if (this.picker && !this.picker.contains(e.target)) {
       this.setState({ pickerOpen: false })
     }
   }
@@ -105,11 +124,11 @@ export default class Splash extends React.Component {
   }
 
   openCalendarStart() {
-    this.setState({ pickerOpen: true, focusedInput: 'startDate' })
+    this.setState({ pickerOpen: true, focusedInput: 'startDate', checkIn: true })
   }
 
   openCalendarEnd() {
-    this.setState({ pickerOpen: true, focusedInput: 'endDate' })
+    this.setState({ pickerOpen: true, focusedInput: 'endDate', checkOut: true })
   }
 
   focusBar() {
@@ -170,11 +189,25 @@ export default class Splash extends React.Component {
         )
       }
     }
+
+    const formDates1 = () => {
+      if(this.state.checkIn) {
+        return "splash-search-form-dates-item-container-1-focus"
+      } else {
+        return "splash-search-form-dates-item-container-1"
+      }
+    }
+
+    const formDates2 = () => {
+      if(this.state.checkOut) {
+        return "splash-search-form-dates-item-container-2-focus"
+      } else {
+        return "splash-search-form-dates-item-container-2"
+      }
+    }
  
     const nav = (
-      <div 
-      className="splash-topbar"
-      >
+      <div className="splash-topbar">
         <section className="topsec">
             <div className="leftbar">
               <Link to="/greeting" className="navbar-left">
@@ -184,7 +217,6 @@ export default class Splash extends React.Component {
                 meeplebnb
               </div>
             </div>
-  
             <div className="splash-search-container">
               <div className="splash-search-container-absolute">
                 <div className="splash-search-padding">
@@ -206,7 +238,7 @@ export default class Splash extends React.Component {
                         <SearchContainer />
                         <div className="splash-search-form-border-1" id="border1"></div>
                         <div 
-                        className="splash-search-form-dates-item-container-1"
+                        className={formDates1()}
                         onClick={this.openCalendarStart}>
                           <div className="splash-search-form-dates-item-container-inner">
                             <div className="splash-search-form-dates-item-frame">
@@ -222,7 +254,7 @@ export default class Splash extends React.Component {
                           {dayPicker()}
                         </div>
                         <div 
-                        className="splash-search-form-dates-item-container-2" 
+                        className={formDates2()} 
                         onClick={this.openCalendarEnd}>
                           <div className="splash-search-form-dates-item-container-inner">
                             <div className="splash-search-form-dates-item-frame">
