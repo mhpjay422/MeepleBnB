@@ -14,6 +14,7 @@ class SearchBar extends React.Component {
     };
 
     this.focusLocation = this.focusLocation.bind(this);
+    this.unfocusLocation = this.unfocusLocation.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.findListings = this.findListings.bind(this);
     this.openList = this.openList.bind(this);
@@ -122,6 +123,13 @@ class SearchBar extends React.Component {
     })
   }
 
+  unfocusLocation() {
+    this.setState({ 
+      focusLocation: false,
+      listOpen: false,
+    })
+  }
+
   changeBackgroundHover() {
     this.setState({ splashInner: true })
   }
@@ -201,7 +209,9 @@ class SearchBar extends React.Component {
     }
 
     const isHovered = () => {
-      if (this.state.focusLocation || !this.state.splashInner) {
+      if (this.state.focusLocation) {
+        return "splash-search-form-location-container-inner-focus"
+      } else if (!this.state.splashInner) {
         return "splash-search-form-location-container-inner"
       } else {
         return "splash-search-form-location-container-inner-hovered"
@@ -212,7 +222,8 @@ class SearchBar extends React.Component {
       <div 
       className="splash-search-form-location-container"
       id="location-search"
-      onClick={this.focus}>
+      onClick={this.focus}
+      onBlur={this.unfocusLocation}>
         <div 
         className={isHovered()}
         onMouseOver={this.changeBackgroundHover}

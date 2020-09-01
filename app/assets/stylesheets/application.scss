@@ -223,6 +223,21 @@ body {
   width: 270px;
 }
 
+.splash-search-form-location-container-inner-focus {
+  cursor: pointer;
+  display: block;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+  border-radius: 32px;
+  flex: 1 0 0%;
+  min-width: 0px;
+  padding: 14px 32px;
+  box-sizing: border-box;
+  background-color: white;
+  transform: scaleX(1.03);
+  // pointer-events: none;
+}
+
 .splash-search-form-location-container-inner {
   cursor: pointer;
   display: block;
