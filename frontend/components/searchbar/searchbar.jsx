@@ -223,7 +223,7 @@ class SearchBar extends React.Component {
       className="splash-search-form-location-container"
       id="location-search"
       onClick={this.focus}
-      onBlur={this.unfocusLocation}>
+      onBlur={() => setTimeout(this.unfocusLocation, 200)}>
         <div 
         className={isHovered()}
         onMouseOver={this.changeBackgroundHover}

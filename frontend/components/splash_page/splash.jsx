@@ -37,13 +37,13 @@ export default class Splash extends React.Component {
   componentDidMount() {
     document.addEventListener('mouseup', this.handleClickOutsideCalendarStart);
     document.addEventListener('mouseup', this.handleClickOutsideCalendarEnd);
-    document.addEventListener('mousedown', this.handleClickOutsideBar);
+    document.addEventListener('mouseup', this.handleClickOutsideBar);
   }
 
   componentWillUnmount() {
     document.removeEventListener('mouseup', this.handleClickOutsideCalendarStart);
     document.removeEventListener('mouseup', this.handleClickOutsideCalendarEnd);
-    document.removeEventListener('mousedown', this.handleClickOutsideBar);
+    document.removeEventListener('mouseup', this.handleClickOutsideBar);
   }
 
   onFocusChange(focusedInput) {
