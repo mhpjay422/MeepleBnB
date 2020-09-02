@@ -133,7 +133,7 @@ export default class Splash extends React.Component {
 
   handleClickOutsideGuest(e) {
     if (this.guest && !this.guest.contains(e.target)) {
-      this.setState({ guestFocused: false })
+      this.setState({ guestFocused: false, guestOpen: false })
     }
   }
 
@@ -336,11 +336,11 @@ export default class Splash extends React.Component {
                                 <div className="splash-search-guest-body">Add guests</div>
                             </div>
                           </div>
-                          {guestCounter()}
                           <div className="splash-search-submit-container">
                             {searchsubmit()}
                           </div>
                         </div>
+                        {guestCounter()}
                       </div>
                     </div>
                   </div>
