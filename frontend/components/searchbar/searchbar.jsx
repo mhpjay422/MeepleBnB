@@ -36,11 +36,11 @@ class SearchBar extends React.Component {
 
   componentDidMount() {
     this.props.fetchListings();
-    document.addEventListener('mousedown', this.handleClick, false)
+    document.addEventListener('mouseup', this.handleClick, false)
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClick, false)
+    document.removeEventListener('mouseup', this.handleClick, false)
   }
 
   handleChange(e) {

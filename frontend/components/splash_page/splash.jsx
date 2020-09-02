@@ -255,7 +255,17 @@ export default class Splash extends React.Component {
                   </div>
                 </div>
                 <div className="guest-counter-item-counter">
-
+                  <button className="guest-counter-item-counter-minus">
+                    <img className="guest-counter-item-counter-minus-image" src="minus.png">
+                    </img>
+                  </button>
+                  <div className="guest-counter-item-counter-num">
+                    0
+                  </div>
+                  <div className="guest-counter-item-counter-plus">
+                    <img className="guest-counter-item-counter-plus-image" src="plus.png">
+                      </img>
+                  </div>
                 </div>
               </div>
             </div>
@@ -383,7 +393,7 @@ export default class Splash extends React.Component {
       } else {
         return(
           <>
-            <img className="splash" src="background1.jpg"/>
+            <img className="splash" src="background1.jpg" aria-hidden="true"/>
             {nav}
           </>
           );

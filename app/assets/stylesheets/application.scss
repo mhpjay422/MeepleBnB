@@ -52,6 +52,7 @@ body {
   height: 100%;
   background-size: cover;
   position: absolute;
+  pointer-events: none;
 }
 
 .splash-topbar {
@@ -602,6 +603,68 @@ body {
   font-size: 16px;
   line-height: 20px;
 }
+
+.guest-counter-item-counter-minus {
+  width: 44px;
+  height: 44px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+  display: inline-flex;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  text-decoration: none;
+  font-family: inherit;
+  outline: none;
+  touch-action: manipulation;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255, 255, 255);
+  border: none;
+}
+
+.guest-counter-item-counter-minus-image {
+  height: 44px;
+  width: 44px;
+
+}
+
+.guest-counter-item-counter-num {
+  position: relative;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.guest-counter-item-counter-plus {
+  width: 44px;
+  height: 44px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+  display: inline-flex;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  text-decoration: none;
+  font-family: inherit;
+  outline: none;
+  touch-action: manipulation;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255, 255, 255);
+  border: none;
+}
+
+.guest-counter-item-counter-plus-image {
+  height: 44px;
+  width: 44px;
+}
+
+
+
 
 
 
