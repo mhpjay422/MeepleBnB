@@ -469,6 +469,24 @@ body {
   flex: 0.95 0 auto;
 }
 
+.splash-search-guest-container:hover {
+  background-color: #EBEBEB;
+  transform: scaleX(1.03);
+  border-radius: 32px;
+}
+
+.splash-search-guest-container-focus {
+  align-items: center;
+  display: flex;
+  margin: -1px;
+  min-width: 0px;
+  position: relative;
+  flex: 0.95 0 auto;
+  background-color: white;
+  transform: scaleX(1.03);
+  border-radius: 32px;
+}
+
 .splash-search-guest-container-inner {
   appearance: none;
   background: transparent;
@@ -491,13 +509,6 @@ body {
   width: 0px;
   z-index: 1;
   box-sizing: border-box;
-}
-
-.splash-search-guest-container:hover {
-  background-color: #EBEBEB;
-  position: relative;
-  transform: scaleX(1.03);
-  border-radius: 32px;
 }
 
 .splash-search-guest-frame {

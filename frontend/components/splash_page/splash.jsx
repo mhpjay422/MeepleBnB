@@ -18,6 +18,8 @@ export default class Splash extends React.Component {
       barFocused: false,
       checkInFocus:false,
       checkOutFocus:false,
+      guestOpen: false,
+      guestFocused: false,
     };
     
     this.checkinDate = this.checkinDate.bind(this);
@@ -32,18 +34,24 @@ export default class Splash extends React.Component {
     this.handleClickOutsideBar = this.handleClickOutsideBar.bind(this);
     this.focusBar = this.focusBar.bind(this);
     this.unFocusBar = this.unFocusBar.bind(this);
+    this.focusGuest = this.focusGuest.bind(this);
+    this.unfocusGuest = this.unfocusGuest.bind(this);
+    this.openGuest = this.openGuest.bind(this);
+    this.handleClickOutsideGuest = this.handleClickOutsideGuest.bind(this)
   }
 
   componentDidMount() {
     document.addEventListener('mouseup', this.handleClickOutsideCalendarStart);
     document.addEventListener('mouseup', this.handleClickOutsideCalendarEnd);
     document.addEventListener('mouseup', this.handleClickOutsideBar);
+    document.addEventListener('mouseup', this.handleClickOutsideGuest);
   }
 
   componentWillUnmount() {
     document.removeEventListener('mouseup', this.handleClickOutsideCalendarStart);
     document.removeEventListener('mouseup', this.handleClickOutsideCalendarEnd);
     document.removeEventListener('mouseup', this.handleClickOutsideBar);
+    document.removeEventListener('mouseup', this.handleClickOutsideGuest);
   }
 
   onFocusChange(focusedInput) {
@@ -123,6 +131,12 @@ export default class Splash extends React.Component {
     }
   }
 
+  handleClickOutsideGuest(e) {
+    if (this.guest && !this.guest.contains(e.target)) {
+      this.setState({ guestFocused: false })
+    }
+  }
+
   openCalendarStart() {
     this.setState({ pickerOpen: true, focusedInput: 'startDate', checkInFocus: true })
   }
@@ -131,12 +145,24 @@ export default class Splash extends React.Component {
     this.setState({ pickerOpen: true, focusedInput: 'endDate', checkOutFocus: true })
   }
 
+  openGuest() {
+    this.setState({ guestOpen: true, guestFocused: true })
+  }
+
   focusBar() {
     this.setState({ barFocused: true })
   }
 
   unFocusBar() {
     this.setState({ barFocused: false })
+  }
+
+  focusGuest() {
+    this.setState({ guestFocused: true })
+  }
+
+  unfocusGuest() {
+    this.setState({ guestFocused: false })
   }
 
   render() {
@@ -205,6 +231,14 @@ export default class Splash extends React.Component {
         return "splash-search-form-dates-item-container-2"
       }
     }
+
+    const formGuests = () => {
+      if (this.state.guestFocused) {
+        return "splash-search-guest-container-focus"
+      } else {
+        return "splash-search-guest-container"
+      }
+    }
  
     const nav = (
       <div className="splash-topbar">
@@ -264,7 +298,10 @@ export default class Splash extends React.Component {
                           </div>
                         </div>
                         <div className="splash-search-form-border-3"></div>
-                        <div className="splash-search-guest-container">
+                        <div 
+                        className={formGuests()}
+                        onClick={this.openGuest}
+                        ref={guest => this.guest = guest}>
                           <div className="splash-search-guest-container-inner">
                             <div className="splash-search-guest-frame">
                                 <div className="splash-search-guest-header">Guests</div>
