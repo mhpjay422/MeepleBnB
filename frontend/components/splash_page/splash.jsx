@@ -16,8 +16,8 @@ export default class Splash extends React.Component {
       focusedInput: 'startDate',
       pickerOpen: false,
       barFocused: false,
-      checkIn:false,
-      checkOut:false,
+      checkInFocus:false,
+      checkOutFocus:false,
     };
     
     this.checkinDate = this.checkinDate.bind(this);
@@ -104,14 +104,14 @@ export default class Splash extends React.Component {
   }
 
   handleClickOutsideCalendarStart(e) {
-    this.setState({ checkIn: false })
+    this.setState({ checkInFocus: false })
     if (this.picker && !this.picker.contains(e.target)) {
       this.setState({ pickerOpen: false })
     }
   }
   
   handleClickOutsideCalendarEnd(e) {
-    this.setState({ checkOut: false })
+    this.setState({ checkOutFocus: false })
     if (this.picker && !this.picker.contains(e.target)) {
       this.setState({ pickerOpen: false })
     }
@@ -124,11 +124,11 @@ export default class Splash extends React.Component {
   }
 
   openCalendarStart() {
-    this.setState({ pickerOpen: true, focusedInput: 'startDate', checkIn: true })
+    this.setState({ pickerOpen: true, focusedInput: 'startDate', checkInFocus: true })
   }
 
   openCalendarEnd() {
-    this.setState({ pickerOpen: true, focusedInput: 'endDate', checkOut: true })
+    this.setState({ pickerOpen: true, focusedInput: 'endDate', checkOutFocus: true })
   }
 
   focusBar() {
@@ -191,7 +191,7 @@ export default class Splash extends React.Component {
     }
 
     const formDates1 = () => {
-      if(this.state.checkIn) {
+      if (this.state.checkInFocus) {
         return "splash-search-form-dates-item-container-1-focus"
       } else {
         return "splash-search-form-dates-item-container-1"
@@ -199,7 +199,7 @@ export default class Splash extends React.Component {
     }
 
     const formDates2 = () => {
-      if(this.state.checkOut) {
+      if (this.state.checkOutFocus) {
         return "splash-search-form-dates-item-container-2-focus"
       } else {
         return "splash-search-form-dates-item-container-2"
