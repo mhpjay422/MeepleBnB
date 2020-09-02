@@ -239,6 +239,34 @@ export default class Splash extends React.Component {
         return "splash-search-guest-container"
       }
     }
+
+    const guestCounter = () => {
+      if(this.state.guestOpen) {
+        return (
+          <div className="guest-counter-absolute-container">
+            <div className="guest-counter-container">
+              <div className="guest-counter-item">
+                <div className="guest-counter-item-text">
+                  <div className="guest-counter-item-text-header">
+                    Guests
+                  </div>
+                  <div className="guest-counter-item-text-main">
+                    All Guests including children
+                  </div>
+                </div>
+                <div className="guest-counter-item-counter">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      } else {
+        return (
+          <></>
+        )
+      }
+    }
  
     const nav = (
       <div className="splash-topbar">
@@ -308,6 +336,7 @@ export default class Splash extends React.Component {
                                 <div className="splash-search-guest-body">Add guests</div>
                             </div>
                           </div>
+                          {guestCounter()}
                           <div className="splash-search-submit-container">
                             {searchsubmit()}
                           </div>

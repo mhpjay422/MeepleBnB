@@ -540,6 +540,57 @@ body {
   width: 100%;
 }
 
+.guest-counter-absolute-container {
+  left: 0px;
+  position: absolute;
+  right: 0px;
+  top: 100%;
+  z-index: 4;
+}
+
+.guest-counter-container {
+  margin-left: -148px;
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  z-index: 1;
+  background: rgb(255, 255, 255);
+  border-radius: 32px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+  margin-top: 12px;
+  max-height: calc(100vh - 220px);
+  overflow: hidden auto;
+  padding: 16px 32px;
+}
+
+.guest-counter-item {
+  color: rgb(34, 34, 34);
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-right: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 330px;
+}
+
+.guest-counter-item-text {
+  flex-grow: 1;
+}
+
+.guest-counter-item-text-header {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.guest-counter-item-text-main {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 300;
+  color: rgb(113, 113, 113);
+}
+
 .splash-search-submit-container {
   flex: 0 0 auto;
   margin-left: -6px;
