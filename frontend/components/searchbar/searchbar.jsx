@@ -94,7 +94,7 @@ class SearchBar extends React.Component {
     debugger
     e.preventDefault()
 
-    if(this.state.filteredList[0].id === null) {
+    if(!this.state.filteredList) {
       this.props.fetchListings();
     }
 
