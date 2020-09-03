@@ -749,6 +749,18 @@ body {
   box-sizing: border-box;
 }
 
+.splash-search-submit-icon-img {
+  position: relative;
+  bottom: 1px;
+}
+
+.splash-search-submit-text {
+  padding-left: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
 .splash-search-submit-frame::before {
   background: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
   bottom: 0px;

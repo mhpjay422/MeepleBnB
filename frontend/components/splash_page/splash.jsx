@@ -198,7 +198,8 @@ export default class Splash extends React.Component {
           <button className="splash-search-submit-frame-focused">
             <div className="splash-search-submit-icon-container">
               <div className="splash-search-submit-icon">
-                Search
+                <img className="splash-search-submit-icon-img" src="search.png"></img>
+                <div className="splash-search-submit-text">Search</div>
               </div>
             </div>
           </button>
@@ -243,7 +244,9 @@ export default class Splash extends React.Component {
     const guestCounter = () => {
       if(this.state.guestOpen) {
         return (
-          <div className="guest-counter-absolute-container">
+          <div 
+          className="guest-counter-absolute-container"
+          ref={guest => this.guest = guest}>
             <div className="guest-counter-container">
               <div className="guest-counter-item">
                 <div className="guest-counter-item-text">
@@ -337,7 +340,7 @@ export default class Splash extends React.Component {
                         <div 
                         className={formGuests()}
                         onClick={this.openGuest}
-                        ref={guest => this.guest = guest}>
+                        >
                           <div className="splash-search-guest-container-inner">
                             <div className="splash-search-guest-frame">
                                 <div className="splash-search-guest-header">Guests</div>
