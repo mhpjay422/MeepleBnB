@@ -237,6 +237,8 @@ body {
   box-sizing: border-box;
   background-color: white;
   transform: scaleX(1.03);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+  z-index: 1;
   // pointer-events: none;
 }
 
@@ -250,7 +252,6 @@ body {
   min-width: 0px;
   padding: 14px 32px;
   box-sizing: border-box;
-  background-color: #F7F7F7;
   // pointer-events: none;
 }
 
@@ -365,6 +366,8 @@ body {
   border-radius: 32px;
   transform: scaleX(1.03);
   background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+  z-index: 1;
 }
 
 .splash-search-form-dates-item-container-2 {
@@ -387,6 +390,8 @@ body {
   border-radius: 32px;
   transform: scaleX(1.03);
   background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+  z-index: 1;
 }
 
 .splash-search-form-dates-item-container-1:hover {
@@ -487,6 +492,8 @@ body {
   background-color: white;
   transform: scaleX(1.03);
   border-radius: 32px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+  z-index: 1;
 }
 
 .splash-search-guest-container-inner {
