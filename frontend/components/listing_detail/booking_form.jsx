@@ -17,7 +17,9 @@ class BookingForm extends React.Component {
       focusedInput: null,
       guests: 1,
       price: this.props.listing.price,
-      status: "PENDING"
+      status: "PENDING",
+      minusHovered: false,
+      plusHovered: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.finalForm = this.finalForm.bind(this);
@@ -29,6 +31,10 @@ class BookingForm extends React.Component {
     this.nights = this.nights.bind(this);
     this.nightsTotalPrice = this.nightsTotalPrice.bind(this);
     this.bookingTotalPrice = this.bookingTotalPrice.bind(this);
+    this.hoverMinus = this.hoverMinus.bind(this);
+    this.unhoverMinus = this.unhoverMinus.bind(this);
+    this.hoverPlus = this.hoverPlus.bind(this);
+    this.unhoverPlus = this.unhoverPlus.bind(this);
   }
 
   componentDidMount() {
@@ -127,21 +133,79 @@ class BookingForm extends React.Component {
     return this.nightsTotalPrice() + 449 + 430 + 300
   }
 
+  hoverMinus() {
+    this.setState({ minusHovered: true, plusHovered: false })
+  }
+
+  unhoverMinus() {
+    this.setState({ minusHovered: false })
+  }
+
+  hoverPlus() {
+    this.setState({ plusHovered: true, minusHovered: false })
+  }
+
+  unhoverPlus() {
+    this.setState({ plusHovered: false })
+  }
+
   render() {
+
+    const isHoverMinus = () => {
+      if (this.state.minusHovered) {
+        return "minus-dark.png"
+      } else {
+        return "minus.png"
+      }
+    }
+
+    const isHoverPlus = () => {
+      if (this.state.plusHovered) {
+        return "plus-dark.png"
+      } else {
+        return "plus.png"
+      }
+    }
 
     const isMinusAllowed = () => {
       if(this.state.guests === 1) {
-        return <img className="minus-button-not-allowed" src="minus-light.png"></img>;
+        return (
+          <button className="booking-guests-minus">
+            <img className="minus-button-not-allowed" src="minus-light.png"></img>
+          </button >
+        )
       } else {
-        return <img className="minus-button-allowed" src="minus.png"></img>;
+        return (
+          <button
+          className="booking-guests-minus"
+          onClick={this.handleCounterMinus}
+          onMouseOver={this.hoverMinus}
+          onMouseLeave={this.unhoverMinus}
+          >
+            <img className="minus-button-allowed" src={isHoverMinus()}></img>
+          </button >
+        )
       }
     }
 
     const isPlusAllowed = () => {
       if(this.state.guests === 4) {
-        return <img className="plus-button-not-allowed" src="plus-light.png"></img>;
+        return (
+          <button className="booking-guests-plus">
+            <img className="plus-button-not-allowed" src="plus-light.png"></img>
+          </button>
+        )
       } else {
-        return <img className="plus-button-allowed" src="plus.png"></img>;
+        return (
+          <button
+            className="booking-guests-plus"
+            onClick={this.handleCounterPlus}
+            onMouseOver={this.hoverPlus}
+            onMouseLeave={this.unhoverPlus}
+          >
+            <img className="plus-button-allowed" src={isHoverPlus()}/>
+          </button>
+        )
       }
     }
 
@@ -249,15 +313,11 @@ class BookingForm extends React.Component {
                     Guests
                   </div>
                   <div className="booking-guests-counter">
-                      <button className="booking-guests-minus" onClick={this.handleCounterMinus}>
-                        {isMinusAllowed()}  
-                      </button>
+                      {isMinusAllowed()}  
                       <div className="booking-guests-value">
                         {this.state.guests}
                       </div>
-                      <button className="booking-guests-plus" onClick={this.handleCounterPlus}>
-                        {isPlusAllowed()}
-                      </button>
+                      {isPlusAllowed()}
                   </div>
                 </div>
                 <div>{this.renderErrors()}</div>

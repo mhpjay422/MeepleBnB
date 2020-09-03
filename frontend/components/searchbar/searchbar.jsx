@@ -228,7 +228,7 @@ class SearchBar extends React.Component {
         className={isHovered()}
         onMouseOver={this.changeBackgroundHover}
         onMouseLeave={this.changeBackgroundUnhover}
-        onFocus={this.focusLocation}>
+          onFocus={() => setTimeout(this.focusLocation, 200)}>
           <div className="splash-search-form-location-container-inner-z">
             <div className="splash-search-form-location-input-header">
               Location
