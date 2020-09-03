@@ -183,7 +183,7 @@ export default class Splash extends React.Component {
   }
 
   hoverMinus() {
-    this.setState({ minusHovered: true})
+    this.setState({ minusHovered: true, plusHovered: false})
   }
 
   unhoverMinus() {
@@ -191,7 +191,7 @@ export default class Splash extends React.Component {
   }
 
   hoverPlus() {
-    this.setState({ plusHovered: true})
+    this.setState({ plusHovered: true, minusHovered: false})
   }
 
   unhoverPlus() {
