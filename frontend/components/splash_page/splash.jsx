@@ -256,15 +256,13 @@ export default class Splash extends React.Component {
                 </div>
                 <div className="guest-counter-item-counter">
                   <button className="guest-counter-item-counter-minus">
-                    <img className="guest-counter-item-counter-minus-image" src="minus.png">
-                    </img>
+                    <img className="guest-counter-item-counter-minus-image" src="minus.png"/>
                   </button>
                   <div className="guest-counter-item-counter-num">
                     0
                   </div>
                   <div className="guest-counter-item-counter-plus">
-                    <img className="guest-counter-item-counter-plus-image" src="plus.png">
-                      </img>
+                    <img className="guest-counter-item-counter-plus-image" src="plus.png"/>
                   </div>
                 </div>
               </div>
