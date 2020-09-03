@@ -20,7 +20,9 @@ export default class Splash extends React.Component {
       checkOutFocus:false,
       guestOpen: false,
       guestFocused: false,
-      numGuests: 2,
+      numGuests: 0,
+      minusHovered: false,
+      plusHovered: false,
     };
     
     this.checkinDate = this.checkinDate.bind(this);
@@ -39,6 +41,12 @@ export default class Splash extends React.Component {
     this.unfocusGuest = this.unfocusGuest.bind(this);
     this.openGuest = this.openGuest.bind(this);
     this.handleClickOutsideGuest = this.handleClickOutsideGuest.bind(this);
+    this.handleClickMinus = this.handleClickMinus.bind(this);
+    this.handleClickPlus = this.handleClickPlus.bind(this);
+    this.hoverMinus = this.hoverMinus.bind(this);
+    this.unhoverMinus = this.unhoverMinus.bind(this);
+    this.hoverPlus = this.hoverPlus.bind(this);
+    this.unhoverPlus = this.unhoverPlus.bind(this);
   }
 
   componentDidMount() {
@@ -166,6 +174,30 @@ export default class Splash extends React.Component {
     this.setState({ guestFocused: false })
   }
 
+  handleClickMinus() {
+    this.setState({ numGuests: this.state.numGuests - 1 })
+  }
+
+  handleClickPlus() {
+    this.setState({ numGuests: this.state.numGuests + 1 })
+  }
+
+  hoverMinus() {
+    this.setState({ minusHovered: true})
+  }
+
+  unhoverMinus() {
+    this.setState({ minusHovered: false})
+  }
+
+  hoverPlus() {
+    this.setState({ plusHovered: true})
+  }
+
+  unhoverPlus() {
+    this.setState({ plusHovered: false})
+  }
+
 
   render() {
 
@@ -243,6 +275,63 @@ export default class Splash extends React.Component {
       }
     }
 
+    const isHoverMinus = () => {
+      if(this.state.minusHovered) {
+        return "minus-dark.png"
+      } else {
+        return "minus.png"
+      }
+    }
+
+    const isHoverPlus = () => {
+      if(this.state.plusHovered) {
+        return "plus-dark.png"
+      } else {
+        return "plus.png"
+      }
+    }
+
+    const buttonMinus = () => {
+      if(this.state.numGuests) {
+        return (
+          <button
+            className="guest-counter-item-counter-minus"
+            onClick={this.handleClickMinus}
+            onMouseOver={this.hoverMinus}
+            onMouseLeave={this.unhoverMinus}>
+            <img className="guest-counter-item-counter-minus-image" src={isHoverMinus()} />
+          </button>
+        )
+      } else {
+        return (
+          <button className="guest-counter-item-counter-minus-disabled">
+            <img className="guest-counter-item-counter-minus-image" src="minus-light.png" />
+          </button>
+        )
+      }
+    }
+
+    const buttonPlus = () => {
+      if(this.state.numGuests < 4) {
+        return (
+          <button
+            className="guest-counter-item-counter-plus"
+            onClick={this.handleClickPlus}
+            onMouseOver={this.hoverPlus}
+            onMouseLeave={this.unhoverPlus}>
+            <img className="guest-counter-item-counter-plus-image" src={isHoverPlus()} />
+          </button>
+        )
+      } else {
+        return (
+          <button
+            className="guest-counter-item-counter-plus-disabled">
+            <img className="guest-counter-item-counter-plus-image" src="plus-light.png" />
+          </button>
+        )
+      }
+    }
+
     const guestCounter = () => {
       if(this.state.guestOpen) {
         return (
@@ -260,15 +349,11 @@ export default class Splash extends React.Component {
                   </div>
                 </div>
                 <div className="guest-counter-item-counter">
-                  <button className="guest-counter-item-counter-minus">
-                    <img className="guest-counter-item-counter-minus-image" src="minus.png"/>
-                  </button>
+                  {buttonMinus()}
                   <div className="guest-counter-item-counter-num">
                     {this.state.numGuests}
                   </div>
-                  <div className="guest-counter-item-counter-plus">
-                    <img className="guest-counter-item-counter-plus-image" src="plus.png"/>
-                  </div>
+                  {buttonPlus()}
                 </div>
               </div>
             </div>

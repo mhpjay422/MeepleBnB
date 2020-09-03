@@ -636,7 +636,26 @@ body {
   text-decoration: none;
   font-family: inherit;
   outline: none;
-  touch-action: manipulation;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255, 255, 255);
+  border: none;
+  pointer-events: auto;
+}
+
+.guest-counter-item-counter-minus-disabled {
+  width: 44px;
+  height: 44px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  cursor: not-allowed;
+  display: inline-flex;
+  margin-right: 10px;
+  padding: 0px;
+  text-align: center;
+  text-decoration: none;
+  font-family: inherit;
+  outline: none;
   align-items: center;
   justify-content: center;
   background: rgb(255, 255, 255);
@@ -670,7 +689,26 @@ body {
   text-decoration: none;
   font-family: inherit;
   outline: none;
-  touch-action: manipulation;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255, 255, 255);
+  border: none;
+  pointer-events: auto;
+}
+
+.guest-counter-item-counter-plus-disabled {
+  width: 44px;
+  height: 44px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  cursor: not-allowed;
+  display: inline-flex;
+  margin-left: 10px;
+  padding: 0px;
+  text-align: center;
+  text-decoration: none;
+  font-family: inherit;
+  outline: none;
   align-items: center;
   justify-content: center;
   background: rgb(255, 255, 255);
@@ -681,11 +719,6 @@ body {
   height: 44px;
   width: 44px;
 }
-
-
-
-
-
 
 .splash-search-submit-container {
   flex: 0 0 auto;
@@ -717,7 +750,6 @@ body {
   height: 48px;
   max-width: 48px;
   position: relative;
-  // transition: 0.2s max-width cubic-bezier(0.35, 0, 0.65, 1);
   vertical-align: middle;
   z-index: 0;
 }
