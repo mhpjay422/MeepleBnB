@@ -465,6 +465,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
+  font-weight: 300;
 }
 
 .splash-search-guest-container {
@@ -544,6 +545,16 @@ body {
   line-height: 18px;
   color: #717171;
   font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.selected-num-guests {
+  font-size: 14px;
+  line-height: 18px;
+  color: black;
+  font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
@@ -3544,6 +3555,7 @@ div.DateInput.DateInput_1 {
   color: #222222;
   text-overflow: ellipsis;
   outline: none;
+  font-weight: 300;
 }
 
 .search-drop-open {

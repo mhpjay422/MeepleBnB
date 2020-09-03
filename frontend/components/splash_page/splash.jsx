@@ -20,6 +20,7 @@ export default class Splash extends React.Component {
       checkOutFocus:false,
       guestOpen: false,
       guestFocused: false,
+      numGuests: 2,
     };
     
     this.checkinDate = this.checkinDate.bind(this);
@@ -37,7 +38,7 @@ export default class Splash extends React.Component {
     this.focusGuest = this.focusGuest.bind(this);
     this.unfocusGuest = this.unfocusGuest.bind(this);
     this.openGuest = this.openGuest.bind(this);
-    this.handleClickOutsideGuest = this.handleClickOutsideGuest.bind(this)
+    this.handleClickOutsideGuest = this.handleClickOutsideGuest.bind(this);
   }
 
   componentDidMount() {
@@ -165,6 +166,7 @@ export default class Splash extends React.Component {
     this.setState({ guestFocused: false })
   }
 
+
   render() {
 
     const dayPicker = () => {
@@ -262,7 +264,7 @@ export default class Splash extends React.Component {
                     <img className="guest-counter-item-counter-minus-image" src="minus.png"/>
                   </button>
                   <div className="guest-counter-item-counter-num">
-                    0
+                    {this.state.numGuests}
                   </div>
                   <div className="guest-counter-item-counter-plus">
                     <img className="guest-counter-item-counter-plus-image" src="plus.png"/>
@@ -276,6 +278,26 @@ export default class Splash extends React.Component {
         return (
           <></>
         )
+      }
+    }
+
+    const displayNumGuests = () => {      
+      if (!this.state.numGuests) {
+        return "Add guests"
+      } else {
+        if(this.state.numGuests === 1) {
+          return (
+            <div className="selected-num-guests">
+              {`${this.state.numGuests} guest`}
+            </div>
+          )
+        } else {
+          return (
+            <div className="selected-num-guests">
+              {`${this.state.numGuests} guests`}
+            </div>
+          )
+        }
       }
     }
  
@@ -339,12 +361,11 @@ export default class Splash extends React.Component {
                         <div className="splash-search-form-border-3"></div>
                         <div 
                         className={formGuests()}
-                        onClick={this.openGuest}
-                        >
+                        onClick={this.openGuest}>
                           <div className="splash-search-guest-container-inner">
                             <div className="splash-search-guest-frame">
                                 <div className="splash-search-guest-header">Guests</div>
-                                <div className="splash-search-guest-body">Add guests</div>
+                            <div className="splash-search-guest-body">{displayNumGuests()}</div>
                             </div>
                           </div>
                           <div className="splash-search-submit-container">
