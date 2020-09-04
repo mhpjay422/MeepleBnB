@@ -94,11 +94,9 @@ export default class Splash extends React.Component {
   }
 
   handleClickOutsideCalendar(e) {
-    debugger
     if (this.picker && !(this.picker.contains(e.target) || this.dateContainerStart.contains(e.target) || this.dateContainerEnd.contains(e.target))) {
       this.setState({ pickerOpen: false })
     } else {
-      debugger
       if (this.picker && (this.dateContainerStart.contains(e.target) || this.dateContainerEnd.contains(e.target))) {
         this.setState({ pickerOpen: true })
       }

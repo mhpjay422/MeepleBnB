@@ -9,7 +9,6 @@ class SearchBar extends React.Component {
       term:'', 
       filteredList:[], 
       listOpen: false,
-      splashInner: false,
       focusLocation: false,
       searchFocused: false,
     };
@@ -19,29 +18,27 @@ class SearchBar extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.findListings = this.findListings.bind(this);
     this.openList = this.openList.bind(this);
-    this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.focus = this.focus.bind(this);
-    this.changeBackgroundHover = this.changeBackgroundHover.bind(this);
-    this.changeBackgroundUnhover = this.changeBackgroundUnhover.bind(this);
     this.clearInput = this.clearInput.bind(this);
+    this.handleClickOutsideLocation = this.handleClickOutsideLocation.bind(this);
     // this.focusInput = this.focusInput.bind(this);
   }
 
-  handleClick(e){
-    if (this.node.contains(e.target) || (e.target.classList[0] === "searched-item")) {
-      return
-    }
-    this.setState({ listOpen: false });
-  }
 
   componentDidMount() {
     this.props.fetchListings();
-    document.addEventListener('mouseup', this.handleClick, false)
+    document.addEventListener('mousedown', this.handleClickOutsideLocation, false)
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mouseup', this.handleClick, false)
+    document.removeEventListener('mousedown', this.handleClickOutsideLocation, false)
+  }
+
+  handleClickOutsideLocation(e) {
+    if(!this.location.contains(e.target)) {
+      this.unfocusLocation()
+    }
   }
 
   handleChange(e) {
@@ -92,7 +89,6 @@ class SearchBar extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger
     e.preventDefault()
 
     if(!this.state.filteredList) {
@@ -106,11 +102,12 @@ class SearchBar extends React.Component {
       search: this.state.term,
       state: { detail: this.state.term },
     });
-    debugger
   }
 
   focus() {
-    this.node.focus();
+    // if (document.activeElement.id !== "clear-button") {
+      this.node.focus();
+    // }  
   }
 
   // focusInput() {
@@ -129,16 +126,8 @@ class SearchBar extends React.Component {
     this.setState({ 
       focusLocation: false,
       listOpen: false,
-      searchFocused: false,
+      searchFocused: false
     })
-  }
-
-  changeBackgroundHover() {
-    this.setState({ splashInner: true })
-  }
-
-  changeBackgroundUnhover() {
-    this.setState({ splashInner: false })
   }
 
   clearInput() {
@@ -197,29 +186,64 @@ class SearchBar extends React.Component {
       } 
     }
 
-    const searchBarClass = () => {
-      if (shouldDropdownOpen) {
-        return "search-bar-open"
-      } else {
-        return "search-bar-closed"
-      }
-    }
-
-    const searchDropClass = () => {
-      if (this.state.listOpen) {
-        return "search-drop-open"
-      } else {
-        return "search-drop-closed"
-      }
-    }
-
     const isHovered = () => {
       if (this.state.focusLocation) {
-        return "splash-search-form-location-container-inner-focus"
-      } else if (!this.state.splashInner) {
-        return "splash-search-form-location-container-inner"
+        return (
+          <div
+            className="splash-search-form-location-container-inner-focus"
+            onFocus={() => setTimeout(this.focusLocation, 200)}
+            autoFocus={true}
+          >
+            <div className="splash-search-form-location-container-inner-z">
+              <div className="splash-search-form-location-input-header">
+                Location
+              </div>
+              <form onSubmit={this.handleSubmit}
+                className="search-bar-container-form">
+                <input
+                  id="input-search"
+                  className="search-bar-container"
+                  ref={node => this.node = node}
+                  type="text"
+                  onChange={this.handleChange}
+                  onClick={this.openList}
+                  placeholder="Where are you going?"
+                  >
+                </input>
+                {isDropdownOpen()}
+              </form>
+               
+            </div>
+          </div>  
+        )
       } else {
-        return "splash-search-form-location-container-inner-hovered"
+        return (
+          <div
+            className="splash-search-form-location-container-inner"
+            onFocus={() => setTimeout(this.focusLocation, 200)}
+            autoFocus={true}
+          >
+            <div className="splash-search-form-location-container-inner-z">
+              <div className="splash-search-form-location-input-header">
+                Location
+              </div>
+              <form onSubmit={this.handleSubmit}
+                className="search-bar-container-form">
+                <input
+                  id="input-search"
+                  className="search-bar-container"
+                  ref={node => this.node = node}
+                  type="text"
+                  onChange={this.handleChange}
+                  onClick={this.openList}
+                  placeholder="Where are you going?"
+                  >
+                </input>
+                {isDropdownOpen()}
+              </form>
+            </div>
+          </div>
+        )
       }
     }
 
@@ -229,6 +253,7 @@ class SearchBar extends React.Component {
           <div className="clear-button-container">
             <button 
             className="clear-button"
+            id="clear-button"
             onClick={this.clearInput}>
               <div className="clear-button-image">
                 <img className="clear-button-img" src="ex.png"></img>
@@ -241,36 +266,14 @@ class SearchBar extends React.Component {
 
     return (
       <div 
-      className="splash-search-form-location-container"
-      id="location-search"
-      onClick={this.focus}
-      onBlur={() => setTimeout(this.unfocusLocation, 200)}>
-        <div 
-        className={isHovered()}
-        onMouseOver={this.changeBackgroundHover}
-        onMouseLeave={this.changeBackgroundUnhover}
-        onFocus={() => setTimeout(this.focusLocation, 200)}>
-          <div className="splash-search-form-location-container-inner-z">
-            <div className="splash-search-form-location-input-header">
-              Location
-            </div>
-            <form onSubmit={this.handleSubmit}
-                  className="search-bar-container-form">
-              <input 
-              className="search-bar-container"
-              ref={node => this.node = node}
-              type="text"
-              onChange={this.handleChange}
-              onClick={this.openList}
-              placeholder="Where are you going?">
-              </input>
-              {isDropdownOpen()}
-            </form>
-            {clearSearchbar()}
-          </div>
-        </div>
+        className="splash-search-form-location-container"
+        ref={location => this.location = location}
+        id="location-search"
+        onClick={this.focus}
+        >
+          {isHovered()}
+          {clearSearchbar()}
       </div>
-      
     );
   }
 }
