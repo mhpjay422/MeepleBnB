@@ -224,7 +224,7 @@ class SearchBar extends React.Component {
     }
 
     const clearSearchbar = () => {
-      if (this.state.searchFocused) {
+      if (this.state.searchFocused && this.node.value !== "") {
         return (
           <div className="clear-button-container">
             <button 
@@ -256,13 +256,13 @@ class SearchBar extends React.Component {
             </div>
             <form onSubmit={this.handleSubmit}
                   className="search-bar-container-form">
-              <input className="search-bar-container"
-                     ref={node => this.node = node}
-                     type="text"
-                     onChange={this.handleChange}
-                     onClick={this.openList}
-                     placeholder="Where are you going?"
-                     onKeyPress={this.openList}>
+              <input 
+              className="search-bar-container"
+              ref={node => this.node = node}
+              type="text"
+              onChange={this.handleChange}
+              onClick={this.openList}
+              placeholder="Where are you going?">
               </input>
               {isDropdownOpen()}
             </form>
