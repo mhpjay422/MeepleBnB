@@ -30,10 +30,9 @@ export default class Splash extends React.Component {
     this.onFocusChange = this.onFocusChange.bind(this);
     this.isInclusivelyAfterDay = this.isInclusivelyAfterDay.bind(this);
     this.isBeforeDay = this.isBeforeDay.bind(this);
-    this.handleClickOutsideCalendarStart = this.handleClickOutsideCalendarStart.bind(this);
-    this.handleClickOutsideCalendarEnd = this.handleClickOutsideCalendarEnd.bind(this);
-    this.openCalendarStart = this.openCalendarStart.bind(this);
-    this.openCalendarEnd = this.openCalendarEnd.bind(this);
+    this.handleClickOutsideCalendar = this.handleClickOutsideCalendar.bind(this);
+    this.toggleCalendarStart = this.toggleCalendarStart.bind(this);
+    this.toggleCalendarEnd = this.toggleCalendarEnd.bind(this);
     this.handleClickOutsideBar = this.handleClickOutsideBar.bind(this);
     this.focusBar = this.focusBar.bind(this);
     this.unFocusBar = this.unFocusBar.bind(this);
@@ -47,20 +46,24 @@ export default class Splash extends React.Component {
     this.unhoverMinus = this.unhoverMinus.bind(this);
     this.hoverPlus = this.hoverPlus.bind(this);
     this.unhoverPlus = this.unhoverPlus.bind(this);
+    this.handleClickOutsideCalendarStart = this.handleClickOutsideCalendarStart.bind(this);
+    this.handleClickOutsideCalendarEnd = this.handleClickOutsideCalendarEnd.bind(this);
   }
 
   componentDidMount() {
-    document.addEventListener('mouseup', this.handleClickOutsideCalendarStart);
-    document.addEventListener('mouseup', this.handleClickOutsideCalendarEnd);
+    document.addEventListener('mouseup', this.handleClickOutsideCalendar);
     document.addEventListener('mouseup', this.handleClickOutsideBar);
     document.addEventListener('mouseup', this.handleClickOutsideGuest);
+    document.addEventListener('mouseup', this.handleClickOutsideCalendarStart);
+    document.addEventListener('mouseup', this.handleClickOutsideCalendarEnd);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mouseup', this.handleClickOutsideCalendarStart);
-    document.removeEventListener('mouseup', this.handleClickOutsideCalendarEnd);
+    document.removeEventListener('mouseup', this.handleClickOutsideCalendar);
     document.removeEventListener('mouseup', this.handleClickOutsideBar);
     document.removeEventListener('mouseup', this.handleClickOutsideGuest);
+    document.removeEventListener('mouseup', this.handleClickOutsideCalendarStart);
+    document.removeEventListener('mouseup', this.handleClickOutsideCalendarEnd);
   }
 
   onFocusChange(focusedInput) {
@@ -115,28 +118,32 @@ export default class Splash extends React.Component {
   }
 
   handleClickOutsideCalendar(e) {
-    if (this.picker && !this.picker.contains(e.target)) {
-      this.setState({ pickerOpen: false})
+    debugger
+    if (this.picker && !(this.picker.contains(e.target) || this.dateContainerStart.contains(e.target) || this.dateContainerEnd.contains(e.target))) {
+      this.setState({ pickerOpen: false })
+    } else {
+      debugger
+      if (this.picker && (this.dateContainerStart.contains(e.target) || this.dateContainerEnd.contains(e.target))) {
+        this.setState({ pickerOpen: true })
+      }
     }
   }
 
   handleClickOutsideCalendarStart(e) {
-    this.setState({ checkInFocus: false })
-    if (this.picker && !this.picker.contains(e.target)) {
-      this.setState({ pickerOpen: false })
+    if (!this.dateContainerStart.contains(e.target)) {
+      this.setState({ checkInFocus: false })
     }
   }
-  
+
   handleClickOutsideCalendarEnd(e) {
-    this.setState({ checkOutFocus: false })
-    if (this.picker && !this.picker.contains(e.target)) {
-      this.setState({ pickerOpen: false })
+    if (!this.dateContainerEnd.contains(e.target)) {
+      this.setState({ checkOutFocus: false })
     }
   }
 
   handleClickOutsideBar(e) {
     if (this.bar && !this.bar.contains(e.target)) {
-      this.setState({ barFocused: false })
+      this.setState({ barFocused: false, checkInFocus: false, checkOutFocus:false })
     }
   }
 
@@ -146,12 +153,20 @@ export default class Splash extends React.Component {
     }
   }
 
-  openCalendarStart() {
-    this.setState({ pickerOpen: true, focusedInput: 'startDate', checkInFocus: true })
+  toggleCalendarStart() {
+    if(this.state.checkInFocus) {
+      this.setState({ pickerOpen: false })
+    } else {
+      this.setState({ checkOutFocus: false})
+    }
+    this.setState({ focusedInput: 'startDate', checkInFocus: !this.state.checkInFocus })
   }
 
-  openCalendarEnd() {
-    this.setState({ pickerOpen: true, focusedInput: 'endDate', checkOutFocus: true })
+  toggleCalendarEnd() {
+    if (this.state.checkOutFocus) {
+      this.setState({ pickerOpen: false })
+    }
+    this.setState({ focusedInput: 'endDate', checkOutFocus: !this.state.checkOutFocus })
   }
 
   openGuest() {
@@ -419,7 +434,9 @@ export default class Splash extends React.Component {
                         <div className="splash-search-form-border-1" id="border1"></div>
                         <div 
                         className={formDates1()}
-                        onClick={this.openCalendarStart}>
+                        onClick={this.toggleCalendarStart}
+                        ref={dateContainerStart => this.dateContainerStart = dateContainerStart}
+                        >
                           <div className="splash-search-form-dates-item-container-inner">
                             <div className="splash-search-form-dates-item-frame">
                               <div className="splash-search-form-dates-item-header">Check in</div>
@@ -435,7 +452,8 @@ export default class Splash extends React.Component {
                         </div>
                         <div 
                         className={formDates2()} 
-                        onClick={this.openCalendarEnd}>
+                        onClick={this.toggleCalendarEnd}
+                        ref={dateContainerEnd => this.dateContainerEnd = dateContainerEnd}>
                           <div className="splash-search-form-dates-item-container-inner">
                             <div className="splash-search-form-dates-item-frame">
                               <div className="splash-search-form-dates-item-header">Check out</div>
