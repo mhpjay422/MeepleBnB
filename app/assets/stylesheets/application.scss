@@ -468,6 +468,16 @@ body {
   font-weight: 300;
 }
 
+.splash-search-form-dates-item-body-selected {
+  font-size: 14px;
+  line-height: 18px;
+  color: black;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
 .splash-search-guest-container {
   align-items: center;
   display: flex;
@@ -3587,7 +3597,6 @@ div.DateInput.DateInput_1 {
   color: #222222;
   text-overflow: ellipsis;
   outline: none;
-  font-weight: 300;
 }
 
 .search-drop-open {

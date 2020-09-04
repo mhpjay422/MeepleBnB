@@ -25,8 +25,6 @@ export default class Splash extends React.Component {
       plusHovered: false,
     };
     
-    this.checkinDate = this.checkinDate.bind(this);
-    this.checkoutDate = this.checkoutDate.bind(this);
     this.onFocusChange = this.onFocusChange.bind(this);
     this.isInclusivelyAfterDay = this.isInclusivelyAfterDay.bind(this);
     this.isBeforeDay = this.isBeforeDay.bind(this);
@@ -93,28 +91,6 @@ export default class Splash extends React.Component {
     if (isSameYear && isSameMonth) return a.date() < b.date();
     if (isSameYear) return aMonth < bMonth;
     return aYear < bYear;
-  }
-
-  checkinDate() {
-    if(this.state.startDate) {
-      const date = this.state.startDate._d.toDateString().split(" ");
-      const month = date[1]
-      const day = date[2]
-      return `${month} ${day}`
-    } else {
-      return "Add dates"
-    }
-  }
-
-  checkoutDate() {
-    if(this.state.endDate) {
-      const date = this.state.endDate._d.toDateString().split(" ");
-      const month = date[1]
-      const day = date[2]
-      return `${month} ${day}`
-    } else {
-      return "Add dates"
-    }
   }
 
   handleClickOutsideCalendar(e) {
@@ -282,6 +258,41 @@ export default class Splash extends React.Component {
       }
     }
 
+    const checkinDate = () => {
+      if (this.state.startDate) {
+        const date = this.state.startDate._d.toDateString().split(" ");
+        const month = date[1]
+        const day = date[2]
+        return (
+          <div className="splash-search-form-dates-item-body-selected">
+            {`${month} ${day}`}
+          </div>
+        )
+      } else {
+        return (
+          <div className="splash-search-form-dates-item-body">Add dates</div>
+        )
+      }
+    }
+
+    const checkoutDate = () => {
+      if (this.state.endDate) {
+        const date = this.state.endDate._d.toDateString().split(" ");
+        const month = date[1]
+        const day = date[2]
+        return (
+          <div className="splash-search-form-dates-item-body-selected">
+            {`${month} ${day}`}
+          </div>
+          
+        )
+      } else {
+        return (
+          <div className="splash-search-form-dates-item-body">Add dates</div>
+        )
+      }
+    }
+
     const formGuests = () => {
       if (this.state.guestFocused) {
         return "splash-search-guest-container-focus"
@@ -440,7 +451,7 @@ export default class Splash extends React.Component {
                           <div className="splash-search-form-dates-item-container-inner">
                             <div className="splash-search-form-dates-item-frame">
                               <div className="splash-search-form-dates-item-header">Check in</div>
-                            <div className="splash-search-form-dates-item-body">{this.checkinDate()}</div>
+                              {checkinDate()}
                             </div>
                           </div>
                         </div>
@@ -457,7 +468,7 @@ export default class Splash extends React.Component {
                           <div className="splash-search-form-dates-item-container-inner">
                             <div className="splash-search-form-dates-item-frame">
                               <div className="splash-search-form-dates-item-header">Check out</div>
-                            <div className="splash-search-form-dates-item-body">{this.checkoutDate()}</div>
+                              {checkoutDate()}
                             </div>
                           </div>
                         </div>
