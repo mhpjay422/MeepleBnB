@@ -127,7 +127,10 @@ export default class Splash extends React.Component {
     }
   }
 
-  toggleCalendarStart() {
+  toggleCalendarStart(input) {
+    if(input === "search") {
+      this.setState({pickerOpen: true})
+    }
     if(this.state.checkInFocus) {
       this.setState({ pickerOpen: false })
     } else {
@@ -439,7 +442,7 @@ export default class Splash extends React.Component {
                       className="splash-search-form-frame"
                       onClick={this.focusBar}
                       ref={bar => this.bar = bar}>
-                        <SearchContainer />
+                        <SearchContainer toggleStart={this.toggleCalendarStart}/>
                         <div className="splash-search-form-border-1" id="border1"></div>
                         <div 
                         className={formDates1()}

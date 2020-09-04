@@ -23,7 +23,6 @@ class SearchBar extends React.Component {
     this.clearInput = this.clearInput.bind(this);
     this.handleClickOutsideLocation = this.handleClickOutsideLocation.bind(this);
     this.ifEnter = this.ifEnter.bind(this);
-    this.onFocus = this.onFocus.bind(this)
     // this.focusInput = this.focusInput.bind(this);
   }
 
@@ -113,8 +112,11 @@ class SearchBar extends React.Component {
   }
 
   ifEnter(e) {
-    if(e.keycode === 13) {
-      this.node.focus()
+    debugger
+    if(e.charCode === 13) {
+      debugger
+      this.unfocusLocation()
+      this.props.toggleStart("search")
     }
   }
 
@@ -140,12 +142,6 @@ class SearchBar extends React.Component {
 
   clearInput() {
     this.node.value = ""
-  }
-
-  onFocus(event) {
-    if (event.target.autocomplete) {
-      event.target.autocomplete = "whatever";
-    }
   }
 
   render() {
@@ -213,7 +209,8 @@ class SearchBar extends React.Component {
               <div className="splash-search-form-location-input-header">
                 Location
               </div>
-              <form onSubmit={this.handleSubmit}
+              <form 
+                // onSubmit={this.handleSubmit}
                 className="search-bar-container-form">
                 <input
                   id="input-search"
@@ -224,7 +221,7 @@ class SearchBar extends React.Component {
                   onClick={this.openList}
                   placeholder="Where are you going?"
                   autoComplete="off"
-                  // onKeyPress={this.ifEnter}
+                  onKeyPress={this.ifEnter}
                   >
                 </input>
                 {isDropdownOpen()}
@@ -245,7 +242,7 @@ class SearchBar extends React.Component {
                 Location
               </div>
               <form
-                onSubmit={this.handleSubmit}
+                // onSubmit={this.handleSubmit}
                 className="search-bar-container-form"
                 autoComplete="off"
                 >
