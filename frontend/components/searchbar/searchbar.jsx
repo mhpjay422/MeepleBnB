@@ -11,6 +11,7 @@ class SearchBar extends React.Component {
       listOpen: false,
       splashInner: false,
       focusLocation: false,
+      searchFocused: false,
     };
 
     this.focusLocation = this.focusLocation.bind(this);
@@ -23,7 +24,7 @@ class SearchBar extends React.Component {
     this.focus = this.focus.bind(this);
     this.changeBackgroundHover = this.changeBackgroundHover.bind(this);
     this.changeBackgroundUnhover = this.changeBackgroundUnhover.bind(this);
-
+    this.clearInput = this.clearInput.bind(this);
     // this.focusInput = this.focusInput.bind(this);
   }
 
@@ -120,6 +121,7 @@ class SearchBar extends React.Component {
     this.setState({ 
       focusLocation: true,
       listOpen: true,
+      searchFocused: true,
     })
   }
 
@@ -127,6 +129,7 @@ class SearchBar extends React.Component {
     this.setState({ 
       focusLocation: false,
       listOpen: false,
+      searchFocused: false,
     })
   }
 
@@ -138,7 +141,9 @@ class SearchBar extends React.Component {
     this.setState({ splashInner: false })
   }
 
-  
+  clearInput() {
+    this.node.value = ""
+  }
 
   render() {
 
@@ -218,6 +223,22 @@ class SearchBar extends React.Component {
       }
     }
 
+    const clearSearchbar = () => {
+      if (this.state.searchFocused) {
+        return (
+          <div className="clear-button-container">
+            <button 
+            className="clear-button"
+            onClick={this.clearInput}>
+              <div className="clear-button-image">
+                <img className="clear-button-img" src="ex.png"></img>
+              </div>
+            </button>
+          </div>
+        )
+      }
+    }
+
     return (
       <div 
       className="splash-search-form-location-container"
@@ -245,6 +266,7 @@ class SearchBar extends React.Component {
               </input>
               {isDropdownOpen()}
             </form>
+            {clearSearchbar()}
           </div>
         </div>
       </div>

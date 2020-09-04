@@ -3707,6 +3707,63 @@ div.DateInput.DateInput_1 {
   position: relative;
 }
 
+.clear-button-container {
+  align-items: center;
+  display: flex;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  height: 100%;
+  z-index: 1;
+}
+
+.clear-button {
+  appearance: none;
+  display: inline-block;
+  border-radius: 50%;
+  border: none;
+  outline: 0px;
+  margin: 0px;
+  padding: 0px;
+  color: rgb(34, 34, 34);
+  cursor: pointer;
+  touch-action: manipulation;
+  position: relative;
+  background: transparent;
+  transition: -ms-transform 0.25s ease 0s,
+  -webkit-transform 0.25s ease 0s,
+  transform 0.25s ease 0s;
+  z-index: 1;
+}
+
+.clear-button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgb(235, 235, 235);
+  z-index: 1;
+}
+
+.clear-button-image {
+  position: relative;
+  z-index: 1;
+}
+
+.clear-button-img {
+  height: 8px;
+  width: 8px;
+  display: block;
+  fill: currentcolor;
+  z-index: 1;
+}
+
 .searched-items {
   width: 500px;
   min-width: 0;
