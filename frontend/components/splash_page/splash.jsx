@@ -46,6 +46,7 @@ export default class Splash extends React.Component {
     this.unhoverPlus = this.unhoverPlus.bind(this);
     this.handleClickOutsideCalendarStart = this.handleClickOutsideCalendarStart.bind(this);
     this.handleClickOutsideCalendarEnd = this.handleClickOutsideCalendarEnd.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -189,6 +190,11 @@ export default class Splash extends React.Component {
   unhoverPlus() {
     this.setState({ plusHovered: false})
   }
+ 
+  handleFormSubmit() {
+    debugger
+    this.searchBin.handleSubmit();
+  }
 
 
   render() {
@@ -221,7 +227,9 @@ export default class Splash extends React.Component {
     const searchsubmit = () => {
       if(this.state.barFocused) {
         return (
-          <button className="splash-search-submit-frame-focused">
+          <button className="splash-search-submit-frame-focused"
+            onClick={this.handleFormSubmit}
+            >
             <div className="splash-search-submit-icon-container">
               <div className="splash-search-submit-icon">
                 <img className="splash-search-submit-icon-img" src="search.png"></img>
@@ -232,7 +240,9 @@ export default class Splash extends React.Component {
         )
       } else {
         return (
-          <button className="splash-search-submit-frame">
+          <button className="splash-search-submit-frame"
+            onClick={this.handleFormSubmit}
+            >
             <div className="splash-search-submit-icon-container">
               <div className="splash-search-submit-icon">
                 <img src="search.png"></img>
@@ -427,7 +437,11 @@ export default class Splash extends React.Component {
             <div className="splash-search-container">
               <div className="splash-search-container-absolute">
                 <div className="splash-search-padding">
-                  <div className="splash-search-frame">
+                  <form 
+                    className="splash-search-frame"
+                    // onSubmit={this.handleFormSubmit}
+                    autoComplete="off"
+                    >
                     <fieldset className="splash-search-top">
                       <div className="splash-search-top-tabs">
                         <div className="splash-search-top-tab">
@@ -442,7 +456,7 @@ export default class Splash extends React.Component {
                       className="splash-search-form-frame"
                       onClick={this.focusBar}
                       ref={bar => this.bar = bar}>
-                        <SearchContainer toggleStart={this.toggleCalendarStart}/>
+                        <SearchContainer onRef={searchBin => this.searchBin = searchBin} toggleStart={this.toggleCalendarStart}/>
                         <div className="splash-search-form-border-1" id="border1"></div>
                         <div 
                         className={formDates1()}
@@ -490,7 +504,7 @@ export default class Splash extends React.Component {
                         {guestCounter()}
                       </div>
                     </div>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>

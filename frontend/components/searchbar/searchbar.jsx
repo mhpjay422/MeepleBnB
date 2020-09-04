@@ -28,11 +28,16 @@ class SearchBar extends React.Component {
 
 
   componentDidMount() {
+    debugger
+    if (this.props.onRef) {
+      this.props.onRef(this)
+    }
     this.props.fetchListings();
     document.addEventListener('mousedown', this.handleClickOutsideLocation, false)
   }
 
   componentWillUnmount() {
+    this.props.onRef(undefined)
     document.removeEventListener('mousedown', this.handleClickOutsideLocation, false)
   }
 
@@ -90,7 +95,9 @@ class SearchBar extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault()
+    if(e) {
+      e.preventDefault()
+    }
 
     if(!this.state.filteredList) {
       this.props.fetchListings();
@@ -241,8 +248,7 @@ class SearchBar extends React.Component {
               <div className="splash-search-form-location-input-header">
                 Location
               </div>
-              <form
-                // onSubmit={this.handleSubmit}
+              <div
                 className="search-bar-container-form"
                 autoComplete="off"
                 >
@@ -258,7 +264,7 @@ class SearchBar extends React.Component {
                   >
                 </input>
                 {isDropdownOpen()}
-              </form>
+              </div>
             </div>
           </div>
         )
