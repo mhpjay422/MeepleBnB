@@ -37,7 +37,9 @@ class SearchBar extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.onRef(undefined)
+    if (this.props.onRef) {
+      this.props.onRef(undefined)
+    }
     document.removeEventListener('mousedown', this.handleClickOutsideLocation, false)
   }
 

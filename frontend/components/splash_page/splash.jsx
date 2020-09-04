@@ -537,18 +537,12 @@ export default class Splash extends React.Component {
     );
   
     const splash = () => {
-      if (this.props.loggedIn) {
-        return (
-          <nav/>
-        );
-      } else {
-        return(
+      return(
           <>
             <img className="splash" src="background1.jpg" aria-hidden="true"/>
             {nav}
           </>
-          );
-      }
+      );
     };
   
     return splash();
