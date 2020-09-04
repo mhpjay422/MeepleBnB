@@ -211,7 +211,6 @@ class SearchBar extends React.Component {
           <div
             className="splash-search-form-location-container-inner-focus"
             onFocus={() => setTimeout(this.focusLocation, 200)}
-            autoFocus={true}
             autoComplete="off"
           >
             <div className="splash-search-form-location-container-inner-z">
@@ -231,6 +230,7 @@ class SearchBar extends React.Component {
                   placeholder="Where are you going?"
                   autoComplete="off"
                   onKeyPress={this.ifEnter}
+                  autoFocus={true}
                   >
                 </input>
                 {isDropdownOpen()}
