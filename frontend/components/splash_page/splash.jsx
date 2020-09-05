@@ -96,12 +96,14 @@ export default class Splash extends React.Component {
   }
 
   handleClickOutsideCalendar(e) {
-    const pickerOpen = this.picker.contains(e.target)
+    const clickPicker = this.picker.contains(e.target)
     const dateStart = this.dateContainerStart.contains(e.target)
     const dateEnd = this.dateContainerEnd.contains(e.target)
-    const notInBar = pickerOpen || dateStart || dateEnd
+    const clickOutBar = !(clickPicker || dateStart || dateEnd)
+    const pickerShouldClose = this.picker && clickOutBar && !(document.activeElement.id === "clear-button")
 
-    if (this.picker && !notInBar && !document.activeElement.id === "clear-button" ) {
+    debugger
+    if (pickerShouldClose) {
       debugger
       this.setState({ pickerOpen: false })
     } else {
@@ -148,6 +150,7 @@ export default class Splash extends React.Component {
     if(input === "search" && !this.state.pickerOpen) {
       this.setState({pickerOpen: true})
     }
+    debugger
     if (this.state.checkInFocus && !document.activeElement.id === "clear-button") {
       debugger
       this.setState({ pickerOpen: false })
@@ -162,7 +165,9 @@ export default class Splash extends React.Component {
   }
 
   toggleCalendarEnd() {
+    debugger
     if (this.state.checkOutFocus && !document.activeElement.id === "clear-button") {
+      debugger
       this.setState({ pickerOpen: false })
     }
     this.setState({ focusedInput: 'endDate', checkOutFocus: !this.state.checkOutFocus })
