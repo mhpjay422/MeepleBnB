@@ -3688,9 +3688,35 @@ div.DateInput.DateInput_1 {
   z-index: 50;
 }
 
+.clear-button-container {
+  align-items: center;
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0px;
+  left: 230px;
+  bottom: 0px;
+  height: 100%;
+  z-index: 50;
+}
+
+.clear-button-date-start-container {
+  align-items: center;
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0px;
+  left: 397px;
+  bottom: 0px;
+  height: 100%;
+  z-index: 50;
+  cursor: pointer;
+}
+
 .clear-button {
-  appearance: none;
   display: inline-block;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   border: none;
   outline: 0px;
@@ -3698,27 +3724,25 @@ div.DateInput.DateInput_1 {
   padding: 0px;
   color: rgb(34, 34, 34);
   cursor: pointer;
-  touch-action: manipulation;
   position: relative;
-  background: transparent;
-  transition: -ms-transform 0.25s ease 0s,
-  -webkit-transform 0.25s ease 0s,
-  transform 0.25s ease 0s;
+  background: rgb(235, 235, 235);
   z-index: 1;
 }
 
-.clear-button::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.clear-button:hover {
+  display: inline-block;
   width: 20px;
   height: 20px;
   border-radius: 50%;
+  border: none;
+  outline: 0px;
+  margin: 0px;
+  padding: 0px;
+  color: rgb(34, 34, 34);
+  cursor: pointer;
+  position: relative;
   background: rgb(235, 235, 235);
-  z-index: 1;
+  z-index: 1
 }
 
 .clear-button-image {
@@ -3732,6 +3756,15 @@ div.DateInput.DateInput_1 {
   display: block;
   fill: currentcolor;
   z-index: 1;
+}
+
+.clear-button-img:hover {
+  height: 8px;
+  width: 8px;
+  display: block;
+  fill: gray;
+  z-index: 1;
+  background: gray;
 }
 
 .searched-items {

@@ -28,7 +28,6 @@ class SearchBar extends React.Component {
 
 
   componentDidMount() {
-    debugger
     if (this.props.onRef) {
       this.props.onRef(this)
     }
@@ -121,9 +120,7 @@ class SearchBar extends React.Component {
   }
 
   ifEnter(e) {
-    debugger
     if(e.charCode === 13) {
-      debugger
       this.unfocusLocation()
       this.props.toggleStart("search")
     }
@@ -217,7 +214,7 @@ class SearchBar extends React.Component {
               <div className="splash-search-form-location-input-header">
                 Location
               </div>
-              <form 
+              <div 
                 // onSubmit={this.handleSubmit}
                 className="search-bar-container-form">
                 <input
@@ -234,7 +231,7 @@ class SearchBar extends React.Component {
                   >
                 </input>
                 {isDropdownOpen()}
-              </form>
+              </div>
                
             </div>
           </div>  

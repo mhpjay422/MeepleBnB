@@ -47,6 +47,7 @@ export default class Splash extends React.Component {
     this.handleClickOutsideCalendarStart = this.handleClickOutsideCalendarStart.bind(this);
     this.handleClickOutsideCalendarEnd = this.handleClickOutsideCalendarEnd.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
+    this.clearStartDate = this.clearStartDate.bind(this)
   }
 
   componentDidMount() {
@@ -95,7 +96,13 @@ export default class Splash extends React.Component {
   }
 
   handleClickOutsideCalendar(e) {
-    if (this.picker && !(this.picker.contains(e.target) || this.dateContainerStart.contains(e.target) || this.dateContainerEnd.contains(e.target))) {
+    const pickerOpen = this.picker.contains(e.target)
+    const dateStart = this.dateContainerStart.contains(e.target)
+    const dateEnd = this.dateContainerEnd.contains(e.target)
+    const notInBar = pickerOpen || dateStart || dateEnd
+
+    if (this.picker && !notInBar && !document.activeElement.id === "clear-button" ) {
+      debugger
       this.setState({ pickerOpen: false })
     } else {
       if (this.picker && (this.dateContainerStart.contains(e.target) || this.dateContainerEnd.contains(e.target))) {
@@ -105,12 +112,18 @@ export default class Splash extends React.Component {
   }
 
   handleClickOutsideCalendarStart(e) {
+    if (document.activeElement.id === "clear-button") {
+      return
+    }
     if (!this.dateContainerStart.contains(e.target)) {
       this.setState({ checkInFocus: false })
     }
   }
 
   handleClickOutsideCalendarEnd(e) {
+    if (document.activeElement.id === "clear-button") {
+      return
+    }
     if (!this.dateContainerEnd.contains(e.target)) {
       this.setState({ checkOutFocus: false })
     }
@@ -123,25 +136,33 @@ export default class Splash extends React.Component {
   }
 
   handleClickOutsideGuest(e) {
+    if (document.activeElement.id === "clear-button"){
+      return 
+    }
     if (this.guest && !this.guest.contains(e.target)) {
       this.setState({ guestFocused: false, guestOpen: false })
     }
   }
 
   toggleCalendarStart(input) {
-    if(input === "search") {
+    if(input === "search" && !this.state.pickerOpen) {
       this.setState({pickerOpen: true})
     }
-    if(this.state.checkInFocus) {
+    if (this.state.checkInFocus && !document.activeElement.id === "clear-button") {
+      debugger
       this.setState({ pickerOpen: false })
     } else {
       this.setState({ checkOutFocus: false})
     }
-    this.setState({ focusedInput: 'startDate', checkInFocus: !this.state.checkInFocus })
+    if(!this.state.pickerOpen) {
+      this.setState({ focusedInput: 'startDate' })
+    }
+
+    this.setState({ checkInFocus: !this.state.checkInFocus })
   }
 
   toggleCalendarEnd() {
-    if (this.state.checkOutFocus) {
+    if (this.state.checkOutFocus && !document.activeElement.id === "clear-button") {
       this.setState({ pickerOpen: false })
     }
     this.setState({ focusedInput: 'endDate', checkOutFocus: !this.state.checkOutFocus })
@@ -192,8 +213,11 @@ export default class Splash extends React.Component {
   }
  
   handleFormSubmit() {
-    debugger
     this.searchBin.handleSubmit();
+  }
+
+  clearStartDate() {
+    this.setState({ startDate: null, endDate: null, focusedInput: 'startDate'})
   }
 
 
@@ -422,6 +446,24 @@ export default class Splash extends React.Component {
         }
       }
     }
+
+    const clearDateStart = () => {
+      if (this.state.checkInFocus && this.state.startDate) {
+        return (
+          <div className="clear-button-date-start-container" >
+            <button
+              className="clear-button"
+              id="clear-button"
+              onClick={this.clearStartDate}
+              >
+              <div className="clear-button-image">
+                <img className="clear-button-img" src="ex.png"></img>
+              </div>
+            </button>
+          </div>
+        )
+      }
+    }
  
     const nav = (
       <div className="splash-topbar">
@@ -470,6 +512,7 @@ export default class Splash extends React.Component {
                             </div>
                           </div>
                         </div>
+                        {clearDateStart()}
                         <div className="splash-search-form-border-2"></div>
                         <div 
                         className="splash-daypicker"
@@ -477,7 +520,7 @@ export default class Splash extends React.Component {
                           {dayPicker()}
                         </div>
                         <div 
-                        className={formDates2()} 
+                        className={formDates2()}
                         onClick={this.toggleCalendarEnd}
                         ref={dateContainerEnd => this.dateContainerEnd = dateContainerEnd}>
                           <div className="splash-search-form-dates-item-container-inner">
