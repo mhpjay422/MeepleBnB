@@ -47,7 +47,8 @@ export default class Splash extends React.Component {
     this.handleClickOutsideCalendarStart = this.handleClickOutsideCalendarStart.bind(this);
     this.handleClickOutsideCalendarEnd = this.handleClickOutsideCalendarEnd.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
-    this.clearDates = this.clearDates.bind(this)
+    this.dateStartClear = this.dateStartClear.bind(this)
+    this.dateEndClear = this.dateEndClear.bind(this)
     this.setDates = this.setDates.bind(this)
   }
 
@@ -155,6 +156,8 @@ export default class Splash extends React.Component {
 
     if (this.state.checkInFocus && !(document.activeElement.id === "clear-button")) {
       this.setState({ pickerOpen: false })
+    } else {
+      this.setState({ checkOutFocus: false})
     }
 
     this.setState({ focusedInput: 'startDate', checkInFocus: !this.state.checkInFocus })
@@ -216,14 +219,18 @@ export default class Splash extends React.Component {
     this.searchBin.handleSubmit();
   }
 
-  clearDates() {
+  dateStartClear() {
     this.setState({ startDate: null, endDate: null, focusedInput: 'startDate'})
+  }
+
+  dateEndClear() {
+    this.setState({ startDate: null, endDate: null, focusedInput: 'endDate'})
   }
 
   setDates({ startDate, endDate }) {
     this.setState({ startDate, endDate })
 
-    if(!this.state.startDate && this.state.endDate) {
+    if(!startDate && endDate) {
       this.dateContainerStart.click()
     }
 
@@ -466,7 +473,7 @@ export default class Splash extends React.Component {
             <button
               className="clear-button"
               id="clear-button"
-              onClick={this.clearDates}
+              onClick={this.dateStartClear}
               >
               <div className="clear-button-image">
                 <img className="clear-button-img" src="exe.png"></img>
@@ -484,7 +491,7 @@ export default class Splash extends React.Component {
             <button
               className="clear-button"
               id="clear-button"
-              onClick={this.clearDates}
+              onClick={this.dateEndClear}
               >
               <div className="clear-button-image">
                 <img className="clear-button-img" src="exe.png"></img>
