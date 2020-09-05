@@ -48,6 +48,7 @@ export default class Splash extends React.Component {
     this.handleClickOutsideCalendarEnd = this.handleClickOutsideCalendarEnd.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.clearStartDate = this.clearStartDate.bind(this)
+    this.setDates = this.setDates.bind(this)
   }
 
   componentDidMount() {
@@ -71,6 +72,7 @@ export default class Splash extends React.Component {
       // Force the focusedInput to always be truthy so that dates are always selectable
       focusedInput: !focusedInput ? 'startDate' : focusedInput,
     });
+    
     debugger
     this.dateContainerEnd.click();
   }
@@ -147,22 +149,20 @@ export default class Splash extends React.Component {
   }
 
   toggleCalendarStart(input) {
+
     if(input === "search" && !this.state.pickerOpen) {
       this.setState({pickerOpen: true})
     }
+
     if (this.state.checkInFocus && !(document.activeElement.id === "clear-button")) {
       this.setState({ pickerOpen: false })
-    } else {
-      this.setState({ checkOutFocus: false})
-    }
-    if(!this.state.pickerOpen) {
-      this.setState({ focusedInput: 'startDate' })
     }
 
-    this.setState({ checkInFocus: !this.state.checkInFocus })
+    this.setState({ focusedInput: 'startDate', checkInFocus: !this.state.checkInFocus })
   }
 
   toggleCalendarEnd() {
+    
     if (this.state.checkOutFocus && !(document.activeElement.id === "clear-button")) {
       this.setState({ pickerOpen: false })
     }
@@ -221,6 +221,26 @@ export default class Splash extends React.Component {
     this.setState({ startDate: null, endDate: null, focusedInput: 'startDate'})
   }
 
+  setDates({ startDate, endDate }) {
+    this.setState({ startDate, endDate })
+
+    if(!this.state.startDate && this.state.endDate) {
+      this.dateContainerStart.click()
+    }
+
+    debugger
+    if (startDate && !endDate && this.state.focusedInput === "endDate") {
+      this.dateContainerEnd.click()
+    }
+  }
+
+//   if(!this.state.startDate && this.state.endDate) {
+//   this.dateContainerStart.click()
+// } else if (!this.state.checkInFocus && this.state.checkOutFocus) {
+//   debugger
+//   this.dateContainerStart.click()
+// }
+
   
 
   render() {
@@ -231,7 +251,7 @@ export default class Splash extends React.Component {
           <DayPickerRangeController
             startDate={this.state.startDate}
             endDate={this.state.endDate}
-            onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+            onDatesChange={this.setDates}
             focusedInput={this.state.focusedInput}
             onFocusChange={this.onFocusChange}
             minimumNights={2}
