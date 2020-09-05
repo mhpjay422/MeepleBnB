@@ -49,6 +49,7 @@ export default class Splash extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.dateStartClear = this.dateStartClear.bind(this)
     this.dateEndClear = this.dateEndClear.bind(this)
+    this.guestClear = this.guestClear.bind(this)
     this.setDates = this.setDates.bind(this)
   }
 
@@ -225,6 +226,10 @@ export default class Splash extends React.Component {
 
   dateEndClear() {
     this.setState({ startDate: null, endDate: null, focusedInput: 'endDate'})
+  }
+
+  guestClear() {
+    this.setState({ numGuests: 0})
   }
 
   setDates({ startDate, endDate }) {
@@ -501,6 +506,24 @@ export default class Splash extends React.Component {
         )
       }
     }
+
+    const clearGuest = () => {
+      if (this.state.guestFocused && this.state.numGuests) {
+        return (
+          <div className="clear-button-guest-container" >
+            <button
+              className="clear-button"
+              id="clear-button"
+              onClick={this.guestClear}
+              >
+              <div className="clear-button-image">
+                <img className="clear-button-img" src="exe.png"></img>
+              </div>
+            </button>
+          </div>
+        )
+      }
+    }
  
     const nav = (
       <div className="splash-topbar">
@@ -578,6 +601,7 @@ export default class Splash extends React.Component {
                             <div className="splash-search-guest-body">{displayNumGuests()}</div>
                             </div>
                           </div>
+                          {clearGuest()}
                           <div className="splash-search-submit-container">
                             {searchsubmit()}
                           </div>
