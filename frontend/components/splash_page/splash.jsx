@@ -46,11 +46,12 @@ export default class Splash extends React.Component {
     this.unhoverPlus = this.unhoverPlus.bind(this);
     this.handleClickOutsideCalendarStart = this.handleClickOutsideCalendarStart.bind(this);
     this.handleClickOutsideCalendarEnd = this.handleClickOutsideCalendarEnd.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this)
-    this.dateStartClear = this.dateStartClear.bind(this)
-    this.dateEndClear = this.dateEndClear.bind(this)
-    this.guestClear = this.guestClear.bind(this)
-    this.setDates = this.setDates.bind(this)
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.dateStartClear = this.dateStartClear.bind(this);
+    this.dateEndClear = this.dateEndClear.bind(this);
+    this.guestClear = this.guestClear.bind(this);
+    this.setDates = this.setDates.bind(this);
+    this.handleInfo = this.handleInfo.bind(this);
   }
 
   componentDidMount() {
@@ -242,6 +243,12 @@ export default class Splash extends React.Component {
     if (startDate && !endDate && this.state.focusedInput === "endDate") {
       this.dateContainerEnd.click()
     }
+  }
+
+  handleInfo() {
+    return (
+      { startDate: this.state.startDate, endDate: this.state.endDate, guests: this.state.numGuests }
+    )
   }
 
 
@@ -524,6 +531,8 @@ export default class Splash extends React.Component {
         )
       }
     }
+
+    const handleInfo = { startDate: this.state.startDate, endDate: this.state.endDate, guests: this.state.numGuests }
  
     const nav = (
       <div className="splash-topbar">
@@ -558,7 +567,11 @@ export default class Splash extends React.Component {
                       className="splash-search-form-frame"
                       onClick={this.focusBar}
                       ref={bar => this.bar = bar}>
-                        <SearchContainer onRef={searchBin => this.searchBin = searchBin} toggleStart={this.toggleCalendarStart}/>
+                        <SearchContainer 
+                          onRef={searchBin => this.searchBin = searchBin} 
+                          toggleStart={this.toggleCalendarStart}
+                          handleInfo={handleInfo}
+                          />
                         <div className="splash-search-form-border-1" id="border1"></div>
                         <div 
                         className={formDates1()}

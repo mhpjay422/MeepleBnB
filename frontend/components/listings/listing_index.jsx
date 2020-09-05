@@ -16,6 +16,7 @@ export default class ListingIndex extends React.Component {
   }
 
   componentDidMount() {
+    debugger
     this.props.fetchReviews("all");
   }
 
