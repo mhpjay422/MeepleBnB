@@ -71,6 +71,8 @@ export default class Splash extends React.Component {
       // Force the focusedInput to always be truthy so that dates are always selectable
       focusedInput: !focusedInput ? 'startDate' : focusedInput,
     });
+    debugger
+    this.dateContainerEnd.click();
   }
 
   isInclusivelyAfterDay(a, b) {
@@ -102,9 +104,7 @@ export default class Splash extends React.Component {
     const clickOutBar = !(clickPicker || dateStart || dateEnd)
     const pickerShouldClose = this.picker && clickOutBar && !(document.activeElement.id === "clear-button")
 
-    debugger
     if (pickerShouldClose) {
-      debugger
       this.setState({ pickerOpen: false })
     } else {
       if (this.picker && (this.dateContainerStart.contains(e.target) || this.dateContainerEnd.contains(e.target))) {
@@ -150,9 +150,7 @@ export default class Splash extends React.Component {
     if(input === "search" && !this.state.pickerOpen) {
       this.setState({pickerOpen: true})
     }
-    debugger
     if (this.state.checkInFocus && !(document.activeElement.id === "clear-button")) {
-      debugger
       this.setState({ pickerOpen: false })
     } else {
       this.setState({ checkOutFocus: false})
@@ -165,9 +163,7 @@ export default class Splash extends React.Component {
   }
 
   toggleCalendarEnd() {
-    debugger
     if (this.state.checkOutFocus && !(document.activeElement.id === "clear-button")) {
-      debugger
       this.setState({ pickerOpen: false })
     }
     this.setState({ focusedInput: 'endDate', checkOutFocus: !this.state.checkOutFocus })
@@ -225,6 +221,7 @@ export default class Splash extends React.Component {
     this.setState({ startDate: null, endDate: null, focusedInput: 'startDate'})
   }
 
+  
 
   render() {
 
