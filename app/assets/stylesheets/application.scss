@@ -3713,6 +3713,19 @@ div.DateInput.DateInput_1 {
   cursor: pointer;
 }
 
+.clear-button-date-end-container {
+  align-items: center;
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0px;
+  left: 556px;
+  bottom: 0px;
+  height: 100%;
+  z-index: 50;
+  cursor: pointer;
+}
+
 .clear-button {
   display: inline-block;
   width: 20px;

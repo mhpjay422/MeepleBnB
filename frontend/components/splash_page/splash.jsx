@@ -47,7 +47,7 @@ export default class Splash extends React.Component {
     this.handleClickOutsideCalendarStart = this.handleClickOutsideCalendarStart.bind(this);
     this.handleClickOutsideCalendarEnd = this.handleClickOutsideCalendarEnd.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
-    this.clearStartDate = this.clearStartDate.bind(this)
+    this.clearDates = this.clearDates.bind(this)
     this.setDates = this.setDates.bind(this)
   }
 
@@ -73,7 +73,6 @@ export default class Splash extends React.Component {
       focusedInput: !focusedInput ? 'startDate' : focusedInput,
     });
     
-    debugger
     this.dateContainerEnd.click();
   }
 
@@ -217,7 +216,7 @@ export default class Splash extends React.Component {
     this.searchBin.handleSubmit();
   }
 
-  clearStartDate() {
+  clearDates() {
     this.setState({ startDate: null, endDate: null, focusedInput: 'startDate'})
   }
 
@@ -228,20 +227,11 @@ export default class Splash extends React.Component {
       this.dateContainerStart.click()
     }
 
-    debugger
     if (startDate && !endDate && this.state.focusedInput === "endDate") {
       this.dateContainerEnd.click()
     }
   }
 
-//   if(!this.state.startDate && this.state.endDate) {
-//   this.dateContainerStart.click()
-// } else if (!this.state.checkInFocus && this.state.checkOutFocus) {
-//   debugger
-//   this.dateContainerStart.click()
-// }
-
-  
 
   render() {
 
@@ -476,7 +466,25 @@ export default class Splash extends React.Component {
             <button
               className="clear-button"
               id="clear-button"
-              onClick={this.clearStartDate}
+              onClick={this.clearDates}
+              >
+              <div className="clear-button-image">
+                <img className="clear-button-img" src="exe.png"></img>
+              </div>
+            </button>
+          </div>
+        )
+      }
+    }
+
+    const clearDateEnd = () => {
+      if (this.state.checkOutFocus && this.state.endDate) {
+        return (
+          <div className="clear-button-date-end-container" >
+            <button
+              className="clear-button"
+              id="clear-button"
+              onClick={this.clearDates}
               >
               <div className="clear-button-image">
                 <img className="clear-button-img" src="exe.png"></img>
@@ -552,6 +560,7 @@ export default class Splash extends React.Component {
                             </div>
                           </div>
                         </div>
+                        {clearDateEnd()}
                         <div className="splash-search-form-border-3"></div>
                         <div 
                         className={formGuests()}
