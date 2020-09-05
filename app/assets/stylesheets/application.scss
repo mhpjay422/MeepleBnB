@@ -3741,7 +3741,7 @@ div.DateInput.DateInput_1 {
   color: rgb(34, 34, 34);
   cursor: pointer;
   position: relative;
-  background: rgb(235, 235, 235);
+  background: rgb(225, 225, 225);
   z-index: 1
 }
 
@@ -3763,9 +3763,8 @@ div.DateInput.DateInput_1 {
   height: 8px;
   width: 8px;
   display: block;
-  fill: gray;
+  fill: currentColor;
   z-index: 1;
-  background: gray;
 }
 
 .searched-items {

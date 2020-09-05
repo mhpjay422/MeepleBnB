@@ -151,7 +151,7 @@ export default class Splash extends React.Component {
       this.setState({pickerOpen: true})
     }
     debugger
-    if (this.state.checkInFocus && !document.activeElement.id === "clear-button") {
+    if (this.state.checkInFocus && !(document.activeElement.id === "clear-button")) {
       debugger
       this.setState({ pickerOpen: false })
     } else {
@@ -166,7 +166,7 @@ export default class Splash extends React.Component {
 
   toggleCalendarEnd() {
     debugger
-    if (this.state.checkOutFocus && !document.activeElement.id === "clear-button") {
+    if (this.state.checkOutFocus && !(document.activeElement.id === "clear-button")) {
       debugger
       this.setState({ pickerOpen: false })
     }
@@ -462,7 +462,7 @@ export default class Splash extends React.Component {
               onClick={this.clearStartDate}
               >
               <div className="clear-button-image">
-                <img className="clear-button-img" src="ex.png"></img>
+                <img className="clear-button-img" src="exe.png"></img>
               </div>
             </button>
           </div>
