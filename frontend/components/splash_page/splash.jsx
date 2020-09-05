@@ -118,6 +118,7 @@ export default class Splash extends React.Component {
   }
 
   handleClickOutsideCalendarStart(e) {
+    debugger
     if (document.activeElement.id === "clear-button") {
       return
     }
@@ -174,6 +175,7 @@ export default class Splash extends React.Component {
   }
 
   openGuest() {
+    debugger
     this.setState({ guestOpen: true, guestFocused: true })
   }
 
