@@ -1179,16 +1179,61 @@ a:hover {
 }
 
 .greet-search-mini-item {
+  appearance: none;
+  background: transparent;
+  border: 1px solid transparent;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: -1px;
+  outline: none;
+  overflow: visible;
+  padding: 0px;
+  text-align: inherit;
+  text-decoration: none;
+  user-select: auto;
   align-items: center;
-  background-color: #FFFFFF;
-  border: 1px solid #DDDDDD;
-  border-radius: 24px;
-  color: #222222;
-  display: inline-flex;
-  max-width: 100%;
-  text-align: left;
-  transition: box-shadow 0.2s ease;
-  vertical-align: middle;
+  border-radius: 4px;
+  flex: 0 1 auto;
+  height: 48px;
+  min-width: 0px;
+  position: relative;
+  z-index: 1;
+}
+
+.greet-search-mini-item:first-of-type {
+  padding-left: 8px;
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+
+.greet-search-mini-item:last-of-type {
+  padding-right: 8px;
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+
+.greet-search-mini-location {
+  font-size: 14px;
+  line-height: 18px;
+  flex: 1 1 auto;
+  min-width: 0px;
+  font-weight: 600;
+  padding: 0 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.greet-search-mini-divider {
+  background-color: #DDDDDD;
+  flex: 0 0 1px;
+  height: 24px;
+  width: 1px;
 }
 
 
