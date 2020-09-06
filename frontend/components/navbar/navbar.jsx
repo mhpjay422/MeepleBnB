@@ -105,46 +105,53 @@ class Navbar extends React.Component {
     }
   };
 
-  const greetSearchMini = () => {
+  const miniOrFull = () => {
     if(this.state.searchBarType === "mini") { 
-      return (
-        <div 
-        className="greet-search-mini-container"
-        onClick={this.toggleSearch}
-        >
-          <div className="greet-search-mini-frame">
-            <button className="greet-search-mini-item">
-              <div className="greet-search-mini-text">
-                Location
-                    </div>
-            </button>
-            <div className="greet-search-mini-divider" />
-            <button className="greet-search-mini-item">
-              <div className="greet-search-mini-text">
-                Check-in / Check-out
-                    </div>
-            </button>
-            <div className="greet-search-mini-divider" />
-            <button className="greet-search-mini-item">
-              <div className="greet-search-mini-text">
-                16 guests
-                    </div>
-              <div className="greet-search-mini-submit">
-                <div className="greet-search-mini-submit-image">
-                  <img className="greet-search-mini-submit-img" src="magsm.png"></img>
-                </div>
-              </div>
-            </button>
-          </div>
-        </div>
-      )
+      return "mini"
+    } else {
+      return "full"
     }
+
+  }
+
+  const greetSearchMini = () => {
+    return (
+      <div 
+      className={`greet-search-mini-container-${miniOrFull()}`}
+      onClick={this.toggleSearch}
+      >
+        <div className="greet-search-mini-frame">
+          <button className="greet-search-mini-item">
+            <div className="greet-search-mini-text">
+              Location
+                  </div>
+          </button>
+          <div className="greet-search-mini-divider" />
+          <button className="greet-search-mini-item">
+            <div className="greet-search-mini-text">
+              Check-in / Check-out
+                  </div>
+          </button>
+          <div className="greet-search-mini-divider" />
+          <button className="greet-search-mini-item">
+            <div className="greet-search-mini-text">
+              16 guests
+                  </div>
+            <div className="greet-search-mini-submit">
+              <div className="greet-search-mini-submit-image">
+                <img className="greet-search-mini-submit-img" src="magsm.png"></img>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    )
   }
 
   const greetSearchFull = () => {
     if(this.state.searchBarType === "full") {
       return (
-        <div className="greet-search-full-container">
+        <div className={`greet-search-full-container-${miniOrFull()}`}>
           <div>hello</div>
         </div>
       )

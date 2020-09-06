@@ -1199,17 +1199,31 @@ a:hover {
   padding: 0 24px;
 }
 
-.greet-search-mini-container {
+.greet-search-mini-container-mini {
   transform-origin: 50% 0%;
   margin: 0 auto;
   display: inline-block;
   vertical-align: middle;
   text-align: left;
-  transition: -ms-transform 150ms ease,
-  -webkit-transform 150ms ease,
-  transform 150ms ease,
+  transition: transform 150ms ease,
   opacity 50ms ease 20ms,
   pointer-events 0ms 150ms;
+}
+
+.greet-search-mini-container-full {
+  transform-origin: 50% 0%;
+  margin: 0 auto;
+  transform: scale(2.85714, 1.375) translateY(58px);
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+  opacity: 0 !important;
+  transition: transform 150ms ease 0s,
+  opacity 50ms ease 20ms,
+  visibility 0ms ease 150ms;
+  pointer-events: none;
+  visibility: hidden;
+  will-change: transform, opacity;
 }
 
 .greet-search-mini-frame {
