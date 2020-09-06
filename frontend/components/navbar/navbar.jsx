@@ -94,20 +94,24 @@ class Navbar extends React.Component {
     }
   };
 
-  const navbar = (
-    <div className="topbar">
-      <section className="greet-topsec">
-        <section className="greet-leftsec">
-          <img src="./3d-meepleneg.png" className="navbar-left" onClick={this.handleClick} />
-          <SearchContainer />
+  const navbar = () => {
+    return (
+      <div className="topbar">
+        <section className="greet-topsec">
+          <section className="greet-leftsec">
+            <div className="greet-logo">
+              <img src="./3d-meepleneg.png" className="navbar-left" onClick={this.handleClick} />
+            </div>
+            <SearchContainer />
+          </section>
+          <ul className="twobar">{demo()}</ul>
         </section>
-        <ul className="twobar">{demo()}</ul>
-      </section>
-    </div>
-  );
+      </div>
+    )
+  }
 
   const linkToSessions = () => {
-    return <nav>{navbar}</nav>;
+    return <nav>{navbar()}</nav>;
   };
 
   return linkToSessions();
