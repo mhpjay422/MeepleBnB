@@ -110,20 +110,25 @@ class Navbar extends React.Component {
             <div className="greet-search-mini-container">
               <div className="greet-search-mini-frame">
                 <button className="greet-search-mini-item">
-                  <div className="greet-search-mini-location">
+                  <div className="greet-search-mini-text">
                     Location
                   </div>
                 </button>
                 <div className="greet-search-mini-divider"/>
                 <button className="greet-search-mini-item">
-                  <div className="greet-search-mini-location">
+                  <div className="greet-search-mini-text">
                     Check-in / Check-out
                   </div>
                 </button>
                 <div className="greet-search-mini-divider"/>
                 <button className="greet-search-mini-item">
-                  <div className="greet-search-mini-location">
-                    Guests
+                  <div className="greet-search-mini-text">
+                    16 guests
+                  </div>
+                  <div className="greet-search-mini-submit">
+                    <div className="greet-search-mini-submit-image">
+                      <img className="greet-search-mini-submit-img" src="magsm.png"></img>
+                    </div>
                   </div>
                 </button>
               </div>

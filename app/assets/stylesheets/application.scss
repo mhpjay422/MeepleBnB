@@ -1211,18 +1211,12 @@ a:hover {
   border-bottom-left-radius: inherit;
 }
 
-.greet-search-mini-item:last-of-type {
-  padding-right: 8px;
-  border-top-left-radius: inherit;
-  border-bottom-left-radius: inherit;
-}
-
-.greet-search-mini-location {
+.greet-search-mini-text {
   font-size: 14px;
   line-height: 18px;
   flex: 1 1 auto;
   min-width: 0px;
-  font-weight: 600;
+  font-weight: 500;
   padding: 0 16px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1234,6 +1228,31 @@ a:hover {
   flex: 0 0 1px;
   height: 24px;
   width: 1px;
+}
+
+.greet-search-mini-submit {
+  background-color: #FF385C;
+  border-radius: 50%;
+  color: #FFFFFF;
+  flex: 0 0 32;
+  height: 32px;
+  margin: 7px 7px 7px 0;
+  padding: 10px;
+  width: 32px;
+  box-sizing: border-box;
+}
+
+.greet-search-mini-submit-image {
+  display: block;
+  fill: none;
+  height: 12px;
+  width: 12px;
+  stroke: currentColor;
+  stroke-width: 5.333333333333333;
+  overflow: visible;
+  position: relative;
+  bottom: 2px;
+  right: 1px;
 }
 
 
