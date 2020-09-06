@@ -1,6 +1,7 @@
 import React from "react";
 import ListingIndexItem from "./listing_index_item";
 import ListingMap from "../listings/listing_map";
+import Navbar from "../navbar/navbar_container";
 
 export default class ListingIndex extends React.Component {
   constructor(props) {
@@ -143,6 +144,7 @@ export default class ListingIndex extends React.Component {
 
     return (
       <div className="index-body">
+          <Navbar />
           {listIndexItem}
           {sidenav}
       </div>

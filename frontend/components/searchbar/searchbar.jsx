@@ -298,9 +298,9 @@ class SearchBar extends React.Component {
         ref={location => this.location = location}
         id="location-search"
         onClick={this.focus}
-        >
-          {isHovered()}
-          {clearSearchbar()}
+      >
+        {isHovered()}
+        {clearSearchbar()}
       </div>
     );
   }
