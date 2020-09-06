@@ -102,9 +102,18 @@ class Navbar extends React.Component {
             <div className="greet-logo">
               <img src="./3d-meepleneg.png" className="navbar-left" onClick={this.handleClick} />
             </div>
-            <SearchContainer />
+            <div className="greetbar-text">
+              <div>meeplebnb</div>
+            </div>
           </section>
-          <ul className="twobar">{demo()}</ul>
+          <div className="greet-search-container">
+            <div className="greet-search-mini-container">
+              <div className="greet-search-mini-frame">
+
+              </div>
+            </div>
+          </div>
+          <div className="twobar">{demo()}</div>
         </section>
       </div>
     )
