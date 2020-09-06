@@ -164,10 +164,18 @@ class Navbar extends React.Component {
     }
   }
 
+  const topbar = () => {
+    if(this.state.searchBarType === "mini") {
+      return "topbar"
+    } else {
+      return "topbar-full"
+    }
+  }
+
   const navbar = () => {
     return (
       <>
-        <div className="topbar">
+        <div className={topbar()}>
           <section className="greet-topsec">
             <section className="greet-leftsec">
               <div className="greet-logo">
