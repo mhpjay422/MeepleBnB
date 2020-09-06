@@ -9,7 +9,7 @@ export default ({ users, logout, loggedIn, demoLogin, openModal }) => {
       <>
         <div className="body-content">
           <ListingsIndexContainer />
-         </div>
+        </div>
         <Footer/>
       </>
     );

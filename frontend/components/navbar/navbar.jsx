@@ -5,7 +5,11 @@ import { Link } from "react-router-dom";
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      searchBarType: "mini"
+    }
+
+    this.toggleSearch = this.toggleSearch.bind(this)
     this.handleClick = this.handleClick.bind(this);
     this.logInDemo = this.logInDemo.bind(this);
     this.logOut = this.logOut.bind(this);
@@ -40,6 +44,14 @@ class Navbar extends React.Component {
         search: "",
         state: { detail: "" }
       })
+    }
+  }
+
+  toggleSearch() {
+    if(this.state.searchBarType === "mini") {
+      this.setState({ searchBarType: "full"})
+    } else {
+      this.setState({ searchBarType: "mini"})
     }
   }
 
@@ -93,49 +105,87 @@ class Navbar extends React.Component {
     }
   };
 
+  const greetSearchMini = () => {
+    if(this.state.searchBarType === "mini") { 
+      return (
+        <div 
+        className="greet-search-mini-container"
+        onClick={this.toggleSearch}
+        >
+          <div className="greet-search-mini-frame">
+            <button className="greet-search-mini-item">
+              <div className="greet-search-mini-text">
+                Location
+                    </div>
+            </button>
+            <div className="greet-search-mini-divider" />
+            <button className="greet-search-mini-item">
+              <div className="greet-search-mini-text">
+                Check-in / Check-out
+                    </div>
+            </button>
+            <div className="greet-search-mini-divider" />
+            <button className="greet-search-mini-item">
+              <div className="greet-search-mini-text">
+                16 guests
+                    </div>
+              <div className="greet-search-mini-submit">
+                <div className="greet-search-mini-submit-image">
+                  <img className="greet-search-mini-submit-img" src="magsm.png"></img>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+      )
+    }
+  }
+
+  const greetSearchFull = () => {
+    if(this.state.searchBarType === "full") {
+      return (
+        <div className="greet-search-full-container">
+          <div>hello</div>
+        </div>
+      )
+    }
+  }
+
+  const greetGrayout = () => {
+    if(this.state.searchBarType === "full") {
+      return (
+        <div
+          className="greet-screen-grayout"
+          onClick={this.toggleSearch}
+        />
+      )
+    } else {
+      return <></>
+    }
+  }
+
   const navbar = () => {
     return (
-      <div className="topbar">
-        <section className="greet-topsec">
-          <section className="greet-leftsec">
-            <div className="greet-logo">
-              <img src="./3d-meepleneg.png" className="navbar-left" onClick={this.handleClick} />
-            </div>
-            <div className="greetbar-text">
-              <div>meeplebnb</div>
-            </div>
-          </section>
-          <div className="greet-search-container">
-            <div className="greet-search-mini-container">
-              <div className="greet-search-mini-frame">
-                <button className="greet-search-mini-item">
-                  <div className="greet-search-mini-text">
-                    Location
-                  </div>
-                </button>
-                <div className="greet-search-mini-divider"/>
-                <button className="greet-search-mini-item">
-                  <div className="greet-search-mini-text">
-                    Check-in / Check-out
-                  </div>
-                </button>
-                <div className="greet-search-mini-divider"/>
-                <button className="greet-search-mini-item">
-                  <div className="greet-search-mini-text">
-                    16 guests
-                  </div>
-                  <div className="greet-search-mini-submit">
-                    <div className="greet-search-mini-submit-image">
-                      <img className="greet-search-mini-submit-img" src="magsm.png"></img>
-                    </div>
-                  </div>
-                </button>
+      <>
+        <div className="topbar">
+          <section className="greet-topsec">
+            <section className="greet-leftsec">
+              <div className="greet-logo">
+                <img src="./3d-meepleneg.png" className="navbar-left" onClick={this.handleClick} />
               </div>
+              <div className="greetbar-text">
+                <div>meeplebnb</div>
+              </div>
+            </section>
+            <div className="greet-search-container">
+              {greetSearchMini()}
+              {greetSearchFull()}
             </div>
-          </div>
-          <div className="twobar">{demo()}</div>
-        </section>
-      </div>
+            <div className="twobar">{demo()}</div>
+          </section>
+        </div>
+        {greetGrayout()}
+      </>
     )
   }
 
