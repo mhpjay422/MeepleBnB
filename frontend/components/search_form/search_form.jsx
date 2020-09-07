@@ -534,83 +534,66 @@ export default class SearchForm extends React.Component {
 
     const searchForm = () => {
       return (
-        <div className="splash-search-padding">
-          <form
-            className="splash-search-frame"
-            autoComplete="off"
-          >
-            <fieldset className="splash-search-top">
-              <div className="splash-search-top-tabs">
-                <div className="splash-search-top-tab">
-                  <span className="search-tab-stay">
-                    Places to stay
-                  </span>
+        <div className="splash-search-form-container">
+          <div
+            className="splash-search-form-frame"
+            onClick={this.focusBar}
+            ref={bar => this.bar = bar}>
+            <SearchContainer
+              onRef={searchBin => this.searchBin = searchBin}
+              toggleStart={this.toggleCalendarStart}
+              handleInfo={handleInfo}
+            />
+            <div className="splash-search-form-border-1" id="border1"></div>
+            <div
+              className={formDates1()}
+              onClick={this.toggleCalendarStart}
+              ref={dateContainerStart => this.dateContainerStart = dateContainerStart}
+            >
+              <div className="splash-search-form-dates-item-container-inner">
+                <div className="splash-search-form-dates-item-frame">
+                  <div className="splash-search-form-dates-item-header">Check in</div>
+                  {checkinDate()}
                 </div>
-              </div>
-            </fieldset>
-            <div className="splash-search-form-container">
-              <div
-                className="splash-search-form-frame"
-                onClick={this.focusBar}
-                ref={bar => this.bar = bar}>
-                <SearchContainer
-                  onRef={searchBin => this.searchBin = searchBin}
-                  toggleStart={this.toggleCalendarStart}
-                  handleInfo={handleInfo}
-                />
-                <div className="splash-search-form-border-1" id="border1"></div>
-                <div
-                  className={formDates1()}
-                  onClick={this.toggleCalendarStart}
-                  ref={dateContainerStart => this.dateContainerStart = dateContainerStart}
-                >
-                  <div className="splash-search-form-dates-item-container-inner">
-                    <div className="splash-search-form-dates-item-frame">
-                      <div className="splash-search-form-dates-item-header">Check in</div>
-                      {checkinDate()}
-                    </div>
-                  </div>
-                </div>
-                {clearDateStart()}
-                <div className="splash-search-form-border-2"></div>
-                <div
-                  className="splash-daypicker"
-                  ref={picker => this.picker = picker}>
-                  {dayPicker()}
-                </div>
-                <div
-                  className={formDates2()}
-                  onClick={this.toggleCalendarEnd}
-                  ref={dateContainerEnd => this.dateContainerEnd = dateContainerEnd}>
-                  <div className="splash-search-form-dates-item-container-inner">
-                    <div className="splash-search-form-dates-item-frame">
-                      <div className="splash-search-form-dates-item-header">Check out</div>
-                      {checkoutDate()}
-                    </div>
-                  </div>
-                </div>
-                {clearDateEnd()}
-                <div className="splash-search-form-border-3"></div>
-                <div
-                  className={formGuests()}
-                  onClick={this.openGuest}>
-                  <div className="splash-search-guest-container-inner">
-                    <div className="splash-search-guest-frame">
-                      <div className="splash-search-guest-header">Guests</div>
-                      <div className="splash-search-guest-body">{displayNumGuests()}</div>
-                    </div>
-                  </div>
-                  {clearGuest()}
-                  <div className="splash-search-submit-container">
-                    {searchsubmit()}
-                  </div>
-                </div>
-                {guestCounter()}
               </div>
             </div>
-          </form>
+            {clearDateStart()}
+            <div className="splash-search-form-border-2"></div>
+            <div
+              className="splash-daypicker"
+              ref={picker => this.picker = picker}>
+              {dayPicker()}
+            </div>
+            <div
+              className={formDates2()}
+              onClick={this.toggleCalendarEnd}
+              ref={dateContainerEnd => this.dateContainerEnd = dateContainerEnd}>
+              <div className="splash-search-form-dates-item-container-inner">
+                <div className="splash-search-form-dates-item-frame">
+                  <div className="splash-search-form-dates-item-header">Check out</div>
+                  {checkoutDate()}
+                </div>
+              </div>
+            </div>
+            {clearDateEnd()}
+            <div className="splash-search-form-border-3"></div>
+            <div
+              className={formGuests()}
+              onClick={this.openGuest}>
+              <div className="splash-search-guest-container-inner">
+                <div className="splash-search-guest-frame">
+                  <div className="splash-search-guest-header">Guests</div>
+                  <div className="splash-search-guest-body">{displayNumGuests()}</div>
+                </div>
+              </div>
+              {clearGuest()}
+              <div className="splash-search-submit-container">
+                {searchsubmit()}
+              </div>
+            </div>
+            {guestCounter()}
+          </div>
         </div>
-
       )
     }
 

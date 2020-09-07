@@ -23,9 +23,23 @@ export default class Splash extends React.Component {
             </div>
             <div className="splash-search-container">
               <div className="splash-search-container-absolute">
-                {/* {need to refactor from here} */}
-                <SearchForm/>
-                {/* {need to refactor to above here} */}
+                <div className="splash-search-padding">
+                  <form
+                    className="splash-search-frame"
+                    autoComplete="off"
+                  >
+                    <fieldset className="splash-search-top">
+                      <div className="splash-search-top-tabs">
+                        <div className="splash-search-top-tab">
+                          <span className="search-tab-stay">
+                            Places to stay
+                    </span>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <SearchForm/>
+                  </form>
+                </div> 
               </div>
             </div>
             

@@ -169,7 +169,6 @@ body {
 .search-tab-stay {
   cursor: default;
   opacity: 1;
-
   font-size: 16px;
   line-height: 20px;
   font-weight: 400;
@@ -178,7 +177,7 @@ body {
   position: relative;
   text-align: center;
   z-index: 0;
-  color: #FFFFFF;
+  color: black;
   box-sizing: border-box;
 }
 
@@ -1110,7 +1109,7 @@ a:hover {
   position: fixed;
   z-index: 13;
   height: 80px;
-  box-shadow: 0 12px 6px -6px rgb(247, 247, 247);
+  // box-shadow: 0 12px 6px -6px rgb(247, 247, 247);
   width: 100%;
 }
 
@@ -1373,8 +1372,6 @@ a:hover {
 
 .greet-search-full-container-full {
   top: 0px;
-  padding-left: 80px;
-  padding-right: 80px;
   transform-origin: 50% 0%;
   left: 0px;
   position: absolute;

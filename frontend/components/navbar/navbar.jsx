@@ -152,7 +152,23 @@ class Navbar extends React.Component {
   const greetSearchFull = () => {
     return (
       <div className={`greet-search-full-container-${miniOrFull()}`}>
-        <SearchForm/>
+        <div className="splash-search-padding">
+          <form
+            className="splash-search-frame"
+            autoComplete="off"
+          >
+            <fieldset className="splash-search-top">
+              <div className="splash-search-top-tabs">
+                <div className="splash-search-top-tab">
+                  <span className="search-tab-stay">
+                    Places to stay
+                  </span>
+                </div>
+              </div>
+            </fieldset>
+            <SearchForm />
+          </form>
+        </div>
       </div>
     )
   }
