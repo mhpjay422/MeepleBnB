@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
+import SearchForm from "../search_form/search_form.jsx"
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -149,13 +150,11 @@ class Navbar extends React.Component {
   }
 
   const greetSearchFull = () => {
-    if(this.state.searchBarType === "full") {
-      return (
-        <div className={`greet-search-full-container-${miniOrFull()}`}>
-          <div>hello</div>
-        </div>
-      )
-    }
+    return (
+      <div className={`greet-search-full-container-${miniOrFull()}`}>
+        <SearchForm/>
+      </div>
+    )
   }
 
   const greetGrayout = () => {

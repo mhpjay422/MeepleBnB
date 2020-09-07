@@ -544,7 +544,7 @@ export default class SearchForm extends React.Component {
                 <div className="splash-search-top-tab">
                   <span className="search-tab-stay">
                     Places to stay
-                              </span>
+                  </span>
                 </div>
               </div>
             </fieldset>
