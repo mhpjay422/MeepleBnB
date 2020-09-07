@@ -24,7 +24,7 @@ export default class Splash extends React.Component {
             <div className="splash-search-container">
               <div className="splash-search-container-absolute">
                 <div className="splash-search-padding">
-                  <form
+                  <div
                     className="splash-search-frame"
                     autoComplete="off"
                   >
@@ -33,12 +33,12 @@ export default class Splash extends React.Component {
                         <div className="splash-search-top-tab">
                           <span className="search-tab-stay">
                             Places to stay
-                    </span>
+                          </span>
                         </div>
                       </div>
                     </fieldset>
                     <SearchForm/>
-                  </form>
+                  </div>
                 </div> 
               </div>
             </div>

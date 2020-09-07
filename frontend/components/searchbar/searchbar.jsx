@@ -125,6 +125,7 @@ class SearchBar extends React.Component {
   ifEnter(e) {
     if(e.charCode === 13) {
       this.unfocusLocation()
+      document.activeElement.blur()
       this.props.toggleStart("search")
     }
   }

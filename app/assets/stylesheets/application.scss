@@ -177,6 +177,21 @@ body {
   position: relative;
   text-align: center;
   z-index: 0;
+  color: #FFFFFF;
+  box-sizing: border-box;
+}
+
+.search-tab-stay-index {
+  cursor: default;
+  opacity: 1;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  padding: 10px 16px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  z-index: 0;
   color: black;
   box-sizing: border-box;
 }
