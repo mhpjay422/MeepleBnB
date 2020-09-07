@@ -1316,7 +1316,7 @@ a:hover {
   right: 1px;
 }
 
-.greet-search-full-container {
+.greet-search-full-container-mini {
   top: 0px;
   transform-origin: 50% 0%;
   transform: scale(0.35, 0.7272727272727273) translateY(-58px);
@@ -1330,14 +1330,27 @@ a:hover {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  transition: -ms-transform 150ms ease,
-  -webkit-transform 150ms ease,
-  transform 150ms ease,
+  transition: transform 150ms ease,
   opacity 50ms ease 20ms,
   visibility 0ms 150ms;
   will-change: transform, opacity;
-  color: black;
-  width: 100px;
+
+}
+
+.greet-search-full-container-full {
+  top: 0px;
+  padding-left: 80px;
+  padding-right: 80px;
+  transform-origin: 50% 0%;
+  left: 0px;
+  position: absolute;
+  text-align: left;
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+  transition: transform 150ms ease 0s,
+  opacity 50ms ease 20ms,
+  pointer-events 0ms ease 150ms;
 }
 
 

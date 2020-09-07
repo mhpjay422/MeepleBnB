@@ -119,9 +119,7 @@ class SearchBar extends React.Component {
   }
 
   focus() {
-    // if (document.activeElement.id !== "clear-button") {
-      this.node.focus();
-    // }  
+    this.node.focus();
   }
 
   ifEnter(e) {
@@ -220,7 +218,6 @@ class SearchBar extends React.Component {
                 Location
               </div>
               <div 
-                // onSubmit={this.handleSubmit}
                 className="search-bar-container-form">
                 <input
                   id="input-search"
