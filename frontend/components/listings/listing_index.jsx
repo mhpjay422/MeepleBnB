@@ -21,7 +21,8 @@ export default class ListingIndex extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.history.push({
+    debugger
+    this.props.history.replace({
       search: ``,
     });
   }

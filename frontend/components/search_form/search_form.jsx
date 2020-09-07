@@ -224,6 +224,9 @@ class SearchForm extends React.Component {
   }
 
   handleFormSubmit() {
+    if(this.props.toggleSearch) {
+      this.props.toggleSearch();
+    }
     this.searchBin.handleSubmit();
   }
 
@@ -287,10 +290,9 @@ class SearchForm extends React.Component {
     const searchsubmit = () => {
       if (this.state.barFocused) {
         return (
-          <Link 
+          <button 
           className="splash-search-submit-frame-focused"
           onClick={this.handleFormSubmit}
-          to="/search_greeting" replace
           >
             <div className="splash-search-submit-icon-container">
               <div className="splash-search-submit-icon">
@@ -298,21 +300,20 @@ class SearchForm extends React.Component {
                 <div className="splash-search-submit-text">Search</div>
               </div>
             </div>
-          </Link>
+          </button>
         )
       } else {
         return (
-          <Link 
+          <button 
           className="splash-search-submit-frame"
           onClick={this.handleFormSubmit}
-          to="/search_greeting" replace
           >
             <div className="splash-search-submit-icon-container">
               <div className="splash-search-submit-icon">
                 <img src="search.png"></img>
               </div>
             </div>
-          </Link>
+          </button>
         )
       }
     }

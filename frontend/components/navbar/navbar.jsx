@@ -166,7 +166,7 @@ class Navbar extends React.Component {
                 </div>
               </div>
             </fieldset>
-            <SearchForm />
+            <SearchForm toggleSearch={this.toggleSearch}/>
           </div>
         </div>
       </div>
