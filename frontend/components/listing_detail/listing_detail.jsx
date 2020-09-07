@@ -919,6 +919,7 @@ class ListingDetail extends React.Component {
           {bodySectionHost}
           {bodySectionThings}
         </div>
+        <div className="footer-buffer">footer</div>
         <Footer />
       </div >
     );
