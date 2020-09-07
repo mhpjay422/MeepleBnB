@@ -8,6 +8,9 @@ export default class ListingIndex extends React.Component {
     super(props);
     this.state = {
       searchTerm: "",
+      startDate: null,
+      endDate: null,
+      guests: 0,
       hovered: [null, null]
     };
     this.filteredListings = this.filteredListings.bind(this);
@@ -21,7 +24,6 @@ export default class ListingIndex extends React.Component {
   }
 
   componentWillUnmount() {
-    debugger
     this.props.history.replace({
       search: ``,
     });
@@ -33,7 +35,12 @@ export default class ListingIndex extends React.Component {
   componentWillUpdate(newProps) {
     if(this.props !== newProps) {
       if (newProps.location.state) {
-        this.setState({ searchTerm: newProps.location.state.detail }, () => {
+        this.setState({ 
+          searchTerm: newProps.location.state.detail,
+          endDate: newProps.location.state.endDate,
+          startDate: newProps.location.state.startDate,
+          guests: newProps.location.state.guests
+         }, () => {
           return
         })
       }

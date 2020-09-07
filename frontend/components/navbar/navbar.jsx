@@ -7,7 +7,10 @@ class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchBarType: "mini"
+      searchBarType: "mini",
+      startDate: this.props.startDate || null,
+      endDate: this.props.endDate || null,
+      guests: this.props.guests || 0,
     }
 
     this.toggleSearch = this.toggleSearch.bind(this)
@@ -49,6 +52,7 @@ class Navbar extends React.Component {
   }
 
   toggleSearch() {
+    debugger
     if(this.state.searchBarType === "mini") {
       this.setState({ searchBarType: "full"})
     } else {

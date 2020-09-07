@@ -106,19 +106,29 @@ class SearchBar extends React.Component {
 
     this.setState({ listOpen: false });
 
-    this.props.history.replace({
-      search: this.state.term,
-      state: { 
-        detail: this.state.term,
-        startDate: this.props.handleInfo.startDate, 
-        endDate: this.props.handleInfo.endDate, 
-        guests: this.props.handleInfo.guests
-      },
-    });
+    
 
     if (this.props.history.location.pathname !== `/search_greeting`) {
       this.props.history.push({
         pathname: `/search_greeting`,
+        search: this.state.term,
+        state: {
+          detail: this.state.term,
+          startDate: this.props.handleInfo.startDate,
+          endDate: this.props.handleInfo.endDate,
+          guests: this.props.handleInfo.guests
+        },
+      });
+    } else {
+      this.props.history.replace({
+        pathname: `/search_greeting`,
+        search: this.state.term,
+        state: {
+          detail: this.state.term,
+          startDate: this.props.handleInfo.startDate,
+          endDate: this.props.handleInfo.endDate,
+          guests: this.props.handleInfo.guests
+        },
       });
     }
   }
