@@ -136,9 +136,9 @@ class SearchBar extends React.Component {
 
   focusLocation() {
     this.setState({ 
-      focusLocation: true,
-      listOpen: true,
-      searchFocused: true,
+      focusLocation: !this.state.focusLocation,
+      listOpen: !this.state.listOpen,
+      searchFocused: !this.state.searchFocused,
     })
   }
 
@@ -226,11 +226,10 @@ class SearchBar extends React.Component {
                   ref={node => this.node = node}
                   type="text"
                   onChange={this.handleChange}
-                  onClick={this.openList}
+                  // onClick={this.openList}
                   placeholder="Where are you going?"
                   autoComplete="off"
                   onKeyPress={this.ifEnter}
-                  autoFocus={true}
                   >
                 </input>
                 {isDropdownOpen()}
@@ -260,7 +259,7 @@ class SearchBar extends React.Component {
                   ref={node => this.node = node}
                   type="text"
                   onChange={this.handleChange}
-                  onClick={this.openList}
+                  // onClick={this.openList}
                   placeholder="Where are you going?"
                   autoComplete="off"
                   >
