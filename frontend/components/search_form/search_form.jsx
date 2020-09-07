@@ -33,8 +33,8 @@ export default class SearchForm extends React.Component {
     this.handleClickOutsideBar = this.handleClickOutsideBar.bind(this);
     this.focusBar = this.focusBar.bind(this);
     this.unFocusBar = this.unFocusBar.bind(this);
-    this.focusGuest = this.focusGuest.bind(this);
-    this.unfocusGuest = this.unfocusGuest.bind(this);
+    // this.focusGuest = this.focusGuest.bind(this);
+    // this.unfocusGuest = this.unfocusGuest.bind(this);
     this.openGuest = this.openGuest.bind(this);
     this.handleClickOutsideGuest = this.handleClickOutsideGuest.bind(this);
     this.handleClickMinus = this.handleClickMinus.bind(this);
@@ -144,7 +144,7 @@ export default class SearchForm extends React.Component {
     if (document.activeElement.id === "clear-button") {
       return
     }
-    if (this.guest && !this.guest.contains(e.target)) {
+    if (this.guest && !this.guest.contains(e.target) && !this.guestform.contains(e.target)) {
       this.setState({ guestFocused: false, guestOpen: false })
     }
   }
@@ -173,10 +173,15 @@ export default class SearchForm extends React.Component {
   }
 
   openGuest() {
-    this.setState({ guestOpen: true, guestFocused: true })
+    if(this.state.guestFocused) {
+      this.setState({ guestOpen: !this.state.guestOpen, guestFocused: !this.state.guestFocused, barFocused:!this.state.barFocused})
+    } else {
+      this.setState({ guestOpen: !this.state.guestOpen, guestFocused: !this.state.guestFocused })
+    }
   }
 
-  focusBar() {
+  focusBar(e) {
+    if(!this.guest)
     this.setState({ barFocused: true })
   }
 
@@ -184,13 +189,13 @@ export default class SearchForm extends React.Component {
     this.setState({ barFocused: false })
   }
 
-  focusGuest() {
-    this.setState({ guestFocused: true })
-  }
+  // focusGuest() {
+  //   this.setState({ guestFocused: true })
+  // }
 
-  unfocusGuest() {
-    this.setState({ guestFocused: false })
-  }
+  // unfocusGuest() {
+  //   this.setState({ guestFocused: false })
+  // }
 
   handleClickMinus() {
     this.setState({ numGuests: this.state.numGuests - 1 })
@@ -579,7 +584,8 @@ export default class SearchForm extends React.Component {
             <div className="splash-search-form-border-3"></div>
             <div
               className={formGuests()}
-              onClick={this.openGuest}>
+              onClick={this.openGuest}
+              ref={guestform => this.guestform = guestform}>
               <div className="splash-search-guest-container-inner">
                 <div className="splash-search-guest-frame">
                   <div className="splash-search-guest-header">Guests</div>

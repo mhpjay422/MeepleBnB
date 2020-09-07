@@ -166,6 +166,23 @@ body {
   box-sizing: border-box;
 }
 
+.search-tab-stay-index::before {
+  transform: scaleX(1);
+  background-color: currentcolor;
+  border-radius: 1px;
+  bottom: 0px;
+  content: "";
+  height: 2px;
+  left: 50%;
+  margin-left: -9px;
+  position: absolute;
+  transition: 0.2s -ms-transform cubic-bezier(0, 0, 0.1, 1),
+  0.2s -webkit-transform cubic-bezier(0, 0, 0.1, 1),
+  0.2s transform cubic-bezier(0, 0, 0.1, 1);
+  width: 18px;
+  box-sizing: border-box;
+}
+
 .search-tab-stay {
   cursor: default;
   opacity: 1;
@@ -359,6 +376,7 @@ body {
   min-width: 0px;
   position: relative;
   border-radius: 32px;
+  cursor: pointer;
 }
 
 .splash-search-form-dates-item-container-1-focus {
@@ -373,6 +391,7 @@ body {
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
   z-index: 1;
+  cursor: none;
 }
 
 .splash-search-form-dates-item-container-2 {
@@ -383,6 +402,7 @@ body {
   min-width: 0px;
   position: relative;
   border-radius: 32px;
+  cursor: pointer;
 }
 
 .splash-search-form-dates-item-container-2-focus {
@@ -397,6 +417,7 @@ body {
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
   z-index: 1;
+  cursor: none;
 }
 
 .splash-search-form-dates-item-container-1:hover {
@@ -490,6 +511,7 @@ body {
   min-width: 0px;
   position: relative;
   flex: 0.95 0 auto;
+  
 }
 
 .splash-search-guest-container:hover {
@@ -510,6 +532,7 @@ body {
   border-radius: 32px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
   z-index: 1;
+  cursor: none;
 }
 
 .splash-search-guest-container-inner {
@@ -1124,7 +1147,7 @@ a:hover {
   position: fixed;
   z-index: 13;
   height: 80px;
-  // box-shadow: 0 12px 6px -6px rgb(247, 247, 247);
+  box-shadow: 0 12px 6px -6px rgb(247, 247, 247);
   width: 100%;
 }
 
@@ -1768,6 +1791,7 @@ a:hover {
   --page-shell-max-content-width: none:
   background-color: inherit;
   background-clip: border-box;
+  top: 55px;
 }
 
 .list-header {
@@ -1851,7 +1875,7 @@ a:hover {
   vertical-align: top;
   white-space: normal;
   background-color: white;
-  background-clip: border-box;
+  background-clip: border-box;  
 }
 
 .listing-index-container {
@@ -2101,6 +2125,7 @@ a:hover {
 .listing-detail-page {
   position: relative;
   min-height: 100vh;
+  top: 80px;
 }
 
 .list-show-body {
