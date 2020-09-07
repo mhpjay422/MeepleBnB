@@ -106,8 +106,8 @@ class SearchBar extends React.Component {
 
     this.setState({ listOpen: false });
 
-    this.props.history.push({
-      pathname: `/search_greeting`,
+    this.props.history.replace({
+      // pathname: `/search_greeting`,
       search: this.state.term,
       state: { 
         detail: this.state.term,

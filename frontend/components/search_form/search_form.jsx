@@ -5,8 +5,10 @@ import { DayPickerRangeController } from 'react-dates';
 import momentPropTypes from "react-moment-proptypes";
 import moment from "moment";
 import "react-dates/lib/css/_datepicker.css";
+import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
-export default class SearchForm extends React.Component {
+class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -285,8 +287,10 @@ export default class SearchForm extends React.Component {
     const searchsubmit = () => {
       if (this.state.barFocused) {
         return (
-          <button className="splash-search-submit-frame-focused"
-            onClick={this.handleFormSubmit}
+          <Link 
+          className="splash-search-submit-frame-focused"
+          onClick={this.handleFormSubmit}
+          to="/search_greeting" replace
           >
             <div className="splash-search-submit-icon-container">
               <div className="splash-search-submit-icon">
@@ -294,19 +298,21 @@ export default class SearchForm extends React.Component {
                 <div className="splash-search-submit-text">Search</div>
               </div>
             </div>
-          </button>
+          </Link>
         )
       } else {
         return (
-          <button className="splash-search-submit-frame"
-            onClick={this.handleFormSubmit}
+          <Link 
+          className="splash-search-submit-frame"
+          onClick={this.handleFormSubmit}
+          to="/search_greeting" replace
           >
             <div className="splash-search-submit-icon-container">
               <div className="splash-search-submit-icon">
                 <img src="search.png"></img>
               </div>
             </div>
-          </button>
+          </Link>
         )
       }
     }
@@ -606,3 +612,5 @@ export default class SearchForm extends React.Component {
     return searchForm();
   }
 }
+
+export default withRouter(SearchForm);
