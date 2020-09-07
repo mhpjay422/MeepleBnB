@@ -12,6 +12,7 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      term: "",
       startDate: null,
       endDate: null,
       focusedInput: 'startDate',
@@ -53,6 +54,7 @@ class SearchForm extends React.Component {
     this.guestClear = this.guestClear.bind(this);
     this.setDates = this.setDates.bind(this);
     this.handleInfo = this.handleInfo.bind(this);
+    this.searchDataFromSearchBar = this.searchDataFromSearchBar.bind(this);
   }
 
   componentDidMount() {
@@ -227,6 +229,14 @@ class SearchForm extends React.Component {
     if(this.props.toggleSearch) {
       this.props.toggleSearch();
     }
+    if (this.props.setDataFromSearchForm) {
+      this.props.setDataFromSearchForm(
+        this.state.term,
+        this.state.startDate,
+        this.state.endDate,
+        this.state.numGuests
+      )
+    }
     this.searchBin.handleSubmit();
   }
 
@@ -258,6 +268,10 @@ class SearchForm extends React.Component {
     return (
       { startDate: this.state.startDate, endDate: this.state.endDate, guests: this.state.numGuests }
     )
+  }
+
+  searchDataFromSearchBar() {
+    this.setState({term: this.state.term})
   }
 
   render() {
@@ -555,6 +569,7 @@ class SearchForm extends React.Component {
               onRef={searchBin => this.searchBin = searchBin}
               toggleStart={this.toggleCalendarStart}
               handleInfo={handleInfo}
+              searchDataFromSearchBar={this.searchDataFromSearchBar}
             />
             <div className="splash-search-form-border-1" id="border1"></div>
             <div

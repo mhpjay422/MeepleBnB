@@ -6,13 +6,23 @@ import Navbar from "../navbar/navbar_container";
 export default class ListingIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      searchTerm: "",
-      startDate: null,
-      endDate: null,
-      guests: 0,
-      hovered: [null, null]
-    };
+    if(this.props.history.location.state) {
+      this.state = {
+        searchTerm: this.props.history.location.state.detail,
+        startDate: this.props.history.location.state.startDate,
+        endDate: this.props.history.location.state.endDate,
+        guests: this.props.history.location.state.guests,
+        hovered: [null, null]
+      };
+    } else {
+      this.state = {
+        searchTerm: "",
+        startDate: null,
+        endDate: null,
+        guests: 0,
+        hovered: [null, null]
+      };
+    }
     this.filteredListings = this.filteredListings.bind(this);
     this.allPropsOrFiltered = this.allPropsOrFiltered.bind(this);
     this.setHoveredListItem = this.setHoveredListItem.bind(this);
@@ -20,6 +30,7 @@ export default class ListingIndex extends React.Component {
   }
 
   componentDidMount() {
+    debugger
     this.props.fetchReviews("all");
   }
 
@@ -153,7 +164,12 @@ export default class ListingIndex extends React.Component {
 
     return (
       <div className="index-body">
-          <Navbar />
+          <Navbar 
+          searchTerm={this.state.searchTerm}
+          startDate={this.state.startDate}
+          endDate={this.state.endDate}
+          guests={this.state.guests}
+          />
           {listIndexItem}
           {sidenav}
       </div>

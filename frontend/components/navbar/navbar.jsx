@@ -8,6 +8,7 @@ class Navbar extends React.Component {
     super(props);
     this.state = {
       searchBarType: "mini",
+      searchTerm: this.props.searchTerm || "",
       startDate: this.props.startDate || null,
       endDate: this.props.endDate || null,
       guests: this.props.guests || 0,
@@ -17,6 +18,7 @@ class Navbar extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.logInDemo = this.logInDemo.bind(this);
     this.logOut = this.logOut.bind(this);
+    this.setDataFromSearchForm = this.setDataFromSearchForm.bind(this);
   }
 
   logInDemo(e) {
@@ -58,6 +60,15 @@ class Navbar extends React.Component {
     } else {
       this.setState({ searchBarType: "mini"})
     }
+  }
+
+  setDataFromSearchForm(search, start, end, numGuests) {
+    this.setState({
+      searchTerm: search,
+      startDate: start, 
+      endDate: end, 
+      guests: numGuests
+    })
   }
 
   render() {
@@ -116,8 +127,41 @@ class Navbar extends React.Component {
     } else {
       return "full"
     }
-
   }
+
+  const searchLocation = () => {
+    if (this.state.searchTerm) {
+      return this.state.searchTerm
+    } else {
+      return "Add Location"
+    }
+  }
+
+  const searchDates = () => {
+    if (this.state.startDate || this.state.endDate) {
+      return "this.state.startDate._d || this.state.endDate._d"
+    } else {
+      return "Add Dates"
+    }
+  }
+
+  const searchGuests = () => {
+    if (this.state.guests) {
+      if(this.state.guests === 1) {
+        return (
+          `${this.state.guests} guest`
+        )
+      } else {
+        return (
+          `${this.state.guests} guests`
+        )
+      }
+    } else {
+      return "Add Guests"
+    }
+  }
+
+
 
   const greetSearchMini = () => {
     return (
@@ -128,19 +172,19 @@ class Navbar extends React.Component {
         <div className="greet-search-mini-frame">
           <button className="greet-search-mini-item">
             <div className="greet-search-mini-text">
-              Location
-                  </div>
+              {searchLocation()}
+            </div>
           </button>
           <div className="greet-search-mini-divider" />
           <button className="greet-search-mini-item">
             <div className="greet-search-mini-text">
-              Check-in / Check-out
-                  </div>
+              {searchDates()}
+            </div>
           </button>
           <div className="greet-search-mini-divider" />
           <button className="greet-search-mini-item">
             <div className="greet-search-mini-text">
-              16 guests
+              {searchGuests()}
                   </div>
             <div className="greet-search-mini-submit">
               <div className="greet-search-mini-submit-image">
@@ -170,7 +214,10 @@ class Navbar extends React.Component {
                 </div>
               </div>
             </fieldset>
-            <SearchForm toggleSearch={this.toggleSearch}/>
+            <SearchForm 
+            toggleSearch={this.toggleSearch}
+            setDataFromSearchForm={this.setDataFromSearchForm}
+            />
           </div>
         </div>
       </div>

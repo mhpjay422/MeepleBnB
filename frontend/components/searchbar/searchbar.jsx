@@ -49,6 +49,9 @@ class SearchBar extends React.Component {
   }
 
   handleChange(e) {
+    if(this.props.searchDataFromSearchBar) {
+      this.props.searchDataFromSearchBar(e.target.value)
+    }
     this.setState({ term: e.target.value }, () => { 
       const term = this.state.term;
       const sortedListings = this.findListings(term);
@@ -58,6 +61,8 @@ class SearchBar extends React.Component {
           address: listing[1]
         }
       })
+
+      
       
       this.setState({ filteredList: objectListings }, () => {
         return;
