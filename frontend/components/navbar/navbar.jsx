@@ -130,6 +130,7 @@ class Navbar extends React.Component {
   }
 
   const searchLocation = () => {
+    debugger
     if (this.state.searchTerm) {
       return this.state.searchTerm
     } else {

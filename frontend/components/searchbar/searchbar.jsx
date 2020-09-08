@@ -62,8 +62,6 @@ class SearchBar extends React.Component {
         }
       })
 
-      
-      
       this.setState({ filteredList: objectListings }, () => {
         return;
       })

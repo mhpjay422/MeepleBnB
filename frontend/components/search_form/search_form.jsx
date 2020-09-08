@@ -229,6 +229,7 @@ class SearchForm extends React.Component {
     if(this.props.toggleSearch) {
       this.props.toggleSearch();
     }
+    debugger
     if (this.props.setDataFromSearchForm) {
       this.props.setDataFromSearchForm(
         this.state.term,
@@ -270,8 +271,9 @@ class SearchForm extends React.Component {
     )
   }
 
-  searchDataFromSearchBar() {
-    this.setState({term: this.state.term})
+  searchDataFromSearchBar(input) {
+    debugger
+    this.setState({term: input})
   }
 
   render() {
