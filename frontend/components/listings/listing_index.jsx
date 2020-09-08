@@ -41,9 +41,11 @@ export default class ListingIndex extends React.Component {
   }
 
   componentDidUpdate() {
+    debugger
   }
 
   componentWillUpdate(newProps) {
+    debugger
     if(this.props !== newProps) {
       if (newProps.location.state) {
         this.setState({ 
@@ -146,29 +148,52 @@ export default class ListingIndex extends React.Component {
         const startDate = this.state.startDate;
         const endDate = this.state.endDate;
 
-
         if (startDate) {
-          const startArr = this.state.startDate._d.toString().split(" ");
-          const startMonth = startArr[1]
-          const startDay = startArr[2]
+          const cloneStart = startDate.clone();
+          const formatStart = cloneStart.format(`MMM DD`);
+          const formatStartMonth = cloneStart.format("MMM");
+          const startPlusOne = cloneStart.add(1, 'days').format(`MMM DD`);
+          const startPlusOneMonth = cloneStart.add(1, 'days').format(`MMM`);
+          const startPlusOneDay = cloneStart.add(1, 'days').format(`DD`);
 
           if(startDate && !endDate) {
 
-            return `· ${startMonth} ${parseInt(startDay)} - ${parseInt(startDay) + 1}`
-          } else {
-            const endArr = this.state.endDate._d.toString().split(" ");
-            const endMonth = endArr[1]
-            const endDay = endArr[2]
+            if (formatStartMonth === startPlusOneMonth) {
+              
+              return `· ${formatStart} - ${startPlusOneDay}`
+            } else {
 
-            return `· ${startMonth} ${parseInt(startDay)} - ${endMonth} ${parseInt(endDay)}`
+              return `· ${formatStart} - ${startPlusOne}`
+            }
+          } else {
+            const cloneEnd = endDate.clone();
+            const formatEnd = cloneEnd.format(`MMM DD`);
+            const formatEndMonth = cloneEnd.format("MMM");
+            const formatEndDay = cloneEnd.format("DD")
+
+            if(formatStartMonth === formatEndMonth) {
+              return `· ${formatStart} - ${formatEndDay}`
+            } else {
+              return `· ${formatStart} - ${formatEnd}`
+            }
+
           }
 
         } else if (!startDate && endDate){
-          const endArr = this.state.endDate._d.toString().split(" ");
-          const endMonth = endArr[1]
-          const endDay = endArr[2]
+          const cloneEnd = endDate.clone();
+          const formatEnd = cloneEnd.format(`MMM DD`);
+          const formatEndMonth = cloneEnd.format("MMM");
+          const formatEndDay = cloneEnd.format("DD")
+          const endMinusOne = cloneEnd.subtract(1, 'days').format(`MMM DD`);
+          const endMinusOneMonth = cloneEnd.subtract(1, 'days').format(`MMM`);
 
-          return `· ${endMonth} ${parseInt(endDay) - 1} - ${endMonth} ${parseInt(endDay)}`
+          if (formatEndMonth === endMinusOneMonth) {
+            
+            return `· ${endMinusOne} - ${formatEndDay}`
+          } else {
+            
+            return `· ${endMinusOne} - ${formatEnd}`
+          } 
         } else {
 
           return ""

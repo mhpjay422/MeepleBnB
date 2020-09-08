@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import SearchForm from "../search_form/search_form.jsx"
 
+
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -137,11 +138,38 @@ class Navbar extends React.Component {
   }
 
   const searchDates = () => {
-    if (this.state.startDate || this.state.endDate) {
-      return "this.state.startDate._d || this.state.endDate._d"
+    const startDate = this.state.startDate
+    const endDate = this.state.endDate
+    if (startDate) {
+
+      const startArr = this.state.startDate._d.toString().split(" ");
+      const startMonth = startArr[1]
+      const startDay = startArr[2]
+
+      if (startDate && !endDate) {
+
+        return `${startMonth} ${parseInt(startDay)} - ${parseInt(startDay) + 1}`
+
+      } else {
+
+        const endArr = this.state.endDate._d.toString().split(" ");
+        const endMonth = endArr[1]
+        const endDay = endArr[2]
+
+        return `${startMonth} ${parseInt(startDay)} - ${endMonth} ${parseInt(endDay)}`
+      }
+
+    } else if (!startDate && endDate) {
+
+      const endArr = this.state.endDate._d.toString().split(" ");
+      const endMonth = endArr[1]
+      const endDay = endArr[2]
+
+      return `${endMonth} ${parseInt(endDay) - 1} - ${endMonth} ${parseInt(endDay)}`
+
     } else {
       return "Add Dates"
-    }
+    }     
   }
 
   const searchGuests = () => {

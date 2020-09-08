@@ -84,9 +84,9 @@ class IndexItem extends React.Component {
                   <div className="index-item-price">
                     <div className="index-item-price-text">
                       <span className="index-item-price-integer">
-                        ${this.props.listing.price} 
+                        ${this.props.listing.price}
                       </span>
-                      /night
+                      / night
                     </div>
                   </div>
                 </div>
