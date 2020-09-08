@@ -30,11 +30,11 @@ export default class ListingIndex extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     this.props.fetchReviews("all");
   }
 
   componentWillUnmount() {
+    
     this.props.history.replace({
       search: ``,
     });
@@ -131,13 +131,71 @@ export default class ListingIndex extends React.Component {
       }
     }
 
+    const miniText = () => {
+      const numStays = `${this.props.listings.length} stays`
+      
+      const guests = () => {
+        if(this.state.guests === 1) {
+          return `${this.state.guests} guest`;
+        } else {
+          return `${this.state.guests} guests`;
+        }
+      }
+      
+      const ifStartorEnd = () => {
+        const startDate = this.state.startDate;
+        const endDate = this.state.endDate;
+
+
+        if (startDate) {
+          const startArr = this.state.startDate._d.toString().split(" ");
+          const startMonth = startArr[1]
+          const startDay = startArr[2]
+
+          if(startDate && !endDate) {
+
+            return `· ${startMonth} ${parseInt(startDay)} - ${parseInt(startDay) + 1}`
+          } else {
+            const endArr = this.state.endDate._d.toString().split(" ");
+            const endMonth = endArr[1]
+            const endDay = endArr[2]
+
+            return `· ${startMonth} ${parseInt(startDay)} - ${endMonth} ${parseInt(endDay)}`
+          }
+
+        } else if (!startDate && endDate){
+          const endArr = this.state.endDate._d.toString().split(" ");
+          const endMonth = endArr[1]
+          const endDay = endArr[2]
+
+          return `· ${endMonth} ${parseInt(endDay) - 1} - ${endMonth} ${parseInt(endDay)}`
+        } else {
+
+          return ""
+        }
+      }
+
+      
+    
+
+      const ifGuests = () => {
+        if(this.state.guests) {
+          return `· ${guests()}`
+        } else {
+          return ""
+        }
+      }
+
+      return `${numStays} ${ifStartorEnd()} ${ifGuests()}`
+    }
+
     const listIndexItem = (
       <div className="list-body">
         <div className="list-header">
           <div className="list-header-container">
             <section>
               <div className="list-header-list-items-mini-text">
-                {this.props.listings.length} stays
+                {miniText()}
               </div>
               <div className="list-header-list-items-description">
                 <h1 className="list-header-list-items-description-text">

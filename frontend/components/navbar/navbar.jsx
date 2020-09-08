@@ -54,7 +54,6 @@ class Navbar extends React.Component {
   }
 
   toggleSearch() {
-    debugger
     if(this.state.searchBarType === "mini") {
       this.setState({ searchBarType: "full"})
     } else {
@@ -130,7 +129,6 @@ class Navbar extends React.Component {
   }
 
   const searchLocation = () => {
-    debugger
     if (this.state.searchTerm) {
       return this.state.searchTerm
     } else {

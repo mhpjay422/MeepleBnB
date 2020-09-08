@@ -229,7 +229,6 @@ class SearchForm extends React.Component {
     if(this.props.toggleSearch) {
       this.props.toggleSearch();
     }
-    debugger
     if (this.props.setDataFromSearchForm) {
       this.props.setDataFromSearchForm(
         this.state.term,
@@ -272,7 +271,6 @@ class SearchForm extends React.Component {
   }
 
   searchDataFromSearchBar(input) {
-    debugger
     this.setState({term: input})
   }
 
@@ -541,6 +539,7 @@ class SearchForm extends React.Component {
     }
 
     const clearGuest = () => {
+
       if (this.state.guestFocused && this.state.numGuests) {
         return (
           <div className="clear-button-guest-container" >
