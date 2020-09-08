@@ -15,12 +15,22 @@ import { avgRating } from "../helper_methods/helper_methods"
 class ListingDetail extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      startDate: null,
-      endDate: null,
-      focusedInput: props.autoFocusEndDate ? 'endDate' : 'startDate',
-    };
+    debugger
+    if (this.props.history.location.state) {
+      this.state = {
+        startDate: this.props.history.location.state.startDate,
+        endDate: this.props.history.location.state.endDate,
+        guests: this.props.history.location.state.guests,
+        focusedInput: props.autoFocusEndDate ? 'endDate' : 'startDate',
+      };
+    } else {
+      this.state = {
+        startDate: null,
+        endDate: null,
+        guests: 0,
+        focusedInput: props.autoFocusEndDate ? 'endDate' : 'startDate',
+      };
+    }
 
     this.onFocusChange = this.onFocusChange.bind(this);
     this.receiveNewDatesFromBookingForm = this.receiveNewDatesFromBookingForm.bind(this);
@@ -32,6 +42,7 @@ class ListingDetail extends React.Component {
   }
 
   componentDidMount() {
+    debugger
     const { listingId } = this.props;
     this.props.fetchListingReviews(listingId);
     this.props.fetchListing(listingId);
@@ -52,7 +63,6 @@ class ListingDetail extends React.Component {
   }
 
   componentDidUpdate() {
-     
     const mapOptions = {
       position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
       zoom: 10.4,
@@ -751,6 +761,7 @@ class ListingDetail extends React.Component {
               listing={this.props.listing}
               startDate={this.state.startDate}
               endDate={this.state.endDate}
+              guests={this.state.guests}
               liftStateToParent={this.receiveNewDatesFromBookingForm}
               reviews={this.props.reviews}
             />

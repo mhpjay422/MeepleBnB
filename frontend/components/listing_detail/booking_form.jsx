@@ -15,7 +15,7 @@ class BookingForm extends React.Component {
       startDate: this.props.startDate,
       endDate: this.props.endDate,
       focusedInput: null,
-      guests: 1,
+      guests: this.props.guests,
       price: this.props.listing.price,
       status: "PENDING",
       minusHovered: false,

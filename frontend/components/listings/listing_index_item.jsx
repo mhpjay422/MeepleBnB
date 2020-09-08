@@ -6,6 +6,11 @@ import { avgRating } from "../helper_methods/helper_methods"
 class IndexItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      startDate:  this.props.startDate, 
+      endDate:  this.props.endDate, 
+      guests: this.props.guests, 
+    }
 
     this.handleClick = this.handleClick.bind(this);
     this.hovered = this.hovered.bind(this);
@@ -15,7 +20,14 @@ class IndexItem extends React.Component {
   handleClick() {
     const listingId = this.props.listing.id;
     window.scroll(0,0)
-    this.props.history.push(`/listings/${listingId}`);
+    this.props.history.replace({
+      pathname: `/listings/${listingId}`,
+      state: {
+        startDate: this.props.history.location.state.startDate,
+        endDate: this.props.history.location.state.endDate,
+        guests: this.props.history.location.state.guests
+      },
+    });
   }
 
   hovered() {

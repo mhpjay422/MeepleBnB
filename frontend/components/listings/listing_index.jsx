@@ -2,7 +2,7 @@ import React from "react";
 import ListingIndexItem from "./listing_index_item";
 import ListingMap from "../listings/listing_map";
 import Navbar from "../navbar/navbar_container";
-import {convertMoment} from "../helper_methods/helper_methods.jsx"
+import {convertMoment} from "../helper_methods/helper_methods.jsx";
 
 export default class ListingIndex extends React.Component {
   constructor(props) {
@@ -35,18 +35,15 @@ export default class ListingIndex extends React.Component {
   }
 
   componentWillUnmount() {
-    
     this.props.history.replace({
       search: ``,
     });
   }
 
   componentDidUpdate() {
-    debugger
   }
 
   componentWillUpdate(newProps) {
-    debugger
     if(this.props !== newProps) {
       if (newProps.location.state) {
         this.setState({ 
