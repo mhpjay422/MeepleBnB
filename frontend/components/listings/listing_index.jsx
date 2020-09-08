@@ -2,6 +2,7 @@ import React from "react";
 import ListingIndexItem from "./listing_index_item";
 import ListingMap from "../listings/listing_map";
 import Navbar from "../navbar/navbar_container";
+import {convertMoment} from "../helper_methods/helper_methods.jsx"
 
 export default class ListingIndex extends React.Component {
   constructor(props) {
@@ -145,63 +146,13 @@ export default class ListingIndex extends React.Component {
       }
       
       const ifStartorEnd = () => {
-        const startDate = this.state.startDate;
-        const endDate = this.state.endDate;
-
-        if (startDate) {
-          const cloneStart = startDate.clone();
-          const formatStart = cloneStart.format(`MMM DD`);
-          const formatStartMonth = cloneStart.format("MMM");
-          const startPlusOne = cloneStart.add(1, 'days').format(`MMM DD`);
-          const startPlusOneMonth = cloneStart.add(1, 'days').format(`MMM`);
-          const startPlusOneDay = cloneStart.add(1, 'days').format(`DD`);
-
-          if(startDate && !endDate) {
-
-            if (formatStartMonth === startPlusOneMonth) {
-              
-              return `· ${formatStart} - ${startPlusOneDay}`
-            } else {
-
-              return `· ${formatStart} - ${startPlusOne}`
-            }
-          } else {
-            const cloneEnd = endDate.clone();
-            const formatEnd = cloneEnd.format(`MMM DD`);
-            const formatEndMonth = cloneEnd.format("MMM");
-            const formatEndDay = cloneEnd.format("DD")
-
-            if(formatStartMonth === formatEndMonth) {
-              return `· ${formatStart} - ${formatEndDay}`
-            } else {
-              return `· ${formatStart} - ${formatEnd}`
-            }
-
-          }
-
-        } else if (!startDate && endDate){
-          const cloneEnd = endDate.clone();
-          const formatEnd = cloneEnd.format(`MMM DD`);
-          const formatEndMonth = cloneEnd.format("MMM");
-          const formatEndDay = cloneEnd.format("DD")
-          const endMinusOne = cloneEnd.subtract(1, 'days').format(`MMM DD`);
-          const endMinusOneMonth = cloneEnd.subtract(1, 'days').format(`MMM`);
-
-          if (formatEndMonth === endMinusOneMonth) {
-            
-            return `· ${endMinusOne} - ${formatEndDay}`
-          } else {
-            
-            return `· ${endMinusOne} - ${formatEnd}`
-          } 
-        } else {
-
+        
+        if(convertMoment(this.state.startDate, this.state.endDate) === "") {
           return ""
+        } else {
+          return `· ${convertMoment(this.state.startDate, this.state.endDate)}`
         }
       }
-
-      
-    
 
       const ifGuests = () => {
         if(this.state.guests) {
