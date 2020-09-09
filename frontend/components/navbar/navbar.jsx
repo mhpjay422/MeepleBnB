@@ -162,7 +162,7 @@ class Navbar extends React.Component {
           `${this.state.guests} guests`
         )
       }
-      
+
     } else {
       return "Add Guests"
     }
@@ -254,7 +254,7 @@ class Navbar extends React.Component {
 
   const navbar = () => {
     return (
-      <>
+      <div className="navbarZ">
         <div className={topbar()}>
           <section className="greet-topsec">
             <section className="greet-leftsec">
@@ -273,7 +273,7 @@ class Navbar extends React.Component {
           </section>
         </div>
         {greetGrayout()}
-      </>
+      </div>
     )
   }
 

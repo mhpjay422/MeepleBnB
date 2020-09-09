@@ -193,8 +193,13 @@ export default class ListingIndex extends React.Component {
       </div>
     )
 
+    const hiddenShadow = (
+      <div className="hidden-shadow">hello</div>
+    )
+
     return (
       <div className="index-body">
+          {hiddenShadow}
           <Navbar 
           searchTerm={this.state.searchTerm}
           startDate={this.state.startDate}
