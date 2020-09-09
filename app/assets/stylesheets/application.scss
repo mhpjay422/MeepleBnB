@@ -1037,14 +1037,41 @@ a:hover {
   right: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 11;
+  padding: 40px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1000;
+
 }
+
 
 .modal-child {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: rgba(0, 0, 0, 0.28) 0px 8px 28px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  animation-duration: 400ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-name: modal_child;
+}
+
+@keyframes modal_child {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .login-form-container {
