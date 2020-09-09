@@ -20,12 +20,13 @@ export const avgRating = (reviews) => {
 
 export const convertMoment = (startDate, endDate) => {
   if (startDate) {
-    const cloneStart = startDate.clone();
-    const formatStart = cloneStart.format(`MMM DD`);
-    const formatStartMonth = cloneStart.format("MMM");
-    const startPlusOne = cloneStart.add(1, 'days').format(`MMM DD`);
-    const startPlusOneMonth = cloneStart.add(1, 'days').format(`MMM`);
-    const startPlusOneDay = cloneStart.add(1, 'days').format(`DD`);
+    const formatStart = startDate.clone().format(`MMM DD`);
+    const formatStartMonth = startDate.clone().format("MMM");
+    const startPlusOne = startDate.clone().add(1, 'days').format(`MMM DD`);
+    const startPlusOneMonth = startDate.clone().add(1, 'days').format(`MMM`);
+    const startPlusOneDay = startDate.clone().add(1, 'days').format(`DD`);
+
+    debugger
 
     if (startDate && !endDate) {
 
@@ -37,10 +38,9 @@ export const convertMoment = (startDate, endDate) => {
         return `${formatStart} - ${startPlusOne}`
       }
     } else {
-      const cloneEnd = endDate.clone();
-      const formatEnd = cloneEnd.format(`MMM DD`);
-      const formatEndMonth = cloneEnd.format("MMM");
-      const formatEndDay = cloneEnd.format("DD")
+      const formatEnd = endDate.clone().format(`MMM DD`);
+      const formatEndMonth = endDate.clone().format("MMM");
+      const formatEndDay = endDate.clone().format("DD")
 
       if (formatStartMonth === formatEndMonth) {
         return `${formatStart} - ${formatEndDay}`
@@ -51,12 +51,11 @@ export const convertMoment = (startDate, endDate) => {
     }
 
   } else if (!startDate && endDate) {
-    const cloneEnd = endDate.clone();
-    const formatEnd = cloneEnd.format(`MMM DD`);
-    const formatEndMonth = cloneEnd.format("MMM");
-    const formatEndDay = cloneEnd.format("DD")
-    const endMinusOne = cloneEnd.subtract(1, 'days').format(`MMM DD`);
-    const endMinusOneMonth = cloneEnd.subtract(1, 'days').format(`MMM`);
+    const formatEnd = endDate.clone().format(`MMM DD`);
+    const formatEndMonth = endDate.clone().format("MMM");
+    const formatEndDay = endDate.clone().format("DD")
+    const endMinusOne = endDate.clone().subtract(1, 'days').format(`MMM DD`);
+    const endMinusOneMonth = endDate.clone().subtract(1, 'days').format(`MMM`);
 
     if (formatEndMonth === endMinusOneMonth) {
 

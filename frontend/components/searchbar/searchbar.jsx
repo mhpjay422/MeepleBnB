@@ -109,7 +109,23 @@ class SearchBar extends React.Component {
 
     this.setState({ listOpen: false });
 
-    
+    const dateStart = () => {
+      if (!this.props.handleInfo.startDate && this.props.handleInfo.endDate) {
+        return this.props.handleInfo.endDate.clone().subtract(1, 'days')
+      } else {
+        return this.props.handleInfo.startDate
+      }
+    }
+
+    const dateEnd = () => {
+      if (!this.props.handleInfo.endDate && this.props.handleInfo.startDate) {
+        return this.props.handleInfo.startDate.clone().add(1, 'days')
+      } else {
+        return this.props.handleInfo.endDate
+      }
+    }
+
+
 
     if (this.props.history.location.pathname !== `/search_greeting`) {
       this.props.history.push({
@@ -117,8 +133,8 @@ class SearchBar extends React.Component {
         search: this.state.term,
         state: {
           detail: this.state.term,
-          startDate: this.props.handleInfo.startDate,
-          endDate: this.props.handleInfo.endDate,
+          startDate: dateStart(),
+          endDate: dateEnd(),
           guests: this.props.handleInfo.guests
         },
       });
@@ -128,8 +144,8 @@ class SearchBar extends React.Component {
         search: this.state.term,
         state: {
           detail: this.state.term,
-          startDate: this.props.handleInfo.startDate,
-          endDate: this.props.handleInfo.endDate,
+          startDate: dateStart(),
+          endDate: dateEnd(),
           guests: this.props.handleInfo.guests
         },
       });

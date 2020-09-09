@@ -20,11 +20,28 @@ class IndexItem extends React.Component {
   handleClick() {
     const listingId = this.props.listing.id;
     window.scroll(0,0)
+
+    const dateStart = () => {
+      if (!this.props.history.location.state.startDate && this.props.history.location.state.endDate) {
+        return this.props.history.location.state.endDate.clone().subtract(1, 'days')
+      } else {
+        return this.props.history.location.state.startDate
+      }
+    }
+
+    const dateEnd = () => {
+      if (!this.props.history.location.state.endDate && this.props.history.location.state.startDate) {
+        return this.props.history.location.state.startDate.clone().add(1, 'days')
+      } else {
+        return this.props.history.location.state.endDate
+      }
+    }
+
     this.props.history.replace({
       pathname: `/listings/${listingId}`,
       state: {
-        startDate: this.props.history.location.state.startDate,
-        endDate: this.props.history.location.state.endDate,
+        startDate: dateStart(),
+        endDate: dateEnd(),
         guests: this.props.history.location.state.guests
       },
     });
