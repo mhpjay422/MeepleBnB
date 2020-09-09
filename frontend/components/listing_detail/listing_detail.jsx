@@ -15,7 +15,6 @@ import { avgRating } from "../helper_methods/helper_methods"
 class ListingDetail extends React.Component {
   constructor(props) {
     super(props);
-    debugger
     if (this.props.history.location.state) {
       this.state = {
         startDate: this.props.history.location.state.startDate,
@@ -42,7 +41,6 @@ class ListingDetail extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     const { listingId } = this.props;
     this.props.fetchListingReviews(listingId);
     this.props.fetchListing(listingId);
@@ -920,9 +918,13 @@ class ListingDetail extends React.Component {
 
 
     return (
+      <>
       <div className="single-listing-show">
         <div className="listing-detail-page">
+
+          <div className="hidden-shadow">hello</div>
           <NavbarContainer />
+          <div className="header-buffer">header</div>
           {headerDetail}
           {bodyDetail}
           {bodySectionLocation}
@@ -933,6 +935,7 @@ class ListingDetail extends React.Component {
         <div className="footer-buffer">footer</div>
         <Footer />
       </div >
+      </>
     );
   };
 }

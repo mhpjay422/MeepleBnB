@@ -26,8 +26,6 @@ export const convertMoment = (startDate, endDate) => {
     const startPlusOneMonth = startDate.clone().add(1, 'days').format(`MMM`);
     const startPlusOneDay = startDate.clone().add(1, 'days').format(`DD`);
 
-    debugger
-
     if (startDate && !endDate) {
 
       if (formatStartMonth === startPlusOneMonth) {

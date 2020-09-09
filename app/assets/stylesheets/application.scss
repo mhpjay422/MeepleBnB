@@ -2145,7 +2145,6 @@ a:hover {
 .listing-detail-page {
   position: relative;
   min-height: 100vh;
-  top: 80px;
 }
 
 .list-show-body {
@@ -2379,6 +2378,7 @@ a:hover {
 .listing-body-container {
   padding-left: 80px;
   padding-right: 80px;
+  border-bottom: 1px solid white;
 }
 
 .listing-body-frame {
@@ -3695,7 +3695,6 @@ div.DateInput.DateInput_1 {
   top: 128px;
   background-color: white;
   position: sticky;
-  box-sizing: border-box;
   z-index: 1;
   padding-right: 1px;
   display: flex;
@@ -3705,11 +3704,12 @@ div.DateInput.DateInput_1 {
 }
 
 .alreadybooked-padding {
-  padding-bottom: 48px;
+  margin-bottom: 48px;
 }
 
 .alreadybooked-body {
   margin-top: 48px;
+  margin-bottom: 96px;
   display: block;
   box-sizing: border-box;
 }
@@ -3734,7 +3734,7 @@ div.DateInput.DateInput_1 {
   padding-top: 40px;
   font-size: 20px;
   text-align: center;
-  padding-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .trip-container {
@@ -4222,6 +4222,11 @@ div.DateInput.DateInput_1 {
 
 .locpic:hover ~ .searched-item {
   color: black;
+}
+
+.header-buffer {
+  height: 80px;
+  color: white;
 }
 
 .footer-buffer {

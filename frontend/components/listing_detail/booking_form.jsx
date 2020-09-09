@@ -69,6 +69,7 @@ class BookingForm extends React.Component {
       alert("Please choose a valid number of guests")
     } else {
 
+
       const booking = {
         guests: this.state.guests,
         date_start: this.state.startDate._d,
@@ -78,6 +79,8 @@ class BookingForm extends React.Component {
         price: this.props.listing.price
       };
 
+
+      debugger
       this.props.createBooking(booking);
     }
   }
@@ -95,14 +98,18 @@ class BookingForm extends React.Component {
   }
 
   renderErrors() {
-    const errorMess = this.props.errors.map((error, i) => {
-      return (
-        <li key={`error-${i}`} className="errors">
-          {error}
-        </li>
-      );
-    });
-    return <ul>{errorMess}</ul>;
+    if(this.props.errors) {
+      const errorMess = this.props.errors.map((error, i) => {
+        return (
+          <li key={`error-${i}`} className="errors">
+            {error}
+          </li>
+        );
+      });
+      return <ul>{errorMess}</ul>;
+    } else {
+      return
+    }
   }
 
   formHelper(booking) {

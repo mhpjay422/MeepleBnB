@@ -1,5 +1,5 @@
 class Api::BookingsController < ApplicationController
-  before_action :require_logged_in, only: [:create]
+  before_action :ensure_logged_in, only: [:create]
 
   def approve
     current_booking_request.approve!
