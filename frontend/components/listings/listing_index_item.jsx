@@ -49,7 +49,7 @@ class IndexItem extends React.Component {
       if (this.props.history.location.state) {
         return this.props.history.location.state.guests
       } else {
-        return null
+        return 1
       }
     }
 
