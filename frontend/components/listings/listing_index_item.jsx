@@ -22,18 +22,34 @@ class IndexItem extends React.Component {
     window.scroll(0,0)
 
     const dateStart = () => {
-      if (!this.props.history.location.state.startDate && this.props.history.location.state.endDate) {
-        return this.props.history.location.state.endDate.clone().subtract(1, 'days')
+      if (this.props.history.location.state)  {
+        if (!this.props.history.location.state.startDate && this.props.history.location.state.endDate) {
+          return this.props.history.location.state.endDate.clone().subtract(1, 'days')
+        } else {
+          return this.props.history.location.state.startDate
+        }
       } else {
-        return this.props.history.location.state.startDate
+        return null
       }
     }
 
     const dateEnd = () => {
-      if (!this.props.history.location.state.endDate && this.props.history.location.state.startDate) {
-        return this.props.history.location.state.startDate.clone().add(1, 'days')
+      if (this.props.history.location.state) {
+        if (!this.props.history.location.state.endDate && this.props.history.location.state.startDate) {
+          return this.props.history.location.state.startDate.clone().add(1, 'days')
+        } else {
+          return this.props.history.location.state.endDate
+        }
       } else {
-        return this.props.history.location.state.endDate
+        return null
+      }
+    }
+
+    const numGuests = () => {
+      if (this.props.history.location.state) {
+        return this.props.history.location.state.guests
+      } else {
+        return null
       }
     }
 
@@ -42,7 +58,7 @@ class IndexItem extends React.Component {
       state: {
         startDate: dateStart(),
         endDate: dateEnd(),
-        guests: this.props.history.location.state.guests
+        guests: numGuests()
       },
     });
   }
