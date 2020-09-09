@@ -69,12 +69,35 @@ export default class Splash extends React.Component {
         </section>
       </div>
     );
+
+    const tagline = (
+      <>
+        <div className="tagline-container">
+          <div className="tagline-frame">
+            <div className="tagline-padding">
+              <div className="tagline-text-container">
+                <div className="tagline-main-text">
+                  Go Near or Far
+                </div>
+                <div className="tagline-main-text-mini">
+                  Travel to a destination at your leisure
+                </div>
+                <Link className="splash-link" to="./greeting">
+                  Explore New York
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    )
   
     const splash = () => {
       return(
           <>
             <img className="splash" src="background1.jpg" aria-hidden="true"/>
             {nav}
+            {tagline}
           </>
       );
     };

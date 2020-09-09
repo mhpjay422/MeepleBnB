@@ -31,6 +31,7 @@ export default class ListingIndex extends React.Component {
   }
 
   componentDidMount() {
+    window.scroll(0,0)
     this.props.fetchReviews("all");
   }
 

@@ -36,14 +36,14 @@ body {
   background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
-
 .splash {
 
   width: 100%;
   height: 100%;
   background-size: cover;
-  position: absolute;
+  position: fixed;
   pointer-events: none;
+
 }
 
 .splash-topbar {
@@ -51,16 +51,20 @@ body {
   align-items: center;
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 
 .topsec {
   height: 80px;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding-left: 160px;
+  padding-right: 160px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 auto;
   z-index: 100;
 }
 
@@ -932,6 +936,97 @@ body {
 a:hover {
   color: red;
   text-decoration: none;
+}
+
+.tagline-container {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.tagline-frame {
+  background-color: transparent;
+  margin: 0 auto;
+  position: relative;
+  max-width: 1760px;
+  padding-right: 80px;
+  padding-left: 80px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  height: 100%;
+}
+
+.tagline-padding {
+  padding-top: 102px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+}
+
+.tagline-text-container {
+  position: relative;
+  bottom: 150px;
+  right: 130px;
+}
+
+.tagline-main-text {
+  font-size: 32px;
+  line-height: 32px;
+  margin-bottom: 12px;
+  max-width: 300px;
+  color: white;
+  text-shadow: 0px 2px 2px rgba(200, 200, 200, 0.4);
+  font-weight: 700;
+}
+
+.tagline-main-text-mini {
+  font-size: 14px;
+  line-height: 18px;
+  max-width: 300px;
+  font-weight: 500;
+  line-height: 16px;
+  margin-bottom: 16px;
+  color: white;
+  text-shadow: 0px 2px 2px rgba(200, 200, 200, 0.4);
+}
+
+.splash-link {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  border-color: black;
+  width: auto;
+  touch-action: manipulation;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  border-width: 1px;
+  border-style: solid;
+  outline: none;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  transition: box-shadow 0.2s ease,
+  transform 0.1s ease;
+  border: none;
+  background: #FFFFFF;
+  color: #222222;
+}
+
+.splash-link:hover {
+  color: black;
+  background-color: rgb(240, 240, 240);
 }
 
 .modal-background {
