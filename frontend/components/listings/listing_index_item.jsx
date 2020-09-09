@@ -77,6 +77,9 @@ class IndexItem extends React.Component {
   }
 
   render() {
+
+    const space = " ";
+
     return (
       <div className="listing-index" onClick={this.handleClick} onMouseEnter={this.hovered}>
         <div className="listing-index-container">
@@ -128,10 +131,12 @@ class IndexItem extends React.Component {
                 <div className="index-item-price-container">
                   <div className="index-item-price">
                     <div className="index-item-price-text">
+                      <span>
                       <span className="index-item-price-integer">
-                        ${this.props.listing.price}
+                        {`$${this.props.listing.price} `}
                       </span>
-                      / night
+                        {` / night`}
+                      </span>
                     </div>
                   </div>
                 </div>
