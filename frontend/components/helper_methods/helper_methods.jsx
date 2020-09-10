@@ -22,9 +22,9 @@ export const convertMoment = (startDate, endDate) => {
   if (startDate) {
     const formatStart = startDate.clone().format(`MMM DD`);
     const formatStartMonth = startDate.clone().format("MMM");
-    const startPlusOne = startDate.clone().add(1, 'days').format(`MMM DD`);
-    const startPlusOneMonth = startDate.clone().add(1, 'days').format(`MMM`);
-    const startPlusOneDay = startDate.clone().add(1, 'days').format(`DD`);
+    const startPlusOne = startDate.clone().add(2, 'days').format(`MMM DD`);
+    const startPlusOneMonth = startDate.clone().add(2, 'days').format(`MMM`);
+    const startPlusOneDay = startDate.clone().add(2, 'days').format(`DD`);
 
     if (startDate && !endDate) {
 
@@ -52,8 +52,8 @@ export const convertMoment = (startDate, endDate) => {
     const formatEnd = endDate.clone().format(`MMM DD`);
     const formatEndMonth = endDate.clone().format("MMM");
     const formatEndDay = endDate.clone().format("DD")
-    const endMinusOne = endDate.clone().subtract(1, 'days').format(`MMM DD`);
-    const endMinusOneMonth = endDate.clone().subtract(1, 'days').format(`MMM`);
+    const endMinusOne = endDate.clone().subtract(2, 'days').format(`MMM DD`);
+    const endMinusOneMonth = endDate.clone().subtract(2, 'days').format(`MMM`);
 
     if (formatEndMonth === endMinusOneMonth) {
 

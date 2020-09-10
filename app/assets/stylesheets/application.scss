@@ -2242,6 +2242,41 @@ a:hover {
   white-space: nowrap;
 }
 
+.index-item-price-total-container {
+  margin-top: 2px;
+  align-items: center;
+  display: inline-flex;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.index-item-price-total-frame {
+  display: inline-block;
+  position: relative;
+}
+
+.index-item-price-total-button {
+  font-size: inherit;
+  font-family: inherit;
+  font-style: inherit;
+  font-variant: inherit;
+  line-height: inherit;
+  appearance: none;
+  background: transparent;
+  border: 0px;
+  cursor: pointer;
+  margin: 0px;
+  padding: 0px;
+  user-select: auto;
+  color: rgb(113, 113, 113);
+  text-decoration: underline;
+  border-radius: 4px;
+  font-weight: 400;
+  outline: none;
+  margin-top: 2px;
+  pointer-events: none;
+}
+
 .night {
   white-space: nowrap;
 }

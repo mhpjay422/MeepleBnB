@@ -80,7 +80,6 @@ class BookingForm extends React.Component {
       };
 
 
-      debugger
       this.props.createBooking(booking);
     }
   }
@@ -137,7 +136,7 @@ class BookingForm extends React.Component {
   }
 
   bookingTotalPrice() {
-    return this.nightsTotalPrice() + 449 + 430 + 300
+    return (this.nightsTotalPrice() + 500 + (this.nights() * 30) + (this.nights() * this.props.listing.price * .11)).toFixed(2)
   }
 
   hoverMinus() {
@@ -241,15 +240,15 @@ class BookingForm extends React.Component {
                 </div>
                 <div className="booking-reserve-detail-charges-item">
                   <div className="booking-reserve-detail-charges-item-text">Cleaning fee</div>
-                  <div className="booking-reserve-detail-charges-item-price">$449</div>
+                  <div className="booking-reserve-detail-charges-item-price">${500}</div>
                 </div>
                 <div className="booking-reserve-detail-charges-item">
                   <div className="booking-reserve-detail-charges-item-text">Service fee</div>
-                  <div className="booking-reserve-detail-charges-item-price">$430</div>
+                  <div className="booking-reserve-detail-charges-item-price">${this.nights() * 30}</div>
                 </div>
                 <div className="booking-reserve-detail-charges-item">
                   <div className="booking-reserve-detail-charges-item-text">Occupancy taxes and fees</div>
-                  <div className="booking-reserve-detail-charges-item-price">$300</div>
+                  <div className="booking-reserve-detail-charges-item-price">${(this.nights() * this.props.listing.price * .11).toFixed(2)}</div>
                 </div>
               </div>
               <div className="booking-reserve-total">

@@ -6,15 +6,26 @@ import { avgRating } from "../helper_methods/helper_methods"
 class IndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      startDate:  this.props.startDate, 
-      endDate:  this.props.endDate, 
-      guests: this.props.guests, 
+    if (this.props.history.location.state) {
+      this.state = {
+        startDate: this.props.history.location.state.startDate,
+        endDate: this.props.history.location.state.endDate,
+        guests: this.props.history.location.state.guests,
+      }
+    } else {
+      this.state = {
+        startDate: this.props.startDate,
+        endDate: this.props.endDate,
+        guests: this.props.guests,
+      }
     }
 
     this.handleClick = this.handleClick.bind(this);
     this.hovered = this.hovered.bind(this);
     this.filteredReviews = this.filteredReviews.bind(this);
+    this.nights = this.nights.bind(this);
+    this.nightsTotalPrice = this.nightsTotalPrice.bind(this);
+    this.bookingTotalPrice = this.bookingTotalPrice.bind(this);
   }
 
   handleClick() {
@@ -76,9 +87,40 @@ class IndexItem extends React.Component {
     }
   }
 
+  nights() {
+    return (this.props.history.location.state.endDate._d.getTime() - this.props.history.location.state.startDate._d.getTime()) / (1000 * 60 * 60 * 24)
+  }
+
+  nightsTotalPrice() {
+    return this.nights() * this.props.listing.price
+  }
+
+  bookingTotalPrice() {
+    return `$${(this.nightsTotalPrice() + 500 + (this.nights() * 30) + (this.nights() * this.props.listing.price * .11)).toFixed(0)} total`
+      
+  }
+
   render() {
 
-    const space = " ";
+    const isStartandEndDateSelected = () => {
+      if (this.props.history.location.state) {
+        if (this.props.history.location.state.startDate && this.props.history.location.state.endDate) {
+          return (
+            <div className="index-item-price-total-container">
+              <div className="index-item-price-total-frame">
+                <div className="index-item-price-total-frame">
+                  <div className="index-item-price-total-button">
+                    {this.bookingTotalPrice()}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+        }
+      } else {
+        return <></>
+      }
+    }
 
     return (
       <div className="listing-index" onClick={this.handleClick} onMouseEnter={this.hovered}>
@@ -138,6 +180,7 @@ class IndexItem extends React.Component {
                         {` / night`}
                       </span>
                     </div>
+                    {isStartandEndDateSelected()}
                   </div>
                 </div>
               </div>

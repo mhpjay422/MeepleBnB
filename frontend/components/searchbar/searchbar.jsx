@@ -111,7 +111,7 @@ class SearchBar extends React.Component {
 
     const dateStart = () => {
       if (!this.props.handleInfo.startDate && this.props.handleInfo.endDate) {
-        return this.props.handleInfo.endDate.clone().subtract(1, 'days')
+        return this.props.handleInfo.endDate.clone().subtract(2, 'days')
       } else {
         return this.props.handleInfo.startDate
       }
@@ -119,7 +119,7 @@ class SearchBar extends React.Component {
 
     const dateEnd = () => {
       if (!this.props.handleInfo.endDate && this.props.handleInfo.startDate) {
-        return this.props.handleInfo.startDate.clone().add(1, 'days')
+        return this.props.handleInfo.startDate.clone().add(2, 'days')
       } else {
         return this.props.handleInfo.endDate
       }
@@ -127,7 +127,17 @@ class SearchBar extends React.Component {
 
 
 
-    if (this.props.history.location.pathname !== `/search_greeting`) {
+    if (this.props.history.location.pathname === `/search_greeting` || this.props.history.location.pathname === `/greeting`) {
+      this.props.history.replace({
+        search: this.state.term,
+        state: {
+          detail: this.state.term,
+          startDate: dateStart(),
+          endDate: dateEnd(),
+          guests: this.props.handleInfo.guests
+        },
+      });
+    } else if (this.props.history.location.pathname !== `/search_greeting`){
       this.props.history.push({
         pathname: `/search_greeting`,
         search: this.state.term,
@@ -138,7 +148,7 @@ class SearchBar extends React.Component {
           guests: this.props.handleInfo.guests
         },
       });
-    } else {
+    }else {
       this.props.history.replace({
         pathname: `/search_greeting`,
         search: this.state.term,
