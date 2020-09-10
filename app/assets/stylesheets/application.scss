@@ -2068,6 +2068,62 @@ a:hover {
   border-radius: inherit;
 }
 
+.price-filter-container {
+  position: absolute;
+  display: inline-block;
+  left: 0px;
+  top: 54px;
+  z-index: 10;
+  background: rgb(255, 255, 255);
+  border: 0.5px solid rgba(118, 118, 118, 0.28);
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 37px;
+  overflow: hidden auto;
+  white-space: normal;
+  max-height: calc(100vh - 152px);
+  visibility: visible;
+}
+
+.price-filter-main-container {
+  overflow: hidden auto;
+  padding: 20px;
+  max-height: calc(100vh - 420px);
+}
+
+.price-filter-main-frame {
+  min-width: 400px;
+  padding-top: 8px;
+}
+
+.price-filter-main-avg-text {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  color: rgb(34, 34, 34);
+  padding-bottom: 40px;
+}
+
+.price-filter-main-graph-container {
+  margin: auto;
+  width: 90%;
+}
+
+.price-filter-main-graph-display-container {
+  position: relative;
+  top: 6px;
+  margin: 24px 2px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.price-filter-main-graph-slider-container {
+  position: relative;
+  overflow: visible;
+}
+
+
+
 .list-header-filter-button-text {
   font-weight: 400;
   font-size: 15px;

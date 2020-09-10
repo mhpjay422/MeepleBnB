@@ -14,7 +14,7 @@ export default class ListingIndex extends React.Component {
         endDate: this.props.history.location.state.endDate,
         guests: this.props.history.location.state.guests,
         hovered: [null, null],
-        priceFilterPressed: false,
+        priceFilterOpen: false,
       };
     } else {
       this.state = {
@@ -23,7 +23,7 @@ export default class ListingIndex extends React.Component {
         endDate: null,
         guests: 0,
         hovered: [null, null],
-        priceFilterPressed: false,
+        priceFilterOpen: false,
       };
     }
     this.filteredListings = this.filteredListings.bind(this);
@@ -112,7 +112,7 @@ export default class ListingIndex extends React.Component {
   }
 
   togglePriceFilter() {
-    this.setState({priceFilterPressed: !this.state.priceFilterPressed})
+    this.setState({priceFilterOpen: !this.state.priceFilterOpen})
   }
 
   render() {
@@ -171,10 +171,40 @@ export default class ListingIndex extends React.Component {
     }
 
     const isPriceFilterPressed = () => {
-      if(this.state.priceFilterPressed) {
+      if(this.state.priceFilterOpen) {
         return "list-header-filter-button-pressed"
       } else {
         return "list-header-filter-button"
+      }
+    }
+
+    const priceFilter = () => {
+      if(this.state.priceFilterOpen) {
+        return (
+          <div className="price-filter-container">
+            <div className="price-filter-main-container">
+              <div className="price-filter-main-frame">
+                <div className="price-filter-main-avg-text">
+                  The average nightly price is $95
+                </div>
+                <div className="price-filter-main-display-dir" dir="ltr">
+                  <div className="price-filter-main-graph-container">
+                    <div className="price-filter-main-graph-display-container">
+                      <div className="price-filter-main-graph-display1toMany">
+                        Logic to display graph
+                      </div>
+                    </div>
+                    <div className="price-filter-main-graph-slider-container">
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      } else {
+        return <></>
       }
     }
     
@@ -208,6 +238,7 @@ export default class ListingIndex extends React.Component {
                           </span>
                       </button>
                     </div>
+                    {priceFilter()}
                   </div>
                 </div>
               </div>
