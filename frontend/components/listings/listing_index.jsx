@@ -165,8 +165,8 @@ export default class ListingIndex extends React.Component {
 
     const listIndexItem = (
       <div className="list-body">
-        <div className="list-header">
-          <div className="list-header-container">
+        <div className="list-header-container">
+          <div className="list-header-top">
             <section>
               <div className="list-header-list-items-mini-text">
                 {miniText()}
@@ -178,6 +178,23 @@ export default class ListingIndex extends React.Component {
               </div>
             </section>
           </div> 
+          <div className="list-header-filter-container">
+            <div className="list-header-filter-frame">
+              <div className="list-header-filter-frame-inner">
+                <div className="list-header-filter-frame-inner-inner">
+                  <div className="list-header-filter-frame-inner-inner">
+                    <div className="list-header-filter-button-container">
+                      <button className="list-header-filter-button">
+                          <span className="list-header-filter-button-text">
+                            Price
+                          </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         {ifSearch(this.state.searchTerm)}
         <ul className="list-items" onMouseLeave={this.unhovered}>
