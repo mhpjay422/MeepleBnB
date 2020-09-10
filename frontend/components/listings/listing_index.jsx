@@ -190,6 +190,26 @@ export default class ListingIndex extends React.Component {
             />
           ))}
         </ul >
+        <div className="list-items-bottom-container">
+          <div className="list-items-bottom-frame">
+            <div className="list-items-bottom-text-main-container">
+              <div className="list-items-bottom-text-main-frame">
+                <div className="list-items-bottom-text-main-text">
+                  1
+                  <span> - </span>
+                  {`${this.props.listings.length} `}
+                  {`  of `}
+                  {`${this.props.listings.length} places to stay`}
+                </div>
+              </div>
+            </div>
+            <div className="list-items-bottom-text-bottom-container">
+              <div className="list-items-bottom-text-bottom-text">
+                Additional fees apply. Taxes may be added.
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="footer-buffer">footer</div>
       </div>
     )
