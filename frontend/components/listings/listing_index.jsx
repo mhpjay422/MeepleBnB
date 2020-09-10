@@ -13,7 +13,8 @@ export default class ListingIndex extends React.Component {
         startDate: this.props.history.location.state.startDate,
         endDate: this.props.history.location.state.endDate,
         guests: this.props.history.location.state.guests,
-        hovered: [null, null]
+        hovered: [null, null],
+        priceFilterPressed: false,
       };
     } else {
       this.state = {
@@ -21,13 +22,15 @@ export default class ListingIndex extends React.Component {
         startDate: null,
         endDate: null,
         guests: 0,
-        hovered: [null, null]
+        hovered: [null, null],
+        priceFilterPressed: false,
       };
     }
     this.filteredListings = this.filteredListings.bind(this);
     this.allPropsOrFiltered = this.allPropsOrFiltered.bind(this);
     this.setHoveredListItem = this.setHoveredListItem.bind(this);
-    this.unhovered = this.unhovered.bind(this)
+    this.unhovered = this.unhovered.bind(this);
+    this.togglePriceFilter = this.togglePriceFilter.bind(this);
   }
 
   componentDidMount() {
@@ -108,6 +111,10 @@ export default class ListingIndex extends React.Component {
     }
   }
 
+  togglePriceFilter() {
+    this.setState({priceFilterPressed: !this.state.priceFilterPressed})
+  }
+
   render() {
 
     const sidenav = (
@@ -163,6 +170,15 @@ export default class ListingIndex extends React.Component {
       return `${numStays} ${ifStartorEnd()} ${ifGuests()}`
     }
 
+    const isPriceFilterPressed = () => {
+      if(this.state.priceFilterPressed) {
+        return "list-header-filter-button-pressed"
+      } else {
+        return "list-header-filter-button"
+      }
+    }
+    
+
     const listIndexItem = (
       <div className="list-body">
         <div className="list-header-container">
@@ -184,7 +200,9 @@ export default class ListingIndex extends React.Component {
                 <div className="list-header-filter-frame-inner-inner">
                   <div className="list-header-filter-frame-inner-inner">
                     <div className="list-header-filter-button-container">
-                      <button className="list-header-filter-button">
+                      <button 
+                      className={isPriceFilterPressed()}
+                      onClick={this.togglePriceFilter}>
                           <span className="list-header-filter-button-text">
                             Price
                           </span>

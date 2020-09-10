@@ -2022,6 +2022,52 @@ a:hover {
   line-height: 16px;
 }
 
+.list-header-filter-button-pressed {
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid rgb(34, 34, 34);
+  outline: none;
+  margin: 0px;
+  border-radius: 30px;
+  position: relative;
+  padding: 8px 16px;
+  font-size: 12px;
+  line-height: 16px;
+  background-color: rgb(247, 247, 247);
+  color: rgb(34, 34, 34);
+  font-weight: 800;
+}
+
+.list-header-filter-button-pressed {
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid rgb(34, 34, 34);
+  outline: none;
+  margin: 0px;
+  border-radius: 30px;
+  position: relative;
+  padding: 8px 16px;
+  font-size: 12px;
+  line-height: 16px;
+  background-color: rgb(247, 247, 247);
+  color: rgb(34, 34, 34);
+  font-weight: 800;
+}
+
+.list-header-filter-button-pressed::after {
+  content: "";
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  background-color: transparent;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  border-color: inherit;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: inherit;
+}
+
 .list-header-filter-button-text {
   font-weight: 400;
   font-size: 15px;
