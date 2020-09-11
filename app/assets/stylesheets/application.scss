@@ -2122,6 +2122,57 @@ a:hover {
   overflow: visible;
 }
 
+.price-filter-main-graph-slider-topline {
+  background-color: rgb(221, 221, 221);
+  position: relative;
+  border-radius: 2px;
+  height: 2px;
+  top: 0px;
+  width: 100%;
+}
+
+.price-filter-main-graph-slider-innerline {
+  height: 15px;
+  top: -2px;
+  left: -2px;
+  bottom: 4px;
+  width: 100%;
+  position: absolute;
+}
+
+.price-filter-main-graph-slider-button {
+  width: 27px;
+  height: 27px;
+  padding: 1px 7px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(176, 176, 176);
+  background-color: rgb(255, 255, 255);
+  border-radius: 27px;
+  outline: none;
+  z-index: 2;
+  margin-left: -13.5px;
+  top: -10.5px;
+  position: absolute;
+}
+
+.price-filter-main-graph-slider-button-line {
+  display: inline-block;
+  height: 9px;
+  width: 1px;
+  background-color: rgb(176, 176, 176);
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+.price-filter-main-graph-slider-bottomline {
+  background-color: rgb(176, 176, 176);
+  position: absolute;
+  border-radius: 2px;
+  height: 2px;
+  top: 0px;
+}
+
 
 
 .list-header-filter-button-text {

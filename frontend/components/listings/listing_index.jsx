@@ -195,7 +195,24 @@ export default class ListingIndex extends React.Component {
                       </div>
                     </div>
                     <div className="price-filter-main-graph-slider-container">
-                    
+                      <div className="price-filter-main-graph-slider-topline"/>
+                      <div className="price-filter-main-graph-slider-innerline">
+                        <div 
+                        className="price-filter-main-graph-slider-button"
+                        style={}>
+                          <div className="price-filter-main-graph-slider-button-line"/>
+                          <div className="price-filter-main-graph-slider-button-line"/>
+                          <div className="price-filter-main-graph-slider-button-line"/>
+                        </div>
+                        <div 
+                        className="price-filter-main-graph-slider-button"
+                          style={sliderEnd}>
+                          <div className="price-filter-main-graph-slider-button-line"/>
+                          <div className="price-filter-main-graph-slider-button-line"/>
+                          <div className="price-filter-main-graph-slider-button-line"/>
+                        </div>
+                      </div>
+                      <div className="price-filter-main-graph-slider-bottomline"/>
                     </div>
                   </div>
                 </div>
