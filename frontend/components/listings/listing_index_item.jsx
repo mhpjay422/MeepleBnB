@@ -1,7 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 // import Rating from "react-rating";
-import { avgRating } from "../helper_methods/helper_methods"
+import { avgRating } from "../helper_methods/helper_methods";
+
 
 class IndexItem extends React.Component {
   constructor(props) {
