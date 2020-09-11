@@ -44,10 +44,7 @@ export default class ListingIndex extends React.Component {
     });
   }
 
-  componentDidUpdate() {
-  }
-
-  componentWillUpdate(newProps) {
+  componentDidUpdate(newProps) {
     if(this.props !== newProps) {
       if (newProps.location.state) {
         this.setState({ 
@@ -199,14 +196,14 @@ export default class ListingIndex extends React.Component {
                       <div className="price-filter-main-graph-slider-innerline">
                         <div 
                         className="price-filter-main-graph-slider-button"
-                        style={}>
+                        >
                           <div className="price-filter-main-graph-slider-button-line"/>
                           <div className="price-filter-main-graph-slider-button-line"/>
                           <div className="price-filter-main-graph-slider-button-line"/>
                         </div>
                         <div 
                         className="price-filter-main-graph-slider-button"
-                          style={sliderEnd}>
+                          >
                           <div className="price-filter-main-graph-slider-button-line"/>
                           <div className="price-filter-main-graph-slider-button-line"/>
                           <div className="price-filter-main-graph-slider-button-line"/>
