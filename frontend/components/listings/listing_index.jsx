@@ -3,6 +3,7 @@ import ListingIndexItem from "./listing_index_item";
 import ListingMap from "../listings/listing_map";
 import Navbar from "../navbar/navbar_container";
 import {convertMoment} from "../helper_methods/helper_methods.jsx";
+import CustomizedSlider from "../slider/slider.jsx";
 
 export default class ListingIndex extends React.Component {
   constructor(props) {
@@ -192,7 +193,8 @@ export default class ListingIndex extends React.Component {
                       </div>
                     </div>
                     <div className="price-filter-main-graph-slider-container">
-                      <div className="price-filter-main-graph-slider-topline"/>
+                      <CustomizedSlider/>
+                      {/* <div className="price-filter-main-graph-slider-topline"/>
                       <div className="price-filter-main-graph-slider-innerline">
                         <div 
                         className="price-filter-main-graph-slider-button"
@@ -209,7 +211,7 @@ export default class ListingIndex extends React.Component {
                           <div className="price-filter-main-graph-slider-button-line"/>
                         </div>
                       </div>
-                      <div className="price-filter-main-graph-slider-bottomline"/>
+                      <div className="price-filter-main-graph-slider-bottomline"/> */}
                     </div>
                   </div>
                 </div>

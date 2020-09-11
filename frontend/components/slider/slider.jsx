@@ -1,9 +1,10 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
-import 'fontsource-roboto';
+// import 'fontsource-roboto';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 import ThreeDRotation from '@material-ui/icons/ThreeDRotation';
 
@@ -102,20 +103,6 @@ export default function CustomizedSlider() {
 
   return (
     <div className={classes.root}>
-      <Typography gutterBottom>iOS</Typography>
-      <IOSSlider aria-label="ios slider" defaultValue={60} marks={marks} valueLabelDisplay="on" />
-      <div className={classes.margin} />
-      <Typography gutterBottom>pretto.fr</Typography>
-      <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={20} />
-      <div className={classes.margin} />
-      <Typography gutterBottom>Tooltip value label</Typography>
-      <Slider
-        ValueLabelComponent={ValueLabelComponent}
-        aria-label="custom thumb label"
-        defaultValue={20}
-      />
-      <div className={classes.margin} />
-      <Typography gutterBottom>Airbnb</Typography>
       <AirbnbSlider
         ThumbComponent={AirbnbThumbComponent}
         getAriaLabel={(index) => (index === 0 ? 'Minimum price' : 'Maximum price')}
