@@ -41,14 +41,17 @@ export default class ListingIndex extends React.Component {
     this.togglePriceFilter = this.togglePriceFilter.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.runScript = this.runScript.bind(this);
+    this.handleClickOutsidePriceFilter = this.handleClickOutsidePriceFilter.bind(this);
   }
 
   componentDidMount() {
     window.scroll(0,0)
     this.props.fetchReviews("all");
+    document.addEventListener('mouseup', this.handleClickOutsidePriceFilter);
   }
 
   componentWillUnmount() {
+    document.removeEventListener('mouseup', this.handleClickOutsidePriceFilter);
     this.props.history.replace({
       search: ``,
     });
@@ -212,6 +215,17 @@ export default class ListingIndex extends React.Component {
     }
   }
 
+  handleClickOutsidePriceFilter(e) {
+    debugger
+    const clickPriceMenu = this.price && this.price.contains(e.target)
+    const clickPriceButton = this.priceButton && this.priceButton.contains(e.target) === true
+    const clickOutPrice = !(clickPriceMenu || clickPriceButton)
+    const priceShouldClose = this.price && clickOutPrice
+    if (priceShouldClose) {
+      this.setState({ priceFilterOpen: false })
+    }
+  }
+
   render() {
 
     const sidenav = (
@@ -278,7 +292,10 @@ export default class ListingIndex extends React.Component {
     const priceFilter = () => {
       if(this.state.priceFilterOpen) {
         return (
-          <div className="price-filter-container">
+          <div 
+          className="price-filter-container"
+          ref={price => this.price = price}
+          >
             <div className="price-filter-main-container">
               <div className="price-filter-main-frame">
                 <div className="price-filter-main-avg-text">
@@ -341,7 +358,9 @@ export default class ListingIndex extends React.Component {
           <div className="list-header-filter-container">
             <div className="list-header-filter-frame">
               <div className="list-header-filter-frame-inner">
-                <div className="list-header-filter-frame-inner-inner">
+                <div 
+                className="list-header-filter-frame-inner-inner"
+                ref={priceButton => this.priceButton = priceButton}>
                   <div className="list-header-filter-frame-inner-inner">
                     <div className="list-header-filter-button-container">
                       <button 
