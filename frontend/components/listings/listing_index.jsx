@@ -31,6 +31,7 @@ export default class ListingIndex extends React.Component {
     this.setHoveredListItem = this.setHoveredListItem.bind(this);
     this.unhovered = this.unhovered.bind(this);
     this.togglePriceFilter = this.togglePriceFilter.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -110,6 +111,10 @@ export default class ListingIndex extends React.Component {
 
   togglePriceFilter() {
     this.setState({priceFilterOpen: !this.state.priceFilterOpen})
+  }
+
+  handleChange(e) {
+    this.setState({ [e.target.id]: e.target.value})
   }
 
   render() {
@@ -192,24 +197,33 @@ export default class ListingIndex extends React.Component {
                       </div>
                     </div>
                     <div className="price-filter-main-graph-slider-container">
-                      <div className="price-filter-main-graph-slider-topline"/>
-                      <div className="price-filter-main-graph-slider-innerline">
-                        <div 
-                        className="price-filter-main-graph-slider-button"
-                        >
+                      <input type="range" id="input-left" min="0" max="500" value="25" onChange={this.handleChange}/>
+                      <input type="range" id="input-right" min="0" max="500" value="75" onChange={this.handleChange}/>
+                      {/* <div class="slider">
+                        <div class="track"></div>
+                        <div class="range"></div>
+                        <div class="thumb left"></div>
+                        <div class="thumb right"></div>
+                      </div> */}
+
+
+                      <div className="price-filter-main-graph-slider">
+                        <div className="price-filter-main-graph-slider-track"/>
+                        <div className="price-filter-main-graph-slider-button left">
+                          <div className="price-filter-main-graph-slider-button-line"/>
                           <div className="price-filter-main-graph-slider-button-line"/>
                           <div className="price-filter-main-graph-slider-button-line"/>
                           <div className="price-filter-main-graph-slider-button-line"/>
                         </div>
-                        <div 
-                        className="price-filter-main-graph-slider-button"
-                          >
+                        <div className="price-filter-main-graph-slider-button right">
+                          <div className="price-filter-main-graph-slider-button-line"/>
                           <div className="price-filter-main-graph-slider-button-line"/>
                           <div className="price-filter-main-graph-slider-button-line"/>
                           <div className="price-filter-main-graph-slider-button-line"/>
                         </div>
+                        <div className="price-filter-main-graph-slider-range"/>
                       </div>
-                      <div className="price-filter-main-graph-slider-bottomline"/>
+
                     </div>
                   </div>
                 </div>

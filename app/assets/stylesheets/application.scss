@@ -2071,7 +2071,7 @@ a:hover {
 .price-filter-container {
   position: absolute;
   display: inline-block;
-  left: 0px;
+  left: 102px;
   top: 54px;
   z-index: 10;
   background: rgb(255, 255, 255);
@@ -2122,38 +2122,59 @@ a:hover {
   overflow: visible;
 }
 
-.price-filter-main-graph-slider-topline {
-  background-color: rgb(221, 221, 221);
+.price-filter-main-graph-slider {
   position: relative;
+  z-index: 1;
+  height: 10px;
+}
+
+.price-filter-main-graph-slider-track {
+  background-color: rgb(221, 221, 221);
+  position: absolute;
   border-radius: 2px;
   height: 2px;
   top: 0px;
   width: 100%;
 }
 
-.price-filter-main-graph-slider-innerline {
-  height: 15px;
-  top: -2px;
-  left: -2px;
-  bottom: 4px;
-  width: 100%;
-  position: absolute;
-}
-
-.price-filter-main-graph-slider-button {
-  width: 27px;
-  height: 27px;
+.price-filter-main-graph-slider-button.left {
+  width: 20px;
+  height: 20px;
   padding: 1px 7px;
   border-width: 1px;
   border-style: solid;
   border-color: rgb(176, 176, 176);
   background-color: rgb(255, 255, 255);
-  border-radius: 27px;
+  border-radius: 50%;
   outline: none;
   z-index: 2;
   margin-left: -13.5px;
-  top: -10.5px;
+  top: -10px;
   position: absolute;
+  left: 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.price-filter-main-graph-slider-button.right {
+  width: 20px;
+  height: 20px;
+  padding: 1px 7px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(176, 176, 176);
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  outline: none;
+  z-index: 2;
+  margin-left: -13.5px;
+  top: -10px;
+  position: absolute;
+  left: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 .price-filter-main-graph-slider-button-line {
@@ -2163,9 +2184,10 @@ a:hover {
   background-color: rgb(176, 176, 176);
   margin-left: 1px;
   margin-right: 1px;
+  align-self: center;
 }
 
-.price-filter-main-graph-slider-bottomline {
+.price-filter-main-graph-slider-range {
   background-color: rgb(176, 176, 176);
   position: absolute;
   border-radius: 2px;
