@@ -2135,6 +2135,7 @@ a:hover {
   height: 2px;
   top: 0px;
   width: 100%;
+  z-index: 1;
 }
 
 .price-filter-main-graph-slider-button.left {
@@ -2147,7 +2148,7 @@ a:hover {
   background-color: rgb(255, 255, 255);
   border-radius: 50%;
   outline: none;
-  z-index: 2;
+  z-index: 3;
   margin-left: -13.5px;
   top: -10px;
   position: absolute;
@@ -2167,7 +2168,7 @@ a:hover {
   background-color: rgb(255, 255, 255);
   border-radius: 50%;
   outline: none;
-  z-index: 2;
+  z-index: 3;
   margin-left: -13.5px;
   top: -10px;
   position: absolute;
@@ -2193,6 +2194,23 @@ a:hover {
   border-radius: 2px;
   height: 2px;
   top: 0px;
+  z-index: 2;
+}
+
+input[type=range] {
+  position: absolute;
+  pointer-events: all;
+  z-index: 2;
+  height: 10px;
+  width: 100%;
+}
+
+#input-left {
+  top: -100px
+}
+
+#input-right {
+  top: -50px
 }
 
 

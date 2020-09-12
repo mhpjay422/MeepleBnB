@@ -197,8 +197,8 @@ export default class ListingIndex extends React.Component {
                       </div>
                     </div>
                     <div className="price-filter-main-graph-slider-container">
-                      <input type="range" id="input-left" min="0" max="500" value="25" onChange={this.handleChange}/>
-                      <input type="range" id="input-right" min="0" max="500" value="75" onChange={this.handleChange}/>
+                      <input type="range" id="input-left" min="0" max="500" defaultValue="0" />
+                      <input type="range" id="input-right" min="0" max="500" defaultValue="500" />
                       {/* <div class="slider">
                         <div class="track"></div>
                         <div class="range"></div>
