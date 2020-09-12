@@ -65,7 +65,7 @@ class IndexItem extends React.Component {
       }
     }
 
-    this.props.history.replace({
+    this.props.history.push({
       pathname: `/listings/${listingId}`,
       state: {
         startDate: dateStart(),
