@@ -1,5 +1,6 @@
 const path = require("path");
 
+
 module.exports = {
   context: __dirname,
   entry: "./frontend/meepleBnB.jsx",
@@ -28,5 +29,5 @@ module.exports = {
   devtool: "source-map",
   resolve: {
     extensions: [".js", ".jsx", "*"]
-  }
+  },
 };

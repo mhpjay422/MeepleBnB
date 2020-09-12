@@ -8,6 +8,7 @@ import Modal from "./modal/modal";
 import ListingDetailContainer from "./listing_detail/listing_detail_container";
 import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
 import TripsIndexContainer from "./trips/trips_container";
+
 const App = () => {
   return (
     <div>
