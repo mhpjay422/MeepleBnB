@@ -48,6 +48,7 @@ export default class ListingIndex extends React.Component {
     this.handleClickOutsidePriceFilter = this.handleClickOutsidePriceFilter.bind(this);
     this.toggleFocusMin = this.toggleFocusMin.bind(this);
     this.toggleFocusMax = this.toggleFocusMax.bind(this);
+    this.keyInputPriceMin = this.keyInputPriceMin.bind(this);
   }
 
   componentDidMount() {
@@ -239,6 +240,12 @@ export default class ListingIndex extends React.Component {
     this.setState({ maxFocus: !this.state.maxFocus})
   }
 
+  keyInputPriceMin(e) {
+    if (e.charCode === 69) {
+      return
+    }
+  }
+
   render() {
 
     const sidenav = (
@@ -389,9 +396,10 @@ export default class ListingIndex extends React.Component {
                             <input 
                             className="price-filter-main-price-value-input"
                             id="price-filter-min"
-                            type="text"
+                            type="number"
                             autoComplete="off"
                             defaultValue="10"
+                            onKeyPress={this.keyInputPriceMin}
                             >
                             </input>
                           </div>
@@ -418,7 +426,7 @@ export default class ListingIndex extends React.Component {
                             <input 
                             className="price-filter-main-price-value-input"
                             id="price-filter-max"
-                            type="text"
+                            type="number"
                             autoComplete="off"
                             defaultValue="1000"
                             >

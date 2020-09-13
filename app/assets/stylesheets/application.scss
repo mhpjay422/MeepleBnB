@@ -2265,6 +2265,16 @@ input[type=range] {
   box-shadow: rgb(34, 34, 34) 0px 0px 0px 2px inset;
 }
 
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .price-filter-main-price-range-display-minmax-frame {
   position: relative;
   flex: 1 1 0%;
