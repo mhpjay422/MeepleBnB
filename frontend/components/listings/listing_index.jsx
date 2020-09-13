@@ -157,6 +157,8 @@ export default class ListingIndex extends React.Component {
     if (document.getElementById("input-left")) {
       let inputLeft = document.getElementById("input-left");
       let inputRight = document.getElementById("input-right");
+      let priceLeft = document.getElementById("price-filter-min");
+      let priceRight = document.getElementById("price-filter-max");
   
       let thumbLeft = document.querySelector(".slider > .thumb.left");
       let thumbRight = document.querySelector(".slider > .thumb.right");
@@ -168,6 +170,7 @@ export default class ListingIndex extends React.Component {
           max = parseInt(_this.max);
   
         _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 1);
+        priceLeft.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 1);
   
         let percent = ((_this.value - min) / (max - min)) * 100;
   
@@ -182,6 +185,7 @@ export default class ListingIndex extends React.Component {
           max = parseInt(_this.max);
   
         _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 1);
+        priceRight.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 1);
   
         let percent = ((_this.value - min) / (max - min)) * 100;
   
