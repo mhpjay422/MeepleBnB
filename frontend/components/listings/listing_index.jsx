@@ -169,8 +169,8 @@ export default class ListingIndex extends React.Component {
           min = parseInt(_this.min),
           max = parseInt(_this.max);
   
-        _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 1);
-        priceLeft.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 1);
+        _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 50);
+        priceLeft.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 50);
   
         let percent = ((_this.value - min) / (max - min)) * 100;
   
@@ -184,8 +184,8 @@ export default class ListingIndex extends React.Component {
           min = parseInt(_this.min),
           max = parseInt(_this.max);
   
-        _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 1);
-        priceRight.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 1);
+        _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 50);
+        priceRight.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 50);
   
         let percent = ((_this.value - min) / (max - min)) * 100;
   
@@ -246,11 +246,15 @@ export default class ListingIndex extends React.Component {
 
   keyInputPriceMin(e) {
     const priceMin = document.getElementById("price-filter-min")
+    const priceMinValue = document.getElementById("price-filter-min").value
     const priceMinMinimum = document.getElementById("price-filter-min").min
+    const priceMinMaximum = document.getElementById("price-filter-min").max
     const leftInput = document.getElementById("input-left")
 
-    if (priceMin.value < priceMinMinimum) {
-      priceMin = priceMinMinimum
+    if (priceMinValue < priceMinMinimum) {
+      priceMinValue = priceMinMinimum
+    } else if (priceMinValue > priceMinMaximum) {
+      document.getElementById("price-filter-min").value = `${+priceMinMaximum - 50}`
     }
 
     leftInput.value = priceMin.value
@@ -406,6 +410,7 @@ export default class ListingIndex extends React.Component {
                             className="price-filter-main-price-value-input"
                             id="price-filter-min"
                             type="number"
+                            readOnly={false}
                             autoComplete="off"
                             defaultValue="10"
                             min="10"
@@ -438,6 +443,7 @@ export default class ListingIndex extends React.Component {
                             className="price-filter-main-price-value-input"
                             id="price-filter-max"
                             type="number"
+                            readOnly={false}
                             autoComplete="off"
                             min="10"
                             max="1000"
