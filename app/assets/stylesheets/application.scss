@@ -2205,13 +2205,91 @@ input[type=range] {
   width: 100%;
 }
 
-#inputLeft {
-  top: -100px
+.price-filter-main-price-range-display-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
 }
 
-#inputRight {
-  top: -50px
+.price-filter-main-price-range-display-minmax-container {
+  position: relative;
+  cursor: text;
+  display: flex;
+  height: 56px;
+  width: 100%;
+  margin: 0px;
+  border: none;
+  color: rgb(34, 34, 34);
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: rgb(176, 176, 176) 0px 0px 0px 1px inset;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 300;
 }
+
+.price-filter-main-price-range-display-minmax-frame {
+  position: relative;
+  flex: 1 1 0%;
+  padding: 0px;
+}
+
+.price-filter-main-price-range-display-minmax-text-frame {
+  position: absolute;
+  top: 18px;
+  left: 12px;
+  right: 12px;
+  margin: 0px;
+  padding: 0px;
+  color: rgb(113, 113, 113);
+  pointer-events: none;
+  transform-origin: 0% 0%;
+  font-size: 16px;
+  line-height: 20px;
+  transition: transform 0.15s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s;
+  transform: translateY(-8px) scale(0.75);
+  font-weight: 300;
+}
+
+.price-filter-main-price-range-display-minmax-text {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.price-filter-main-price-value-container {
+  display: flex;
+  opacity: 1;
+}
+
+.price-filter-main-price-value-money {
+  padding-left: 12px;
+  padding-top: 26px;
+  margin-right: -6px;
+}
+
+.price-filter-main-price-value-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0px;
+  margin: 26px 12px 10px;
+  min-height: 1px;
+  color: inherit;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  appearance: none;
+}
+
+.price-dash {
+  margin: 8px;
+}
+
 
 
 

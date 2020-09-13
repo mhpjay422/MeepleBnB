@@ -299,13 +299,14 @@ export default class ListingIndex extends React.Component {
             <div className="price-filter-main-container">
               <div className="price-filter-main-frame">
                 <div className="price-filter-main-avg-text">
-                  The average nightly price is $95
+                  The average nightly price is $GET AVG NIGHTLY PRICE
                 </div>
                 <div className="price-filter-main-display-dir">
                   <div className="price-filter-main-graph-container">
                     <div className="price-filter-main-graph-display-container">
                       <div className="price-filter-main-graph-display1toMany">
-                        Logic to display graph
+
+
                       </div>
                     </div>
                     <div className="price-filter-main-graph-slider-container">
@@ -328,6 +329,58 @@ export default class ListingIndex extends React.Component {
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div className="price-filter-main-price-range-display-container">
+                    <div className="price-filter-main-price-range-display-minmax-container">
+                      <label className="price-filter-main-price-range-display-minmax-frame">
+                        <div className="price-filter-main-price-range-display-minmax-text-frame">
+                          <div className="price-filter-main-price-range-display-minmax-text">
+                            min price
+                          </div>
+                        </div>
+                        <div dir="ltr">
+                          <div className="price-filter-main-price-value-container">
+                            <div className="price-filter-main-price-value-money">
+                              <span>$</span>
+                            </div>
+                            <input 
+                            className="price-filter-main-price-value-input"
+                            id="price-filter-min"
+                            type="text"
+                            autoComplete="off"
+                            // value="10"
+                            >
+                            </input>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                    <div className="price-dash">–</div>
+                    <div className="price-filter-main-price-range-display-minmax-container">
+                      <label className="price-filter-main-price-range-display-minmax-frame">
+                        <div className="price-filter-main-price-range-display-minmax-text-frame">
+                          <div className="price-filter-main-price-range-display-minmax-text">
+                            min price
+                          </div>
+                        </div>
+                        <div dir="ltr">
+                          <div className="price-filter-main-price-value-container">
+                            <div className="price-filter-main-price-value-money">
+                              <span>$</span>
+                            </div>
+                            <input 
+                            className="price-filter-main-price-value-input"
+                            id="price-filter-max"
+                            type="text"
+                            autoComplete="off"
+                            // value="10"
+                            >
+                            </input>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                    
                   </div>
                 </div>
               </div>
