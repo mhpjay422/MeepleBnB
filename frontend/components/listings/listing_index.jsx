@@ -245,9 +245,16 @@ export default class ListingIndex extends React.Component {
   }
 
   keyInputPriceMin(e) {
-    if (e.charCode === 69) {
-      return
+    const priceMin = document.getElementById("price-filter-min")
+    const priceMinMinimum = document.getElementById("price-filter-min").min
+    const leftInput = document.getElementById("input-left")
+
+    if (priceMin.value < priceMinMinimum) {
+      priceMin = priceMinMinimum
     }
+
+    leftInput.value = priceMin.value
+    this.setState({})
   }
 
   render() {
@@ -315,7 +322,6 @@ export default class ListingIndex extends React.Component {
 
     const isMinFocused = () => {
       if(this.state.minFocus) {
-        debugger
         return (
           "price-filter-main-price-range-display-minmax-container-focus"
         )
@@ -328,7 +334,6 @@ export default class ListingIndex extends React.Component {
     
     const isMaxFocused = () => {
       if(this.state.maxFocus) {
-        debugger
         return (
           "price-filter-main-price-range-display-minmax-container-focus"
         )
@@ -403,7 +408,9 @@ export default class ListingIndex extends React.Component {
                             type="number"
                             autoComplete="off"
                             defaultValue="10"
-                            onKeyPress={this.keyInputPriceMin}
+                            min="10"
+                            max="1000"
+                            onChange={this.keyInputPriceMin}
                             >
                             </input>
                           </div>
@@ -432,6 +439,8 @@ export default class ListingIndex extends React.Component {
                             id="price-filter-max"
                             type="number"
                             autoComplete="off"
+                            min="10"
+                            max="1000"
                             defaultValue="1000"
                             >
                             </input>
