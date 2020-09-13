@@ -2212,7 +2212,7 @@ input[type=range] {
   margin-top: 28px;
 }
 
-.price-filter-main-price-range-display-minmax-container {
+.price-filter-main-price-range-display-max-container {
   position: relative;
   cursor: text;
   display: flex;
@@ -2227,6 +2227,42 @@ input[type=range] {
   font-size: 16px;
   line-height: 20px;
   font-weight: 300;
+}
+
+.price-filter-main-price-range-display-min-container {
+  position: relative;
+  cursor: text;
+  display: flex;
+  height: 56px;
+  width: 100%;
+  margin: 0px;
+  border: none;
+  color: rgb(34, 34, 34);
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: rgb(176, 176, 176) 0px 0px 0px 1px inset;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 300;
+}
+
+.price-filter-main-price-range-display-minmax-container-focus {
+  position: relative;
+  cursor: text;
+  display: flex;
+  height: 56px;
+  width: 100%;
+  margin: 0px;
+  border: none;
+  color: rgb(34, 34, 34);
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: rgb(176, 176, 176) 0px 0px 0px 1px inset;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 300;
+  outline: none;
+  box-shadow: rgb(34, 34, 34) 0px 0px 0px 2px inset;
 }
 
 .price-filter-main-price-range-display-minmax-frame {

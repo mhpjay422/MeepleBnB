@@ -19,6 +19,8 @@ export default class ListingIndex extends React.Component {
         leftMax: "999",
         inputRight: "1000",
         rightMin:"1",
+        minFocus: false,
+        maxFocus: false,
       };
     } else {
       this.state = {
@@ -32,6 +34,8 @@ export default class ListingIndex extends React.Component {
         leftMax: "999",
         inputRight: "1000",
         rightMin: "1",
+        minFocus: false,
+        maxFocus: false,
       };
     }
     this.filteredListings = this.filteredListings.bind(this);
@@ -42,6 +46,8 @@ export default class ListingIndex extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.runScript = this.runScript.bind(this);
     this.handleClickOutsidePriceFilter = this.handleClickOutsidePriceFilter.bind(this);
+    this.toggleFocusMin = this.toggleFocusMin.bind(this);
+    this.toggleFocusMax = this.toggleFocusMax.bind(this);
   }
 
   componentDidMount() {
@@ -216,7 +222,6 @@ export default class ListingIndex extends React.Component {
   }
 
   handleClickOutsidePriceFilter(e) {
-    debugger
     const clickPriceMenu = this.price && this.price.contains(e.target)
     const clickPriceButton = this.priceButton && this.priceButton.contains(e.target) === true
     const clickOutPrice = !(clickPriceMenu || clickPriceButton)
@@ -224,6 +229,14 @@ export default class ListingIndex extends React.Component {
     if (priceShouldClose) {
       this.setState({ priceFilterOpen: false })
     }
+  }
+
+  toggleFocusMin() {
+    this.setState({ minFocus: !this.state.minFocus})
+  }
+
+  toggleFocusMax() {
+    this.setState({ maxFocus: !this.state.maxFocus})
   }
 
   render() {
@@ -289,6 +302,32 @@ export default class ListingIndex extends React.Component {
       }
     }
 
+    const isMinFocused = () => {
+      if(this.state.minFocus) {
+        debugger
+        return (
+          "price-filter-main-price-range-display-minmax-container-focus"
+        )
+      } else {
+        return (
+          "price-filter-main-price-range-display-min-container"
+        )
+      }
+    }
+    
+    const isMaxFocused = () => {
+      if(this.state.maxFocus) {
+        debugger
+        return (
+          "price-filter-main-price-range-display-minmax-container-focus"
+        )
+      } else {
+        return (
+          "price-filter-main-price-range-display-max-container"
+        )
+      }
+    }
+
     const priceFilter = () => {
       if(this.state.priceFilterOpen) {
         return (
@@ -310,8 +349,8 @@ export default class ListingIndex extends React.Component {
                       </div>
                     </div>
                     <div className="price-filter-main-graph-slider-container">
-                      <input type="range" id="input-left" min="0" max="1000" defaultValue="0"/>
-                      <input type="range" id="input-right" min="0" max="1000" defaultValue="1000"/>
+                      <input type="range" id="input-left" min="10" max="1000" defaultValue="0"/>
+                      <input type="range" id="input-right" min="10" max="1000" defaultValue="1000"/>
                       <div className="slider">
                         <div className="track"></div>
                         <div className="range"></div>
@@ -331,7 +370,11 @@ export default class ListingIndex extends React.Component {
                     </div>
                   </div>
                   <div className="price-filter-main-price-range-display-container">
-                    <div className="price-filter-main-price-range-display-minmax-container">
+                    <div 
+                    className={isMinFocused()}
+                    onBlur={this.toggleFocusMin}
+                    onFocus={this.toggleFocusMin}
+                    >
                       <label className="price-filter-main-price-range-display-minmax-frame">
                         <div className="price-filter-main-price-range-display-minmax-text-frame">
                           <div className="price-filter-main-price-range-display-minmax-text">
@@ -348,7 +391,7 @@ export default class ListingIndex extends React.Component {
                             id="price-filter-min"
                             type="text"
                             autoComplete="off"
-                            // value="10"
+                            defaultValue="10"
                             >
                             </input>
                           </div>
@@ -356,11 +399,15 @@ export default class ListingIndex extends React.Component {
                       </label>
                     </div>
                     <div className="price-dash">–</div>
-                    <div className="price-filter-main-price-range-display-minmax-container">
+                    <div 
+                    className={isMaxFocused()}
+                    onBlur={this.toggleFocusMax}
+                    onFocus={this.toggleFocusMax}
+                    >
                       <label className="price-filter-main-price-range-display-minmax-frame">
                         <div className="price-filter-main-price-range-display-minmax-text-frame">
                           <div className="price-filter-main-price-range-display-minmax-text">
-                            min price
+                            max price
                           </div>
                         </div>
                         <div dir="ltr">
@@ -373,7 +420,7 @@ export default class ListingIndex extends React.Component {
                             id="price-filter-max"
                             type="text"
                             autoComplete="off"
-                            // value="10"
+                            defaultValue="1000"
                             >
                             </input>
                           </div>
