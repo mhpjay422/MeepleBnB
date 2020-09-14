@@ -277,7 +277,7 @@ export default class ListingIndex extends React.Component {
     if (+priceMinValue > +priceMinMaximum) {
       document.getElementById("price-filter-max").value = `1000`
       document.getElementById("price-filter-min").value = `10`
-    } else if (+priceMinValue > +priceMinMinimum) {
+    } else if (+priceMinValue < +priceMinMinimum) {
       document.getElementById("price-filter-min").value = `10`
     }
 
