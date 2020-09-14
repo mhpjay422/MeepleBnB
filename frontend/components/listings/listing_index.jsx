@@ -49,6 +49,8 @@ export default class ListingIndex extends React.Component {
     this.toggleFocusMin = this.toggleFocusMin.bind(this);
     this.toggleFocusMax = this.toggleFocusMax.bind(this);
     this.keyInputPriceMin = this.keyInputPriceMin.bind(this);
+    this.keyInputPrice = this.keyInputPrice.bind(this)
+    this.defaultVal = this.defaultVal.bind(this)
   }
 
   componentDidMount() {
@@ -168,9 +170,23 @@ export default class ListingIndex extends React.Component {
       let _this = inputLeft,
         min = parseInt(_this.min),
         max = parseInt(_this.max);
-  
-        _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 50);
-        priceLeft.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 50);
+
+        
+        if (priceLeft.value) {
+          if (+priceLeft.value > +priceLeft.max - 1) {
+            _this.value = "0"
+            priceLeft.value = "0"
+            priceRight.value = priceRight.max
+          } else if (+priceLeft.value > +priceRight.value) {
+            priceRight.value = priceRight.max
+          } else {
+            _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 50);
+            priceLeft.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 50);
+          }
+        } else {
+          _this.value = "0";
+          priceLeft.value = "0"
+        }
   
         let percent = ((_this.value - min) / (max - min)) * 100;
   
@@ -183,9 +199,13 @@ export default class ListingIndex extends React.Component {
         let _this = inputRight,
           min = parseInt(_this.min),
           max = parseInt(_this.max);
-  
-        _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 50);
-        priceRight.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 50);
+
+        if (priceRight.value) {
+          _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 50);
+          priceRight.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 50);
+        } else {
+          _this.value = 0;
+        }  
   
         let percent = ((_this.value - min) / (max - min)) * 100;
   
@@ -245,6 +265,9 @@ export default class ListingIndex extends React.Component {
   }
 
   keyInputPriceMin(e) {
+
+    this.toggleFocusMin()
+
     const priceMin = document.getElementById("price-filter-min")
     const priceMinValue = document.getElementById("price-filter-min").value
     const priceMinMinimum = document.getElementById("price-filter-min").min
@@ -252,13 +275,42 @@ export default class ListingIndex extends React.Component {
     const leftInput = document.getElementById("input-left")
 
     if (+priceMinValue > +priceMinMaximum) {
-      debugger
       document.getElementById("price-filter-max").value = `1000`
-      document.getElementById("price-filter-min").value = `${+priceMinMaximum - 50}`
+      document.getElementById("price-filter-min").value = `10`
+    } else if (+priceMinValue > +priceMinMinimum) {
+      document.getElementById("price-filter-min").value = `10`
     }
 
     leftInput.value = priceMin.value
     this.setState({})
+  }
+
+  keyInputPrice() {
+    const priceMin = document.getElementById("price-filter-min")
+    const priceMax = document.getElementById("price-filter-max")
+    const leftInput = document.getElementById("input-left")
+
+    
+
+
+    leftInput.value = priceMin.value
+    this.setState({})
+  }
+
+  defaultVal(input) {
+    if (document.getElementById("input-left")) {
+      if(input === "min") {
+        return document.getElementById("input-left").value
+      } else {
+        return document.getElementById("input-right").value
+      }
+    } else {
+      if (input === "min") {
+        return "10"
+      } else {
+        return "1000"
+      }
+    }
   }
 
   render() {
@@ -369,8 +421,8 @@ export default class ListingIndex extends React.Component {
                       </div>
                     </div>
                     <div className="price-filter-main-graph-slider-container">
-                      <input type="range" id="input-left" min="10" max="1000" defaultValue="0"/>
-                      <input type="range" id="input-right" min="10" max="1000" defaultValue="1000"/>
+                      <input type="range" id="input-left" min="0" max="1000" defaultValue="10"/>
+                      <input type="range" id="input-right" min="0" max="1000" defaultValue="1000"/>
                       <div className="slider">
                         <div className="track"></div>
                         <div className="range"></div>
@@ -392,7 +444,7 @@ export default class ListingIndex extends React.Component {
                   <div className="price-filter-main-price-range-display-container">
                     <div 
                     className={isMinFocused()}
-                    onBlur={this.toggleFocusMin}
+                    onBlur={this.keyInputPriceMin}
                     onFocus={this.toggleFocusMin}
                     >
                       <label className="price-filter-main-price-range-display-minmax-frame">
@@ -412,10 +464,10 @@ export default class ListingIndex extends React.Component {
                             type="number"
                             readOnly={false}
                             autoComplete="off"
-                            defaultValue="10"
-                            min="10"
+                            defaultValue={this.defaultVal("min")}
+                            min="0"
                             max="1000"
-                            onKeyUpCapture={this.keyInputPriceMin}
+                            onKeyUpCapture={this.keyInputPrice}
                             >
                             </input>
                           </div>
@@ -445,9 +497,9 @@ export default class ListingIndex extends React.Component {
                             type="number"
                             readOnly={false}
                             autoComplete="off"
-                            min="10"
+                            min="0"
                             max="1000"
-                            defaultValue="1000"
+                            defaultValue={this.defaultVal("max")}
                             >
                             </input>
                           </div>
