@@ -164,10 +164,10 @@ export default class ListingIndex extends React.Component {
       let thumbRight = document.querySelector(".slider > .thumb.right");
       let range = document.querySelector(".slider > .range");
   
-        function setLeftValue() {
-        let _this = inputLeft,
-          min = parseInt(_this.min),
-          max = parseInt(_this.max);
+      function setLeftValue() {
+      let _this = inputLeft,
+        min = parseInt(_this.min),
+        max = parseInt(_this.max);
   
         _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 50);
         priceLeft.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 50);
@@ -251,9 +251,9 @@ export default class ListingIndex extends React.Component {
     const priceMinMaximum = document.getElementById("price-filter-min").max
     const leftInput = document.getElementById("input-left")
 
-    if (priceMinValue < priceMinMinimum) {
-      priceMinValue = priceMinMinimum
-    } else if (priceMinValue > priceMinMaximum) {
+    if (+priceMinValue > +priceMinMaximum) {
+      debugger
+      document.getElementById("price-filter-max").value = `1000`
       document.getElementById("price-filter-min").value = `${+priceMinMaximum - 50}`
     }
 
@@ -415,7 +415,7 @@ export default class ListingIndex extends React.Component {
                             defaultValue="10"
                             min="10"
                             max="1000"
-                            onChange={this.keyInputPriceMin}
+                            onKeyUpCapture={this.keyInputPriceMin}
                             >
                             </input>
                           </div>
