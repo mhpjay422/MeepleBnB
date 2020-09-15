@@ -2373,7 +2373,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-left: 0px;
   margin-right: -10px;
   border: none;
-  box-shadow: rgba(0, 0, 0, 0.308) 0px 0px 8px;
+  box-shadow: rgba(0, 0, 0, 0.308) 0px 0px 4px;
   box-sizing: border-box;
 }
 
@@ -2408,10 +2408,11 @@ input[type="number"]::-webkit-outer-spin-button {
   background: rgb(34, 34, 34);
   color: rgb(255, 255, 255);
   box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.308) 0px 0px 6px;
 }
 
 .price-filter-bottom-save-button:hover {
-  box-shadow: rgba(0, 0, 0, 0.308) 0px 0px 12px;
+  box-shadow: none;
 }
 
 

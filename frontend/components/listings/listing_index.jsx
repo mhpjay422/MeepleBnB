@@ -53,6 +53,7 @@ export default class ListingIndex extends React.Component {
     this.keyInputPriceMin = this.keyInputPriceMin.bind(this)
     this.keyInputPriceMax = this.keyInputPriceMax.bind(this)
     this.defaultVal = this.defaultVal.bind(this)
+    this.clearInputs = this.clearInputs.bind(this)
   }
 
   componentDidMount() {
@@ -357,6 +358,15 @@ export default class ListingIndex extends React.Component {
     }
   }
 
+  clearInputs() {
+    document.getElementById("input-left").value = "10"
+    document.getElementById("input-right").value = "1000"
+    document.getElementById("price-filter-min").value = "10"
+    document.getElementById("price-filter-max").value = "1000"
+
+    this.setState({})
+  }
+
   render() {
 
     const sidenav = (
@@ -558,7 +568,10 @@ export default class ListingIndex extends React.Component {
             </div>
             <div className="price-filter-bottom-container">
               <div className="price-filter-bottom-frame">
-                <button className="price-filter-bottom-clear">
+                <button 
+                className="price-filter-bottom-clear"
+                onClick={this.clearInputs}
+                >
                   Clear
                 </button>
                 <div className="price-filter-bottom-save-container">
