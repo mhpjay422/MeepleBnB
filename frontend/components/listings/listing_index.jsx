@@ -176,8 +176,10 @@ export default class ListingIndex extends React.Component {
           if (+priceLeft.value > +priceLeft.max - 1) {
             _this.value = "0"
             priceLeft.value = "0"
+            inputRight.value = inputRight.max
             priceRight.value = priceRight.max
           } else if (+priceLeft.value > +priceRight.value) {
+            inputRight.value = inputRight.max
             priceRight.value = priceRight.max
           } else {
             _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 50);
@@ -185,7 +187,6 @@ export default class ListingIndex extends React.Component {
           }
         } else {
           _this.value = "0";
-          priceLeft.value = "0"
         }
   
         let percent = ((_this.value - min) / (max - min)) * 100;
@@ -279,7 +280,9 @@ export default class ListingIndex extends React.Component {
       document.getElementById("price-filter-min").value = `10`
     } else if (+priceMinValue < +priceMinMinimum) {
       document.getElementById("price-filter-min").value = `10`
-    }
+    } else if (!priceMinValue) {
+      document.getElementById("price-filter-min").value = `10`
+    } 
 
     leftInput.value = priceMin.value
     this.setState({})
