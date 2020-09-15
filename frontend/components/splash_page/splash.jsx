@@ -14,7 +14,6 @@ export default class Splash extends React.Component {
   }
 
   keyDownSplashLink() {
-    debugger
     document.getElementById("splash-link").style.width =  "124px";
     document.getElementById("splash-link").style.marginLeft =  "3px";
     document.getElementById("splash-link").style.marginBottom =  "1px";
@@ -112,6 +111,7 @@ export default class Splash extends React.Component {
                 id="splash-link"
                 to='./greeting'
                 onFocus={this.keyDownSplashLink}
+                onClick={this.keyUpSplashLink}
                 onMouseOut={this.keyUpSplashLink}
                 >
                   Explore New York

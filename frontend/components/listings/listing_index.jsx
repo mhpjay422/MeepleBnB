@@ -52,8 +52,10 @@ export default class ListingIndex extends React.Component {
     this.onBlurPriceMax = this.onBlurPriceMax.bind(this);
     this.keyInputPriceMin = this.keyInputPriceMin.bind(this)
     this.keyInputPriceMax = this.keyInputPriceMax.bind(this)
-    this.defaultVal = this.defaultVal.bind(this)
-    this.clearInputs = this.clearInputs.bind(this)
+    this.defaultVal = this.defaultVal.bind(this);
+    this.clearInputs = this.clearInputs.bind(this);
+    this.keyDownClearInput = this.keyDownClearInput.bind(this);
+    this.keyUpClearInput = this.keyUpClearInput.bind(this);
   }
 
   componentDidMount() {
@@ -367,6 +369,24 @@ export default class ListingIndex extends React.Component {
     this.setState({})
   }
 
+  keyDownClearInput() {
+    document.getElementById("clear-input").style.marginLeft = "2px";
+    document.getElementById("clear-input").style.marginBottom = "1px";
+    document.getElementById("clear-input").style.width = "60px";
+    document.getElementById("clear-input").style.height = "38px";
+    document.getElementById("clear-input").style.fontSize = "15px";
+    
+  }
+  
+  keyUpClearInput() {
+      document.activeElement.blur();
+      document.getElementById("clear-input").style.marginLeft = "0px";
+      document.getElementById("clear-input").style.marginBottom = "0px";
+      document.getElementById("clear-input").style.width = "64px";
+      document.getElementById("clear-input").style.height = "40px";
+      document.getElementById("clear-input").style.fontSize = "16px";    
+  }
+
   render() {
 
     const sidenav = (
@@ -570,7 +590,12 @@ export default class ListingIndex extends React.Component {
               <div className="price-filter-bottom-frame">
                 <button 
                 className="price-filter-bottom-clear"
-                onClick={this.clearInputs}>
+                id="clear-input"
+                onClick={this.clearInputs}
+                onFocus={this.keyDownClearInput}
+                // onMouseOut={this.keyUpClearInput}
+                onClick={this.keyUpClearInput}
+                onMouseOut={this.keyUpClearInput}>
                   Clear
                 </button>
                 <div className="price-filter-bottom-save-container">
