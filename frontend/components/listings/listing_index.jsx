@@ -48,8 +48,10 @@ export default class ListingIndex extends React.Component {
     this.handleClickOutsidePriceFilter = this.handleClickOutsidePriceFilter.bind(this);
     this.toggleFocusMin = this.toggleFocusMin.bind(this);
     this.toggleFocusMax = this.toggleFocusMax.bind(this);
-    this.keyInputPriceMin = this.keyInputPriceMin.bind(this);
-    this.keyInputPrice = this.keyInputPrice.bind(this)
+    this.onBlurPriceMin = this.onBlurPriceMin.bind(this);
+    this.onBlurPriceMax = this.onBlurPriceMax.bind(this);
+    this.keyInputPriceMin = this.keyInputPriceMin.bind(this)
+    this.keyInputPriceMax = this.keyInputPriceMax.bind(this)
     this.defaultVal = this.defaultVal.bind(this)
   }
 
@@ -179,11 +181,18 @@ export default class ListingIndex extends React.Component {
             inputRight.value = inputRight.max
             priceRight.value = priceRight.max
           } else if (+priceLeft.value > +priceRight.value) {
-            inputRight.value = inputRight.max
-            priceRight.value = priceRight.max
+            _this.value = "0"
+            priceLeft.value = "0"
+            // inputRight.value = inputRight.max
+            // priceRight.value = priceRight.max
           } else {
-            _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 50);
-            priceLeft.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 50);
+            if (parseInt(inputRight.value) > 50) {
+              _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 50);
+              priceLeft.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 50);
+            } else {
+              _this.value = "0"
+              priceLeft.value = "0"
+            }
           }
         } else {
           _this.value = "0";
@@ -202,10 +211,12 @@ export default class ListingIndex extends React.Component {
           max = parseInt(_this.max);
 
         if (priceRight.value) {
-          _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 50);
-          priceRight.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 50);
+          if(+inputLeft.value > 0) {
+            _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 50);
+            priceRight.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 50);
+          }
         } else {
-          _this.value = 0;
+          _this.value = "1000";
         }  
   
         let percent = ((_this.value - min) / (max - min)) * 100;
@@ -265,7 +276,7 @@ export default class ListingIndex extends React.Component {
     this.setState({ maxFocus: !this.state.maxFocus})
   }
 
-  keyInputPriceMin(e) {
+  onBlurPriceMin() {
 
     this.toggleFocusMin()
 
@@ -282,21 +293,51 @@ export default class ListingIndex extends React.Component {
       document.getElementById("price-filter-min").value = `10`
     } else if (!priceMinValue) {
       document.getElementById("price-filter-min").value = `10`
+    } else if (+priceMinValue > 950) {
+      document.getElementById("price-filter-min").value = `10`
     } 
 
     leftInput.value = priceMin.value
     this.setState({})
   }
 
-  keyInputPrice() {
-    const priceMin = document.getElementById("price-filter-min")
+  onBlurPriceMax() {
+    this.toggleFocusMax()
+
     const priceMax = document.getElementById("price-filter-max")
+    const priceMaxValue = document.getElementById("price-filter-max").value
+    const priceMaxMinimum = document.getElementById("price-filter-max").min
+    const priceMaxMaximum = document.getElementById("price-filter-max").max
+    const rightInput = document.getElementById("input-right")
+
+    if (+priceMaxValue < +priceMaxMinimum) {
+      document.getElementById("price-filter-max").value = `1000`
+      document.getElementById("price-filter-min").value = `10`
+    } else if (+priceMaxValue > +priceMaxMaximum) {
+      document.getElementById("price-filter-max").value = `1000`
+    } else if (!priceMaxValue) {
+      document.getElementById("price-filter-max").value = `1000`
+    } else if (+priceMaxValue < 50) {
+      document.getElementById("price-filter-max").value = `1000`
+    }
+
+    rightInput.value = priceMax.value
+    this.setState({})
+  }
+
+  keyInputPriceMin() {
+    const priceMin = document.getElementById("price-filter-min")
     const leftInput = document.getElementById("input-left")
 
-    
-
-
     leftInput.value = priceMin.value
+    this.setState({})
+  }
+
+  keyInputPriceMax() {
+    const priceMax = document.getElementById("price-filter-max")
+    const rightInput = document.getElementById("input-right")
+
+    rightInput.value = priceMax.value
     this.setState({})
   }
 
@@ -447,7 +488,7 @@ export default class ListingIndex extends React.Component {
                   <div className="price-filter-main-price-range-display-container">
                     <div 
                     className={isMinFocused()}
-                    onBlur={this.keyInputPriceMin}
+                    onBlur={this.onBlurPriceMin}
                     onFocus={this.toggleFocusMin}
                     >
                       <label className="price-filter-main-price-range-display-minmax-frame">
@@ -470,7 +511,7 @@ export default class ListingIndex extends React.Component {
                             defaultValue={this.defaultVal("min")}
                             min="0"
                             max="1000"
-                            onKeyUpCapture={this.keyInputPrice}
+                            onKeyUpCapture={this.keyInputPriceMin}
                             >
                             </input>
                           </div>
@@ -480,7 +521,7 @@ export default class ListingIndex extends React.Component {
                     <div className="price-dash">–</div>
                     <div 
                     className={isMaxFocused()}
-                    onBlur={this.toggleFocusMax}
+                    onBlur={this.onBlurPriceMax}
                     onFocus={this.toggleFocusMax}
                     >
                       <label className="price-filter-main-price-range-display-minmax-frame">
@@ -503,6 +544,7 @@ export default class ListingIndex extends React.Component {
                             min="0"
                             max="1000"
                             defaultValue={this.defaultVal("max")}
+                            onKeyUpCapture={this.keyInputPriceMax}
                             >
                             </input>
                           </div>
