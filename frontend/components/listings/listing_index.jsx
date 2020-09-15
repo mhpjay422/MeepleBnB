@@ -556,6 +556,18 @@ export default class ListingIndex extends React.Component {
                 </div>
               </div>
             </div>
+            <div className="price-filter-bottom-container">
+              <div className="price-filter-bottom-frame">
+                <button className="price-filter-bottom-clear">
+                  Clear
+                </button>
+                <div className="price-filter-bottom-save-container">
+                  <button className="price-filter-bottom-save-button">
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         )
       } else {
