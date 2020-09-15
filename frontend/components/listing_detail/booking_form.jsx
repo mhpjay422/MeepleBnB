@@ -35,6 +35,7 @@ class BookingForm extends React.Component {
     this.unhoverMinus = this.unhoverMinus.bind(this);
     this.hoverPlus = this.hoverPlus.bind(this);
     this.unhoverPlus = this.unhoverPlus.bind(this);
+    this.handleFocusChange = this.handleFocusChange.bind(this);
   }
 
   componentDidMount() {
@@ -55,7 +56,6 @@ class BookingForm extends React.Component {
   }
 
   handleChange(data) {
-    this.setState(data);
     this.props.liftStateToParent(data);
   }
 
@@ -153,6 +153,15 @@ class BookingForm extends React.Component {
 
   unhoverPlus() {
     this.setState({ plusHovered: false })
+  }
+
+  handleFocusChange(focusedInput) {
+    this.setState({ focusedInput })
+    // if (!this.state.startDate && !document.querySelector('[aria-label="Calendar"]')) {
+    //   this.setState({ focusedInput: 'startDate' })
+    // } else {
+    // }
+
   }
 
   render() {
@@ -298,9 +307,9 @@ class BookingForm extends React.Component {
                 </div>
                 <div className="date-picker">
                   <DateRangePicker
-                    startDate={this.props.startDate}
+                    startDate={this.state.startDate}
                     startDateId="start-date"
-                    endDate={this.props.endDate}
+                    endDate={this.state.endDate}
                     endDateId="end-date"
                     startDatePlaceholderText="Check-In"
                     showClearDates={true}
@@ -309,7 +318,7 @@ class BookingForm extends React.Component {
                       this.handleChange({ startDate, endDate })
                     }
                     focusedInput={this.state.focusedInput}
-                    onFocusChange={focusedInput => this.setState({ focusedInput })}
+                    onFocusChange={this.handleFocusChange}
                     renderCalendarDay={undefined}
                     minimumNights= {2}
                   />
