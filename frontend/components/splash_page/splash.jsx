@@ -5,8 +5,33 @@ import SearchForm from "../search_form/search_form.jsx"
 export default class Splash extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}; 
+    this.state = {
+      splashKeyDown: true,
+    }; 
+
+    this.keyDownSplashLink = this.keyDownSplashLink.bind(this);
+    this.keyUpSplashLink = this.keyUpSplashLink.bind(this)
   }
+
+  keyDownSplashLink() {
+    debugger
+    document.getElementById("splash-link").style.width =  "124px";
+    document.getElementById("splash-link").style.marginLeft =  "3px";
+    document.getElementById("splash-link").style.marginBottom =  "1px";
+    document.getElementById("splash-link").style.height = "14px";
+    document.getElementById("splash-link").style.fontSize = "14px";
+  }
+  
+  keyUpSplashLink() {
+    document.activeElement.blur();
+    document.getElementById("splash-link").style.marginLeft =  "0px";
+    document.getElementById("splash-link").style.marginBottom = "0px";
+    document.getElementById("splash-link").style.width = "130px";
+    document.getElementById("splash-link").style.height = "18px";
+    document.getElementById("splash-link").style.fontSize = "15px";
+  }
+
+
 
   render() {
      
@@ -82,7 +107,13 @@ export default class Splash extends React.Component {
                 <div className="tagline-main-text-mini">
                   Travel to a destination at your leisure
                 </div>
-                <Link className="splash-link" to="./greeting">
+                <Link 
+                className="splash-link"
+                id="splash-link"
+                to='./greeting'
+                onFocus={this.keyDownSplashLink}
+                onMouseOut={this.keyUpSplashLink}
+                >
                   Explore New York
                 </Link>
               </div>

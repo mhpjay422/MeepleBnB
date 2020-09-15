@@ -570,8 +570,7 @@ export default class ListingIndex extends React.Component {
               <div className="price-filter-bottom-frame">
                 <button 
                 className="price-filter-bottom-clear"
-                onClick={this.clearInputs}
-                >
+                onClick={this.clearInputs}>
                   Clear
                 </button>
                 <div className="price-filter-bottom-save-container">

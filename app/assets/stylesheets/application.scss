@@ -998,17 +998,17 @@ a:hover {
 
 .splash-link {
   cursor: pointer;
-  display: inline-block;
-  margin: 0px;
+  display: absolute;
+  margin-top: 0px;
   position: relative;
   text-align: center;
   text-decoration: none;
   border-color: black;
-  width: auto;
+  width: 130px;
   touch-action: manipulation;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 18px;
-  font-weight: 600;
+  font-weight: 500;
   border-radius: 8px;
   border-width: 1px;
   border-style: solid;
@@ -1022,11 +1022,12 @@ a:hover {
   border: none;
   background: #FFFFFF;
   color: #222222;
+  position: relative;
+  top: 10px;
 }
 
 .splash-link:hover {
   color: black;
-  background-color: rgb(240, 240, 240);
 }
 
 .modal-background {
@@ -2369,12 +2370,12 @@ input[type="number"]::-webkit-outer-spin-button {
   transform 0.1s ease;
   background: white;
   color: #222222;
-  text-decoration: underline;
   margin-left: 0px;
   margin-right: -10px;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.308) 0px 0px 4px;
   box-sizing: border-box;
+  align-self: center;
 }
 
 .price-filter-bottom-clear:hover {
