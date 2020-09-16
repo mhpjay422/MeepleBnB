@@ -56,6 +56,7 @@ export default class ListingIndex extends React.Component {
     this.clearInputs = this.clearInputs.bind(this);
     this.keyDownClearInput = this.keyDownClearInput.bind(this);
     this.keyUpClearInput = this.keyUpClearInput.bind(this);
+    this.saveInputs = this.saveInputs.bind(this);
   }
 
   componentDidMount() {
@@ -361,6 +362,7 @@ export default class ListingIndex extends React.Component {
   }
 
   clearInputs() {
+    this.keyUpClearInput()
     document.getElementById("input-left").value = "10"
     document.getElementById("input-right").value = "1000"
     document.getElementById("price-filter-min").value = "10"
@@ -374,7 +376,7 @@ export default class ListingIndex extends React.Component {
     document.getElementById("clear-input").style.marginBottom = "1px";
     document.getElementById("clear-input").style.width = "60px";
     document.getElementById("clear-input").style.height = "38px";
-    document.getElementById("clear-input").style.fontSize = "15px";
+    document.getElementById("clear-input").style.fontSize = "14px";
     
   }
   
@@ -384,7 +386,29 @@ export default class ListingIndex extends React.Component {
       document.getElementById("clear-input").style.marginBottom = "0px";
       document.getElementById("clear-input").style.width = "64px";
       document.getElementById("clear-input").style.height = "40px";
-      document.getElementById("clear-input").style.fontSize = "16px";    
+      document.getElementById("clear-input").style.fontSize = "15px";    
+  }
+
+  keyDownSaveInput() {
+    document.getElementById("save-input").style.marginRight = "2px";
+    document.getElementById("save-input").style.marginBottom = "1px";
+    document.getElementById("save-input").style.width = "60px";
+    document.getElementById("save-input").style.height = "38px";
+    document.getElementById("save-input").style.fontSize = "13px";
+    
+  }
+  
+  keyUpSaveInput() {
+      document.activeElement.blur();
+      document.getElementById("save-input").style.marginRight = "0px";
+      document.getElementById("save-input").style.marginBottom = "0px";
+      document.getElementById("save-input").style.width = "64px";
+      document.getElementById("save-input").style.height = "40px";
+      document.getElementById("save-input").style.fontSize = "14px";    
+  }
+
+  saveInputs() {
+    this.keyUpSaveInput()
   }
 
   render() {
@@ -593,13 +617,16 @@ export default class ListingIndex extends React.Component {
                 id="clear-input"
                 onClick={this.clearInputs}
                 onFocus={this.keyDownClearInput}
-                // onMouseOut={this.keyUpClearInput}
-                onClick={this.keyUpClearInput}
                 onMouseOut={this.keyUpClearInput}>
                   Clear
                 </button>
                 <div className="price-filter-bottom-save-container">
-                  <button className="price-filter-bottom-save-button">
+                  <button 
+                  className="price-filter-bottom-save-button"
+                  id="save-input"
+                  onClick={this.saveInputs}
+                  onFocus={this.keyDownSaveInput}
+                  onMouseOut={this.keyUpSaveInput}>
                     Save
                   </button>
                 </div>

@@ -2357,7 +2357,7 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 40px;
   width: 64px;
   touch-action: manipulation;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 20px;
   font-weight: 600;
   border-radius: 8px;
@@ -2369,7 +2369,7 @@ input[type="number"]::-webkit-outer-spin-button {
   transition: box-shadow 0.2s ease,
   transform 0.1s ease;
   background: white;
-  color: #222222;
+  color: #444444;
   margin-left: 0px;
   margin-right: -10px;
   border: none;
@@ -2409,15 +2409,12 @@ input[type="number"]::-webkit-outer-spin-button {
   background: rgb(34, 34, 34);
   color: rgb(255, 255, 255);
   box-sizing: border-box;
-  box-shadow: rgba(0, 0, 0, 0.308) 0px 0px 6px;
+  box-shadow: rgba(0, 0, 0, 0.308) 0px 0px 8px;
 }
 
 .price-filter-bottom-save-button:hover {
   box-shadow: none;
 }
-
-
-
 
 .list-header-filter-button-text {
   font-weight: 400;
