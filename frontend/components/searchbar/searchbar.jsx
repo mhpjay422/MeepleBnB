@@ -128,6 +128,7 @@ class SearchBar extends React.Component {
 
 
     if (this.props.history.location.pathname === `/search_greeting` || this.props.history.location.pathname === `/greeting`) {
+      debugger
       this.props.history.replace({
         search: this.state.term,
         state: {
@@ -325,7 +326,7 @@ class SearchBar extends React.Component {
             id="clear-button"
             onClick={this.clearInput}>
               <div className="clear-button-image">
-                <img className="clear-button-img" src="ex.png"></img>
+                <img className="clear-button-img" src="ex.png"/>
               </div>
             </button>
           </div>

@@ -5,7 +5,6 @@ import { DayPickerRangeController } from 'react-dates';
 import momentPropTypes from "react-moment-proptypes";
 import moment from "moment";
 import "react-dates/lib/css/_datepicker.css";
-import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 
 class SearchForm extends React.Component {
@@ -36,8 +35,6 @@ class SearchForm extends React.Component {
     this.handleClickOutsideBar = this.handleClickOutsideBar.bind(this);
     this.focusBar = this.focusBar.bind(this);
     this.unFocusBar = this.unFocusBar.bind(this);
-    // this.focusGuest = this.focusGuest.bind(this);
-    // this.unfocusGuest = this.unfocusGuest.bind(this);
     this.openGuest = this.openGuest.bind(this);
     this.handleClickOutsideGuest = this.handleClickOutsideGuest.bind(this);
     this.handleClickMinus = this.handleClickMinus.bind(this);
@@ -192,14 +189,6 @@ class SearchForm extends React.Component {
   unFocusBar() {
     this.setState({ barFocused: false })
   }
-
-  // focusGuest() {
-  //   this.setState({ guestFocused: true })
-  // }
-
-  // unfocusGuest() {
-  //   this.setState({ guestFocused: false })
-  // }
 
   handleClickMinus() {
     this.setState({ numGuests: this.state.numGuests - 1 })

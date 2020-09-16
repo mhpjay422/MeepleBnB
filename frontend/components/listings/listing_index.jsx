@@ -78,20 +78,20 @@ export default class ListingIndex extends React.Component {
 
   componentDidUpdate(newProps) {
     if(this.props !== newProps) {
-      if (newProps.location.state) {
+      debugger
+      if (newProps.history.location.state) {
         this.setState({ 
-          searchTerm: newProps.location.state.detail,
-          endDate: newProps.location.state.endDate,
-          startDate: newProps.location.state.startDate,
-          guests: newProps.location.state.guests,
-         }, () => {
-          return
-        })
+          searchTerm: newProps.history.location.state.detail,
+          endDate: newProps.history.location.state.endDate,
+          startDate: newProps.history.location.state.startDate,
+          guests: newProps.history.location.state.guests,
+          filteredList: this.filteredListings(this.state, this.props)
+         })
       }
     }
     
-    if (newProps.location.state) {
-      if ((newProps.location.state.detail === "") && (this.state.searchTerm !== "")) {
+    if (newProps.history.location.state) {
+      if ((newProps.history.location.state.detail === "") && (this.state.searchTerm !== "")) {
         this.setState({ searchTerm: "" }, () => {
           return
         })
@@ -136,11 +136,11 @@ export default class ListingIndex extends React.Component {
     }
   }
   
-  allPropsOrFiltered() {
+  allPropsOrFiltered(state, props) {
     if (this.state.searchTerm === "") {
       return this.props.listings
     } else {
-      return this.state.filteredList
+      return this.filteredListings(state, props)
     }
   }
 
@@ -191,8 +191,6 @@ export default class ListingIndex extends React.Component {
           } else if (+priceLeft.value > +priceRight.value) {
             _this.value = "0"
             priceLeft.value = "0"
-            // inputRight.value = inputRight.max
-            // priceRight.value = priceRight.max
           } else {
             if (parseInt(inputRight.value) > 50) {
               _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 50);
@@ -444,7 +442,14 @@ export default class ListingIndex extends React.Component {
     }
 
     const miniText = () => {
-      const numStays = `${this.props.listings.length} stays`
+      const propsOrStateStays = () => {
+        if(this.state.filteredList.length) {
+          return this.filteredListings(this.state, this.props)
+        } else {
+          return this.props.listings
+        }
+      }
+      const numStays = `${propsOrStateStays().length} stays`
       
       const guests = () => {
         if(this.state.guests === 1) {

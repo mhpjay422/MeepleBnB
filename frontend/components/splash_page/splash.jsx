@@ -5,9 +5,7 @@ import SearchForm from "../search_form/search_form.jsx"
 export default class Splash extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      splashKeyDown: true,
-    }; 
+    this.state = {}; 
 
     this.keyDownSplashLink = this.keyDownSplashLink.bind(this);
     this.keyUpSplashLink = this.keyUpSplashLink.bind(this)
