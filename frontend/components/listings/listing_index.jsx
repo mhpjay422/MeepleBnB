@@ -21,7 +21,7 @@ export default class ListingIndex extends React.Component {
         rightMin:"1",
         minFocus: false,
         maxFocus: false,
-        filteredList: null,
+        filteredList: [],
       };
     } else {
       this.state = {
@@ -37,7 +37,7 @@ export default class ListingIndex extends React.Component {
         rightMin: "1",
         minFocus: false,
         maxFocus: false,
-        filteredList: null,
+        filteredList: [],
       };
     }
     this.filteredListings = this.filteredListings.bind(this);
@@ -59,6 +59,7 @@ export default class ListingIndex extends React.Component {
     this.keyDownClearInput = this.keyDownClearInput.bind(this);
     this.keyUpClearInput = this.keyUpClearInput.bind(this);
     this.saveInputs = this.saveInputs.bind(this);
+    this.avgPrice = this.avgPrice.bind(this);
   }
 
   componentDidMount() {
@@ -69,7 +70,6 @@ export default class ListingIndex extends React.Component {
   }
 
   componentWillUnmount() {
-    debugger
     document.removeEventListener('mouseup', this.handleClickOutsidePriceFilter);
     this.props.history.replace({
       search: ``,
@@ -83,7 +83,7 @@ export default class ListingIndex extends React.Component {
           searchTerm: newProps.location.state.detail,
           endDate: newProps.location.state.endDate,
           startDate: newProps.location.state.startDate,
-          guests: newProps.location.state.guests
+          guests: newProps.location.state.guests,
          }, () => {
           return
         })
@@ -415,6 +415,10 @@ export default class ListingIndex extends React.Component {
     this.keyUpSaveInput()
   }
 
+  avgPrice() {
+    return allPropsOrFiltered().reduce((total, amount) => total + amount)/this.allPropsOrFiltered().length
+  }
+
   render() {
 
     const sidenav = (
@@ -502,6 +506,28 @@ export default class ListingIndex extends React.Component {
       }
     }
 
+    const priceAvg = (state, props) => {
+        if(state && props) {
+          if (state.filteredList.length) {
+            const map = state.filteredList.map(listing => {
+              return listing.price
+            })
+            const sum = map.reduce((total, listing) => total + listing)
+            const divisor = state.filteredList.length
+            return `The average nightly price is $${(sum / divisor).toFixed(0)}` 
+          } else {
+            const map = props.listings.map(listing => {
+              return listing.price
+            })
+            const sum = map.reduce((total, listing) => total + listing)
+            const divisor = props.listings.length
+            return `The average nightly price is $${(sum / divisor).toFixed(0)}` 
+          }
+        } else {
+          return <></>
+        }
+    }
+
     const priceFilter = () => {
       if(this.state.priceFilterOpen) {
         return (
@@ -512,7 +538,7 @@ export default class ListingIndex extends React.Component {
             <div className="price-filter-main-container">
               <div className="price-filter-main-frame">
                 <div className="price-filter-main-avg-text">
-                  The average nightly price is $GET AVG NIGHTLY PRICE
+                  {priceAvg(this.state, this.props)}
                 </div>
                 <div className="price-filter-main-display-dir">
                   <div className="price-filter-main-graph-container">
