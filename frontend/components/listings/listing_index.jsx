@@ -21,6 +21,7 @@ export default class ListingIndex extends React.Component {
         rightMin:"1",
         minFocus: false,
         maxFocus: false,
+        filteredList: null,
       };
     } else {
       this.state = {
@@ -36,6 +37,7 @@ export default class ListingIndex extends React.Component {
         rightMin: "1",
         minFocus: false,
         maxFocus: false,
+        filteredList: null,
       };
     }
     this.filteredListings = this.filteredListings.bind(this);
@@ -63,9 +65,11 @@ export default class ListingIndex extends React.Component {
     window.scroll(0,0)
     this.props.fetchReviews("all");
     document.addEventListener('mouseup', this.handleClickOutsidePriceFilter);
+    this.setState({filteredList: this.filteredListings(this.state, this.props)})
   }
 
   componentWillUnmount() {
+    debugger
     document.removeEventListener('mouseup', this.handleClickOutsidePriceFilter);
     this.props.history.replace({
       search: ``,
@@ -132,11 +136,11 @@ export default class ListingIndex extends React.Component {
     }
   }
   
-  allPropsOrFiltered(state, props) {
+  allPropsOrFiltered() {
     if (this.state.searchTerm === "") {
       return this.props.listings
     } else {
-      return this.filteredListings(state, props)
+      return this.state.filteredList
     }
   }
 
