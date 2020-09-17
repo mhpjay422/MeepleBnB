@@ -1,8 +1,6 @@
 import { RECEIVE_BOOKING_ERRORS,
          CLEAR_BOOKING_ERRORS } from '../actions/booking_actions';
-import {
-  merge
-} from "lodash";
+import { merge } from "lodash";
 
 const bookingErrorsReducer = (state = [], action) => {
   switch (action.type) {
