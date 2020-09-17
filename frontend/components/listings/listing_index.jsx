@@ -78,7 +78,6 @@ export default class ListingIndex extends React.Component {
 
   componentDidUpdate(newProps) {
     if(this.props !== newProps) {
-      debugger
       if (newProps.history.location.state) {
         this.setState({ 
           searchTerm: newProps.history.location.state.detail,
@@ -137,14 +136,23 @@ export default class ListingIndex extends React.Component {
   }
   
   allPropsOrFiltered(state, props) {
-    if (this.state.searchTerm === "") {
-      return this.props.listings
+    if(this.props.history.location.state) {
+      if (this.props.history.location.state.detail === "") {
+        return this.props.listings
+      } else {
+        // if(this.state.filteredList.length) {
+        //   return this.state.filteredList
+        // } else {
+          return this.filteredListings(state, props)
+        // }
+      }
     } else {
-      return this.filteredListings(state, props)
+      return this.props.listings
     }
   }
 
   togglePriceFilter() {
+    this.forceUpdate()
     this.setState({priceFilterOpen: !this.state.priceFilterOpen})
   }
 
@@ -690,7 +698,7 @@ export default class ListingIndex extends React.Component {
               </div>
             </section>
           </div> 
-          <div className="list-header-filter-container">
+          {/* <div className="list-header-filter-container">
             <div className="list-header-filter-frame">
               <div className="list-header-filter-frame-inner">
                 <div 
@@ -711,7 +719,7 @@ export default class ListingIndex extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         {ifSearch(this.state.searchTerm)}
         <ul className="list-items" onMouseLeave={this.unhovered}>

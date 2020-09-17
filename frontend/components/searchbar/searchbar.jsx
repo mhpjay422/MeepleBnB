@@ -128,7 +128,6 @@ class SearchBar extends React.Component {
 
 
     if (this.props.history.location.pathname === `/search_greeting` || this.props.history.location.pathname === `/greeting`) {
-      debugger
       this.props.history.replace({
         search: this.state.term,
         state: {
