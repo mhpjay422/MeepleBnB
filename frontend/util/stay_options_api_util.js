@@ -1,5 +1,6 @@
 export const fetchStayOptions = (options) => {
 
+  // promise?
   return options
 
   // return $.ajax({

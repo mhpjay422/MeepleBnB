@@ -32,6 +32,7 @@ class SearchBar extends React.Component {
       this.props.onRef(this)
     }
     this.props.fetchListings();
+    // this.props.fetchStayOptions();
     document.addEventListener('mousedown', this.handleClickOutsideLocation, false)
   }
 
