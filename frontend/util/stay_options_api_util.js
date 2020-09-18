@@ -1,7 +1,7 @@
-export const fetchStayOptions = (options) => {
-
+export const fetchStayOptions = () => {
+  debugger
   // promise?
-  return options
+  return Promise.resolve({})
 
   // return $.ajax({
   //   url: '/api/options',

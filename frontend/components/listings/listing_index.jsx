@@ -65,6 +65,7 @@ export default class ListingIndex extends React.Component {
   componentDidMount() {
     window.scroll(0,0)
     this.props.fetchReviews("all");
+    this.props.fetchStayOptions();
     document.addEventListener('mouseup', this.handleClickOutsidePriceFilter);
     this.setState({filteredList: this.filteredListings(this.state, this.props)})
   }

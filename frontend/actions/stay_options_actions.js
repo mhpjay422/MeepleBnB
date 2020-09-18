@@ -6,8 +6,8 @@ export const receiveStayOptions = options => ({
   options
 });
 
-export const fetchStayOptions = (options) => dispatch => {
-  return APIUtil.fetchStayOptions(options).then(payload => {
+export const fetchStayOptions = () => dispatch => {
+  return APIUtil.fetchStayOptions().then(payload => {
 
     return dispatch(receiveStayOptions(payload))
   });

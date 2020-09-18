@@ -4,7 +4,6 @@ import { fetchListings } from '../../actions/listing_actions';
 import { updateFilter } from '../../actions/filter_actions';
 
 const msp = state => {
-  debugger
   return {
     listings: Object.values(state.entities.listings),
   }
