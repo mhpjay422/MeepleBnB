@@ -125,7 +125,12 @@ class SearchBar extends React.Component {
       }
     }
 
-
+    this.props.updateStayOptions({
+      searchTerm: this.state.term,
+      startDate: dateStart(),
+      endDate: dateEnd(),
+      guests: this.props.handleInfo.guests
+    })
 
     if (this.props.history.location.pathname === `/search_greeting` || this.props.history.location.pathname === `/greeting`) {
       this.props.history.replace({

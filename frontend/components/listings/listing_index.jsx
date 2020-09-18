@@ -63,6 +63,7 @@ export default class ListingIndex extends React.Component {
   }
 
   componentDidMount() {
+    debugger
     window.scroll(0,0)
     this.props.fetchReviews("all");
     this.props.fetchStayOptions();
