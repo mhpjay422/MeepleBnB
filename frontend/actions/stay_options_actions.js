@@ -2,9 +2,9 @@ import * as APIUtil from "../util/stay_options_api_util";
 export const RECEIVE_STAY_OPTIONS = "RECEIVE_STAY_OPTIONS";
 export const UPDATE_STAY_OPTIONS = 'UPDATE_STAY_OPTIONS';
 
-export const receiveStayOptions = options => ({
+export const receiveStayOptions = prevOptions => ({
   type: RECEIVE_STAY_OPTIONS,
-  options
+  prevOptions
 });
 
 export const changeStayOptions = (value) => ({
