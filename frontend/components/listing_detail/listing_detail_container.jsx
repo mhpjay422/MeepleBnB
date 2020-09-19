@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { fetchListing } from '../../actions/listing_actions';
 import ListingDetail from './listing_detail';
 import { fetchStayOptions } from '../../actions/stay_options_actions';
+import { updateStayOptions } from '../../actions/stay_options_actions';
 import {
          fetchListingReviews,
          updateReview,
@@ -17,6 +18,8 @@ const msp = (state, { match }) => {
   delete cloneReviews["host_reviews"];
   const reviews = Object.values(cloneReviews);
   const stayOptions = state.entities.stayOptions
+
+  debugger
   return { listing, listingId, reviews, hostReviews, stayOptions};
 };
 
@@ -28,6 +31,8 @@ const mdp = dispatch => {
   updateReview: (id, review) => dispatch(updateReview(id, review)),
   createReview: review => dispatch(createReview(review)),
   deleteReview: id => dispatch(deleteReview(id)),
+  updateStayOptions: (value) => dispatch(updateStayOptions(value)),
+
   });
 
 }

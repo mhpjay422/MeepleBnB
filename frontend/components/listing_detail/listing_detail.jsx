@@ -28,6 +28,7 @@ class ListingDetail extends React.Component {
     this.isBeforeDay = this.isBeforeDay.bind(this);
     this.daysDiff = this.daysDiff.bind(this);
     this.focusMap = this.focusMap.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -50,7 +51,7 @@ class ListingDetail extends React.Component {
     this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     const mapOptions = {
       position: { lat: this.props.listing.lat, lng: this.props.listing.lng },
       zoom: 10.4,
@@ -63,6 +64,14 @@ class ListingDetail extends React.Component {
     };
 
     this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
+
+    if ((prevProps.startDate !== this.props.startDate) || (prevProps.endDate !== this.props.endDate)) {
+      this.setState({
+        startDate: this.props.startDate,
+        endDate: this.props.endDate,
+        guests: this.props.guests,
+      });
+    }
   }
 
   focusMap() {
@@ -109,6 +118,22 @@ class ListingDetail extends React.Component {
 
   daysDiff() {
     return this.state.endDate.diff(this.state.startDate, "days")
+  }
+
+  handleChange({ startDate, endDate }) {
+    debugger
+    // this.props.liftStateToParent(data);
+    this.setState({ startDate, endDate })
+    const changeStart = this.props.startDate !== this.state.startDate
+    const changeEnd = this.props.endDate !== this.state.endDate
+
+    this.props.updateStayOptions({
+      searchTerm: "",
+      startDate: this.state.startDate,
+      endDate: this.state.endDate,
+      guests: this.state.guests
+    })
+    this.forceUpdate()
   }
 
   render() {
@@ -474,7 +499,9 @@ class ListingDetail extends React.Component {
           <DayPickerRangeController
             startDate={this.state.startDate}
             endDate={this.state.endDate}
-            onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+            onDatesChange={({ startDate, endDate }) =>
+              this.handleChange({ startDate, endDate })
+            }
             focusedInput={this.state.focusedInput}
             onFocusChange={this.onFocusChange}
             minimumNights={2}

@@ -56,8 +56,20 @@ class BookingForm extends React.Component {
     }
   }
 
-  handleChange(data) {
-    this.props.liftStateToParent(data);
+  handleChange({ startDate, endDate }) {
+    this.props.liftStateToParent({ startDate, endDate });
+    this.setState({ startDate, endDate })
+    const changeStart = this.props.startDate !== this.state.startDate
+    const changeEnd = this.props.endDate !== this.state.endDate
+
+      this.props.updateStayOptions({
+        searchTerm: "",
+        startDate: this.state.startDate,
+        endDate: this.state.endDate,
+        guests: this.state.guests
+      })
+
+    this.forceUpdate()
   }
 
   handleSubmit(e) {
