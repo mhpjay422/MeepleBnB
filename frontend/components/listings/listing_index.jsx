@@ -357,9 +357,9 @@ export default class ListingIndex extends React.Component {
     );
 
     const ifSearch = () => {
-      let text = `Showing results for "${this.state.searchTerm}" in New York`
+      let text = `Showing results for "${this.props.stayOptions.searchTerm}" in New York`
 
-      if(this.state.searchTerm !== "") {
+      if(this.props.stayOptions.searchTerm !== "") {
         return (
         <div className="if-search-container">
           <div className="if-search">{text}</div>
@@ -373,24 +373,24 @@ export default class ListingIndex extends React.Component {
       const numStays = `${this.props.filteredList.length} stays`
       
       const guests = () => {
-        if(this.state.guests === 1) {
-          return `${this.state.guests} guest`;
+        if(this.props.stayOptions.guests === 1) {
+          return `${this.props.stayOptions.guests} guest`;
         } else {
-          return `${this.state.guests} guests`;
+          return `${this.props.stayOptions.guests} guests`;
         }
       }
       
       const ifStartorEnd = () => {
         
-        if(convertMoment(this.state.startDate, this.state.endDate) === "") {
+        if(convertMoment(this.props.stayOptions.startDate, this.props.stayOptions.endDate) === "") {
           return ""
         } else {
-          return `· ${convertMoment(this.state.startDate, this.state.endDate)}`
+          return `· ${convertMoment(this.props.stayOptions.startDate, this.props.stayOptions.endDate)}`
         }
       }
 
       const ifGuests = () => {
-        if(this.state.guests) {
+        if(this.props.stayOptions.guests) {
           return `· ${guests()}`
         } else {
           return ""

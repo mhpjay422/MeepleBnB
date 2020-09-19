@@ -32,7 +32,6 @@ const msp = (state) => {
     }
   }
 
-
   return { 
     listings: listings,
     allReviews: Object.values(state.entities.reviews),
