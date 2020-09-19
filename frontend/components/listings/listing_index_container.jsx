@@ -7,10 +7,11 @@ import { updateFilter } from '../../actions/filter_actions';
 import { withRouter } from "react-router-dom";
 
 const msp = (state) => {
+
   return { 
     listings: Object.values(state.entities.listings),
     allReviews: Object.values(state.entities.reviews),
-    stayOptions: Object.values(state.entities.stayOptions)
+    stayOptions: state.entities.stayOptions
   }
 };
 

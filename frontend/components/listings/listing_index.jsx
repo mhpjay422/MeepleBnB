@@ -63,7 +63,7 @@ export default class ListingIndex extends React.Component {
   }
 
   componentDidMount() {
-    debugger
+    // debugger
     window.scroll(0,0)
     this.props.fetchReviews("all");
     this.props.fetchStayOptions();
@@ -79,6 +79,7 @@ export default class ListingIndex extends React.Component {
   }
 
   componentDidUpdate(newProps) {
+    debugger
     if(this.props !== newProps) {
       if (newProps.history.location.state) {
         this.setState({ 
