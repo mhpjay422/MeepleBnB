@@ -14,8 +14,8 @@ class BookingForm extends React.Component {
     this.state = {
       startDate: this.props.startDate,
       endDate: this.props.endDate,
-      focusedInput: null,
       guests: this.props.guests,
+      focusedInput: null,
       price: this.props.listing.price,
       status: "PENDING",
       minusHovered: false,
@@ -50,7 +50,8 @@ class BookingForm extends React.Component {
     if ((prevProps.startDate !== this.props.startDate) || (prevProps.endDate !== this.props.endDate)) {
       this.setState({
         startDate: this.props.startDate,
-        endDate: this.props.endDate
+        endDate: this.props.endDate,
+        guests: this.props.guests,
       });
     }
   }

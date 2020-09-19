@@ -9,6 +9,7 @@ import {
 } from "../../actions/booking_actions";
 
 const mapStateToProps = (state = {}, ownProps) => {
+  debugger
   return {
     listing: ownProps.listing,
     currentUserId: state.session.id,
@@ -16,6 +17,7 @@ const mapStateToProps = (state = {}, ownProps) => {
     bookings: Object.values(state.entities.bookings),
     startDate: ownProps.startDate,
     endDate: ownProps.endDate,
+    guests: ownProps.guests,
     liftStateToParent: ownProps.liftStateToParent
   };
 };

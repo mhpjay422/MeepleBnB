@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchListing } from '../../actions/listing_actions';
 import ListingDetail from './listing_detail';
-import { fetchListings } from '../../actions/listing_actions';
+import { fetchStayOptions } from '../../actions/stay_options_actions';
 import {
          fetchListingReviews,
          updateReview,

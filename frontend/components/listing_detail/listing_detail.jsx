@@ -2,7 +2,6 @@ import React from 'react';
 // import { Link } from "react-router";
 import NavbarContainer from "../navbar/navbar_container";
 import BookingFormContainer from "./booking_form_container";
-// import Rating from "react-rating";
 import "react-dates/initialize";
 import { DayPickerRangeController } from 'react-dates';
 // import momentPropTypes from "react-moment-proptypes";
@@ -15,21 +14,12 @@ import { avgRating } from "../helper_methods/helper_methods"
 class ListingDetail extends React.Component {
   constructor(props) {
     super(props);
-    if (this.props.history.location.state) {
-      this.state = {
-        startDate: this.props.history.location.state.startDate,
-        endDate: this.props.history.location.state.endDate,
-        guests: this.props.history.location.state.guests,
-        focusedInput: props.autoFocusEndDate ? 'endDate' : 'startDate',
-      };
-    } else {
-      this.state = {
-        startDate: null,
-        endDate: null,
-        guests: 0,
-        focusedInput: props.autoFocusEndDate ? 'endDate' : 'startDate',
-      };
-    }
+    this.state = {
+      startDate: this.props.stayOptions.startDate,
+      endDate: this.props.stayOptions.endDate,
+      guests: this.props.stayOptions.guests || 1,
+      focusedInput: props.autoFocusEndDate ? 'endDate' : 'startDate',
+    };
 
     this.onFocusChange = this.onFocusChange.bind(this);
     this.receiveNewDatesFromBookingForm = this.receiveNewDatesFromBookingForm.bind(this);
