@@ -8,11 +8,6 @@ export default class ListingIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: this.props.stayOptions.searchTerm,
-      startDate: this.props.stayOptions.startDate,
-      endDate: this.props.stayOptions.endDate,
-      guests: this.props.stayOptions.guests,
-      filteredList: this.props.filteredList,
       hovered: [null, null],
       priceFilterOpen: false,
       inputLeft: "0",
@@ -432,26 +427,18 @@ export default class ListingIndex extends React.Component {
       }
     }
 
-    const priceAvg = (state, props) => {
-        if(state && props) {
-          if (state.filteredList.length) {
-            const map = state.filteredList.map(listing => {
-              return listing.price
-            })
-            const sum = map.reduce((total, listing) => total + listing)
-            const divisor = state.filteredList.length
-            return `The average nightly price is $${(sum / divisor).toFixed(0)}` 
-          } else {
-            const map = props.listings.map(listing => {
-              return listing.price
-            })
-            const sum = map.reduce((total, listing) => total + listing)
-            const divisor = props.listings.length
-            return `The average nightly price is $${(sum / divisor).toFixed(0)}` 
-          }
-        } else {
-          return <></>
-        }
+    const priceAvg = () => {
+      if (this.props.filteredList.length) {
+        const map = this.props.filteredList.map(listing => {
+          return listing.price
+        })
+        const sum = map.reduce((total, listing) => total + listing)
+        const divisor = this.props.filteredList.length
+
+        return `The average nightly price is $${(sum / divisor).toFixed(0)}` 
+      } else {
+      return <></>
+      }
     }
 
     const priceFilter = () => {
@@ -464,7 +451,7 @@ export default class ListingIndex extends React.Component {
             <div className="price-filter-main-container">
               <div className="price-filter-main-frame">
                 <div className="price-filter-main-avg-text">
-                  {priceAvg(this.state, this.props)}
+                  {priceAvg()}
                 </div>
                 <div className="price-filter-main-display-dir">
                   <div className="price-filter-main-graph-container">
@@ -561,7 +548,6 @@ export default class ListingIndex extends React.Component {
                         </div>
                       </label>
                     </div>
-                    
                   </div>
                 </div>
               </div>

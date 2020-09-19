@@ -7,12 +7,7 @@ import { avgRating } from "../helper_methods/helper_methods";
 class IndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      searchTerm: this.props.searchTerm,
-      startDate: this.props.startDate,
-      endDate: this.props.endDate,
-      guests: this.props.guests,
-    }
+    this.state = {}
 
     this.handleClick = this.handleClick.bind(this);
     this.hovered = this.hovered.bind(this);
@@ -52,11 +47,6 @@ class IndexItem extends React.Component {
 
     this.props.history.push({
       pathname: `/listings/${listingId}`,
-      state: {
-        startDate: dateStart(),
-        endDate: dateEnd(),
-        guests: numGuests()
-      },
     });
   }
 
