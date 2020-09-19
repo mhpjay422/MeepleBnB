@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 // import Rating from "react-rating";
 import { avgRating } from "../helper_methods/helper_methods";
+import { Link } from "react-router-dom";
 
 
 class IndexItem extends React.Component {
@@ -18,36 +19,36 @@ class IndexItem extends React.Component {
   }
 
   handleClick() {
-    const listingId = this.props.listing.id;
     window.scroll(0,0)
 
-    const dateStart = () => {
-      if (!this.props.startDate && this.props.endDate) {
-        return this.props.endDate.clone().subtract(1, 'days')
-      } else {
-        return this.props.startDate
-      }
-    }
+    // NEED TO FIX LOGIC IN LISTING DETAIL AFTER CONNECTING REDUCER
+    // const dateStart = () => {
+    //   if (!this.props.startDate && this.props.endDate) {
+    //     return this.props.endDate.clone().subtract(1, 'days')
+    //   } else {
+    //     return this.props.startDate
+    //   }
+    // }
 
-    const dateEnd = () => {
-      if (!this.props.endDate && this.props.startDate) {
-        return this.props.startDate.clone().add(1, 'days')
-      } else {
-        return this.props.endDate
-      }
-    }
+    // const dateEnd = () => {
+    //   if (!this.props.endDate && this.props.startDate) {
+    //     return this.props.startDate.clone().add(1, 'days')
+    //   } else {
+    //     return this.props.endDate
+    //   }
+    // }
 
-    const numGuests = () => {
-      if (this.props.guests) {
-        return this.props.guests
-      } else {
-        return 1
-      }
-    }
+    // const numGuests = () => {
+    //   if (this.props.guests) {
+    //     return this.props.guests
+    //   } else {
+    //     return 1
+    //   }
+    // }
 
-    this.props.history.push({
-      pathname: `/listings/${listingId}`,
-    });
+    // this.props.history.push({
+    //   pathname: `/listings/${this.props.listing.id}`,
+    // });
   }
 
   hovered() {
@@ -98,7 +99,7 @@ class IndexItem extends React.Component {
     }
 
     return (
-      <div className="listing-index" onClick={this.handleClick} onMouseEnter={this.hovered}>
+      <Link className="listing-index" to={`/listings/${this.props.listing.id}` }onClick={this.handleClick} onMouseEnter={this.hovered}>
         <div className="listing-index-container">
           <div className="listing-info" >
             <div className="listing-index-item">
@@ -162,7 +163,7 @@ class IndexItem extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </Link>
     );
   }
 }
