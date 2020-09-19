@@ -23,8 +23,6 @@ export default class ListingIndex extends React.Component {
       maxFocus: false,
     };
 
-    this.filteredListings = this.filteredListings.bind(this);
-    this.allPropsOrFiltered = this.allPropsOrFiltered.bind(this);
     this.setHoveredListItem = this.setHoveredListItem.bind(this);
     this.unhovered = this.unhovered.bind(this);
     this.togglePriceFilter = this.togglePriceFilter.bind(this);
@@ -46,7 +44,7 @@ export default class ListingIndex extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
+    debugger
     window.scroll(0,0)
     this.props.fetchReviews("all");
     this.props.fetchStayOptions();
@@ -58,7 +56,6 @@ export default class ListingIndex extends React.Component {
   }
 
   componentDidUpdate() {
-    debugger
     if (this.state.priceFilterOpen) {
       this.runScript()
     } 
@@ -72,37 +69,6 @@ export default class ListingIndex extends React.Component {
   setHoveredListItem(listing) {
     let newArray = this.state.hovered.slice(1).concat(listing);
     this.setState({ hovered: newArray})
-  }
-
-  filteredListings(state, props) {
-    let list = [];
-
-    props.listings.forEach(function (listing) {
-      const matched = listing.address.toLowerCase().includes(state.searchTerm.toLowerCase());
-      const noZipArray = listing.address.split(" ");
-      const noZip = noZipArray.slice(0, noZipArray.length - 1);
-      const newAddress = noZip.join(" ");
-      const newList = Object.assign({},listing);
-      newList.address = newAddress
-
-      if (matched) {
-        list.push(newList);
-      }
-    });
-
-    if(list.length) {
-      return list;
-    } else {
-      return this.props.listings;
-    }
-  }
-  
-  allPropsOrFiltered(state, props) {
-    if (this.props.searchTerm) {
-      return this.filteredListings(state, props)
-    } else {
-      return this.props.listings
-    }
   }
 
   togglePriceFilter() {
@@ -376,7 +342,7 @@ export default class ListingIndex extends React.Component {
   }
 
   avgPrice() {
-    return this.allPropsOrFiltered(this.state, this.props).reduce((total, amount) => total + amount) / this.allPropsOrFiltered(this.state, this.props).length
+    return this.state.filteredList.reduce((total, amount) => total + amount) / this.state.filteredList.length
   }
 
   render() {
@@ -384,7 +350,7 @@ export default class ListingIndex extends React.Component {
     const sidenav = (
       <div className="sidenav">
         <ListingMap 
-          listings={this.allPropsOrFiltered(this.state, this.props)} 
+          listings={this.props.filteredList} 
           updateFilter={this.props.updateFilter } 
           hovered={this.state.hovered}
         />
@@ -412,7 +378,7 @@ export default class ListingIndex extends React.Component {
       //     return this.props.listings
       //   }
       // }
-      const numStays = `${this.allPropsOrFiltered(this.state, this.props).length} stays`
+      const numStays = `${this.props.filteredList.length} stays`
       
       const guests = () => {
         if(this.state.guests === 1) {
@@ -678,7 +644,7 @@ export default class ListingIndex extends React.Component {
         </div>
         {ifSearch(this.state.searchTerm)}
         <ul className="list-items" onMouseLeave={this.unhovered}>
-          {this.allPropsOrFiltered(this.state, this.props).map(listing => (
+          {this.props.filteredList.map(listing => (
             <ListingIndexItem 
             listing={listing} 
             key={listing.id} 
