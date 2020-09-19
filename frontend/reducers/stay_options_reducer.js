@@ -12,7 +12,6 @@ const stayOptionsReducer = (state = {
     case RECEIVE_STAY_OPTIONS:
       return merge({}, state, action.value);
     case UPDATE_STAY_OPTIONS:
-      debugger
       return merge({}, state, action.value);
     default:
       return state;

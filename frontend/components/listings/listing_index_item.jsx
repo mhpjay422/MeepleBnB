@@ -7,18 +7,11 @@ import { avgRating } from "../helper_methods/helper_methods";
 class IndexItem extends React.Component {
   constructor(props) {
     super(props);
-    if (this.props.history.location.state) {
-      this.state = {
-        startDate: this.props.history.location.state.startDate,
-        endDate: this.props.history.location.state.endDate,
-        guests: this.props.history.location.state.guests,
-      }
-    } else {
-      this.state = {
-        startDate: this.props.startDate,
-        endDate: this.props.endDate,
-        guests: this.props.guests,
-      }
+    this.state = {
+      searchTerm: this.props.searchTerm,
+      startDate: this.props.startDate,
+      endDate: this.props.endDate,
+      guests: this.props.guests,
     }
 
     this.handleClick = this.handleClick.bind(this);
@@ -34,32 +27,24 @@ class IndexItem extends React.Component {
     window.scroll(0,0)
 
     const dateStart = () => {
-      if (this.props.history.location.state)  {
-        if (!this.props.history.location.state.startDate && this.props.history.location.state.endDate) {
-          return this.props.history.location.state.endDate.clone().subtract(1, 'days')
-        } else {
-          return this.props.history.location.state.startDate
-        }
+      if (!this.props.startDate && this.props.endDate) {
+        return this.props.endDate.clone().subtract(1, 'days')
       } else {
-        return null
+        return this.props.startDate
       }
     }
 
     const dateEnd = () => {
-      if (this.props.history.location.state) {
-        if (!this.props.history.location.state.endDate && this.props.history.location.state.startDate) {
-          return this.props.history.location.state.startDate.clone().add(1, 'days')
-        } else {
-          return this.props.history.location.state.endDate
-        }
+      if (!this.props.endDate && this.props.startDate) {
+        return this.props.startDate.clone().add(1, 'days')
       } else {
-        return null
+        return this.props.endDate
       }
     }
 
     const numGuests = () => {
-      if (this.props.history.location.state) {
-        return this.props.history.location.state.guests
+      if (this.props.guests) {
+        return this.props.guests
       } else {
         return 1
       }
@@ -89,7 +74,7 @@ class IndexItem extends React.Component {
   }
 
   nights() {
-    return (this.props.history.location.state.endDate._d.getTime() - this.props.history.location.state.startDate._d.getTime()) / (1000 * 60 * 60 * 24)
+    return (this.props.stayOptions.endDate._d.getTime() - this.props.stayOptions.startDate._d.getTime()) / (1000 * 60 * 60 * 24)
   }
 
   nightsTotalPrice() {
@@ -97,30 +82,29 @@ class IndexItem extends React.Component {
   }
 
   bookingTotalPrice() {
-    return `$${(this.nightsTotalPrice() + 500 + (this.nights() * 30) + (this.nights() * this.props.listing.price * .11)).toFixed(0)} total`
+    if(this.props.stayOptions.startDate && this.props.stayOptions.endDate) {
+      return `$${(this.nightsTotalPrice() + 500 + (this.nights() * 30) + (this.nights() * this.props.listing.price * .11)).toFixed(0)} total`
+    } else {
+      return <></>
+    }
       
   }
 
   render() {
 
     const isStartandEndDateSelected = () => {
-      if (this.props.history.location.state) {
-        if (this.props.history.location.state.startDate && this.props.history.location.state.endDate) {
-          return (
-            <div className="index-item-price-total-container">
-              <div className="index-item-price-total-frame">
-                <div className="index-item-price-total-frame">
-                  <div className="index-item-price-total-button">
-                    {this.bookingTotalPrice()}
-                  </div>
-                </div>
+      return (
+        <div className="index-item-price-total-container">
+          <div className="index-item-price-total-frame">
+            <div className="index-item-price-total-frame">
+              <div className="index-item-price-total-button">
+                {this.bookingTotalPrice()}
               </div>
             </div>
-          )
-        }
-      } else {
-        return <></>
-      }
+          </div>
+        </div>
+      )
+      
     }
 
     return (

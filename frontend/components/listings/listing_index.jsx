@@ -44,7 +44,6 @@ export default class ListingIndex extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     window.scroll(0,0)
     this.props.fetchReviews("all");
     this.props.fetchStayOptions();
@@ -357,7 +356,7 @@ export default class ListingIndex extends React.Component {
       </div>
     );
 
-    const ifSearch = (searchTerm) => {
+    const ifSearch = () => {
       let text = `Showing results for "${this.state.searchTerm}" in New York`
 
       if(this.state.searchTerm !== "") {
@@ -370,14 +369,7 @@ export default class ListingIndex extends React.Component {
     }
 
     const miniText = () => {
-      // DELETE IF OK
-      // const propsOrStateStays = () => {
-      //   if(this.state.filteredList.length) {
-      //     return this.filteredListings(this.state, this.props)
-      //   } else {
-      //     return this.props.listings
-      //   }
-      // }
+
       const numStays = `${this.props.filteredList.length} stays`
       
       const guests = () => {
@@ -642,7 +634,7 @@ export default class ListingIndex extends React.Component {
             </div>
           </div>
         </div>
-        {ifSearch(this.state.searchTerm)}
+        {ifSearch()}
         <ul className="list-items" onMouseLeave={this.unhovered}>
           {this.props.filteredList.map(listing => (
             <ListingIndexItem 
@@ -650,6 +642,7 @@ export default class ListingIndex extends React.Component {
             key={listing.id} 
             setHoveredListItem={this.setHoveredListItem}
             allReviews={this.props.allReviews}
+            stayOptions={this.props.stayOptions}
             />
           ))}
         </ul >
@@ -660,9 +653,9 @@ export default class ListingIndex extends React.Component {
                 <div className="list-items-bottom-text-main-text">
                   1
                   <span> - </span>
-                  {`${this.props.listings.length} `}
+                  {`${this.props.filteredList.length} `}
                   {`  of `}
-                  {`${this.props.listings.length} places to stay`}
+                  {`${this.props.filteredList.length} places to stay`}
                 </div>
               </div>
             </div>
