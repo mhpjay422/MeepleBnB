@@ -7,11 +7,37 @@ import { updateFilter } from '../../actions/filter_actions';
 import { withRouter } from "react-router-dom";
 
 const msp = (state) => {
+  const listings = Object.values(state.entities.listings)
+  const searchTerm = state.entities.stayOptions.searchTerm
+  const filteredListings = () => {
+    let list = [];
+  
+    listings.forEach(function (listing) {
+      const matched = listing.address.toLowerCase().includes(searchTerm.toLowerCase());
+      const noZipArray = listing.address.split(" ");
+      const noZip = noZipArray.slice(0, noZipArray.length - 1);
+      const newAddress = noZip.join(" ");
+      const newList = Object.assign({}, listing);
+      newList.address = newAddress
+  
+      if (matched) {
+        list.push(newList);
+      }
+    });
+  
+    if (list.length) {
+      return list;
+    } else {
+      return listings;
+    }
+  }
+
 
   return { 
-    listings: Object.values(state.entities.listings),
+    listings: listings,
     allReviews: Object.values(state.entities.reviews),
-    stayOptions: state.entities.stayOptions
+    stayOptions: state.entities.stayOptions, 
+    filteredList: filteredListings()
   }
 };
 

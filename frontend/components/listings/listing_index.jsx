@@ -12,6 +12,7 @@ export default class ListingIndex extends React.Component {
       startDate: this.props.stayOptions.startDate,
       endDate: this.props.stayOptions.endDate,
       guests: this.props.stayOptions.guests,
+      filteredList: this.props.filteredList,
       hovered: [null, null],
       priceFilterOpen: false,
       inputLeft: "0",
