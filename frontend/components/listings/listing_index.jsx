@@ -7,39 +7,21 @@ import {convertMoment} from "../helper_methods/helper_methods.jsx";
 export default class ListingIndex extends React.Component {
   constructor(props) {
     super(props);
-    if(this.props.history.location.state) {
-      this.state = {
-        searchTerm: this.props.history.location.state.detail,
-        startDate: this.props.history.location.state.startDate,
-        endDate: this.props.history.location.state.endDate,
-        guests: this.props.history.location.state.guests,
-        hovered: [null, null],
-        priceFilterOpen: false,
-        inputLeft: "0",
-        leftMax: "999",
-        inputRight: "1000",
-        rightMin:"1",
-        minFocus: false,
-        maxFocus: false,
-        filteredList: [],
-      };
-    } else {
-      this.state = {
-        searchTerm: "",
-        startDate: null,
-        endDate: null,
-        guests: 0,
-        hovered: [null, null],
-        priceFilterOpen: false,
-        inputLeft: "0",
-        leftMax: "999",
-        inputRight: "1000",
-        rightMin: "1",
-        minFocus: false,
-        maxFocus: false,
-        filteredList: [],
-      };
-    }
+    this.state = {
+      searchTerm: this.props.stayOptions.searchTerm,
+      startDate: this.props.stayOptions.startDate,
+      endDate: this.props.stayOptions.endDate,
+      guests: this.props.stayOptions.guests,
+      hovered: [null, null],
+      priceFilterOpen: false,
+      inputLeft: "0",
+      leftMax: "999",
+      inputRight: "1000",
+      rightMin: "1",
+      minFocus: false,
+      maxFocus: false,
+    };
+
     this.filteredListings = this.filteredListings.bind(this);
     this.allPropsOrFiltered = this.allPropsOrFiltered.bind(this);
     this.setHoveredListItem = this.setHoveredListItem.bind(this);
@@ -68,38 +50,14 @@ export default class ListingIndex extends React.Component {
     this.props.fetchReviews("all");
     this.props.fetchStayOptions();
     document.addEventListener('mouseup', this.handleClickOutsidePriceFilter);
-    this.setState({filteredList: this.filteredListings(this.state, this.props)})
   }
 
   componentWillUnmount() {
     document.removeEventListener('mouseup', this.handleClickOutsidePriceFilter);
-    this.props.history.replace({
-      search: ``,
-    });
   }
 
-  componentDidUpdate(newProps) {
+  componentDidUpdate() {
     debugger
-    if(this.props !== newProps) {
-      if (newProps.history.location.state) {
-        this.setState({ 
-          searchTerm: newProps.history.location.state.detail,
-          endDate: newProps.history.location.state.endDate,
-          startDate: newProps.history.location.state.startDate,
-          guests: newProps.history.location.state.guests,
-          filteredList: this.filteredListings(this.state, this.props)
-         })
-      }
-    }
-    
-    if (newProps.history.location.state) {
-      if ((newProps.history.location.state.detail === "") && (this.state.searchTerm !== "")) {
-        this.setState({ searchTerm: "" }, () => {
-          return
-        })
-      }
-    }
-
     if (this.state.priceFilterOpen) {
       this.runScript()
     } 
@@ -139,16 +97,8 @@ export default class ListingIndex extends React.Component {
   }
   
   allPropsOrFiltered(state, props) {
-    if(this.props.history.location.state) {
-      if (this.props.history.location.state.detail === "") {
-        return this.props.listings
-      } else {
-        // if(this.state.filteredList.length) {
-        //   return this.state.filteredList
-        // } else {
-          return this.filteredListings(state, props)
-        // }
-      }
+    if (this.props.searchTerm) {
+      return this.filteredListings(state, props)
     } else {
       return this.props.listings
     }
@@ -425,7 +375,7 @@ export default class ListingIndex extends React.Component {
   }
 
   avgPrice() {
-    return allPropsOrFiltered().reduce((total, amount) => total + amount)/this.allPropsOrFiltered().length
+    return this.allPropsOrFiltered(this.state, this.props).reduce((total, amount) => total + amount) / this.allPropsOrFiltered(this.state, this.props).length
   }
 
   render() {
@@ -453,14 +403,15 @@ export default class ListingIndex extends React.Component {
     }
 
     const miniText = () => {
-      const propsOrStateStays = () => {
-        if(this.state.filteredList.length) {
-          return this.filteredListings(this.state, this.props)
-        } else {
-          return this.props.listings
-        }
-      }
-      const numStays = `${propsOrStateStays().length} stays`
+      // DELETE IF OK
+      // const propsOrStateStays = () => {
+      //   if(this.state.filteredList.length) {
+      //     return this.filteredListings(this.state, this.props)
+      //   } else {
+      //     return this.props.listings
+      //   }
+      // }
+      const numStays = `${this.allPropsOrFiltered(this.state, this.props).length} stays`
       
       const guests = () => {
         if(this.state.guests === 1) {
@@ -701,7 +652,7 @@ export default class ListingIndex extends React.Component {
               </div>
             </section>
           </div> 
-          {/* <div className="list-header-filter-container">
+          <div className="list-header-filter-container">
             <div className="list-header-filter-frame">
               <div className="list-header-filter-frame-inner">
                 <div 
@@ -722,7 +673,7 @@ export default class ListingIndex extends React.Component {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
         {ifSearch(this.state.searchTerm)}
         <ul className="list-items" onMouseLeave={this.unhovered}>
