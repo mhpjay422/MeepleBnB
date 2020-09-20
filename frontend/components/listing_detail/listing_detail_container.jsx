@@ -19,7 +19,6 @@ const msp = (state, { match }) => {
   const reviews = Object.values(cloneReviews);
   const stayOptions = state.entities.stayOptions
 
-  debugger
   return { listing, listingId, reviews, hostReviews, stayOptions};
 };
 

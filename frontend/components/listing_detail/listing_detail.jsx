@@ -121,11 +121,7 @@ class ListingDetail extends React.Component {
   }
 
   handleChange({ startDate, endDate }) {
-    debugger
-    // this.props.liftStateToParent(data);
     this.setState({ startDate, endDate })
-    const changeStart = this.props.startDate !== this.state.startDate
-    const changeEnd = this.props.endDate !== this.state.endDate
 
     this.props.updateStayOptions({
       searchTerm: "",
