@@ -21,6 +21,10 @@ class Navbar extends React.Component {
     this.logInDemo = this.logInDemo.bind(this);
     this.logOut = this.logOut.bind(this);
     this.setDataFromSearchForm = this.setDataFromSearchForm.bind(this);
+    this.propSearchTerm = this.propSearchTerm.bind(this);
+    this.propStartDate = this.propStartDate.bind(this);
+    this.propEndDate = this.propEndDate.bind(this);
+    this.propGuests = this.propGuests.bind(this);
   }
 
   logInDemo(e) {
@@ -70,6 +74,23 @@ class Navbar extends React.Component {
       endDate: end, 
       guests: numGuests
     })
+  }
+  
+  propSearchTerm() {
+    debugger
+    return this.props.stayOptions.searchTerm
+  }
+
+  propStartDate() {
+    return this.props.stayOptions.startDate
+  }
+
+  propEndDate() {
+    return this.props.stayOptions.endDate
+  }
+
+  propGuests() {
+    return this.props.stayOptions.guests
   }
 
   render() {
@@ -131,8 +152,8 @@ class Navbar extends React.Component {
   }
 
   const searchLocation = () => {
-    if (this.state.searchTerm) {
-      return this.state.searchTerm
+    if (this.propSearchTerm()) {
+      return this.propSearchTerm()
     } else {
       return "Add Location"
     }
@@ -140,26 +161,24 @@ class Navbar extends React.Component {
 
   const searchDates = () => {
 
-    if (convertMoment(this.state.startDate, this.state.endDate)) {
-      
-      return convertMoment(this.state.startDate, this.state.endDate)
+    if (convertMoment(this.propStartDate(), this.propEndDate())) {
+      return convertMoment(this.propStartDate(), this.propEndDate())
     } else {
-      
       return "Add Dates"
     }     
   }
 
   const searchGuests = () => {
-    if (this.state.guests) {
-      if(this.state.guests === 1) {
+    if (this.propGuests()) {
+      if(this.propGuests() === 1) {
 
         return (
-          `${this.state.guests} guest`
+          `${this.propGuests()} guest`
         )
       } else {
 
         return (
-          `${this.state.guests} guests`
+          `${this.propGuests()} guests`
         )
       }
 

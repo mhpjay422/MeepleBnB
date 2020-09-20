@@ -7,7 +7,8 @@ const msp = (state) => {
 
   return {
     users: state.entities.users[state.session.id],
-    loggedIn: Boolean(state.session.id)
+    loggedIn: Boolean(state.session.id),
+    stayOptions: state.entities.stayOptions
   };
 };
 

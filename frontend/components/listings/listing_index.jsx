@@ -669,12 +669,7 @@ export default class ListingIndex extends React.Component {
     return (
       <div className="index-body">
           {hiddenShadow}
-          <Navbar 
-          searchTerm={this.state.searchTerm}
-          startDate={this.state.startDate}
-          endDate={this.state.endDate}
-          guests={this.state.guests}
-          />
+          <Navbar/>
           {listIndexItem}
           {sidenav}
       </div>
