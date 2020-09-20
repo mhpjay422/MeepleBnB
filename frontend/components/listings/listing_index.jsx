@@ -47,6 +47,12 @@ export default class ListingIndex extends React.Component {
 
   componentWillUnmount() {
     document.removeEventListener('mouseup', this.handleClickOutsidePriceFilter);
+    this.props.updateStayOptions({
+      searchTerm: "",
+      startDate: null,
+      endDate: null,
+      guests: 0
+    })
   }
 
   componentDidUpdate() {

@@ -5,6 +5,8 @@ import { fetchStayOptions } from '../../actions/stay_options_actions';
 import ListingIndex from './listing_index.jsx';
 import { updateFilter } from '../../actions/filter_actions';
 import { withRouter } from "react-router-dom";
+import { updateStayOptions } from '../../actions/stay_options_actions';
+
 
 const msp = (state) => {
   const listings = Object.values(state.entities.listings)
@@ -44,7 +46,9 @@ const mdp = dispatch => ({
   fetchStayOptions: (options) => dispatch(fetchStayOptions(options)),
   fetchListings: () => dispatch(fetchListings()),
   updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
-  fetchReviews: (id) => dispatch(fetchReviews(id))
+  fetchReviews: (id) => dispatch(fetchReviews(id)),
+  updateStayOptions: (value) => dispatch(updateStayOptions(value)),
+
 });
 
 export default withRouter(connect(msp,mdp)(ListingIndex));
