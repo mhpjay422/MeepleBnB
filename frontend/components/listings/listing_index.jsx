@@ -597,7 +597,7 @@ export default class ListingIndex extends React.Component {
               </div>
             </section>
           </div> 
-          <div className="list-header-filter-container">
+          {/* <div className="list-header-filter-container">
             <div className="list-header-filter-frame">
               <div className="list-header-filter-frame-inner">
                 <div 
@@ -618,7 +618,7 @@ export default class ListingIndex extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         {ifSearch()}
         <ul className="list-items" onMouseLeave={this.unhovered}>

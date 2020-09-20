@@ -65,13 +65,13 @@ class ListingDetail extends React.Component {
 
     this.map = new google.maps.StreetViewPanorama(this.mapNode, mapOptions);
 
-    if ((prevProps.startDate !== this.props.startDate) || (prevProps.endDate !== this.props.endDate)) {
-      this.setState({
-        startDate: this.props.startDate,
-        endDate: this.props.endDate,
-        guests: this.props.guests,
-      });
-    }
+    // if ((prevProps.startDate !== this.props.startDate) || (prevProps.endDate !== this.props.endDate)) {
+    //   this.setState({
+    //     startDate: this.props.startDate,
+    //     endDate: this.props.endDate,
+    //     guests: this.props.guests,
+    //   });
+    // }
   }
 
   focusMap() {
