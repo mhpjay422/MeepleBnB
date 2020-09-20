@@ -10,10 +10,10 @@ class Navbar extends React.Component {
     super(props);
     this.state = {
       searchBarType: "mini",
-      searchTerm: this.props.searchTerm || "",
-      startDate: this.props.startDate || null,
-      endDate: this.props.endDate || null,
-      guests: this.props.guests || 0,
+      searchTerm: this.props.searchTerm,
+      startDate: this.props.startDate,
+      endDate: this.props.endDate,
+      guests: this.props.guests,
     }
 
     this.toggleSearch = this.toggleSearch.bind(this)
@@ -77,7 +77,6 @@ class Navbar extends React.Component {
   }
   
   propSearchTerm() {
-    debugger
     return this.props.stayOptions.searchTerm
   }
 
