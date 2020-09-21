@@ -12,17 +12,22 @@ const msp = (state) => {
   debugger
   const listings = Object.values(state.entities.listings)
   const searchTerm = state.entities.stayOptions.searchTerm
+  const priceRange = state.entities.stayOptions.priceRange
+  const priceRangeMin = priceRange[0];
+  const priceRangeMax = priceRange[1];
   const filteredListings = () => {
     let list = [];
   
     listings.forEach(function (listing) {
-      const matched = listing.address.toLowerCase().includes(searchTerm.toLowerCase());
+      const searched = listing.address.toLowerCase().includes(searchTerm.toLowerCase());
+      const inPriceRange = (listing.price > priceRangeMin) && (listing.price < priceRangeMax)
+      const matched = searched && inPriceRange
       const noZipArray = listing.address.split(" ");
       const noZip = noZipArray.slice(0, noZipArray.length - 1);
       const newAddress = noZip.join(" ");
       const newList = Object.assign({}, listing);
       newList.address = newAddress
-  
+      
       if (matched) {
         list.push(newList);
       }

@@ -338,18 +338,19 @@ export default class ListingIndex extends React.Component {
   }
 
   saveInputs() {
-    const min = 0;
-    const max = 1000;
+    const min = document.getElementById("price-filter-min").value;
+    const max = document.getElementById("price-filter-max").value;;
 
     debugger
     
     this.keyUpSaveInput()
+    this.togglePriceFilter()
     this.props.updateStayOptions({
       searchTerm: "",
       startDate: null,
       endDate: null,
       guests: 0,
-      priceRange:[0, 1000],
+      priceRange: [min, max],
     })
   }
 
