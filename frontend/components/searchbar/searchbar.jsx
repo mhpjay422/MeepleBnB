@@ -132,11 +132,9 @@ class SearchBar extends React.Component {
       guests: this.props.handleInfo.guests
     })
 
-    debugger
     if (this.props.history.location.pathname === `/search_greeting` || this.props.history.location.pathname === `/greeting`) {
       this.setState({})
     } else if (this.props.history.location.pathname !== `/search_greeting`){
-      debugger
       this.props.history.push({
         pathname: `/search_greeting`,
       });

@@ -338,7 +338,19 @@ export default class ListingIndex extends React.Component {
   }
 
   saveInputs() {
+    const min = 0;
+    const max = 1000;
+
+    debugger
+    
     this.keyUpSaveInput()
+    this.props.updateStayOptions({
+      searchTerm: "",
+      startDate: null,
+      endDate: null,
+      guests: 0,
+      priceRange:[0, 1000],
+    })
   }
 
   avgPrice() {
@@ -603,7 +615,7 @@ export default class ListingIndex extends React.Component {
               </div>
             </section>
           </div> 
-          {/* <div className="list-header-filter-container">
+          <div className="list-header-filter-container">
             <div className="list-header-filter-frame">
               <div className="list-header-filter-frame-inner">
                 <div 
@@ -624,7 +636,7 @@ export default class ListingIndex extends React.Component {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
         {ifSearch()}
         <ul className="list-items" onMouseLeave={this.unhovered}>

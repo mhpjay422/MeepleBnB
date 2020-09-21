@@ -9,6 +9,7 @@ import { updateStayOptions } from '../../actions/stay_options_actions';
 
 
 const msp = (state) => {
+  debugger
   const listings = Object.values(state.entities.listings)
   const searchTerm = state.entities.stayOptions.searchTerm
   const filteredListings = () => {
