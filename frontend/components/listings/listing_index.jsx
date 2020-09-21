@@ -222,13 +222,13 @@ export default class ListingIndex extends React.Component {
 
     if (+priceMinValue > +priceMinMaximum) {
       document.getElementById("price-filter-max").value = `1000`
-      document.getElementById("price-filter-min").value = `10`
+      document.getElementById("price-filter-min").value = `0`
     } else if (+priceMinValue < +priceMinMinimum) {
-      document.getElementById("price-filter-min").value = `10`
+      document.getElementById("price-filter-min").value = `0`
     } else if (!priceMinValue) {
-      document.getElementById("price-filter-min").value = `10`
+      document.getElementById("price-filter-min").value = `0`
     } else if (+priceMinValue > 950) {
-      document.getElementById("price-filter-min").value = `10`
+      document.getElementById("price-filter-min").value = `0`
     } 
 
     leftInput.value = priceMin.value
@@ -246,7 +246,7 @@ export default class ListingIndex extends React.Component {
 
     if (+priceMaxValue < +priceMaxMinimum) {
       document.getElementById("price-filter-max").value = `1000`
-      document.getElementById("price-filter-min").value = `10`
+      document.getElementById("price-filter-min").value = `0`
     } else if (+priceMaxValue > +priceMaxMaximum) {
       document.getElementById("price-filter-max").value = `1000`
     } else if (!priceMaxValue) {
@@ -284,7 +284,7 @@ export default class ListingIndex extends React.Component {
       }
     } else {
       if (input === "min") {
-        return "10"
+        return "0"
       } else {
         return "1000"
       }
@@ -293,9 +293,9 @@ export default class ListingIndex extends React.Component {
 
   clearInputs() {
     this.keyUpClearInput()
-    document.getElementById("input-left").value = "10"
+    document.getElementById("input-left").value = "0"
     document.getElementById("input-right").value = "1000"
-    document.getElementById("price-filter-min").value = "10"
+    document.getElementById("price-filter-min").value = "0"
     document.getElementById("price-filter-max").value = "1000"
 
     this.setState({})
@@ -338,11 +338,9 @@ export default class ListingIndex extends React.Component {
   }
 
   saveInputs() {
-    const min = document.getElementById("price-filter-min").value;
-    const max = document.getElementById("price-filter-max").value;;
+    const min = parseInt(document.getElementById("price-filter-min").value);
+    const max = parseInt(document.getElementById("price-filter-max").value);
 
-    debugger
-    
     this.keyUpSaveInput()
     this.togglePriceFilter()
     this.props.updateStayOptions({
@@ -460,6 +458,24 @@ export default class ListingIndex extends React.Component {
       }
     }
 
+    const priceFilterButtonText = () => {
+      const min = this.props.stayOptions.priceRange[0];
+      const max = this.props.stayOptions.priceRange[1];
+
+      if (min === 0 && max === 1000) {
+        return "Price"
+      } else {
+        if (min === 0) {
+          return `up to $${max}`
+        } else if (max === 1000) {
+          return `$${min}+`
+        } else {
+          debugger
+          return `$${min} - $${max}`
+        }
+      }  
+    }
+
     const priceFilter = () => {
       if(this.state.priceFilterOpen) {
         return (
@@ -481,7 +497,7 @@ export default class ListingIndex extends React.Component {
                       </div>
                     </div>
                     <div className="price-filter-main-graph-slider-container">
-                      <input type="range" id="input-left" min="0" max="1000" defaultValue="10"/>
+                      <input type="range" id="input-left" min="0" max="1000" defaultValue="0"/>
                       <input type="range" id="input-right" min="0" max="1000" defaultValue="1000"/>
                       <div className="slider">
                         <div className="track"></div>
@@ -628,7 +644,7 @@ export default class ListingIndex extends React.Component {
                       className={isPriceFilterPressed()}
                       onClick={this.togglePriceFilter}>
                           <span className="list-header-filter-button-text">
-                            Price
+                            {priceFilterButtonText()}
                           </span>
                       </button>
                     </div>

@@ -6,14 +6,13 @@ const stayOptionsReducer = (state = {
   startDate: null,
   endDate: null,
   guests: 0,
-  priceRange: [0, Infinity]
+  priceRange: [0, 1000]
 }, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_STAY_OPTIONS:
       return merge({}, state, action.value);
     case UPDATE_STAY_OPTIONS:
-      debugger
       return merge({}, state, action.value);
     default:
       return state;
