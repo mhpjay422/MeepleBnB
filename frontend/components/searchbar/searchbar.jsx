@@ -132,9 +132,11 @@ class SearchBar extends React.Component {
       guests: this.props.handleInfo.guests
     })
 
+    debugger
     if (this.props.history.location.pathname === `/search_greeting` || this.props.history.location.pathname === `/greeting`) {
       this.setState({})
     } else if (this.props.history.location.pathname !== `/search_greeting`){
+      debugger
       this.props.history.push({
         pathname: `/search_greeting`,
       });
@@ -181,8 +183,16 @@ class SearchBar extends React.Component {
     this.node.value = ""
   }
 
+  
   render() {
-
+    
+    const dropdownToNY = () => {
+      if (this.props.history.location.pathname === `/search_greeting`) {
+        return `/greeting`
+      } else {
+        return `/search_greeting`
+      }
+    }
     const dropdownComponent = () => {
       if (this.state.term === "") {
         return (
@@ -194,8 +204,8 @@ class SearchBar extends React.Component {
                 </div>
                 <Link 
                 className="searched-item"
-                to={`/search_greeting`}>
-                  See locations in New York
+                to={dropdownToNY()}>
+                    See locations in New York
                 </Link>
               </div>
             <div className="search-margin-top"></div>
