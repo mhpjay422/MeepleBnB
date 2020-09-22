@@ -16,6 +16,8 @@ export default class ListingIndex extends React.Component {
       rightMin: "1",
       minFocus: false,
       maxFocus: false,
+      priceRangeMin: this.props.stayOptions.priceRange[0],
+      priceRangeMax: this.props.stayOptions.priceRange[1],
     };
 
     this.setHoveredListItem = this.setHoveredListItem.bind(this);
@@ -145,10 +147,11 @@ export default class ListingIndex extends React.Component {
           max = parseInt(_this.max);
 
         if (priceRight.value) {
-          if(+inputLeft.value > 0) {
-            _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 50);
-            priceRight.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 50);
-          }
+
+        if(+inputLeft.value >= 0) {
+          _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 50);
+          priceRight.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 50);
+        }
         } else {
           _this.value = "1000";
         }  
@@ -276,19 +279,11 @@ export default class ListingIndex extends React.Component {
   }
 
   defaultVal(input) {
-    if (document.getElementById("input-left")) {
-      if(input === "min") {
-        return document.getElementById("input-left").value
-      } else {
-        return document.getElementById("input-right").value
-      }
-    } else {
       if (input === "min") {
-        return "0"
+        return `${this.props.stayOptions.priceRange[0]}`
       } else {
-        return "1000"
+        return `${this.props.stayOptions.priceRange[1]}`
       }
-    }
   }
 
   clearInputs() {
@@ -466,7 +461,7 @@ export default class ListingIndex extends React.Component {
         return "Price"
       } else {
         if (min === 0) {
-          return `up to $${max}`
+          return `Up to $${max}`
         } else if (max === 1000) {
           return `$${min}+`
         } else {
@@ -497,8 +492,8 @@ export default class ListingIndex extends React.Component {
                       </div>
                     </div>
                     <div className="price-filter-main-graph-slider-container">
-                      <input type="range" id="input-left" min="0" max="1000" defaultValue="0"/>
-                      <input type="range" id="input-right" min="0" max="1000" defaultValue="1000"/>
+                      <input type="range" id="input-left" min="0" max="1000" defaultValue={`${this.props.stayOptions.priceRange[0]}`}/>
+                      <input type="range" id="input-right" min="0" max="1000" defaultValue={`${this.props.stayOptions.priceRange[1]}`}/>
                       <div className="slider">
                         <div className="track"></div>
                         <div className="range"></div>

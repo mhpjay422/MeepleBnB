@@ -7,7 +7,7 @@ class Api::ReviewsController < ApplicationController
         render "/api/reviews/index_all"
       else 
         @host = listing_host        
-        @listings = Listing.all.select { |listing| listing.owner_id == @host.id}
+        @listings = Listing.all.select { |listing| listing.owner_id == @host.id} 
         @host_reviews = @listings.reduce(0) { |sum, listing| sum + listing.reviews.length}
         @host_count = {"host_reviews": @host_reviews}
         @current_listing = current_listing
