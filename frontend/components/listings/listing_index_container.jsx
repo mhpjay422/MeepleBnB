@@ -14,6 +14,7 @@ const msp = (state) => {
   const priceRange = state.entities.stayOptions.priceRange
   const priceRangeMin = priceRange[0];
   const priceRangeMax = priceRange[1];
+  const priceRangeDefault = (priceRange[0] === 0) && (priceRange[1] === 1000) 
   const filteredListings = () => {
     let list = [];
   
@@ -32,7 +33,7 @@ const msp = (state) => {
       }
     });
   
-    if (list.length) {
+    if (list.length || !priceRangeDefault) {
       return list;
     } else {
       return listings;
