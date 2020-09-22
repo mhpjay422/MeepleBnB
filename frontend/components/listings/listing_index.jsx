@@ -16,8 +16,6 @@ export default class ListingIndex extends React.Component {
       rightMin: "1",
       minFocus: false,
       maxFocus: false,
-      priceRangeMin: this.props.stayOptions.priceRange[0],
-      priceRangeMax: this.props.stayOptions.priceRange[1],
     };
 
     this.setHoveredListItem = this.setHoveredListItem.bind(this);
@@ -53,7 +51,8 @@ export default class ListingIndex extends React.Component {
       searchTerm: "",
       startDate: null,
       endDate: null,
-      guests: 0
+      guests: 0,
+      priceRange: [0, 1000]
     })
   }
 
