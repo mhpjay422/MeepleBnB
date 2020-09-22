@@ -36,6 +36,7 @@ export default class ListingIndex extends React.Component {
     this.keyUpClearInput = this.keyUpClearInput.bind(this);
     this.saveInputs = this.saveInputs.bind(this);
     this.avgPrice = this.avgPrice.bind(this);
+    this.whichPriceFilter = this.whichPriceFilter.bind(this);
   }
 
   componentDidMount() {
@@ -350,6 +351,14 @@ export default class ListingIndex extends React.Component {
     return this.state.filteredList.reduce((total, amount) => total + amount) / this.state.filteredList.length
   }
 
+  whichPriceFilter() {
+    const priceMin = this.props.stayOptions.priceRange[0] === 0
+    const priceMax = this.props.stayOptions.priceRange[1] === 1000
+    const priceIsNotDefault = !(priceMin && priceMax)
+    
+    return this.state.priceFilterOpen || priceIsNotDefault
+  }
+
   render() {
 
     const sidenav = (
@@ -407,7 +416,7 @@ export default class ListingIndex extends React.Component {
     }
 
     const isPriceFilterPressed = () => {
-      if(this.state.priceFilterOpen) {
+      if(this.whichPriceFilter()) {
         return "list-header-filter-button-pressed"
       } else {
         return "list-header-filter-button"
@@ -464,7 +473,6 @@ export default class ListingIndex extends React.Component {
         } else if (max === 1000) {
           return `$${min}+`
         } else {
-          debugger
           return `$${min} - $${max}`
         }
       }  
