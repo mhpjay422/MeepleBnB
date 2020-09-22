@@ -2378,6 +2378,40 @@ input[type="number"]::-webkit-outer-spin-button {
   align-self: center;
 }
 
+.price-filter-bottom-clear-disabled {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0px;
+  position: relative;
+  text-align: center;
+  height: 40px;
+  width: 64px;
+  touch-action: manipulation;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  outline: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: box-shadow 0.2s ease,
+  transform 0.1s ease;
+  background: white;
+  color: #DDDDDD;
+  margin-left: 0px;
+  margin-right: -10px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.308) 0px 0px 4px;
+  box-sizing: border-box;
+  align-self: center;
+}
+
+.price-filter-bottom-clear-disabled:hover {
+  cursor: not-allowed;
+}
+
 .price-filter-bottom-clear:hover {
   background-color: rgb(241, 239, 239);
   box-shadow: none;

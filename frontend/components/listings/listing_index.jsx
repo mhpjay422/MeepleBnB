@@ -37,6 +37,7 @@ export default class ListingIndex extends React.Component {
     this.saveInputs = this.saveInputs.bind(this);
     this.avgPrice = this.avgPrice.bind(this);
     this.whichPriceFilter = this.whichPriceFilter.bind(this);
+    this.rerender = this.rerender.bind(this);
   }
 
   componentDidMount() {
@@ -355,8 +356,12 @@ export default class ListingIndex extends React.Component {
     const priceMin = this.props.stayOptions.priceRange[0] === 0
     const priceMax = this.props.stayOptions.priceRange[1] === 1000
     const priceIsNotDefault = !(priceMin && priceMax)
-    
+
     return this.state.priceFilterOpen || priceIsNotDefault
+  }
+
+  rerender() {
+    this.forceUpdate()
   }
 
   render() {
@@ -478,6 +483,25 @@ export default class ListingIndex extends React.Component {
       }  
     }
 
+    const clearButton = () => {
+      
+      if (!document.getElementById("price-filter-min")) {
+
+        return "price-filter-bottom-clear-disabled"
+      
+      } else {
+        const min = document.getElementById("price-filter-min").value;
+        const max = document.getElementById("price-filter-max").value;
+        const isDefault = min === "0" && max === "1000";
+
+        if (isDefault) {
+          return "price-filter-bottom-clear-disabled"
+        } else {
+          return "price-filter-bottom-clear"
+        }
+      } 
+    }
+
     const priceFilter = () => {
       if(this.state.priceFilterOpen) {
         return (
@@ -486,7 +510,7 @@ export default class ListingIndex extends React.Component {
           ref={price => this.price = price}
           >
             <div className="price-filter-main-container">
-              <div className="price-filter-main-frame">
+              <div className="price-filter-main-frame" onClick={this.rerender}>
                 <div className="price-filter-main-avg-text">
                   {priceAvg()}
                 </div>
@@ -499,8 +523,21 @@ export default class ListingIndex extends React.Component {
                       </div>
                     </div>
                     <div className="price-filter-main-graph-slider-container">
-                      <input type="range" id="input-left" min="0" max="1000" defaultValue={`${this.props.stayOptions.priceRange[0]}`}/>
-                      <input type="range" id="input-right" min="0" max="1000" defaultValue={`${this.props.stayOptions.priceRange[1]}`}/>
+                      <input 
+                      type="range" 
+                      id="input-left" 
+                      min="0" max="1000" 
+                      defaultValue={`${this.props.stayOptions.priceRange[0]}`}
+                      
+                      />
+                      <input 
+                      type="range" 
+                      id="input-right" 
+                      min="0" 
+                      max="1000" 
+                      defaultValue={`${this.props.stayOptions.priceRange[1]}`}
+                      
+                      />
                       <div className="slider">
                         <div className="track"></div>
                         <div className="range"></div>
@@ -592,7 +629,7 @@ export default class ListingIndex extends React.Component {
             <div className="price-filter-bottom-container">
               <div className="price-filter-bottom-frame">
                 <button 
-                className="price-filter-bottom-clear"
+                className={clearButton()}
                 id="clear-input"
                 onClick={this.clearInputs}
                 onFocus={this.keyDownClearInput}
