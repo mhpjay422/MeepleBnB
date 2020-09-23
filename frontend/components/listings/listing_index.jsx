@@ -38,6 +38,7 @@ export default class ListingIndex extends React.Component {
     this.avgPrice = this.avgPrice.bind(this);
     this.whichPriceFilter = this.whichPriceFilter.bind(this);
     this.rerender = this.rerender.bind(this);
+    this.filteredListTruthy = this.filteredListTruthy.bind(this);
   }
 
   componentDidMount() {
@@ -280,11 +281,11 @@ export default class ListingIndex extends React.Component {
   }
 
   defaultVal(input) {
-      if (input === "min") {
-        return `${this.props.stayOptions.priceRange[0]}`
-      } else {
-        return `${this.props.stayOptions.priceRange[1]}`
-      }
+    if (input === "min") {
+      return `${this.props.stayOptions.priceRange[0]}`
+    } else {
+      return `${this.props.stayOptions.priceRange[1]}`
+    }
   }
 
   clearInputs() {
@@ -362,6 +363,10 @@ export default class ListingIndex extends React.Component {
 
   rerender() {
     this.forceUpdate()
+  }
+
+  filteredListTruthy() {
+    return this.props.filteredList[0]
   }
 
   render() {
@@ -654,6 +659,42 @@ export default class ListingIndex extends React.Component {
         return <></>
       }
     }
+
+    const listingsFiltered = () => {
+      if (this.filteredListTruthy()) {
+        return (
+          this.props.filteredList.map(listing => (
+            <ListingIndexItem
+              listing={listing}
+              key={listing.id}
+              setHoveredListItem={this.setHoveredListItem}
+              allReviews={this.props.allReviews}
+              stayOptions={this.props.stayOptions}
+            />)) 
+          )
+      } else {
+        return (
+          <div className="listing-index-item-no-results">
+            <div className="listing-index-item-no-results-container">
+              <div className="listing-index-item-no-results-frame">
+                <div className="listing-index-item-no-results-text-container">
+                  <div className="listing-index-item-no-results-text-frame">
+                    <div className="listing-index-item-no-results-text-header">
+                      There are no results
+                </div>
+                    <div className="listing-index-item-no-results-text-main">
+                      Try adjusting your search by changing your dates, removing filters, or zooming out on the map
+                    </div>
+                  </div>
+                </div>
+                <div className="listing-index-item-no-results-?">
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      }
+    }
     
 
     const listIndexItem = (
@@ -696,15 +737,7 @@ export default class ListingIndex extends React.Component {
         </div>
         {ifSearch()}
         <ul className="list-items" onMouseLeave={this.unhovered}>
-          {this.props.filteredList.map(listing => (
-            <ListingIndexItem 
-            listing={listing} 
-            key={listing.id} 
-            setHoveredListItem={this.setHoveredListItem}
-            allReviews={this.props.allReviews}
-            stayOptions={this.props.stayOptions}
-            />
-          ))}
+          {listingsFiltered()}
         </ul >
         <div className="list-items-bottom-container">
           <div className="list-items-bottom-frame">
