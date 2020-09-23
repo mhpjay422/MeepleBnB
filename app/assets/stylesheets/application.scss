@@ -7,9 +7,9 @@
 }
 
 .main {
-   position: block;
-   min-height: 100vh;
-   min-width: 100vh;
+  position: block;
+  min-height: 100vh;
+  min-width: 100vh;
 }
 
 body {
@@ -116,10 +116,10 @@ body {
   z-index: 2;
   pointer-events: none;
   transition: -ms-transform 150ms ease,
-  -webkit-transform 150ms ease,
-  transform 150ms ease,
-  opacity 50ms ease 20ms,
-  pointer-events 0ms 150ms;
+    -webkit-transform 150ms ease,
+    transform 150ms ease,
+    opacity 50ms ease 20ms,
+    pointer-events 0ms 150ms;
   box-sizing: border-box;
 }
 
@@ -164,8 +164,8 @@ body {
   margin-left: -9px;
   position: absolute;
   transition: 0.2s -ms-transform cubic-bezier(0, 0, 0.1, 1),
-  0.2s -webkit-transform cubic-bezier(0, 0, 0.1, 1),
-  0.2s transform cubic-bezier(0, 0, 0.1, 1);
+    0.2s -webkit-transform cubic-bezier(0, 0, 0.1, 1),
+    0.2s transform cubic-bezier(0, 0, 0.1, 1);
   width: 18px;
   box-sizing: border-box;
 }
@@ -181,8 +181,8 @@ body {
   margin-left: -9px;
   position: absolute;
   transition: 0.2s -ms-transform cubic-bezier(0, 0, 0.1, 1),
-  0.2s -webkit-transform cubic-bezier(0, 0, 0.1, 1),
-  0.2s transform cubic-bezier(0, 0, 0.1, 1);
+    0.2s -webkit-transform cubic-bezier(0, 0, 0.1, 1),
+    0.2s transform cubic-bezier(0, 0, 0.1, 1);
   width: 18px;
   box-sizing: border-box;
 }
@@ -226,12 +226,12 @@ body {
   position: relative;
   width: 100%;
   box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15),
-  0px 3px 8px rgba(0, 0, 0, 0.1);
+    0px 3px 8px rgba(0, 0, 0, 0.1);
   background-color: #F7F7F7;
 }
 
 .splash-search-form-frame {
-  
+
   display: flex;
   flex: 1 1 0%;
   height: 100%;
@@ -515,7 +515,7 @@ body {
   min-width: 0px;
   position: relative;
   flex: 0.95 0 auto;
-  
+
 }
 
 .splash-search-guest-container:hover {
@@ -824,7 +824,7 @@ body {
 
 .splash-search-submit-frame:hover {
   background-color: #e62e50;
-  
+
 }
 
 .splash-search-submit-icon-container {
@@ -900,6 +900,51 @@ body {
   font-weight: bolder;
   color: white;
   text-align: right;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 80px;
+}
+
+.splashbuttons-button {
+  appearance: none;
+  background: transparent;
+  border: 1px solid #DDDDDD;
+  color: #222222;
+  cursor: pointer;
+  display: inline-flex;
+  margin: 0px;
+  outline: none;
+  overflow: visible;
+  padding: 5px 5px 5px 12px;
+  text-decoration: none;
+  user-select: auto;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 21px;
+  height: 42px;
+  position: relative;
+  vertical-align: middle;
+  transition: box-shadow 0.2s ease;
+  z-index: 1;
+}
+
+.splashbuttons-menu-dashes {
+  position: relative;
+  top: 1px;
+  left: 2px;
+}
+
+.splashbuttons-user-img {
+  color: #717171;
+  flex: 0 0 30px;
+  height: 30px;
+  margin-left: 12px;
+  overflow: hidden;
+  position: relative;
+  width: 30px;
+  z-index: 1;
 }
 
 .loginbuttons {
@@ -1018,7 +1063,7 @@ a:hover {
   padding-left: 16px;
   padding-right: 16px;
   transition: box-shadow 0.2s ease,
-  transform 0.1s ease;
+    transform 0.1s ease;
   border: none;
   background: #FFFFFF;
   color: #222222;
@@ -1110,8 +1155,7 @@ a:hover {
   width: 24px;
 }
 
-.login-form {
-}
+.login-form {}
 
 .email {
   border-bottom: .5px solid rgb(158, 157, 157);
@@ -1285,7 +1329,7 @@ a:hover {
   z-index: 13;
   height: 80px;
   width: 100%;
-  
+
 }
 
 .topbar::before {
@@ -1414,8 +1458,8 @@ a:hover {
   vertical-align: middle;
   text-align: left;
   transition: transform 150ms ease,
-  opacity 50ms ease 20ms,
-  pointer-events 0ms 150ms;
+    opacity 50ms ease 20ms,
+    pointer-events 0ms 150ms;
 }
 
 .greet-search-mini-container-full {
@@ -1427,8 +1471,8 @@ a:hover {
   text-align: left;
   opacity: 0 !important;
   transition: transform 150ms ease 0s,
-  opacity 50ms ease 20ms,
-  visibility 0ms ease 150ms;
+    opacity 50ms ease 20ms,
+    visibility 0ms ease 150ms;
   pointer-events: none;
   visibility: hidden;
   will-change: transform, opacity;
@@ -1539,8 +1583,8 @@ a:hover {
   pointer-events: none;
   visibility: hidden;
   transition: transform 150ms ease,
-  opacity 50ms ease 20ms,
-  visibility 0ms 150ms;
+    opacity 50ms ease 20ms,
+    visibility 0ms 150ms;
   will-change: transform, opacity;
 
 }
@@ -1555,8 +1599,8 @@ a:hover {
   z-index: 2;
   pointer-events: none;
   transition: transform 150ms ease 0s,
-  opacity 50ms ease 20ms,
-  pointer-events 0ms ease 150ms;
+    opacity 50ms ease 20ms,
+    pointer-events 0ms ease 150ms;
 }
 
 
@@ -1691,7 +1735,7 @@ a:hover {
   width: 100%;
   --page-shell-max-content-width: none;
   cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur),
-  default;
+    default;
   touch-action: none;
 }
 
@@ -1739,8 +1783,8 @@ a:hover {
 }
 
 .sleeping-arrangements-images-item {
- padding-left: 8px;
- padding-right: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .sleeping-arrangements-images-item-frame-inner {
@@ -1750,8 +1794,7 @@ a:hover {
   border-image: initial;
 }
 
-.sleeping-arrangements-image-container {
-}
+.sleeping-arrangements-image-container {}
 
 .bed-image-1 {
   padding-bottom: 16px;
@@ -1881,7 +1924,7 @@ a:hover {
 .daypicker-calendar-clear-dates-container {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;  
+  align-items: flex-end;
 }
 
 .daypicker-calendar-clear-dates-button:hover {
@@ -1925,8 +1968,7 @@ a:hover {
   position: relative;
   align-content: center;
   z-index: 3;
-  --page-shell-max-content-width: none:
-  background-color: inherit;
+  --page-shell-max-content-width: none: background-color: inherit;
   background-clip: border-box;
   top: 80px;
 }
@@ -1970,7 +2012,7 @@ a:hover {
 
 .list-header-filter-container {
   padding-top: 20px;
-  
+
 }
 
 .list-header-filter-frame {
@@ -2367,7 +2409,7 @@ input[type="number"]::-webkit-outer-spin-button {
   padding-left: 10px;
   padding-right: 10px;
   transition: box-shadow 0.2s ease,
-  transform 0.1s ease;
+    transform 0.1s ease;
   background: white;
   color: #444444;
   margin-left: 0px;
@@ -2397,7 +2439,7 @@ input[type="number"]::-webkit-outer-spin-button {
   padding-left: 10px;
   padding-right: 10px;
   transition: box-shadow 0.2s ease,
-  transform 0.1s ease;
+    transform 0.1s ease;
   background: white;
   color: #DDDDDD;
   margin-left: 0px;
@@ -2438,7 +2480,7 @@ input[type="number"]::-webkit-outer-spin-button {
   outline: none;
   padding: 8px 16px;
   transition: box-shadow 0.2s ease 0s,
-  transform 0.1s ease 0s;
+    transform 0.1s ease 0s;
   border: none;
   background: rgb(34, 34, 34);
   color: rgb(255, 255, 255);
@@ -2626,7 +2668,7 @@ input[type="number"]::-webkit-outer-spin-button {
   vertical-align: top;
   white-space: normal;
   background-color: white;
-  background-clip: border-box;  
+  background-clip: border-box;
   text-decoration: none;
 }
 
@@ -2763,7 +2805,7 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin-top: 9px;
-  
+
 }
 
 .index-item-amenities2 {
@@ -2978,7 +3020,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .list-show-header-reviews-image {
   font-size: 18px;
   margin-right: 2px;
-  
+
 }
 
 .list-show-header-reviews-img {
@@ -3024,8 +3066,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0px 8px;
 }
 
-.detail-interpunct {
-}
+.detail-interpunct {}
 
 .list-show-header-location {
   display: flex;
@@ -3117,7 +3158,7 @@ input[type="number"]::-webkit-outer-spin-button {
   position: relative;
   padding-left: 8px;
   min-height: 300px;
-  
+
 }
 
 .index-image-top {
@@ -3131,7 +3172,7 @@ input[type="number"]::-webkit-outer-spin-button {
   background-position: center;
   box-sizing: border-box;
   overflow: hidden;
-  
+
 }
 
 .index-image-bottom {
@@ -3346,6 +3387,7 @@ input[type="number"]::-webkit-outer-spin-button {
   display: flex;
 
 }
+
 .listing-body-location-bottom-left {
   width: 41%;
   margin-right: 9%;
@@ -3401,9 +3443,9 @@ input[type="number"]::-webkit-outer-spin-button {
   border-style: solid;
   outline: none;
   transition: box-shadow 0.2s ease 0s,
-  -ms-transform 0.1s ease 0s,
-  -webkit-transform 0.1s ease 0s,
-  transform 0.1s ease 0s;
+    -ms-transform 0.1s ease 0s,
+    -webkit-transform 0.1s ease 0s,
+    transform 0.1s ease 0s;
   border-color: rgb(34, 34, 34);
   background: rgb(255, 255, 255);
 }
@@ -3413,6 +3455,7 @@ input[type="number"]::-webkit-outer-spin-button {
   padding-left: 8px;
   padding-right: 8px;
 }
+
 .listing-body-location-bottom-right-header {
   font-weight: 500;
   margin-bottom: 16px;
@@ -3623,12 +3666,12 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 div.DateInput.DateInput_1 {
- width: 45% !important;
- display: block !important;
- box-sizing: border-box !important;
- align-content: center !important;
- padding: 0 !important;
- background-color: transparent !important;
+  width: 45% !important;
+  display: block !important;
+  box-sizing: border-box !important;
+  align-content: center !important;
+  padding: 0 !important;
+  background-color: transparent !important;
 }
 
 .DateInput_input {
@@ -3657,7 +3700,7 @@ div.DateInput.DateInput_1 {
   width: auto !important;
   background-color: transparent !important;
   position: relative !important;
-  margin: 0 !important;  
+  margin: 0 !important;
   transform: none !important;
   background-color: transparent !important;
   outline: none !important;
@@ -3670,7 +3713,7 @@ div.DateInput.DateInput_1 {
 }
 
 .DateRangePickerInput_clearDates_svg {
-  height: 9px !important; 
+  height: 9px !important;
   width: 9px !important;
   color: buttontext !important;
   stroke-width: 3;
@@ -3709,7 +3752,7 @@ div.DateInput.DateInput_1 {
 
 .DayPicker {
   border-radius: 16px !important;
-      box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px !important;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px !important;
 }
 
 .DateRangePicker_picker {
@@ -3894,9 +3937,7 @@ div.DateInput.DateInput_1 {
   line-height: 20px;
 }
 
-.booking-reserve-detail-charges {
-
-}
+.booking-reserve-detail-charges {}
 
 .booking-reserve-detail-charges-item {
   padding-bottom: 12px;
@@ -4152,7 +4193,7 @@ div.DateInput.DateInput_1 {
 .host-body-header-text-bottom {
   color: rgb(168, 168, 168);
   font-family: sans-serif,
-  sans-serif;
+    sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
@@ -4272,9 +4313,7 @@ div.DateInput.DateInput_1 {
   word-break: break-word;
 }
 
-.host-body-main-left-description-text-bottom-container {
-
-}
+.host-body-main-left-description-text-bottom-container {}
 
 .host-body-main-left-description-text-bottom-header {
   color: rgb(0, 0, 0);
@@ -4337,9 +4376,9 @@ div.DateInput.DateInput_1 {
   border-style: solid;
   outline: none;
   transition: box-shadow 0.2s ease 0s,
-  -ms-transform 0.1s ease 0s,
-  -webkit-transform 0.1s ease 0s,
-  transform 0.1s ease 0s;
+    -ms-transform 0.1s ease 0s,
+    -webkit-transform 0.1s ease 0s,
+    transform 0.1s ease 0s;
   border-color: rgb(34, 34, 34);
   background: rgb(255, 255, 255);
 }
@@ -4379,18 +4418,18 @@ div.DateInput.DateInput_1 {
   fill: rgb(255, 180, 0);
 }
 
-.things-header-container{
+.things-header-container {
   padding-bottom: 24px;
 }
 
-.things-header{
+.things-header {
   color: rgb(34, 34, 34);
   font-weight: 500;
   font-size: 22px;
   line-height: 26px;
 }
 
-.things-body-container{
+.things-body-container {
   margin-left: -8px;
   margin-right: -8px;
   width: calc(100% + 16px);
@@ -4400,7 +4439,7 @@ div.DateInput.DateInput_1 {
   flex-wrap: wrap;
 }
 
-.things-body-third-container{
+.things-body-third-container {
   padding-left: 8px;
   padding-right: 8px;
   width: 30%;
@@ -4511,7 +4550,7 @@ div.DateInput.DateInput_1 {
 }
 
 .trip-container {
-  margin-top: 36px;  
+  margin-top: 36px;
 }
 
 .trip-frame {
@@ -4534,7 +4573,7 @@ div.DateInput.DateInput_1 {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  
+
 }
 
 .trip-index-item-container {
@@ -4613,11 +4652,11 @@ div.DateInput.DateInput_1 {
   margin-bottom: 6px;
   overflow: hidden;
   font-family: Circular,
-  -apple-system,
-  BlinkMacSystemFont,
-  Roboto,
-  Helvetica Neue,
-  sans-serif;
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    Helvetica Neue,
+    sans-serif;
   top: -6px;
   position: relative;
 }
@@ -4711,7 +4750,7 @@ div.DateInput.DateInput_1 {
   width: 700px;
   height: 0;
   justify-content: flex-start;
-  
+
 }
 
 .search-bar {
@@ -4970,12 +5009,12 @@ div.DateInput.DateInput_1 {
   color: black;
 }
 
-.searched-item-row:hover{
+.searched-item-row:hover {
   background-color: rgb(238, 236, 236);
 }
 
 .splash-search-form-location-container-inner .searched-item-row:hover::after {
- background-color: white;
+  background-color: white;
 }
 
 // .splash-search-form-location-container-inner .searched-item-row:hover::after {
@@ -4993,7 +5032,7 @@ div.DateInput.DateInput_1 {
 //  background-color: white;
 // }
 
-.locpic:hover ~ .searched-item {
+.locpic:hover~.searched-item {
   color: black;
 }
 
@@ -5033,14 +5072,14 @@ div.DateInput.DateInput_1 {
   justify-content: space-between;
 }
 
-.footer-left {  
+.footer-left {
   font-family: sans-serif;
   font-size: 14px;
   color: #222222;
   text-align: center;
   display: flex;
   align-self: center;
-  }
+}
 
 .footer-right {
   display: flex;
@@ -5096,7 +5135,7 @@ div.DateInput.DateInput_1 {
 .bubble {
   border-radius: 28px;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px,
-  rgba(0, 0, 0, 0.18) 0px 1px 2px;
+    rgba(0, 0, 0, 0.18) 0px 1px 2px;
   color: rgb(34, 34, 34);
   display: flex;
   height: 28px;
