@@ -462,7 +462,7 @@ export default class ListingIndex extends React.Component {
 
         return `The average nightly price is $${(sum / divisor).toFixed(0)}` 
       } else {
-      return <></>
+      return <>There are no listings within your range</>
       }
     }
 
