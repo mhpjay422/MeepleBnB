@@ -2504,43 +2504,44 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .listing-index-item-no-results-clear-button {
+  display: absolute;
+  position: relative;
   cursor: pointer;
-  display: inline-block;
   margin: 0px;
   position: relative;
   text-align: center;
   text-decoration: none;
-  width: auto;
   touch-action: manipulation;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: normal;
-  color: #484848;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-weight: 800;
+  color: #6d6d6d;
+  font-size: 14px;
+  font-weight: 500;
   border-radius: 8px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #B0B0B0;
   background: #FFFFFF;
   box-shadow: none;
-  padding-left: 22px;
-  padding-right: 22px;
   min-width: 70px;
   padding: 12px 16px;
-  border: 1px solid;
+  border: 1px solid #B0B0B0;
+  transition: border-width 0.1s ease;
+  width: 150px;
+  height: 53px;
+  align-content: center;
   outline: none;
+}
+
+.listing-index-item-no-results-clear-button:hover {
+  color: #2b2b2b;
+  border: 2px solid #B0B0B0;
 }
 
 .listing-index-item-no-results-clear-button-text {
   margin: 0px;
   word-wrap: break-word;
-  font-size: 14px;
-  font-weight: 500;
   line-height: 27px;
-  color: #484848;
-  text-align: left;
+  text-align: center;
+
 }
 
 .if-search-container {

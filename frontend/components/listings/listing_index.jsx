@@ -34,6 +34,8 @@ export default class ListingIndex extends React.Component {
     this.clearInputs = this.clearInputs.bind(this);
     this.keyDownClearInput = this.keyDownClearInput.bind(this);
     this.keyUpClearInput = this.keyUpClearInput.bind(this);
+    this.keyUpClearFilters = this.keyUpClearFilters.bind(this);
+    this.keyDownClearFilters = this.keyDownClearFilters.bind(this);
     this.saveInputs = this.saveInputs.bind(this);
     this.avgPrice = this.avgPrice.bind(this);
     this.whichPriceFilter = this.whichPriceFilter.bind(this);
@@ -335,6 +337,28 @@ export default class ListingIndex extends React.Component {
       document.getElementById("save-input").style.fontSize = "14px";    
   }
 
+  keyDownClearFilters() {
+    document.getElementById("clear-filters").style.marginLeft = "2px";
+    document.getElementById("clear-filters").style.marginRight = "2px";
+    document.getElementById("clear-filters").style.marginTop = "1px";
+    document.getElementById("clear-filters").style.marginBottom = "1px";
+    document.getElementById("clear-filters").style.width = "146px";
+    document.getElementById("clear-filters").style.height = "51px";
+    document.getElementById("clear-filters").style.fontSize = "13px";
+    
+  }
+  keyUpClearFilters() {
+  
+    document.activeElement.blur();
+    document.getElementById("clear-filters").style.marginTop = "0px";
+    document.getElementById("clear-filters").style.marginLeft = "0px";
+    document.getElementById("clear-filters").style.marginRight = "0px";
+    document.getElementById("clear-filters").style.marginBottom = "0px";
+    document.getElementById("clear-filters").style.width = "150px";
+    document.getElementById("clear-filters").style.height = "53px";
+    document.getElementById("clear-filters").style.fontSize = "14px";    
+  }
+
   saveInputs() {
     const min = parseInt(document.getElementById("price-filter-min").value);
     const max = parseInt(document.getElementById("price-filter-max").value);
@@ -371,6 +395,7 @@ export default class ListingIndex extends React.Component {
   }
 
   clearFilters() {
+    this.keyUpClearFilters()
     this.props.updateStayOptions({
       searchTerm: this.props.stayOptions.searchTerm,
       startDate: this.props.stayOptions.startDate,
@@ -699,7 +724,13 @@ export default class ListingIndex extends React.Component {
                   </div>
                 </div>
                 <div className="listing-index-item-no-results-clear-container">
-                  <button type="button" className="listing-index-item-no-results-clear-button" onClick={this.clearFilters}>
+                  <button 
+                  id="clear-filters"
+                  type="button" 
+                  className="listing-index-item-no-results-clear-button" 
+                  onClick={this.clearFilters}
+                  onFocus={this.keyDownClearFilters}
+                  onMouseOut={this.keyUpClearFilters}>
                     <div className="listing-index-item-no-results-clear-button-text">
                       Remove all filters
                     </div>
