@@ -711,7 +711,7 @@ export default class ListingIndex extends React.Component {
             <div className="list-items-bottom-text-main-container">
               <div className="list-items-bottom-text-main-frame">
                 <div className="list-items-bottom-text-main-text">
-                  1
+                  {`${this.props.filteredList.length ? 1 : 0}`}
                   <span> - </span>
                   {`${this.props.filteredList.length} `}
                   {`  of `}
