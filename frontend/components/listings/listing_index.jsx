@@ -39,6 +39,7 @@ export default class ListingIndex extends React.Component {
     this.whichPriceFilter = this.whichPriceFilter.bind(this);
     this.rerender = this.rerender.bind(this);
     this.filteredListTruthy = this.filteredListTruthy.bind(this);
+    this.clearFilters = this.clearFilters.bind(this);
   }
 
   componentDidMount() {
@@ -369,6 +370,16 @@ export default class ListingIndex extends React.Component {
     return this.props.filteredList[0]
   }
 
+  clearFilters() {
+    this.props.updateStayOptions({
+      searchTerm: this.props.stayOptions.searchTerm,
+      startDate: this.props.stayOptions.startDate,
+      endDate: this.props.stayOptions.endDate,
+      guests: this.props.stayOptions.guests,
+      priceRange: [0, 1000]
+    })
+  }
+
   render() {
 
     const sidenav = (
@@ -681,13 +692,18 @@ export default class ListingIndex extends React.Component {
                   <div className="listing-index-item-no-results-text-frame">
                     <div className="listing-index-item-no-results-text-header">
                       There are no results
-                </div>
+                    </div>
                     <div className="listing-index-item-no-results-text-main">
                       Try adjusting your search by changing your dates, removing filters, or zooming out on the map
                     </div>
                   </div>
                 </div>
-                <div className="listing-index-item-no-results-?">
+                <div className="listing-index-item-no-results-clear-container">
+                  <button type="button" className="listing-index-item-no-results-clear-button" onClick={this.clearFilters}>
+                    <div className="listing-index-item-no-results-clear-button-text">
+                      Remove all filters
+                    </div>
+                  </button>
                 </div>
               </div>
             </div>
