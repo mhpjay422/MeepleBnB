@@ -5,10 +5,13 @@ import SearchForm from "../search_form/search_form.jsx";
 export default class Splash extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      splashMenuOpen: false,
+    };
 
     this.keyDownSplashLink = this.keyDownSplashLink.bind(this);
     this.keyUpSplashLink = this.keyUpSplashLink.bind(this);
+    this.toggleSplashMenu = this.toggleSplashMenu.bind(this);
   }
 
   keyDownSplashLink() {
@@ -28,7 +31,19 @@ export default class Splash extends React.Component {
     document.getElementById("splash-link").style.fontSize = "15px";
   }
 
+  toggleSplashMenu() {
+    this.setState({ splashMenuOpen: !this.state.splashMenuOpen });
+  }
+
   render() {
+    const splashMenu = () => {
+      if (this.state.splashMenuOpen) {
+        return <div>open</div>;
+      } else {
+        return <></>;
+      }
+    };
+
     const nav = (
       <div className="splash-topbar">
         <section className="topsec">
@@ -57,7 +72,11 @@ export default class Splash extends React.Component {
 
           <ul className="twobar">
             <nav className="splashbuttons">
-              <button type="button" className="splashbuttons-button">
+              <button
+                type="button"
+                className="splashbuttons-button"
+                onClick={this.toggleSplashMenu}
+              >
                 <img
                   src="./menu-dashes.png"
                   className="splashbuttons-menu-dashes"
@@ -94,6 +113,7 @@ export default class Splash extends React.Component {
               </li> */}
             </nav>
           </ul>
+          {splashMenu()}
         </section>
       </div>
     );
