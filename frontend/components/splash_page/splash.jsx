@@ -6,12 +6,12 @@ export default class Splash extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      splashMenuOpen: false,
+      splashLoginMenuOpen: false,
     };
 
     this.keyDownSplashLink = this.keyDownSplashLink.bind(this);
     this.keyUpSplashLink = this.keyUpSplashLink.bind(this);
-    this.toggleSplashMenu = this.toggleSplashMenu.bind(this);
+    this.toggleSplashLoginMenu = this.toggleSplashLoginMenu.bind(this);
   }
 
   keyDownSplashLink() {
@@ -31,14 +31,24 @@ export default class Splash extends React.Component {
     document.getElementById("splash-link").style.fontSize = "15px";
   }
 
-  toggleSplashMenu() {
-    this.setState({ splashMenuOpen: !this.state.splashMenuOpen });
+  toggleSplashLoginMenu() {
+    this.setState({ splashLoginMenuOpen: !this.state.splashLoginMenuOpen });
   }
 
   render() {
     const splashMenu = () => {
-      if (this.state.splashMenuOpen) {
-        return <div>open</div>;
+      if (this.state.splashLoginMenuOpen) {
+        return (
+          <div className="splash-login-menu-container">
+            <div className="splash-login-menu-frame">
+              <div className="splash-login-menu-item-container">
+                <div className="splash-login-menu-item-frame">open</div>
+                <div className="splash-login-menu-item-frame">open</div>
+                <div className="splash-login-menu-item-frame">open</div>
+              </div>
+            </div>
+          </div>
+        );
       } else {
         return <></>;
       }
@@ -75,7 +85,7 @@ export default class Splash extends React.Component {
               <button
                 type="button"
                 className="splashbuttons-button"
-                onClick={this.toggleSplashMenu}
+                onClick={this.toggleSplashLoginMenu}
               >
                 <img
                   src="./menu-dashes.png"
@@ -85,6 +95,7 @@ export default class Splash extends React.Component {
                   <img src="./profile.png" />
                 </div>
               </button>
+              {splashMenu()}
               {/* <li>
                 <button
                   className="loginbuttons"
@@ -113,7 +124,6 @@ export default class Splash extends React.Component {
               </li> */}
             </nav>
           </ul>
-          {splashMenu()}
         </section>
       </div>
     );

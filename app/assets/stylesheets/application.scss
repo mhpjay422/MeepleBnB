@@ -947,6 +947,37 @@ body {
   z-index: 1;
 }
 
+.splash-login-menu-container {
+  appearance: none;
+  background: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.1);
+  color: rgb(34, 34, 34);
+  margin-top: 34px;
+  padding: 8px 0px;
+  position: absolute;
+  top: 50%;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  z-index: 2;
+  min-width: 240px;
+  border-radius: 12px;
+}
+
+.splash-login-menu-frame {
+  margin: 8px 0px;
+}
+
+.splash-login-menu-item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.splash-login-menu-item-frame {
+  padding: 8px 18px;
+  align-self: flex-start;
+}
+
 .loginbuttons {
   text-shadow: 5px;
   font-size: 15px;
