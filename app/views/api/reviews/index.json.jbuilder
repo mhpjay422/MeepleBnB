@@ -5,9 +5,9 @@
       user = review.author
       json.set! "author" do
         json.partial! 'api/users/user', user: user
+        # json.extract! user, :id, :username
       end
     end
   end
 end
 json.extract! @host_count, :host_reviews 
-

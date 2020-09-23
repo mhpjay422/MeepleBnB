@@ -6,10 +6,28 @@ class Api::ReviewsController < ApplicationController
         @reviews = Review.all
         render "/api/reviews/index_all"
       else 
+        # find ID of the host of the listing we are currently on
+        # current_listing = Listing.find(params[:listing_id])
+        # listing_host = User.find(current_listing.owner_id)
         @host = listing_host        
+
         @listings = Listing.all.select { |listing| listing.owner_id == @host.id} 
+        # sql =
+        #   <<-SQL
+        #     SELECT *
+        #     FROM listings
+        #     WHERE listings.owner_id = @host.id
+        #   SQL
+
+        # @lisitngs = ActiveRecord::Base.connection.exec_query(sql)
+        # @lisitngs = ActiveRecord::Base.connection.select_all(sql)
+
+        # how many reviews total does the current host have total across all listings they own
         @host_reviews = @listings.reduce(0) { |sum, listing| sum + listing.reviews.length}
         @host_count = {"host_reviews": @host_reviews}
+
+        # find id of the current listing
+        # Listing.find(params[:listing_id])
         @current_listing = current_listing
         @reviews = @current_listing.reviews
         render "/api/reviews/index"
