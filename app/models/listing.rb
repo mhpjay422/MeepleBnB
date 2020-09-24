@@ -22,4 +22,8 @@ class Listing < ApplicationRecord
     .where("lng < ?", bounds[:northEast][:lng])
   end
 
+  def self.owned_by(host)
+    Listing.where(owner: host)
+  end
+
 end

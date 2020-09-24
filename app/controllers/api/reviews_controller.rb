@@ -11,16 +11,8 @@ class Api::ReviewsController < ApplicationController
         # listing_host = User.find(current_listing.owner_id)
         @host = listing_host        
 
-        @listings = Listing.all.select { |listing| listing.owner_id == @host.id} 
-        # sql =
-        #   <<-SQL
-        #     SELECT *
-        #     FROM listings
-        #     WHERE listings.owner_id = @host.id
-        #   SQL
-
-        # @lisitngs = ActiveRecord::Base.connection.exec_query(sql)
-        # @lisitngs = ActiveRecord::Base.connection.select_all(sql)
+        
+        @listings = Listing.owned_by(host)
 
         # how many reviews total does the current host have total across all listings they own
         @host_reviews = @listings.reduce(0) { |sum, listing| sum + listing.reviews.length}
