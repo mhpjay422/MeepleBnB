@@ -13,6 +13,15 @@ export default class Splash extends React.Component {
     this.keyUpSplashLink = this.keyUpSplashLink.bind(this);
     this.toggleSplashLoginMenu = this.toggleSplashLoginMenu.bind(this);
     this.handleClickOutsideLoginMenu = this.handleClickOutsideLoginMenu.bind(this);
+    this.clickLoginMenuOption = this.clickLoginMenuOption.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener("mouseup", this.handleClickOutsideLoginMenu);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mouseup", this.handleClickOutsideLoginMenu);
   }
 
   handleClickOutsideLoginMenu(e) {
@@ -24,14 +33,6 @@ export default class Splash extends React.Component {
     if (loginShouldClose) {
       this.setState({ splashLoginMenuOpen: false })
     }
-  }
-
-  componentDidMount() {
-    document.addEventListener("mouseup", this.handleClickOutsideLoginMenu);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener("mouseup", this.handleClickOutsideLoginMenu);
   }
 
   keyDownSplashLink() {
@@ -55,6 +56,17 @@ export default class Splash extends React.Component {
     this.setState({ splashLoginMenuOpen: !this.state.splashLoginMenuOpen });
   }
 
+  clickLoginMenuOption(e) {
+    this.toggleSplashLoginMenu()
+    if (this.signup.contains(e.target)) {
+      this.props.openModal("signup")
+    } else if (this.login.contains(e.target)) {
+      this.props.openModal("login")
+    } else {
+      this.props.demoLogin()
+    }
+  }
+
   render() {
     const splashMenu = () => {
       if (this.state.splashLoginMenuOpen) {
@@ -66,18 +78,27 @@ export default class Splash extends React.Component {
             <div className="splash-login-menu-frame">
               <div className="splash-login-menu-item-container">
                 <div className="splash-login-menu-item-frame">
-                  <div className="splash-login-menu-item-text-frame">
+                  <div
+                    className="splash-login-menu-item-text-frame"
+                    ref={signup => this.signup = signup}
+                    onClick={this.clickLoginMenuOption}>
                     <div className="splash-login-menu-item-text-signup">
                       Sign up
                     </div>
                   </div>
                 </div>
-                <div className="splash-login-menu-item-frame">
+                <div
+                  className="splash-login-menu-item-frame"
+                  ref={login => this.login = login}
+                  onClick={this.clickLoginMenuOption}>
                   <div className="splash-login-menu-item-text-frame">
                     Log in
                   </div>
                 </div>
-                <div className="splash-login-menu-item-frame">
+                <div
+                  className="splash-login-menu-item-frame"
+                  ref={demo => this.demo = demo}
+                  onClick={this.clickLoginMenuOption}>
                   <div className="splash-login-menu-item-text-frame">
                     Demo Log in
                   </div>

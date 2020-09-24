@@ -61,13 +61,13 @@ class SessionForm extends React.Component {
         return (
           <>
             <input
-              className = "form-submit email-component"
-              type = "email"
-              placeholder = "Email"
-              value = { this.state.email }
-              onChange = { this.update("email") }
-              onKeyPress = { this.keypress }
-              onClickOutside = { this.clickClear("email") }
+              className="form-submit email-component"
+              type="email"
+              placeholder="Email"
+              value={this.state.email}
+              onChange={this.update("email")}
+              onKeyPress={this.keypress}
+              onClick={this.clickClear("email")}
             />
             <input
               className="form-submit"
@@ -145,11 +145,11 @@ class SessionForm extends React.Component {
               value={this.props.formType}
             />
             <div className="demoo">
-                <button
-                  className="demo-button form-submit"
-                  value="Login as Demo User"
-                  onClick={this.demo}>
-                  Log In as Demo User
+              <button
+                className="demo-button form-submit"
+                value="Login as Demo User"
+                onClick={this.demo}>
+                Log In as Demo User
                 </button>
             </div>
           </div>
