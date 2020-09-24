@@ -1,7 +1,5 @@
 import { connect } from 'react-redux';
-import { login, logout, demoLogin } from '../../actions/session_actions';
 import Splash from './splash';
-import { openModal } from '../../actions/modal_actions';
 
 const msp = (state) => {
   return {
@@ -10,16 +8,8 @@ const msp = (state) => {
   };
 };
 
-const mdp  = dispatch => {
-  return {
-    logout: () => dispatch(logout()),
-    openModal: modal => dispatch(openModal(modal)),
-    demoLogin: () => dispatch(demoLogin(
-      {user: {username: "demoUser",
-      email: "demoUser@gmail.com",
-      password: "starwars"}}
-    ))
-  };
+const mdp = dispatch => {
+
 };
 
 export default connect(msp, mdp)(Splash);

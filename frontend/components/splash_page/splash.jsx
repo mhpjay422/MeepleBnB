@@ -1,38 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SearchForm from "../search_form/search_form.jsx";
+import ModalButton from "../modal/modal_button_container";
 
 export default class Splash extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      splashLoginMenuOpen: false,
-    };
+    this.state = {};
 
     this.keyDownSplashLink = this.keyDownSplashLink.bind(this);
     this.keyUpSplashLink = this.keyUpSplashLink.bind(this);
-    this.toggleSplashLoginMenu = this.toggleSplashLoginMenu.bind(this);
-    this.handleClickOutsideLoginMenu = this.handleClickOutsideLoginMenu.bind(this);
-    this.clickLoginMenuOption = this.clickLoginMenuOption.bind(this);
-  }
-
-  componentDidMount() {
-    document.addEventListener("mouseup", this.handleClickOutsideLoginMenu);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener("mouseup", this.handleClickOutsideLoginMenu);
-  }
-
-  handleClickOutsideLoginMenu(e) {
-    const clickLoginMenu = this.menu && this.menu.contains(e.target)
-    const clickLoginButton = this.menuButton && this.menuButton.contains(e.target) === true
-    const clickOutMenu = !(clickLoginMenu || clickLoginButton)
-    const loginShouldClose = this.menu && clickOutMenu
-
-    if (loginShouldClose) {
-      this.setState({ splashLoginMenuOpen: false })
-    }
   }
 
   keyDownSplashLink() {
@@ -52,65 +29,7 @@ export default class Splash extends React.Component {
     document.getElementById("splash-link").style.fontSize = "15px";
   }
 
-  toggleSplashLoginMenu() {
-    this.setState({ splashLoginMenuOpen: !this.state.splashLoginMenuOpen });
-  }
-
-  clickLoginMenuOption(e) {
-    this.toggleSplashLoginMenu()
-    if (this.signup.contains(e.target)) {
-      this.props.openModal("signup")
-    } else if (this.login.contains(e.target)) {
-      this.props.openModal("login")
-    } else {
-      this.props.demoLogin()
-    }
-  }
-
   render() {
-    const splashMenu = () => {
-      if (this.state.splashLoginMenuOpen) {
-        return (
-          <div
-            ref={menu => this.menu = menu}
-            className="splash-login-menu-container"
-          >
-            <div className="splash-login-menu-frame">
-              <div className="splash-login-menu-item-container">
-                <div className="splash-login-menu-item-frame">
-                  <div
-                    className="splash-login-menu-item-text-frame"
-                    ref={signup => this.signup = signup}
-                    onClick={this.clickLoginMenuOption}>
-                    <div className="splash-login-menu-item-text-signup">
-                      Sign up
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="splash-login-menu-item-frame"
-                  ref={login => this.login = login}
-                  onClick={this.clickLoginMenuOption}>
-                  <div className="splash-login-menu-item-text-frame">
-                    Log in
-                  </div>
-                </div>
-                <div
-                  className="splash-login-menu-item-frame"
-                  ref={demo => this.demo = demo}
-                  onClick={this.clickLoginMenuOption}>
-                  <div className="splash-login-menu-item-text-frame">
-                    Demo Log in
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      } else {
-        return <></>;
-      }
-    };
 
     const nav = (
       <div className="splash-topbar">
@@ -137,51 +56,8 @@ export default class Splash extends React.Component {
               </div>
             </div>
           </div>
-
           <ul className="twobar">
-            <nav className="splashbuttons">
-              <button
-                ref={menuButton => this.menuButton = menuButton}
-                type="button"
-                className="splashbuttons-button"
-                onClick={this.toggleSplashLoginMenu}
-              >
-                <img
-                  src="./menu-dashes.png"
-                  className="splashbuttons-menu-dashes"
-                />
-                <div className="splashbuttons-user-img">
-                  <img src="./profile.png" />
-                </div>
-              </button>
-              {splashMenu()}
-              {/* <li>
-                <button
-                  className="loginbuttons"
-                  onClick={() => this.props.openModal("login")}
-                >
-                  Login
-                </button>
-              </li>
-              <li>
-                <button
-                  className="loginbuttons"
-                  onClick={() => this.props.openModal("signup")}
-                >
-                  Signup
-                </button>
-              </li>
-              <li>
-                <button
-                  className="loginbuttons"
-                  value="Login as Demo User"
-                  onClick={() => this.props.demoLogin()}
-                >
-                  {" "}
-                  Log In as Demo User
-                </button>
-              </li> */}
-            </nav>
+            <ModalButton />
           </ul>
         </section>
       </div>
