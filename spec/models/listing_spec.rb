@@ -38,37 +38,34 @@ RSpec.describe Listing do
         email: "abc@gmail.com",
         password: "starwars",
         username: "abc"
-      )
+        )
         host2 = User.create(
           email: "def@gmail.com",
           password: "def",
           username: "def"
         )
-      listing1 = Listing.create(
-        title: "very nice",
-        description: "nice",
-        address: "11 11st",
-        price: 111,
-        lat: 11,
-        lng: 11,
-        owner_id: host2.id,
-        picture_url: "abc"
-      )
-      listing2 = Listing.create(
-        title: "very very nice",
-        description: "nice",
-        address: "11 11st",
-        price: 111,
-        lat: 11,
-        lng: 11,
-        owner_id: host2.id,
-        picture_url: "abc"
-      )
-    
-      expect(Listing.owned_by(host)).to eq([])
+        listing1 = Listing.create(
+          title: "very nice",
+          description: "nice",
+          address: "11 11st",
+          price: 111,
+          lat: 11,
+          lng: 11,
+          owner_id: host2.id,
+          picture_url: "abc"
+        )
+        listing2 = Listing.create(
+          title: "very very nice",
+          description: "nice",
+          address: "11 11st",
+          price: 111,
+          lat: 11,
+          lng: 11,
+          owner_id: host2.id,
+          picture_url: "abc"
+        )
+        expect(Listing.owned_by(host)).to eq([])
       end
     end
-
-    
   end
 end

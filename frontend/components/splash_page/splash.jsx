@@ -42,9 +42,23 @@ export default class Splash extends React.Component {
           <div className="splash-login-menu-container">
             <div className="splash-login-menu-frame">
               <div className="splash-login-menu-item-container">
-                <div className="splash-login-menu-item-frame">open</div>
-                <div className="splash-login-menu-item-frame">open</div>
-                <div className="splash-login-menu-item-frame">open</div>
+                <div className="splash-login-menu-item-frame">
+                  <div className="splash-login-menu-item-text-frame">
+                    <div className="splash-login-menu-item-text-signup">
+                      Sign up
+                    </div>
+                  </div>
+                </div>
+                <div className="splash-login-menu-item-frame">
+                  <div className="splash-login-menu-item-text-frame">
+                    Log in
+                  </div>
+                </div>
+                <div className="splash-login-menu-item-frame">
+                  <div className="splash-login-menu-item-text-frame">
+                    Demo Log in
+                  </div>
+                </div>
               </div>
             </div>
           </div>

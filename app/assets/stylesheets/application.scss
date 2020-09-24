@@ -950,10 +950,9 @@ body {
 .splash-login-menu-container {
   appearance: none;
   background: rgb(255, 255, 255);
-  box-shadow: rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 16px;
   color: rgb(34, 34, 34);
   margin-top: 34px;
-  padding: 8px 0px;
   position: absolute;
   top: 50%;
   max-height: calc(100vh - 100px);
@@ -971,12 +970,30 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .splash-login-menu-item-frame {
-  padding: 8px 18px;
+  width: 100%;
   align-self: flex-start;
+  padding: 14px 0;
+  text-align: left;
 }
+
+.splash-login-menu-item-frame:hover {
+  background-color: rgba(220, 220, 220, 0.4);
+}
+
+.splash-login-menu-item-text-frame {
+  padding-left: 16px;
+}
+
+.splash-login-menu-item-text-signup {
+  font-weight: 600;
+}
+
+
 
 .loginbuttons {
   text-shadow: 5px;
