@@ -12,6 +12,26 @@ export default class Splash extends React.Component {
     this.keyDownSplashLink = this.keyDownSplashLink.bind(this);
     this.keyUpSplashLink = this.keyUpSplashLink.bind(this);
     this.toggleSplashLoginMenu = this.toggleSplashLoginMenu.bind(this);
+    this.handleClickOutsideLoginMenu = this.handleClickOutsideLoginMenu.bind(this);
+  }
+
+  handleClickOutsideLoginMenu(e) {
+    const clickLoginMenu = this.menu && this.menu.contains(e.target)
+    const clickLoginButton = this.menuButton && this.menuButton.contains(e.target) === true
+    const clickOutMenu = !(clickLoginMenu || clickLoginButton)
+    const loginShouldClose = this.menu && clickOutMenu
+
+    if (loginShouldClose) {
+      this.setState({ splashLoginMenuOpen: false })
+    }
+  }
+
+  componentDidMount() {
+    document.addEventListener("mouseup", this.handleClickOutsideLoginMenu);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mouseup", this.handleClickOutsideLoginMenu);
   }
 
   keyDownSplashLink() {
@@ -39,7 +59,10 @@ export default class Splash extends React.Component {
     const splashMenu = () => {
       if (this.state.splashLoginMenuOpen) {
         return (
-          <div className="splash-login-menu-container">
+          <div
+            ref={menu => this.menu = menu}
+            className="splash-login-menu-container"
+          >
             <div className="splash-login-menu-frame">
               <div className="splash-login-menu-item-container">
                 <div className="splash-login-menu-item-frame">
@@ -97,6 +120,7 @@ export default class Splash extends React.Component {
           <ul className="twobar">
             <nav className="splashbuttons">
               <button
+                ref={menuButton => this.menuButton = menuButton}
                 type="button"
                 className="splashbuttons-button"
                 onClick={this.toggleSplashLoginMenu}
