@@ -12,7 +12,7 @@ class Api::ReviewsController < ApplicationController
         @host = listing_host        
 
         
-        @listings = Listing.owned_by(host)
+        @listings = Listing.owned_by(@host)
 
         # how many reviews total does the current host have total across all listings they own
         @host_reviews = @listings.reduce(0) { |sum, listing| sum + listing.reviews.length}
