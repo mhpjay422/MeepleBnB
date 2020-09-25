@@ -11,6 +11,7 @@ export default class ModalButton extends React.Component {
     this.toggleSplashLoginMenu = this.toggleSplashLoginMenu.bind(this);
     this.handleClickOutsideLoginMenu = this.handleClickOutsideLoginMenu.bind(this);
     this.clickLoginMenuOption = this.clickLoginMenuOption.bind(this);
+    this.logOut = this.logOut.bind(this);
   }
 
   componentDidMount() {
@@ -45,6 +46,11 @@ export default class ModalButton extends React.Component {
     } else {
       this.props.demoLogin()
     }
+  }
+
+  logOut() {
+    this.props.logout()
+    // this.setState({ state: this.state });
   }
 
   render() {

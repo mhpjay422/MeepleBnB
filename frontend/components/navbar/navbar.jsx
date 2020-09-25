@@ -18,23 +18,11 @@ class Navbar extends React.Component {
 
     this.toggleSearch = this.toggleSearch.bind(this)
     this.handleClick = this.handleClick.bind(this);
-    this.logInDemo = this.logInDemo.bind(this);
-    this.logOut = this.logOut.bind(this);
     this.setDataFromSearchForm = this.setDataFromSearchForm.bind(this);
     this.propSearchTerm = this.propSearchTerm.bind(this);
     this.propStartDate = this.propStartDate.bind(this);
     this.propEndDate = this.propEndDate.bind(this);
     this.propGuests = this.propGuests.bind(this);
-  }
-
-  logInDemo(e) {
-    this.props.demoLogin()
-    this.setState({ state: this.state });
-  }
-
-  logOut() {
-    this.props.logout()
-    this.setState({ state: this.state });
   }
 
   handleClick(e) {
