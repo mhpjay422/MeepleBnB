@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import { Link } from "react-router-dom";
 import SearchForm from "../search_form/search_form.jsx";
 import { convertMoment } from "../helper_methods/helper_methods.jsx";
 import ModalButton from "../modal/modal_button_container";
@@ -94,25 +93,6 @@ class Navbar extends React.Component {
   }
 
   render() {
-
-    const demo = () => {
-      if (this.props.loggedIn) {
-        return (
-          <div className="loggedin-buttons" >
-            <Link className="header-button" to={`/bookings/${this.props.users.id}`}>
-              <button className="header-button">Trips</button>
-            </Link>
-            <Link className="header-button" onClick={this.logOut} to={`/greeting`}>
-              <button className="header-button">Log Out</button>
-            </Link>
-          </div>
-        );
-      } else {
-        return (
-          <ModalButton />
-        );
-      }
-    };
 
     const miniOrFull = () => {
       if (this.state.searchBarType === "mini") {
@@ -259,7 +239,9 @@ class Navbar extends React.Component {
                 {greetSearchMini()}
                 {greetSearchFull()}
               </div>
-              <div className="twobar">{demo()}</div>
+              <div className="twobar">
+                <ModalButton />
+              </div>
             </section>
           </div>
           {greetGrayout()}

@@ -5,7 +5,8 @@ import { openModal } from '../../actions/modal_actions';
 
 const msp = (state) => {
   return {
-
+    users: state.entities.users[state.session.id],
+    loggedIn: Boolean(state.session.id),
   };
 };
 

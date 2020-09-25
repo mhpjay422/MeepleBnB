@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default class ModalButton extends React.Component {
   constructor(props) {
@@ -94,27 +95,41 @@ export default class ModalButton extends React.Component {
     };
 
     const buttonModal = () => {
-      return (
 
-        <nav className="buttonModal">
-          <button
-            ref={menuButton => this.menuButton = menuButton}
-            type="button"
-            className="buttonModal-button"
-            onClick={this.toggleSplashLoginMenu}
-          >
-            <img
-              src="./menu-dashes.png"
-              className="buttonModal-menu-dashes"
-            />
-            <div className="buttonModal-user-img">
-              <img src="./profile.png" />
-            </div>
-          </button>
-          {splashMenu()}
-        </nav>
+      if (this.props.loggedIn) {
+        return (
+          <div className="loggedin-buttons" >
+            <Link className="header-button" to={`/bookings/${this.props.users.id}`}>
+              <button className="header-button">Trips</button>
+            </Link>
+            <Link className="header-button" onClick={this.logOut} to={`/greeting`}>
+              <button className="header-button">Log Out</button>
+            </Link>
+          </div>
+        );
+      } else {
+        return (
 
-      )
+          <nav className="buttonModal">
+            <button
+              ref={menuButton => this.menuButton = menuButton}
+              type="button"
+              className="buttonModal-button"
+              onClick={this.toggleSplashLoginMenu}
+            >
+              <img
+                src="./menu-dashes.png"
+                className="buttonModal-menu-dashes"
+              />
+              <div className="buttonModal-user-img">
+                <img src="./profile.png" />
+              </div>
+            </button>
+            {splashMenu()}
+          </nav>
+
+        );
+      }
     }
 
     return buttonModal();

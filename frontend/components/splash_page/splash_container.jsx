@@ -2,10 +2,7 @@ import { connect } from 'react-redux';
 import Splash from './splash';
 
 const msp = (state) => {
-  return {
-    users: state.entities.users[state.session.id],
-    loggedIn: Boolean(state.session.id)
-  };
+  return {};
 };
 
 const mdp = dispatch => {
