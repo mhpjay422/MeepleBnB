@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: bookings
+#
+#  id         :bigint(8)        not null, primary key
+#  renter_id  :integer          not null
+#  listing_id :integer          not null
+#  price      :integer          not null
+#  date_start :datetime         not null
+#  date_end   :datetime         not null
+#  status     :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  guests     :integer
+#
+
 class Booking < ApplicationRecord
 
   STATUS_STATII = ["APPROVED", 'DENIED', "PENDING"].freeze

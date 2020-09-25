@@ -100,43 +100,51 @@ export default class ModalButton extends React.Component {
       }
     };
 
-    const buttonModal = () => {
-
+    const ifLoggedInPic = () => {
       if (this.props.loggedIn) {
-        return (
-          <div className="loggedin-buttons" >
-            <Link className="header-button" to={`/bookings/${this.props.users.id}`}>
-              <button className="header-button">Trips</button>
-            </Link>
-            <Link className="header-button" onClick={this.logOut} to={`/greeting`}>
-              <button className="header-button">Log Out</button>
-            </Link>
-          </div>
-        );
+        return "./favicon.ico"
       } else {
-        return (
-
-          <nav className="buttonModal">
-            <button
-              ref={menuButton => this.menuButton = menuButton}
-              type="button"
-              className="buttonModal-button"
-              onClick={this.toggleSplashLoginMenu}
-            >
-              <img
-                src="./menu-dashes.png"
-                className="buttonModal-menu-dashes"
-              />
-              <div className="buttonModal-user-img">
-                <img src="./profile.png" />
-              </div>
-            </button>
-            {splashMenu()}
-          </nav>
-
-        );
+        return "./profile.png"
       }
     }
+
+    const buttonModal = () => {
+
+      // if (this.props.loggedIn) {
+      //   return (
+      //     <div className="loggedin-buttons" >
+      //       <Link className="header-button" to={`/bookings/${this.props.users.id}`}>
+      //         <button className="header-button">Trips</button>
+      //       </Link>
+      //       <Link className="header-button" onClick={this.logOut} to={`/greeting`}>
+      //         <button className="header-button">Log Out</button>
+      //       </Link>
+      //     </div>
+      //   );
+      // } else {
+      return (
+
+        <nav className="buttonModal">
+          <button
+            ref={menuButton => this.menuButton = menuButton}
+            type="button"
+            className="buttonModal-button"
+            onClick={this.toggleSplashLoginMenu}
+          >
+            <img
+              src="./menu-dashes.png"
+              className="buttonModal-menu-dashes"
+            />
+            <div className="buttonModal-user-image">
+              <img src={ifLoggedInPic()} className="buttonModal-user-img" />
+            </div>
+          </button>
+          {splashMenu()}
+        </nav>
+
+      );
+    }
+    // }
 
     return buttonModal();
   }

@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: listings
+#
+#  id          :bigint(8)        not null, primary key
+#  title       :string           not null
+#  description :string           not null
+#  address     :string           not null
+#  price       :integer          not null
+#  lat         :float            not null
+#  lng         :float            not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  picture_url :string           not null
+#  owner_id    :integer
+#
+
 require "rails_helper"
 
 RSpec.describe Listing do

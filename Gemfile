@@ -5,7 +5,7 @@ ruby '2.5.1'
 
 
 gem 'pry-rails'
-gem 'annotate'
+
 gem 'jquery-rails'
 gem "aws-sdk-s3"
 
@@ -47,6 +47,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
@@ -59,6 +60,7 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
+  gem 'factory_bot'
   gem 'capybara', '>= 2.15'
   gem 'rspec'
   gem 'rspec-rails'
