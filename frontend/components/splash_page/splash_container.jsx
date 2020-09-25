@@ -9,7 +9,7 @@ const msp = (state) => {
 };
 
 const mdp = dispatch => {
-
+  return {}
 };
 
 export default connect(msp, mdp)(Splash);

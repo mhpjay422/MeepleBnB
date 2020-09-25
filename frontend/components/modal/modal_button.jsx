@@ -53,33 +53,33 @@ export default class ModalButton extends React.Component {
 
           <div
             ref={menu => this.menu = menu}
-            className="splash-login-menu-container"
+            className="buttonModal-login-menu-container"
           >
-            <div className="splash-login-menu-frame">
-              <div className="splash-login-menu-item-container">
-                <div className="splash-login-menu-item-frame">
+            <div className="buttonModal-login-menu-frame">
+              <div className="buttonModal-login-menu-item-container">
+                <div className="buttonModal-login-menu-item-frame">
                   <div
-                    className="splash-login-menu-item-text-frame"
+                    className="buttonModal-login-menu-item-text-frame"
                     ref={signup => this.signup = signup}
                     onClick={this.clickLoginMenuOption}>
-                    <div className="splash-login-menu-item-text-signup">
+                    <div className="buttonModal-login-menu-item-text-signup">
                       Sign up
                     </div>
                   </div>
                 </div>
                 <div
-                  className="splash-login-menu-item-frame"
+                  className="buttonModal-login-menu-item-frame"
                   ref={login => this.login = login}
                   onClick={this.clickLoginMenuOption}>
-                  <div className="splash-login-menu-item-text-frame">
+                  <div className="buttonModal-login-menu-item-text-frame">
                     Log in
                   </div>
                 </div>
                 <div
-                  className="splash-login-menu-item-frame"
+                  className="buttonModal-login-menu-item-frame"
                   ref={demo => this.demo = demo}
                   onClick={this.clickLoginMenuOption}>
-                  <div className="splash-login-menu-item-text-frame">
+                  <div className="buttonModal-login-menu-item-text-frame">
                     Demo Log in
                   </div>
                 </div>
@@ -96,18 +96,18 @@ export default class ModalButton extends React.Component {
     const buttonModal = () => {
       return (
 
-        <nav className="splashbuttons">
+        <nav className="buttonModal">
           <button
             ref={menuButton => this.menuButton = menuButton}
             type="button"
-            className="splashbuttons-button"
+            className="buttonModal-button"
             onClick={this.toggleSplashLoginMenu}
           >
             <img
               src="./menu-dashes.png"
-              className="splashbuttons-menu-dashes"
+              className="buttonModal-menu-dashes"
             />
-            <div className="splashbuttons-user-img">
+            <div className="buttonModal-user-img">
               <img src="./profile.png" />
             </div>
           </button>

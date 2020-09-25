@@ -896,7 +896,7 @@ body {
   z-index: 12;
 }
 
-.splashbuttons {
+.buttonModal {
   font-weight: bolder;
   color: white;
   text-align: right;
@@ -907,7 +907,7 @@ body {
   height: 80px;
 }
 
-.splashbuttons-button {
+.buttonModal-button {
   appearance: none;
   background: transparent;
   border: 1px solid #DDDDDD;
@@ -930,13 +930,13 @@ body {
   z-index: 1;
 }
 
-.splashbuttons-menu-dashes {
+.buttonModal-menu-dashes {
   position: relative;
   top: 1px;
   left: 2px;
 }
 
-.splashbuttons-user-img {
+.buttonModal-user-img {
   color: #717171;
   flex: 0 0 30px;
   height: 30px;
@@ -947,7 +947,7 @@ body {
   z-index: 1;
 }
 
-.splash-login-menu-container {
+.buttonModal-login-menu-container {
   appearance: none;
   background: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 16px;
@@ -962,11 +962,11 @@ body {
   border-radius: 12px;
 }
 
-.splash-login-menu-frame {
+.buttonModal-login-menu-frame {
   margin: 8px 0px;
 }
 
-.splash-login-menu-item-container {
+.buttonModal-login-menu-item-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -974,7 +974,7 @@ body {
   font-size: 14px;
 }
 
-.splash-login-menu-item-frame {
+.buttonModal-login-menu-item-frame {
   width: 100%;
   align-self: flex-start;
   cursor: pointer;
@@ -982,15 +982,15 @@ body {
   box-sizing: border-box;
 }
 
-.splash-login-menu-item-frame:hover {
+.buttonModal-login-menu-item-frame:hover {
   background-color: rgba(220, 220, 220, 0.4);
 }
 
-.splash-login-menu-item-text-frame {
+.buttonModal-login-menu-item-text-frame {
   padding: 14px 0 14px 16px;
 }
 
-.splash-login-menu-item-text-signup {
+.buttonModal-login-menu-item-text-signup {
   font-weight: 600;
 }
 
