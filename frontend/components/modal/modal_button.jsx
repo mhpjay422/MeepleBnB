@@ -56,45 +56,85 @@ export default class ModalButton extends React.Component {
   render() {
     const splashMenu = () => {
       if (this.state.splashLoginMenuOpen) {
-        return (
+        if (this.props.loggedIn) {
 
-          <div
-            ref={menu => this.menu = menu}
-            className="buttonModal-login-menu-container"
-          >
-            <div className="buttonModal-login-menu-frame">
-              <div className="buttonModal-login-menu-item-container">
-                <div className="buttonModal-login-menu-item-frame">
+          return (
+
+            <div
+              ref={menu => this.menu = menu}
+              className="buttonModal-login-menu-container"
+            >
+              <div className="buttonModal-login-menu-frame">
+                <div className="buttonModal-login-menu-item-container">
+                  <div className="buttonModal-login-menu-item-frame">
+                    <Link
+                      className="buttonModal-login-menu-item-text-frame"
+                      to={`/bookings/${this.props.users.id}`}>
+                      <div className="buttonModal-login-menu-item-text-bolder">
+                        Trips
+                      </div>
+                    </Link>
+                  </div>
                   <div
-                    className="buttonModal-login-menu-item-text-frame"
-                    ref={signup => this.signup = signup}
-                    onClick={this.clickLoginMenuOption}>
-                    <div className="buttonModal-login-menu-item-text-signup">
-                      Sign up
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="buttonModal-login-menu-item-frame"
-                  ref={login => this.login = login}
-                  onClick={this.clickLoginMenuOption}>
-                  <div className="buttonModal-login-menu-item-text-frame">
-                    Log in
-                  </div>
-                </div>
-                <div
-                  className="buttonModal-login-menu-item-frame"
-                  ref={demo => this.demo = demo}
-                  onClick={this.clickLoginMenuOption}>
-                  <div className="buttonModal-login-menu-item-text-frame">
-                    Demo Log in
+                    className="buttonModal-login-menu-item-frame"
+                    ref={login => this.login = login}>
+                    <Link
+                      className="buttonModal-login-menu-item-text-frame"
+                      onClick={this.logOut}
+                      to={`/greeting`}>
+                      <div className="buttonModal-login-menu-item-text-bolder">
+                        Log out
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-        );
+          );
+        } else {
+
+          return (
+
+            <div
+              ref={menu => this.menu = menu}
+              className="buttonModal-login-menu-container"
+            >
+              <div className="buttonModal-login-menu-frame">
+                <div className="buttonModal-login-menu-item-container">
+                  <div className="buttonModal-login-menu-item-frame">
+                    <div
+                      className="buttonModal-login-menu-item-text-frame"
+                      ref={signup => this.signup = signup}
+                      onClick={this.clickLoginMenuOption}>
+                      <div className="buttonModal-login-menu-item-text-signup">
+                        Sign up
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="buttonModal-login-menu-item-frame"
+                    ref={login => this.login = login}
+                    onClick={this.clickLoginMenuOption}>
+                    <div className="buttonModal-login-menu-item-text-frame">
+                      Log in
+                    </div>
+                  </div>
+                  <div
+                    className="buttonModal-login-menu-item-frame"
+                    ref={demo => this.demo = demo}
+                    onClick={this.clickLoginMenuOption}>
+                    <div className="buttonModal-login-menu-item-text-frame">
+                      Demo Log in
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          );
+
+        }
       } else {
         return <></>;
       }
@@ -110,18 +150,6 @@ export default class ModalButton extends React.Component {
 
     const buttonModal = () => {
 
-      // if (this.props.loggedIn) {
-      //   return (
-      //     <div className="loggedin-buttons" >
-      //       <Link className="header-button" to={`/bookings/${this.props.users.id}`}>
-      //         <button className="header-button">Trips</button>
-      //       </Link>
-      //       <Link className="header-button" onClick={this.logOut} to={`/greeting`}>
-      //         <button className="header-button">Log Out</button>
-      //       </Link>
-      //     </div>
-      //   );
-      // } else {
       return (
 
         <nav className="buttonModal">

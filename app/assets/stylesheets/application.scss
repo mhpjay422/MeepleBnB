@@ -997,10 +997,18 @@ body {
 
 .buttonModal-login-menu-item-text-frame {
   padding: 14px 0 14px 16px;
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
 }
 
-.buttonModal-login-menu-item-text-signup {
+.buttonModal-login-menu-item-text-bolder {
   font-weight: 600;
+}
+
+.buttonModal-login-menu-item-text-frame:hover {
+  color: rgb(34, 34, 34);
 }
 
 
