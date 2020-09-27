@@ -16,16 +16,28 @@
 #
 
 require "rails_helper"
+include FactoryBot::Syntax::Methods
+
 
 RSpec.describe Listing do
   describe '::owned_by' do 
+
+    FactoryBot.define do
+      factory :user do
+        first_name { "John" }
+        last_name  { "Doe" }
+        admin { false }
+      end
+    end
+
     it 'returns all listings for a host' do 
       host = User.create(
         email: "abc@gmail.com",
         password: "starwars",
         username: "abc"
       )
-      listing1 = Listing.create(
+      
+      listing1 = described_class.create(
         title: "very nice",
         description: "nice",
         address: "11 11st",
@@ -35,7 +47,7 @@ RSpec.describe Listing do
         owner_id: host.id,
         picture_url: "abc"
       )
-      listing2 = Listing.create(
+      listing2 = described_class.create(
         title: "very very nice",
         description: "nice",
         address: "11 11st",
@@ -46,7 +58,7 @@ RSpec.describe Listing do
         picture_url: "abc"
       )
     
-      expect(Listing.owned_by(host)).to eq([listing1, listing2])  
+      expect(described_class.owned_by(host)).to eq([listing1, listing2])  
     end
 
     context 'when no listings are owned by the host' do
@@ -61,7 +73,7 @@ RSpec.describe Listing do
           password: "def",
           username: "def"
         )
-        listing1 = Listing.create(
+        listing1 = described_class.create(
           title: "very nice",
           description: "nice",
           address: "11 11st",
@@ -71,7 +83,7 @@ RSpec.describe Listing do
           owner_id: host2.id,
           picture_url: "abc"
         )
-        listing2 = Listing.create(
+        listing2 = described_class.create(
           title: "very very nice",
           description: "nice",
           address: "11 11st",
@@ -81,8 +93,10 @@ RSpec.describe Listing do
           owner_id: host2.id,
           picture_url: "abc"
         )
-        expect(Listing.owned_by(host)).to eq([])
+        expect(described_class.owned_by(host)).to eq([])
       end
     end
+
+    
   end
 end

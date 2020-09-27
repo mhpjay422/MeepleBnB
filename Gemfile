@@ -44,6 +44,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -60,7 +62,6 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'factory_bot'
   gem 'capybara', '>= 2.15'
   gem 'rspec'
   gem 'rspec-rails'
