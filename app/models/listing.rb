@@ -34,7 +34,14 @@ class Listing < ApplicationRecord
 
   
 
-  scope :owned_by, ->(host) { where(owner: host) }
+  scope :owned_by, -> host { where(owner: host) }
+  # scope will always return a relation
+
+  # def self.owned_by(host)
+  #   Listing.where(owner: host)
+  #   # never return nil in a a class method.  This breaks chainability
+  # end
+
 
   def self.in_bounds(bounds)
   self.where("lat < ?", bounds[:northEast][:lat])
@@ -43,8 +50,5 @@ class Listing < ApplicationRecord
     .where("lng < ?", bounds[:northEast][:lng])
   end
 
-  # def self.owned_by(host)
-  #   Listing.where(owner: host)
-  # end
 
 end
