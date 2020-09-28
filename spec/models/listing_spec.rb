@@ -1,7 +1,7 @@
 # == Schema Information
 #
 # Table name: listings
-#
+#   
 #  id          :bigint(8)        not null, primary key
 #  title       :string           not null
 #  description :string           not null
@@ -15,7 +15,11 @@
 #  owner_id    :integer
 #
 
+# Questions
+
 require "rails_helper"
+# require "spec_helper"
+# use if testing only ruby objects
 include FactoryBot::Syntax::Methods
 
 

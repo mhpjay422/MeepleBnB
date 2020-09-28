@@ -32,6 +32,10 @@ class Listing < ApplicationRecord
   foreign_key: :listing_id, 
   class_name: "Review"
 
+  
+
+  scope :owned_by, ->(host) { where(owner: host) }
+
   def self.in_bounds(bounds)
   self.where("lat < ?", bounds[:northEast][:lat])
     .where("lat > ?", bounds[:southWest][:lat])
@@ -39,8 +43,8 @@ class Listing < ApplicationRecord
     .where("lng < ?", bounds[:northEast][:lng])
   end
 
-  def self.owned_by(host)
-    Listing.where(owner: host)
-  end
+  # def self.owned_by(host)
+  #   Listing.where(owner: host)
+  # end
 
 end
