@@ -7,7 +7,7 @@ FactoryBot.define do
 
   factory :random_user, class: User do 
     email { Faker::Internet.email }
-    password  { Faker::String.random(length: 4) }
-    username { Faker::String.random(length: 6) }
+    password  { Faker::String.random(length: 6) }
+    username { Faker::String.random(length: 8) }
   end
 end
