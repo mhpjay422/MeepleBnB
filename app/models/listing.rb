@@ -32,6 +32,9 @@ class Listing < ApplicationRecord
   foreign_key: :listing_id, 
   class_name: "Review"
 
+  has_many :five_star_reviews, -> { where(rating == 5) },
+  class_name: "Review" 
+
   
 
   # scope will always return a relation
