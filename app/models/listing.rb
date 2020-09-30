@@ -34,8 +34,9 @@ class Listing < ApplicationRecord
 
   
 
-  scope :owned_by, -> host { where(owner: host) }
   # scope will always return a relation
+  # use a relation instead if result is n+1
+  scope :owned_by, -> host { where(owner: host) }
 
   # def self.owned_by(host)
   #   Listing.where(owner: host)

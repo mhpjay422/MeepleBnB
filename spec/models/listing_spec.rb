@@ -25,21 +25,20 @@ include FactoryBot::Syntax::Methods
 
 RSpec.describe Listing do
   describe '::owned_by' do 
-
-    FactoryBot.define do
-      factory :user do
-        first_name { "John" }
-        last_name  { "Doe" }
-        admin { false }
-      end
-    end
+    #let(:user) { build(:user) } #User.new({})
+    #let!(:user) { build(:user) } #creates before each example
+    #let(:user) { build(:user, first_name: "chewy") } #overides first_name
+    let(:random_user) { create(:user) } #User.create({})
 
     it 'returns all listings for a host' do 
-      host = User.create(
-        email: "abc@gmail.com",
-        password: "starwars",
-        username: "abc"
-      )
+
+      # host = User.create(
+      #   email: "abc@gmail.com",
+      #   password: "starwars",
+      #   username: "abc"
+      # )
+
+      host = random_user
       
       listing1 = described_class.create(
         title: "very nice",
