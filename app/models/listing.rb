@@ -35,17 +35,11 @@ class Listing < ApplicationRecord
   has_many :five_star_reviews, -> { where(rating == 5) },
   class_name: "Review" 
 
-  
-
-  # scope will always return a relation
-  # use a relation instead if result is n+1
   scope :owned_by, -> host { where(owner: host) }
 
-  # def self.owned_by(host)
-  #   Listing.where(owner: host)
-  #   # never return nil in a a class method.  This breaks chainability
-  # end
-
+  def self.total_review_count(listings)
+    listings.reduce(0) { |sum, listing| sum + listing.reviews.length}
+  end
 
   def self.in_bounds(bounds)
   self.where("lat < ?", bounds[:northEast][:lat])
@@ -53,6 +47,5 @@ class Listing < ApplicationRecord
     .where("lng > ?", bounds[:southWest][:lng])
     .where("lng < ?", bounds[:northEast][:lng])
   end
-
 
 end
