@@ -35,10 +35,13 @@ class Listing < ApplicationRecord
   has_many :five_star_reviews, -> { where(rating == 5) },
   class_name: "Review" 
 
+  delegate :length, to: :reviews, prefix: 'reviews'
+
   scope :owned_by, -> host { where(owner: host) }
+  
 
   def self.total_review_count(listings)
-    listings.reduce(0) { |sum, listing| sum + listing.reviews.length}
+    listings.reduce(0) { |sum, listing| sum + listing.reviews_length}
   end
 
   def self.in_bounds(bounds)
@@ -49,3 +52,4 @@ class Listing < ApplicationRecord
   end
 
 end
+
