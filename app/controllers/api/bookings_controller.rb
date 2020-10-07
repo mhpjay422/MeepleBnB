@@ -33,7 +33,7 @@ class Api::BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
-    # authorize @booking
+    authorize @booking
     @booking.destroy
     render "/api/bookings"
   end
