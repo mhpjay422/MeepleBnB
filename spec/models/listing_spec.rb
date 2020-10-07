@@ -14,13 +14,11 @@
 #  picture_url :string           not null
 #  owner_id    :integer
 
-require "rails_helper"
-# require "spec_helper"
-# use if testing only ruby objects
+require 'rails_helper'
 
 RSpec.describe Listing do
   describe '::owned_by' do 
-    let(:user) { create(:random_user) } #User.create({})
+    let(:user) { create(:random_user) }
     let(:listing3) { create(:random_listing, owner_id: user.id) }
     let(:listing4) { create(:random_listing, owner_id: user.id) }
     

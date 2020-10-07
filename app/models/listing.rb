@@ -36,9 +36,10 @@ class Listing < ApplicationRecord
   class_name: "Review" 
 
   delegate :length, to: :reviews, prefix: 'reviews'
+  
 
   scope :owned_by, -> host { where(owner: host) }
-  
+
 
   def self.total_review_count(listings)
     listings.reduce(0) { |sum, listing| sum + listing.reviews_length}

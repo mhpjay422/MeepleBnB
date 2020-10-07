@@ -11,14 +11,14 @@ FactoryBot.define do
   end
 
   factory :random_listing, class: Listing do 
-    title { Faker::Quote.unique.most_interesting_man_in_the_world }
-    description { Faker::Quote.yoda }
-    address { Faker::Address.unique.full_address }
+    title { Faker::Lorem.characters(number: 10) }
+    description { Faker::Lorem.characters(number: 10) }
+    address { Faker::Lorem.characters(number: 10) }
     price { Faker::Number.within(range: 1..1000) }
     lat { Faker::Number.decimal(l_digits: 2, r_digits: 10) }
     lng { Faker::Number.decimal(l_digits: 2, r_digits: 10) }
     owner { create(:random_user) }
-    picture_url { Faker::String.random(length: 7) }
+    picture_url { Faker::Lorem.characters(number: 10) }
 
     transient do 
       random_reviews { 0 }
@@ -27,7 +27,7 @@ FactoryBot.define do
     after(:create) do |listing, evaluator|
       evaluator.random_reviews.times do 
         create(:review, listing: listing)
-      end
+      end 
     end
   end
 end
