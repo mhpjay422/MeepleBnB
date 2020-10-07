@@ -29,6 +29,26 @@ RSpec.describe Api::ListingsController, :type => :controller do
       expect(subject).to render_template(:show)
       expect(subject).to render_template("show")
     end
+  end
 
+  describe "POST create" do
+    let(:user) { create(:random_user) }
+
+    it "creates a new listing" do
+
+      list_params = {
+        title: "very nice",
+        description: "nice",
+        address: "11 11st",
+        price: 111,
+        lat: 11,
+        lng: 11,
+        owner_id: user.id,
+        picture_url: "abc"
+      }
+      subject { post :create, params: list_params }
+      
+      expect{ subject }.to change(Listing, :count).by(1)
+    end
   end
 end
