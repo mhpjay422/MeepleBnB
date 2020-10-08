@@ -9,7 +9,9 @@ Rails.application.routes.draw do
       resources :reviews, only: [:index, :create, :destroy]
       resources :bookings, only: [:create]
     end
-    resources :bookings, only: [:approve, :deny, :new]
+    resources :bookings, only: [:approve, :deny, :new] do
+      post '/approve', to: 'bookings#approve'
+    end
   end
 
   root "static_pages#root"

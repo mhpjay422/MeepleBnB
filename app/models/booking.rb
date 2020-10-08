@@ -71,8 +71,25 @@ class Booking < ApplicationRecord
   def overlapping_requests
     Booking
       .where.not(id: self.id)
-      .where.not(":date_start > :date_end OR :date_end")
+      .where(listing_id: listing_id)
+      .where(
+        "(date_start > :date_start AND date_start < :date_end) OR 
+        ( date_end > :date_start AND date_end < :date_end) OR 
+        ( date_start < :date_start AND date_end > :date_end )",
+        { date_start: date_start, date_end: date_end }
+      )
   end
+
+  # overlapping request would mean that the start date is within the current request time or the end date is within the current request time.
+  # examples:
+  # Booking 1 - Oct 10-14
+  # Booking 2 - Oct 9-11
+  # Booking 3 - Oct 13-15
+  # Booking 4 - Oct 11-12
+  # Booking 5 - Oct 9-15
+  # Booking 6 - Oct 8-9 * shouldn't be returned
+  # Booking 7 - Oct 15-16 * shouldn't be returned
+  # Date.strptime('2020-10-10', '%Y-%m-%d')
 
   def overlapping_approved_requests
     overlapping_requests.where('status = \'APPROVED\'')

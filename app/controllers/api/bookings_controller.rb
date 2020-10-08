@@ -2,6 +2,7 @@ class Api::BookingsController < ApplicationController
   before_action :ensure_logged_in, only: [:create]
 
   def approve
+    authorize current_booking_request
     current_booking_request.approve!
     render "/api/bookings/show"
   end
