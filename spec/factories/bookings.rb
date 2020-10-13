@@ -9,4 +9,3 @@ FactoryBot.define do
   end
 end
 
-# implement full flow deny destroy

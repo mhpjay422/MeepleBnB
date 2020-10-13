@@ -39,6 +39,7 @@ class Booking < ApplicationRecord
       self.status = "APPROVED"
       self.save!
 
+      
       overlapping_pending_requests.each do |req|
         req.update!(status: "DENIED")
       end
@@ -102,9 +103,9 @@ class Booking < ApplicationRecord
   def does_not_overlap_approved_request
     return if self.denied?
 
-    # unless overlapping_approved_requests.empty?
-    #   errors[:base] << "There is a conflict with an existing approved request"
-    # end
+    unless overlapping_approved_requests.empty?
+      errors[:base] << "There is a conflict with an existing approved request"
+    end
   end
 
   def start_must_before_end

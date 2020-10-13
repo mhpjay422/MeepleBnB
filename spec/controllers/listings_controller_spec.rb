@@ -17,30 +17,42 @@ RSpec.describe Api::ListingsController, :type => :controller do
       expect(response).to be_successful
     end
 
-    it "assigns @listings" do
+    it "returns a response with the corresponding data" do
       listing1
       get :index, format: :json
       
       body = JSON.parse(response.body)
       expect(body[listing1.id.to_s]["picture_url"]).to eq(listing1.picture_url)
-      #expect(assigns(:listings)).to eq([listing1])
-      #expect(assigns(:listings).class.name).to_not be_nil
     end
   end
 
   describe "GET show" do
-    subject { get :show, format: :json }
+    let(:user) { create(:random_user) }
+    let(:listing1) { create(:random_listing, owner_id: user.id) }
     it "renders the show template" do
-      expect(subject).to render_template(:show)
-      expect(subject).to render_template("show")
+      form_params = {
+        id: listing1.id,
+        title: "very nice",
+        description: "nice",
+        address: "11 11st",
+        price: 111,
+        lat: 11 ,
+        lng: 11,
+        owner_id:  1,
+        picture_url: "abc",
+      }
+      
+      expect(get :show, params: form_params, format: :json).to render_template(:show)
+      expect(get :show, params: form_params, format: :json).to render_template("show")
     end
   end
 
   describe "POST create" do
     let(:user) { create(:random_user) }
-
-
+    
     it "creates a new listing" do
+      
+      post :create, params: { user: "name", email: "email", format: :json}
 
       list_params = {
         title: "very nice",
