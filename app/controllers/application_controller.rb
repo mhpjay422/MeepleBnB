@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_logged_in
+    
     unless current_user
       render json: ['invalid'], status: 401
     end

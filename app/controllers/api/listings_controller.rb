@@ -13,6 +13,7 @@ class Api::ListingsController < ApplicationController
   end
 
   def create
+    debugger
     @listing = Listing.create!(listing_params)
     render "api/listings/show"
   end
@@ -30,6 +31,7 @@ class Api::ListingsController < ApplicationController
       :price,
       :picture_url,
       :bounds,
+      :owner_id,
       photos: []
     )
   end

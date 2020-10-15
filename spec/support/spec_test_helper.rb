@@ -4,8 +4,9 @@ module SpecTestHelper
   end
 
   def login(user)
-    user = User.where(:login => user.to_s).first if user.is_a?(Symbol)
-    request.session[:user] = user.id
+    user.reset_session_token!
+    session = { session_token: user.session_token}
+    allow_any_instance_of(ApplicationController).to receive(:session).and_return(session)
   end
 
   def current_user

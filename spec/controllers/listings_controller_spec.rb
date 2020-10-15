@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'support/spec_test_helper'
 
 RSpec.describe Api::ListingsController, :type => :controller do
   describe "GET index" do
@@ -52,10 +53,10 @@ RSpec.describe Api::ListingsController, :type => :controller do
     
     it "creates a new listing" do
 
-      Api::ListingsController = @controller
-      @controller = Api::SessionsController
+      # Api::ListingsController = @controller
+      # @controller = Api::SessionsController
       
-      post :create, params: { user: {username: "user", password: "password"}, format: :json}
+      # post :create, params: { user: {username: "user", password: "password"}, format: :json}
       # user = FactoryBot.create(:random_user)
       # login_as(user, :scope => :random_user)
       # sign_in user
@@ -75,9 +76,9 @@ RSpec.describe Api::ListingsController, :type => :controller do
         picture_url: "abc"
       }
 
-      @controller = Api::ListingsController
-        
-      post :create, params: list_params, format: :json
+      # @controller = Api::ListingsController
+      login(user1)
+      post :create, params: {listing: list_params}, format: :json
       
       expect(Listing.count).to eq(1)
     end
