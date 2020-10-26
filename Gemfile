@@ -2,10 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
-
-
 gem 'pry-rails'
-
 gem 'jquery-rails'
 gem "aws-sdk-s3"
 
@@ -30,7 +27,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
 gem 'rails_12factor'
 
 # Use ActiveStorage variant
@@ -41,7 +37,6 @@ gem 'rails_12factor'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'devise'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
