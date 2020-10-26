@@ -878,7 +878,7 @@ class ListingDetail extends React.Component {
                   <img className="things-body-third-item-img" src="spray.png"></img>
                 </div>
                 <div className="things-body-third-item-text">
-                  Airbnb's social-distancing and other COVID-19-related guidelines apply
+                  Meeplebnb's enhanced cleaning guidelines applies
                 </div>
               </div>
               <div className="things-body-third-item">
@@ -932,22 +932,22 @@ class ListingDetail extends React.Component {
 
     return (
       <>
-      <div className="single-listing-show">
-        <div className="listing-detail-page">
+        <div className="single-listing-show">
+          <div className="listing-detail-page">
 
-          <div className="hidden-shadow">hello</div>
-          <NavbarContainer />
-          <div className="header-buffer">header</div>
-          {headerDetail}
-          {bodyDetail}
-          {bodySectionLocation}
-          {bodySectionReviews}
-          {bodySectionHost}
-          {bodySectionThings}
-        </div>
-        <div className="footer-buffer">footer</div>
-        <Footer />
-      </div >
+            <div className="hidden-shadow">hello</div>
+            <NavbarContainer />
+            <div className="header-buffer">header</div>
+            {headerDetail}
+            {bodyDetail}
+            {bodySectionLocation}
+            {bodySectionReviews}
+            {bodySectionHost}
+            {bodySectionThings}
+          </div>
+          <div className="footer-buffer">footer</div>
+          <Footer />
+        </div >
       </>
     );
   };
