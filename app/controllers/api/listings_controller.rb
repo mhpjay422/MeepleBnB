@@ -13,7 +13,6 @@ class Api::ListingsController < ApplicationController
   end
 
   def create
-    debugger
     @listing = Listing.create!(listing_params)
     render "api/listings/show"
   end
