@@ -2,10 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
-
-
 gem 'pry-rails'
-
 gem 'jquery-rails'
 gem "aws-sdk-s3"
 
@@ -41,19 +38,18 @@ gem 'rails_12factor'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'devise'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
   gem 'faker'
   gem "pundit"
-end
-
-group :development do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
+end
+
+group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'

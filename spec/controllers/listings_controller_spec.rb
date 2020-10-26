@@ -53,18 +53,6 @@ RSpec.describe Api::ListingsController, :type => :controller do
     
     it "creates a new listing" do
 
-      # Api::ListingsController = @controller
-      # @controller = Api::SessionsController
-      
-      # post :create, params: { user: {username: "user", password: "password"}, format: :json}
-      # user = FactoryBot.create(:random_user)
-      # login_as(user, :scope => :random_user)
-      # sign_in user
-      # sign_in { create(:random_user) }
-      # user = User.where(:login => user.to_s).first if user.is_a?(Symbol)
-      # request.session[:user] = user1.id
-      # session[:session_token] = 1
-
       list_params = {
         title: "very nice",
         description: "nice",
@@ -76,7 +64,6 @@ RSpec.describe Api::ListingsController, :type => :controller do
         picture_url: "abc"
       }
 
-      # @controller = Api::ListingsController
       login(user1)
       post :create, params: {listing: list_params}, format: :json
       
@@ -84,7 +71,3 @@ RSpec.describe Api::ListingsController, :type => :controller do
     end
   end
 end
-
-#sign in user - in testing
-#request specs
-#implement approve deny destroy
