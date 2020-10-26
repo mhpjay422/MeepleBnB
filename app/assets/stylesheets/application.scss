@@ -1996,7 +1996,8 @@ a:hover {
 
 .daypicker-calendar-clear-dates-button:hover {
   cursor: pointer;
-  background-color: rgb(241, 241, 241);
+  background-color: rgb(175, 174, 174);
+  color: white;
 }
 
 .daypicker-calendar-clear-dates-button {
@@ -2007,7 +2008,8 @@ a:hover {
   outline: none;
   font-size: 14px;
   width: auto;
-  padding: 36px 8px 8px 8px;
+  margin: 36px 8px 8px 8px;
+  height: 30px;
 }
 
 .DayPickerNavigation_button__horizontalDefault {

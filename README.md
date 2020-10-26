@@ -65,11 +65,11 @@ The index page shows a list of available listings. When the user zooms or pans o
   }
 ```
 
-### Search 
+### Search and Filter
 
 ![](./public/Search.gif)
 
-The nav bar provides a search field where the user can search by address, city or state. A dropdown of listings will appear with available listings within the search parameter.  The addresses may be clicked to redirect directly to the listing or onEnter reload the index page showing listings within the search parameter.  
+The Search and Filter menu bar provides a search field where the user can search by address, city or state. A dropdown of listings will appear with available listings within the search parameter.  The addresses may be clicked to redirect directly to the listing or onEnter reload the index page showing listings within the search parameter. You may also adjust additional filter options such as the date range and the number of guests within the search.  
 
 ```javascript
 const filteredListings = (state, props) => {
@@ -106,6 +106,8 @@ const filteredListings = (state, props) => {
 &nbsp;
 &nbsp;
 ### Bookings
+
+![](./public/Bookings.gif)
 
 A logged in user is able to book a listing from the listing show page.  Using the booking form, a date range may be selected using the actual "AirBnB date picker" along with the number of guests. If a user has already booked this property, a message will in place of the booking form will be in place of the booking form.
 
