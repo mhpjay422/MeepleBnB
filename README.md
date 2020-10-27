@@ -72,34 +72,30 @@ The index page shows a list of available listings. When the user zooms or pans o
 The Search and Filter menu bar provides a search field where the user can search by address, city or state. A dropdown of listings will appear with available listings within the search parameter.  The addresses may be clicked to redirect directly to the listing or onEnter reload the index page showing listings within the search parameter. You may also adjust additional filter options such as the date range and the number of guests within the search.  
 
 ```javascript
-const filteredListings = (state, props) => {
-    let list = [];
+const filteredListings = () => {
+  let list = [];
 
-    props.listings.forEach(function (listing) {
-      const matched = listing.address.toLowerCase().includes(state.searchTerm.toLowerCase());
-      const noZipArray = listing.address.split(" ");
-      const noZip = noZipArray.slice(0, noZipArray.length - 1);
-      const newAddress = noZip.join(" ");
-      const newList = Object.assign({},listing);
-      newList.address = newAddress
-
-      if (matched) {
-        list.push(newList);
-      }
-    });
-
-    return list;
-  }
-
-  const emptySearchTerm = this.state.searchTerm === ""
-
-  const allPropsOrFiltered = () => {
-    if(emptySearchTerm) {
-      return this.props.listings
-    } else {
-      return filteredListings(this.state, this.props)
+  listings.forEach(function (listing) {
+    const searched = listing.address.toLowerCase().includes(searchTerm.toLowerCase());
+    const inPriceRange = (listing.price > priceRangeMin) && (listing.price < priceRangeMax)
+    const matched = searched && inPriceRange
+    const noZipArray = listing.address.split(" ");
+    const noZip = noZipArray.slice(0, noZipArray.length - 1);
+    const newAddress = noZip.join(" ");
+    const newList = Object.assign({}, listing);
+    newList.address = newAddress
+    
+    if (matched) {
+      list.push(newList);
     }
+  });
+
+  if (list.length || !priceRangeDefault) {
+    return list;
+  } else {
+    return listings;
   }
+}    
 ```
 
 
@@ -109,85 +105,83 @@ const filteredListings = (state, props) => {
 
 ![](./public/Bookings.gif)
 
-A logged in user is able to book a listing from the listing show page.  Using the booking form, a date range may be selected using the actual "AirBnB date picker" along with the number of guests. If a user has already booked this property, a message will in place of the booking form will be in place of the booking form.
+A logged in user is able to book a listing from the listing's show page.  Using the booking form, a date range may be selected using the actual "AirBnB date picker" along with the number of guests. If a user has already booked this property, a message will in place of the booking form will be in place of the booking form. 
 
+Redux is used to store Booking Detail state across pages.  On the listing show page, the parent component stores and distributes the Booking details as the details change on each child component. This is achieved by lifting state back to the parent from child through a method that is passed as props to the child. When the method is called, a "setState" is invoked which updates the state in the parent. And by doing so, so does update the state in sibling components of the originating child component.
 
-
+The AirBnB datepicker API is imported, customized and used to handle the calendar portion of the Bookingform. 
 ```javascript
-class BookingForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      startDate: null,
-      endDate: null,
-      focusedInput: null,
-      guests: 1,
-      price: this.props.listing.price,
-      status: "PENDING"
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleGuests = this.handleGuests.bind(this);
-    this.finalForm = this.finalForm.bind(this);
-    this.formHelper = this.formHelper.bind(this);
-  }
-
-  componentDidMount() {
+componentDidMount() {
     this.props.fetchBookings(this.props.currentUserId);
   }
 
-  componentWillUnmount(oldProps) {
-    this.props.clearBookingErrors();
+  componentDidUpdate(prevProps) {
+    if ((prevProps.startDate !== this.props.startDate) || (prevProps.endDate !== this.props.endDate)) {
+      this.setState({
+        startDate: this.props.startDate,
+        endDate: this.props.endDate,
+        guests: this.props.guests,
+      });
+    }
+  }
+
+  handleChange({ startDate, endDate }) {
+    this.props.liftStateToParent({ startDate, endDate });
+    this.setState({ startDate, endDate })
+
+    this.props.updateStayOptions({
+      searchTerm: "",
+      startDate: this.state.startDate,
+      endDate: this.state.endDate,
+      guests: this.state.guests
+    })
+
+    this.forceUpdate()
   }
 
   handleSubmit(e) {
     e.preventDefault();
-
     if (this.props.currentUserId === null) {
       alert("Please log in to make a booking");
-    } 
-    else if (this.state.startDate === null || this.state.endDate === null) {
-      alert("Please choose valid date");
-    }
-
-
-    const booking = {
-      guests: this.state.guests,
-      date_start: this.state.startDate._d,
-      date_end: this.state.endDate._d,
-      listing_id: parseInt(this.props.listing.id),
-      status: this.state.status,
-      price: this.props.listing.price
-    };
-
-    this.props.createBooking(booking);
-  }
-
-  handleGuests(e) {
-    this.setState({ guests: e.target.value });
-  }
-
-  renderErrors() {
-    const errorMess = this.props.errors.map((error, i) => {
-      return (
-        <li key={`error-${i}`} className="errors">
-          {error}
-        </li>
-      );
-    });
-    return <ul>{errorMess}</ul>;
-  }
-
-  formHelper(booking) {
-    return (this.props.listing.id === booking.listing_id && booking.renter_id === this.props.currentUserId);
-  }
-
-  finalForm(alreadyBookedForm, form) {
-    if (this.props.bookings.some(this.formHelper)) {
-      return alreadyBookedForm;
+    } else if (this.state.startDate === null || this.state.endDate === null) {
+      alert("Please choose a valid date");
+    } else if (!(this.state.guests >= 1 && this.state.guests <= 4)) {
+      alert("Please choose a valid number of guests")
     } else {
-      return form;
+
+
+      const booking = {
+        guests: this.state.guests,
+        date_start: this.state.startDate._d,
+        date_end: this.state.endDate._d,
+        listing_id: parseInt(this.props.listing.id),
+        status: this.state.status,
+        price: this.props.listing.price
+      };
+
+
+      this.props.createBooking(booking);
     }
   }
+
+  <div className="date-picker">
+    <DateRangePicker
+      startDate={this.state.startDate}
+      startDateId="start-date"
+      endDate={this.state.endDate}
+      endDateId="end-date"
+      startDatePlaceholderText="Check-In"
+      showClearDates={true}
+      endDatePlaceholderText="Check-Out"
+      onDatesChange={({ startDate, endDate }) =>
+        this.handleChange({ startDate, endDate })
+      }
+      focusedInput={this.state.focusedInput}
+      onFocusChange={this.handleFocusChange}
+      renderCalendarDay={undefined}
+      minimumNights={2}
+    />
+  </div>
 ```
 &nbsp;
 &nbsp;

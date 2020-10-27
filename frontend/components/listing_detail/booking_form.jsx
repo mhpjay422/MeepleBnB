@@ -42,10 +42,6 @@ class BookingForm extends React.Component {
     this.props.fetchBookings(this.props.currentUserId);
   }
 
-  // componentWillUnmount(oldProps) {
-  //   this.props.clearBookingErrors();
-  // }
-
   componentDidUpdate(prevProps) {
     if ((prevProps.startDate !== this.props.startDate) || (prevProps.endDate !== this.props.endDate)) {
       this.setState({
@@ -96,19 +92,19 @@ class BookingForm extends React.Component {
   }
 
   handleCounterMinus() {
-    if(this.state.guests > 1) {
-      this.setState({ guests: this.state.guests - 1})
-    } 
+    if (this.state.guests > 1) {
+      this.setState({ guests: this.state.guests - 1 })
+    }
   }
 
   handleCounterPlus() {
-    if(this.state.guests < 4) {
-      this.setState({ guests: this.state.guests + 1})
+    if (this.state.guests < 4) {
+      this.setState({ guests: this.state.guests + 1 })
     }
   }
 
   renderErrors() {
-    if(this.props.errors) {
+    if (this.props.errors) {
       const errorMess = this.props.errors.map((error, i) => {
         return (
           <li key={`error-${i}`} className="errors">
@@ -194,7 +190,7 @@ class BookingForm extends React.Component {
     }
 
     const isMinusAllowed = () => {
-      if(this.state.guests === 1) {
+      if (this.state.guests === 1) {
         return (
           <button className="booking-guests-minus">
             <img className="minus-button-not-allowed" src="minus-light.png"></img>
@@ -203,10 +199,10 @@ class BookingForm extends React.Component {
       } else {
         return (
           <button
-          className="booking-guests-minus"
-          onClick={this.handleCounterMinus}
-          onMouseOver={this.hoverMinus}
-          onMouseLeave={this.unhoverMinus}
+            className="booking-guests-minus"
+            onClick={this.handleCounterMinus}
+            onMouseOver={this.hoverMinus}
+            onMouseLeave={this.unhoverMinus}
           >
             <img className="minus-button-allowed" src={isHoverMinus()}></img>
           </button >
@@ -215,7 +211,7 @@ class BookingForm extends React.Component {
     }
 
     const isPlusAllowed = () => {
-      if(this.state.guests === 4) {
+      if (this.state.guests === 4) {
         return (
           <button className="booking-guests-plus">
             <img className="plus-button-not-allowed" src="plus-light.png"></img>
@@ -229,27 +225,27 @@ class BookingForm extends React.Component {
             onMouseOver={this.hoverPlus}
             onMouseLeave={this.unhoverPlus}
           >
-            <img className="plus-button-allowed" src={isHoverPlus()}/>
+            <img className="plus-button-allowed" src={isHoverPlus()} />
           </button>
         )
       }
     }
 
     const openOrReserve = () => {
-      if(!this.state.startDate && !this.state.endDate) {
+      if (!this.state.startDate && !this.state.endDate) {
         return <button className="booking-submit" onClick={this.focusMethod}>
-                 <div className="book-button">Check Availability</div>
-               </button>
-          
+          <div className="book-button">Check Availability</div>
+        </button>
+
       } else {
         return <button className="booking-submit" onClick={this.handleSubmit}>
-                 <div className="book-button">Reserve</div>
-               </button>
+          <div className="book-button">Reserve</div>
+        </button>
       }
     }
 
     const readyToBook = () => {
-      if(this.state.startDate && this.state.endDate) {
+      if (this.state.startDate && this.state.endDate) {
         return (
           <div className="booking-reserve-detail-container">
             <div className="booking-reserve-detail-frame">
@@ -276,12 +272,12 @@ class BookingForm extends React.Component {
                 <div className="booking-reserve-total-price">${this.bookingTotalPrice()}</div>
               </div>
             </div>
-          </div> 
+          </div>
         )
       } else {
-        return 
-          <>
-          </>
+        return
+        <>
+        </>
       }
     }
 
@@ -299,9 +295,9 @@ class BookingForm extends React.Component {
                     <div className="booking-price-pernight">
                       <div>/ night</div>
                     </div>
-                  </div>                  
+                  </div>
                   <div className="booking-rating-container">
-                    <img src="bnbstarxsm.png" className="booking-rating-img"/>
+                    <img src="bnbstarxsm.png" className="booking-rating-img" />
                     <div className="booking-rating-score">
                       {avgRating(this.props.reviews)}
                     </div>
@@ -325,13 +321,13 @@ class BookingForm extends React.Component {
                     startDatePlaceholderText="Check-In"
                     showClearDates={true}
                     endDatePlaceholderText="Check-Out"
-                    onDatesChange={({ startDate, endDate }) => 
+                    onDatesChange={({ startDate, endDate }) =>
                       this.handleChange({ startDate, endDate })
                     }
                     focusedInput={this.state.focusedInput}
                     onFocusChange={this.handleFocusChange}
                     renderCalendarDay={undefined}
-                    minimumNights= {2}
+                    minimumNights={2}
                   />
                 </div>
                 <div className="booking-guests-container">
@@ -339,11 +335,11 @@ class BookingForm extends React.Component {
                     Guests
                   </div>
                   <div className="booking-guests-counter">
-                      {isMinusAllowed()}  
-                      <div className="booking-guests-value">
-                        {this.state.guests}
-                      </div>
-                      {isPlusAllowed()}
+                    {isMinusAllowed()}
+                    <div className="booking-guests-value">
+                      {this.state.guests}
+                    </div>
+                    {isPlusAllowed()}
                   </div>
                 </div>
                 <div>{this.renderErrors()}</div>
@@ -365,12 +361,12 @@ class BookingForm extends React.Component {
                   It’s been viewed 500+ times in the past week.
                 </div>
               </div>
-              <img className="lightbulb" src="./Screen Shot 2018-11-23 at 11.43.18 AM.png"/>
+              <img className="lightbulb" src="./Screen Shot 2018-11-23 at 11.43.18 AM.png" />
             </div>
           </div>
         </div>
       </div>
-      
+
     );
 
     const alreadyBookedForm = (
