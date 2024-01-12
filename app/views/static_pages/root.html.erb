@@ -1,7 +1,7 @@
-<% if logged_in? %>
+<% if logged_in? && window %>
   <script type="text/javascript">
     window.currentUser = <%= render(
-        partial: "api/users/user",
+       "api/users/user",
         user: current_user
       ).html_safe %>
   </script>
