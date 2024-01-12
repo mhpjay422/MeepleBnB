@@ -1,12 +1,13 @@
+<%# bootstrapping the current user %>
 <% if logged_in? %>
   <script type="text/javascript">
+    // The below avoids the app breaking on page refresh when  
+    // the partial is not available.
     <% if lookup_context.exists?("api/users/user", [], true) %>
       window.currentUser = <%= render(
           "api/users/user",
           user: current_user
         ).html_safe %>
-    <% else %>
-      console.error("Partial not found: api/users/user");
     <% end %>
   </script>
 <% end %>
