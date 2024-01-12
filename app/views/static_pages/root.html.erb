@@ -1,11 +1,9 @@
 <% if logged_in? %>
   <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", () => {
-      window.currentUser = <%= render(
-          '/app/views/api/users/user',
-          user: current_user
-        ).html_safe %>
-    });
+    window.currentUser = <%= render(
+        '/app/views/api/users/_user.json.jbuilder',
+        user: current_user
+      ).html_safe %>
   </script>
 <% end %>
 
